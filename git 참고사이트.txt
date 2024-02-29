@@ -3,3 +3,4 @@
 
 https://sseozytank.tistory.com/41
 
+git init
