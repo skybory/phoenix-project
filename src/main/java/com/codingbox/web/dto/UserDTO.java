@@ -2,62 +2,28 @@ package com.codingbox.web.dto;
 
 public class UserDTO {
 
-	private String userid;
-	private String userpw;
-	private String useremail;
-	private String username;
-	private String userbirth;
-	private String usergender;
-	private String userphone;
 	
+	// 변수 설정
 	
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public String getUserpw() {
-		return userpw;
-	}
-	public void setUserpw(String userpw) {
-		this.userpw = userpw;
-	}
-	public String getUseremail() {
-		return useremail;
-	}
-	public void setUseremail(String useremail) {
-		this.useremail = useremail;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getUserbirth() {
-		return userbirth;
-	}
-	public void setUserbirth(String userbirth) {
-		this.userbirth = userbirth;
-	}
-	public String getUsergender() {
-		return usergender;
-	}
-	public void setUsergender(String usergender) {
-		this.usergender = usergender;
-	}
-	public String getUserphone() {
-		return userphone;
-	}
-	public void setUserphone(String userphone) {
-		this.userphone = userphone;
-	}
+	private String sample1;
+	private int sample2;
 	
 	
 	
+	// 게터 세터 추가
 	
-	
+	public String getSample1() {
+		return sample1;
+	}
+	public void setSample1(String sample1) {
+		this.sample1 = sample1;
+	}
+	public int getB() {
+		return sample2;
+	}
+	public void setB(int b) {
+		this.sample2 = b;
+	}
 	
 	
 	

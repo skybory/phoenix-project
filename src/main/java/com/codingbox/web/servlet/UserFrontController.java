@@ -27,28 +27,35 @@ public class UserFrontController extends HttpServlet{
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 		
-		//회원가입 화면으로 이동
-		if(requestURI.equals("/user/userJoin.us")) {
-			forward = new UserJoinAction().execute(req, resp);
-			
-		//로그인 화면으로 이동
-		} else if (requestURI.equals("/user/UserLogin.us")) {
-			forward = new ActionForward(false, "/app/user/loginview.jsp");
+		//화면 이동
 		
-		//로그인 성공 화면으로 이동
-		} else if (requestURI.equals("/user/UserLoginOK.us")) {
-			forward = new UserLoginAction().execute(req, resp);
-		}
+		//예시
+
+//		switch (requestURI) {
+//		case "/board/BoardWrite.bo":
+//			System.out.println("switch성공시 출력");
+//			forward = new ActionForward(true, "/board/boardwrite2.jsp");
+//			//화면을 바로 보여줄땐 ActionForward
+//			break;
+//		case "/board/BoardList.bo":
+//			forward = new BoardListAction().execute(req, resp);
+//			break;
+//			
+//		case "/board/boardwriteOK.bo":
+//			forward = new BoardWriteOKAction().execute(req,resp);
+//			break;
 		
 		
+		
+		// 윗부분 작성 후 아래부분 주석해제 할것.
 		// 페이지 이동에 대한 일괄처리
-		if(forward != null) {
-			if(forward.isRedirect() ) {	// Redirect 방식
-				resp.sendRedirect(forward.getPath());
-			} else { 					// forward 방식
-				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
-			}
-			
-		}
+//		if(forward != null) {
+//			if(forward.isRedirect() ) {	// Redirect 방식
+//				resp.sendRedirect(forward.getPath());
+//			} else { 					// forward 방식
+//				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
+//			}
+//			
+//		}
 	}
 }
