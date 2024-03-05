@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"file:///C:\Users\TYKIM\Desktop\workspace\Phoneix Projcet\src\main\webapp\WEB-INF\lib\mybatis-3-config.dtd">
+
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver"
+					value="com.mysql.cj.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://database-1.cls4oq20gmca.ap-northeast-2.rds.amazonaws.com/phoenixDB" />
+				<property name="username" value="admin" />
+				<property name="password" value="admin1013" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/codingbox/web/sql/user.xml"/>
+		<mapper resource="com/codingbox/web/sql/ad.xml"/>
+		<mapper resource="com/codingbox/web/sql/map.xml"/>
+		<mapper resource="com/codingbox/web/sql/product.xml"/>
+		<mapper resource="com/codingbox/web/sql/chat.xml"/>
+	</mappers>
+</configuration>
