@@ -19,5 +19,6 @@
    <a href="${pageContext.request.contextPath}/board/BoardList.bo">[글쓰기]</a>
    <a href="${pageContext.request.contextPath}/board/BoardList.bo">[지역선택]</a>
    <a href="${pageContext.request.contextPath}/board/BoardList.bo">[지역선택]</a>
+   test
 </body>
 </html>
