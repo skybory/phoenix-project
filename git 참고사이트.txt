@@ -4,3 +4,5 @@
 https://sseozytank.tistory.com/41
 
 git init
+asdfasd
+동준이형
