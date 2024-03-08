@@ -52,6 +52,14 @@ public class MapFrontController extends HttpServlet {
 				resp.sendRedirect(forward.getPath());
 			} else { // forward 방식
 				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
+		}
+			if (forward != null) {
+				if (forward.isRedirect()) { // Redirect 방식
+					resp.sendRedirect(forward.getPath());
+				} else { // forward 방식
+					req.getRequestDispatcher(forward.getPath()).forward(req, resp);
+				}
+
 			}
 		}
 	}
