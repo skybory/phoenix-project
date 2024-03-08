@@ -44,6 +44,14 @@ public class MapFrontController extends HttpServlet {
 		case "/map/boardwriteOK.bo":
 			forward = new MapFindMyTownAction().execute(req, resp);
 			break;
+
+				
+			}
+		if (forward != null) {
+			if (forward.isRedirect()) { // Redirect 방식
+				resp.sendRedirect(forward.getPath());
+			} else { // forward 방식
+				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
 		}
 			if (forward != null) {
 				if (forward.isRedirect()) { // Redirect 방식
@@ -55,3 +63,4 @@ public class MapFrontController extends HttpServlet {
 			}
 		}
 	}
+}
