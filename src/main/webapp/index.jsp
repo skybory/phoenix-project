@@ -17,8 +17,6 @@
 	
 	
 	
-	
-	
    <a href="${pageContext.request.contextPath}/board/BoardWrite.bo">[검색]</a>
    <a href="${pageContext.request.contextPath}/board/BoardList.bo">[알림]</a>
    <a href="${pageContext.request.contextPath}/board/BoardList.bo">[홈]</a>
