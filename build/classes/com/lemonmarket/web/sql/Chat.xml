@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-<<<<<<< HEAD:build/classes/com/codingbox/web/sql/Chat.xml
- "file:///C:\Users\TYKIM\Desktop\workspace\Phoneix Projcet\src\main\webapp\WEB-INF\lib\mybatis-3-mapper.dtd">
-=======
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
->>>>>>> cf75b109f31b85679c035348f8d58a1cc19977eb:build/classes/com/lemonmarket/web/sql/Chat.xml
  <mapper namespace="Chat">
  
   
