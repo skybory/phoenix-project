@@ -1,47 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Å¬¸¯ÇÑ À§Ä¡¿¡ ¸¶Ä¿ Ç¥½ÃÇÏ±â</title>
+    <title>í´ë¦­í•œ ìœ„ì¹˜ì— ë§ˆì»¤ í‘œì‹œí•˜ê¸°</title>
     
 </head>
 <body>
 <div id="map" style="width:100%;height:350px;"></div>
-<p><em>Áöµµ¸¦ Å¬¸¯ÇØÁÖ¼¼¿ä!</em></p> 
+<p><em>ì§€ë„ë¥¼ í´ë¦­í•´ì£¼ì„¸ìš”!</em></p> 
 <div id="clickLatlng"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d"></script>
 <script>
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥ , ¿©±âºÎºĞ ÆíÁıÇØ¼­ ÇöÀç ³» À§Ä¡¸¦ Ç¥½ÃÇÏ°Ô ÇØ¾ßÇÔ
-        level: 3 // ÁöµµÀÇ È®´ë ·¹º§
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ , ì—¬ê¸°ë¶€ë¶„ í¸ì§‘í•´ì„œ í˜„ì¬ ë‚´ ìœ„ì¹˜ë¥¼ í‘œì‹œí•˜ê²Œ í•´ì•¼í•¨
+        level: 3 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
     };
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù
+var map = new kakao.maps.Map(mapContainer, mapOption); // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 
-// Áöµµ¸¦ Å¬¸¯ÇÑ À§Ä¡¿¡ Ç¥ÃâÇÒ ¸¶Ä¿ÀÔ´Ï´Ù
+// ì§€ë„ë¥¼ í´ë¦­í•œ ìœ„ì¹˜ì— í‘œì¶œí•  ë§ˆì»¤ì…ë‹ˆë‹¤
 var marker = new kakao.maps.Marker({ 
-    // Áöµµ Áß½ÉÁÂÇ¥¿¡ ¸¶Ä¿¸¦ »ı¼ºÇÕ´Ï´Ù 
+    // ì§€ë„ ì¤‘ì‹¬ì¢Œí‘œì— ë§ˆì»¤ë¥¼ ìƒì„±í•©ë‹ˆë‹¤ 
     position: map.getCenter() 
 }); 
-// Áöµµ¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÕ´Ï´Ù
+// ì§€ë„ì— ë§ˆì»¤ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤
 marker.setMap(map);
 
-// Áöµµ¿¡ Å¬¸¯ ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
-// Áöµµ¸¦ Å¬¸¯ÇÏ¸é ¸¶Áö¸· ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù
+// ì§€ë„ì— í´ë¦­ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤
+// ì§€ë„ë¥¼ í´ë¦­í•˜ë©´ ë§ˆì§€ë§‰ íŒŒë¼ë¯¸í„°ë¡œ ë„˜ì–´ì˜¨ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     
-    // Å¬¸¯ÇÑ À§µµ, °æµµ Á¤º¸¸¦ °¡Á®¿É´Ï´Ù 
+    // í´ë¦­í•œ ìœ„ë„, ê²½ë„ ì •ë³´ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤ 
     var latlng = mouseEvent.latLng; 
     
-    // ¸¶Ä¿ À§Ä¡¸¦ Å¬¸¯ÇÑ À§Ä¡·Î ¿Å±é´Ï´Ù
+    // ë§ˆì»¤ ìœ„ì¹˜ë¥¼ í´ë¦­í•œ ìœ„ì¹˜ë¡œ ì˜®ê¹ë‹ˆë‹¤
     marker.setPosition(latlng);
     
-    var message = 'Å¬¸¯ÇÑ À§Ä¡ÀÇ À§µµ´Â ' + latlng.getLat() + ' ÀÌ°í, ';
-    message += '°æµµ´Â ' + latlng.getLng() + ' ÀÔ´Ï´Ù';
+    var message = 'í´ë¦­í•œ ìœ„ì¹˜ì˜ ìœ„ë„ëŠ” ' + latlng.getLat() + ' ì´ê³ , ';
+    message += 'ê²½ë„ëŠ” ' + latlng.getLng() + ' ì…ë‹ˆë‹¤';
     
     var resultDiv = document.getElementById('clickLatlng'); 
     resultDiv.innerHTML = message;
