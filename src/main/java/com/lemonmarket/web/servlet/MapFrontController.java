@@ -34,7 +34,7 @@ public class MapFrontController extends HttpServlet {
 		switch (requestURI) {
 		case "/board/Location.map":
 			System.out.println("위치 버튼 클릭");
-			forward = new ActionForward(true, "/board/boardwrite2.jsp");
+			forward = new ActionForward(true, "/map/map.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/map/TownList.map":
