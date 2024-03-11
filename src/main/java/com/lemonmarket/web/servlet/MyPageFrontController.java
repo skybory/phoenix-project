@@ -28,7 +28,7 @@ public class MyPageFrontController extends HttpServlet{
 		
 		switch(requestURL) {
 		
-		case "/board/Location.mypage":
+		case "/board/MyPage.mypage":
 			System.out.println("마이페이지 버튼 클릭");
 			forward = new ActionForward(true, "/board/MyPage.jsp");
 			break;

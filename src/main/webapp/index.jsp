@@ -31,6 +31,7 @@
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치(태연작업중)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">거래페이지(편집부탁)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Faq.bo">FAQ페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">FAQ페이지(편집부탁)</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">

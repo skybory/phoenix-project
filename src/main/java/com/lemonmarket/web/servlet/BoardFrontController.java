@@ -57,6 +57,11 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 
+		case "/board/Mypage.bo":
+			forward = new ActionForward(true, "/faq/faq.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+
 //		case "/board/BoardList.bo":
 //			forward = new BoardListAction().execute(req, resp);
 //			break;
