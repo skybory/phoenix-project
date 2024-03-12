@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("*.map")
-public class MapFrontController extends HttpServlet {
+@WebServlet("*.pr")
+public class PricingFrontController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,11 +37,11 @@ public class MapFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/map/map.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/map/updateAddressAction.map":
-			forward = new MapUpdateAddressAction().execute(req, resp);
+		case "/map/TownList.map":
+			forward = new MapListTownAction().execute(req, resp);
 			break;
 
-		case "/ ":
+		case "/map/boardwriteOK.bo":
 			forward = new MapFindMyTownAction().execute(req, resp);
 			break;
 
