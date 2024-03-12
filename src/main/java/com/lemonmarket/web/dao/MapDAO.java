@@ -19,7 +19,10 @@ public class MapDAO {
 	public List<MapDTO> listTown(){
 		return null;
 	}
-	
+
+	public void updateAddress(String address) {
+		sqlSession.update("Map.updateAddress",address);
+	}
 	
 	
 	//MapDAO 기능 추가

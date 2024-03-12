@@ -211,7 +211,6 @@
 								</div>
 								<!-- 지역 -->
 								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
 								<!-- 찜하기 및 채팅 개수 -->
 								<div class="d-flex justify-content-between align-items-center">
 									<button class="btn btn-outline-primary mr-2">관심 8</button>
