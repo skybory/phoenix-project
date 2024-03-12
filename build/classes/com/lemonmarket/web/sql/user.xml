@@ -2,9 +2,15 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+ 	<insert id="join" parameterType="com.lemonmarket.web.dto.UserDTO">
+		INSERT INTO `tbl_join` VALUES 
+		(#{userId},#{userPw},#{userName},#{userAge},#{gender},#{phoneNumber},#{userEmail},#{userAddress})
+	</insert>
  
- <mapper namespace="User">
- 
- 	 
- </mapper>
+ 	 <select id="login" parameterType="hashmap" resultType="_int">
+		SELECT count(*) FROM `tbl_join`
+		WHERE USERID = #{userId} AND USERPW = #{userPw}
+	</select>
+</mapper>
  
