@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.lemonmarket.web.dto.ChatDTO" alias="chatdto"/>
+		<typeAlias type="com.lemonmarket.web.dto.MapDTO" alias="mapdto"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
