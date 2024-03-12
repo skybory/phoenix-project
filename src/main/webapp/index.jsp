@@ -1,4 +1,3 @@
-<%@page import="com.codingbox.web.dto.Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,10 +26,6 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="index.jsp">
-                            	<%Dto dtd = new Dto();
-                            	dtd.setName("좀 그만해라..");
-                            	out.print(dtd.getName());
-                            	%>
                             Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.jsp">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.jsp">Contact</a></li>
