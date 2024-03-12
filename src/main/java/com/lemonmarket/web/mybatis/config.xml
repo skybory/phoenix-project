@@ -19,10 +19,10 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="com/codingbox/web/sql/user.xml"/>
-		<mapper resource="com/codingbox/web/sql/ad.xml"/>
-		<mapper resource="com/codingbox/web/sql/map.xml"/>
-		<mapper resource="com/codingbox/web/sql/product.xml"/>
-		<mapper resource="com/codingbox/web/sql/chat.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/user.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/ad.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/map.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/product.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/chat.xml"/>
 	</mappers>
 </configuration>
