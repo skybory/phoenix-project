@@ -35,8 +35,8 @@
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.us">로그인(동준작업중)</a></li>                            
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입(동준작업중)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.us">로그인</a></li>                            
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
