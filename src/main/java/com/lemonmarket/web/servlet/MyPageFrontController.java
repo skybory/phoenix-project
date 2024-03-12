@@ -29,7 +29,7 @@ public class MyPageFrontController extends HttpServlet{
 		switch(requestURL) {
 		
 		
-		case "/mypage/InterestList.mypage":
+		case "/mypage/InterestList.mypage":  
 			System.out.println("관심목록 버튼클릭");
 			forward = new MyInterestListAction().execute(req,resp);
 			break;
