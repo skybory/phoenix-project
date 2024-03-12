@@ -6,6 +6,7 @@ public class UserDTO {
 	// 변수 설정
 	
 	private String userId; //사용자 아이디
+	private String userPw; //사용자 비밀번호
 	private String userAge; //사용자나이
 	private String gender; //유저성별
 	private String userName; // 사용자 이름
@@ -24,6 +25,12 @@ public class UserDTO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getUserPw() {
+		return userPw;
+	}
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
 	public String getUserAge() {
 		return userAge;
@@ -82,11 +89,9 @@ public class UserDTO {
 	public boolean isPremium() {
 		return isPremium;
 	}
-	public void setPremium(boolean isPremium) {
+	public void setIsPremium(boolean isPremium) {
 		this.isPremium = isPremium;
 	}
-	
-	
 	
 	
 	
