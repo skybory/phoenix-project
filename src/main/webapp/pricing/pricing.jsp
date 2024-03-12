@@ -45,20 +45,14 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Home.bo">Home</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Map.bo">위치(태연작업중)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Faq.bo">FAQ페이지(편집부탁)</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
+						    <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인(동준작업중)</a></li>                            
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입(동준작업중)</a></li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
 							<ul class="dropdown-menu dropdown-menu-end"
 								aria-labelledby="navbarDropdownBlog">
@@ -96,10 +90,12 @@
 						<div class="container px-4">
 							<div class="row justify-content-center align-items-center">
 								<div class="col-lg-8 text-center">
+								
+									<span id="setLocation"></span>
+								
 									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p>
 									<!-- 추가된 버튼 -->
-									<a class="btn btn-outline-light btn-lg" href="#!">위치 범위
-										설정하기</a>
+									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치 범위 설정하기</a>
 								</div>
 							</div>
 						</div>
@@ -279,5 +275,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	
 </body>
 </html>
