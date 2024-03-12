@@ -16,14 +16,14 @@ public class UserJoinAction implements Action{
 		UserDTO udto = new UserDTO();
 		ActionForward forward = new ActionForward();
 		
-		udto.setUserId(request.getParameter("userid"));
-		udto.setUserPw(request.getParameter("userpw"));
-		udto.setUserAge(request.getParameter("userage"));
+		udto.setUserId(request.getParameter("userId"));
+		udto.setUserPw(request.getParameter("userPw"));
+		udto.setUserAge(request.getParameter("userAge"));
 		udto.setGender(request.getParameter("gender"));
-		udto.setUserName(request.getParameter("username"));
-		udto.setUserEmail(request.getParameter("useremail"));
-		udto.setPhoneNumber(request.getParameter("phonenumber"));
-		udto.setUserAddress(request.getParameter("useraddress"));
+		udto.setUserName(request.getParameter("userName"));
+		udto.setUserEmail(request.getParameter("usereMail"));
+		udto.setPhoneNumber(request.getParameter("phoneNumber"));
+		udto.setUserAddress(request.getParameter("userAddress"));
 		
 		
 		if( udao.join(udto) ) {	// 회원가입 성공
