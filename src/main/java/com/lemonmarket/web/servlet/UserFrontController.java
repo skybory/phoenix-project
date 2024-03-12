@@ -29,8 +29,8 @@ public class UserFrontController extends HttpServlet{
 		
 		if( requestRUI.equals("/user/userJoin.us") ) {
 			forward = new UserJoinAction().execute(req, resp);
-		} else if( requestRUI.equals("/user/UserLogin.us") ) {
-			forward = new ActionForward(false, "/app/user/loginview.jsp");
+		} else if( requestRUI.equals("/board/Login.us") ) {
+			forward = new ActionForward(false, "/user/loginview.jsp");
 		} else if( requestRUI.equals("/user/UserLoginOK.us") ) {
 			forward = new UserLoginOkAction().execute(req, resp);
 		}
