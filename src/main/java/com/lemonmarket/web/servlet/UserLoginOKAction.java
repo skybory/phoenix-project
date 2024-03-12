@@ -7,7 +7,7 @@ import com.lemonmarket.web.action.ActionForward;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class UserLoginOkAction implements Action{
+public class UserLoginOKAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -19,9 +19,9 @@ public class UserLoginOkAction implements Action{
 		
 		forward.setRedirect(true);	// redirect
 		if( udao.login(userid, userpw) ) {
-			forward.setPath("/app/main/mainview.jsp");
+			forward.setPath("/index.jsp");
 		} else {
-			forward.setPath("/app/user/loginview.jsp?flag=false");
+			forward.setPath("/user/loginview.jsp");
 		}
 		
 		return forward;

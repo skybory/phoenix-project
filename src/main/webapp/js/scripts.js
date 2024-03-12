@@ -18,29 +18,29 @@ function changeContent() {
 
 // 여기서 
 // 가상의 함수: 실제로는 사용자의 주소값을 가져오는 로직으로 대체해야 합니다.
-function getAddress() {
-	// 여기에서 실제로 주소값을 가져오는 로직을 구현
-	// 예시로 null을 반환하도록 함
-	return null;
-}
-
-
-
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-	mapOption = {
-		center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-		level: 5 // 지도의 확대 레벨
-	};
-
-//지도를 미리 생성
-var map = new daum.maps.Map(mapContainer, mapOption);
-//주소-좌표 변환 객체를 생성
-var geocoder = new daum.maps.services.Geocoder();
-//마커를 미리 생성
-var marker = new daum.maps.Marker({
-	position: new daum.maps.LatLng(37.537187, 127.005476),
-	map: map
-});
+//function getAddress() {
+//	// 여기에서 실제로 주소값을 가져오는 로직을 구현
+//	// 예시로 null을 반환하도록 함
+//	return null;
+//}
+//
+//
+//
+//var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+//	mapOption = {
+//		center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+//		level: 5 // 지도의 확대 레벨
+//	};
+//
+////지도를 미리 생성
+//var map = new daum.maps.Map(mapContainer, mapOption);
+////주소-좌표 변환 객체를 생성
+//var geocoder = new daum.maps.services.Geocoder();
+////마커를 미리 생성
+//var marker = new daum.maps.Marker({
+//	position: new daum.maps.LatLng(37.537187, 127.005476),
+//	map: map
+//});
 
 
 

@@ -26,10 +26,16 @@ public class UserJoinAction implements Action{
 		udto.setUserAddress(request.getParameter("useraddress"));
 		
 		
-		if( udao.join(udto) ) {	// 회원가입
+		if( udao.join(udto) ) {	// 회원가입 성공
 			forward.setPath("/app/user/loginview.jsp");
+			forward.setRedirect(false);
+		}
+		
+		else {
+			forward.setPath("/joinview.jsp");
 			forward.setRedirect(true);
 		}
+		
 		
 		
 		return forward;

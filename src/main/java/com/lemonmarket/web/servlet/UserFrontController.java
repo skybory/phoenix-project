@@ -32,7 +32,7 @@ public class UserFrontController extends HttpServlet{
 		} else if( requestRUI.equals("/board/Login.us") ) {
 			forward = new ActionForward(false, "/user/loginview.jsp");
 		} else if( requestRUI.equals("/user/UserLoginOK.us") ) {
-			forward = new UserLoginOkAction().execute(req, resp);
+			forward = new UserLoginOKAction().execute(req, resp);
 		}
 		
 		// 페이지 이동에 대한 일괄처리
