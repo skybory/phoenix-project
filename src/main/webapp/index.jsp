@@ -30,6 +30,7 @@
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치(태연작업중)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">거래페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지(정겸작업중)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인(동준작업중)</a></li>                            <li class="nav-item dropdown">
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입(동준작업중)</a></li>
                             <li class="nav-item dropdown">
