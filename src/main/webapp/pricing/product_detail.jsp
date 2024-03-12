@@ -24,19 +24,39 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <style>
-/* 추가된 이미지의 너비 조정 */
-.custom-card-img {
+  /* 추가된 이미지의 너비 조정 */
+  .custom-card-img {
     width: 80%; /* 이미지의 너비를 80%로 설정합니다. */
     max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
+  }
 
-.card-text-explain {
+  .card-text-explain {
     word-wrap: break-word;
-}
+  }
 
+  .card-body.custom-card-body {
+    border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */
+  }
+
+  .card-img2 {
+    width: 100%; /* 부모 요소에 꽉 차게 */
+    height: 200px; /* 원하는 높이로 지정 */
+    object-fit: cover; /* 이미지를 자르기 */
+  }
+
+  /* 모든 상품명의 크기를 동일하게 설정합니다. */
+  .card-title {
+    font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+    font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */
+    margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */
+  }
+  
+  .card-text-price {
+   font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+  }
 </style>
 
 <body class="d-flex flex-column">
@@ -94,20 +114,19 @@
 		<!-- 추가된 이미지 -->
 		<div class="row justify-content-center align-items-center mt-4">
 			<div class="card text-center align-items-center">
-				<img src="tomcat-cover.png" class="card-img custom-card-img"
-					alt="이미지 설명">
+				<img src="123.png" class="card-img custom-card-img" alt="이미지 설명">
 				<div class="card-body">
 					<!-- 프로필, 닉네임, 거주지 -->
 					<div class="d-flex align-items-center mb-3"
 						style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
-						<img src="img.png" class="rounded-circle" alt="프로필 사진"
+						<img src="123.png" class="rounded-circle" alt="프로필 사진"
 							style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
-							<p class="m-0" >홍길동</p>
-							<p class="m-0" >서울시 동작구</p>
+							<p class="m-0">
+								홍길동<br> 서울시 동작구
+							</p>
 						</div>
-						
 					</div>
 					<!-- 상품 정보 -->
 					<div class="text-start" style="margin-left: -190px;">
@@ -130,3 +149,187 @@
 				</div>
 			</div>
 		</div>
+
+	<section class="bg-light py-5">
+			<div class="container px-5 my-5">
+				<div class="text-center mb-5">
+					<h1 class="fw-bolder">인기 중고 거래</h1>
+				</div>
+				<div class="row gx-5 justify-content-center">
+
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="123.png" alt="Product Image" class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Pricing card free-->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<!-- 상품 이미지 -->
+								<img src="tomcat-cover.png" alt="Product Image"
+									class="card-img2 mb-3">
+								<!-- 상품명 -->
+								<h4 class="card-title">상품명</h4>
+								<div class="mb-3">
+									<!-- 상품가격 -->
+									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+								</div>
+								<!-- 지역 -->
+								<p class="text-muted mb-4">지역: 서울시 동작구</p>
+								<!-- mb-4로 간격 늘림 -->
+								<!-- 찜하기 및 채팅 개수 -->
+								<div class="d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-primary mr-2">관심 8</button>
+									<!-- mr-2로 오른쪽 간격 늘림 -->
+									<button class="btn btn-outline-primary">채팅 5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+	</main>
+	<!-- Footer-->
+	<footer class="bg-dark py-4 mt-auto">
+		<div class="container px-5">
+			<div
+				class="row align-items-center justify-content-between flex-column flex-sm-row">
+				<div class="col-auto">
+					<div class="small m-0 text-white">Copyright &copy; Your
+						Website 2023</div>
+				</div>
+				<div class="col-auto">
+					<a class="link-light small" href="#!">Privacy</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Terms</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Contact</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+</body>
+</html>
