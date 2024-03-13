@@ -1,0 +1,16 @@
+<!-- myPage.xml -->
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lemonmarket.web.dao.MyTradeDAO">
+
+    <select id="getInterestList" resultType="com.lemonmarket.web.dto.MytradeDTO" parameterType="int">
+        SELECT * FROM interest_table WHERE userNum = #{userNum}
+    </select>
+    
+	<select id="getPurchaseList" resultType="com.lemonmarket.web.dto.ProductDTO" parameterType="int">
+	    SELECT * FROM purchase_table WHERE userNum = #{userNum}
+	</select>
+
+</mapper>
