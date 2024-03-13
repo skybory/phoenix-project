@@ -27,9 +27,6 @@ public class BoardFrontController extends HttpServlet {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 
-		// 화면 이동
-
-		// 예시
 
 		switch (requestURI) {
 		case "/board/Home.bo":
@@ -56,15 +53,25 @@ public class BoardFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/faq/faq.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+			
+		case "/board/LoginTest.bo":
+			forward = new ActionForward(true, "/user/LoginTest.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
 
 		case "/board/MyPage.bo":
 			forward = new ActionForward(true, "/myPage/myPage.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/board/Login.bo":
+			forward = new ActionForward(true, "/user/loginview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Join.bo":
 			forward = new ActionForward(true, "/user/joinview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+
 
 //		case "/board/BoardList.bo":
 //			forward = new BoardListAction().execute(req, resp);

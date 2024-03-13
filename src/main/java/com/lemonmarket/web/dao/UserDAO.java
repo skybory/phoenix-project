@@ -28,18 +28,19 @@ public class UserDAO {
 	}
 
 	public boolean login(String userId, String userPw) {
+//		UserDTO udto = new UserDTO();
+		
+//		udto.setUserId(userId);
+//		udto.setUserPw(userPw);
 		boolean result = false;
 		HashMap<String, String> datas 
 			= new HashMap<String, String>();
 		datas.put("userId", userId);
 		datas.put("userPw", userPw);
 		
-		if((Integer)sqlSession.selectOne("User.login", datas) == 1) {
+		if(sqlSession.selectOne("User.login", datas) != null) {
 			result = true;
 		}
-		
 		return result;
 	}
-	
-	
 }

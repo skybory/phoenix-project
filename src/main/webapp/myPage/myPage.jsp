@@ -10,15 +10,15 @@
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         margin: 0;
-        padding: 0; 
-    }
+        padding: 0;  
+    } 
     #container {
-        width: 500px;
+        width: 400px;
         margin: 50px auto;
         background-color: #fff;
         border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 100px;
+        border-radius: 110px;
+        padding: 100px; 
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     .button {
@@ -42,15 +42,17 @@
 </head>
 <body>
 <div id="container">
-    <h2 style="text-align: center; color:orange;">마이 페이지3</h2>
+    <h2 style="text-align: center; color:orange;">마이 페이지4</h2>
+    
+   
     <!-- 구매내역 링크 -->
-    <a class="button" href="/mypage/PurchaseDetails.mypage">구매내역</a>
+   <a class="button" href="${pageContext.request.contextPath}/mypage/PurchaseDetails.mp">구매내역</a> 
     <!-- 판매내역 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/SalesDetails.mypage">판매내역</a>
+    <a class="button" href="${pageContext.request.contextPath}/mypage/SalesDetails.mp">판매내역</a>
     <!-- 찜 목록 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/InterestList.mypage">찜 목록</a>
+    <a class="button" href="${pageContext.request.contextPath}/mypage/InterestList.mp">찜 목록</a>
     <!-- 내 정보 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/ProfileView.mypage">내 정보</a>
+    <a class="button" href="${pageContext.request.contextPath}/mypage/ProfileView.mp">내 정보</a>
 </div>
 </body>
 </html>

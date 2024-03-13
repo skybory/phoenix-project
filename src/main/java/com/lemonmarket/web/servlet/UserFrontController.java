@@ -15,7 +15,6 @@ public class UserFrontController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
-		
 	}
 	
 	@Override
@@ -24,17 +23,22 @@ public class UserFrontController extends HttpServlet{
 	}
 	
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String requestRUI = req.getRequestURI();
+		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 		
-		if( requestRUI.equals("/user/userJoin.us") ) {
-			forward = new UserJoinAction().execute(req, resp);
-		} else if( requestRUI.equals("/board/Login.us") ) {
-			forward = new ActionForward(false, "/user/loginview.jsp");
-		} else if( requestRUI.equals("/user/UserLoginOK.us") ) {
-			forward = new UserLoginOKAction().execute(req, resp);
-		}
 		
+		switch (requestURI) {
+		case "/user/UserLoginAction.us":
+			forward = new UserLoginAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/user/UserJoinAction.us":
+			forward = new UserJoinAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		}
+			
+ 
 		// 페이지 이동에 대한 일괄처리
 		if( forward != null ) {
 			if( forward.isRedirect() ) {	// Redirect 방식

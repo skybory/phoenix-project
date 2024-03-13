@@ -5,6 +5,7 @@ public class MytradeDTO {
 	private String interestList; // 관심목록
 	private String salesDetails; //판매내역
 	private String purchaseDetails; //구매내역
+	private int userNum;
 	
 	public String getInterestList() {
 		return interestList;
