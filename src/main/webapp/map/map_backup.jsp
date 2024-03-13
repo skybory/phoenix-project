@@ -128,9 +128,11 @@ button:hover {
 							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 							<i class="bi bi-envelope"></i>
 						</div>
-						<h1 class="fw-bolder">내 위치 찾기</h1>
-						<p class="lead fw-normal text-muted mb-0">주소를 입력해서 내 위치를
-							등록해주세요!</p>
+						
+						<form>
+							<h1 class="fw-bolder">내 위치 찾기</h1>
+							<p class="lead fw-normal text-muted mb-0">주소를 입력해서 내 위치를
+								등록해주세요!</p>
 					</div>
 					<div class="row gx-5 justify-content-center">
 						<div class="col-lg-8 col-xl-6">
@@ -141,27 +143,45 @@ button:hover {
 
 								<!-- 추가한 폼 필드들   -->
 								<div class="form-group">
-									<label for="postcode">우편번호</label> <input type="text"
-										id="postcode" readonly>
+									<label for="sample6_postcode">우편번호</label> <input type="text"
+										id="sample6_postcode" readonly>
 								</div>
 								<div class="form-group">
-									<label for="address">주소</label> <input type="text"
-										id="address" readonly>
+									<label for="sample6_address">주소</label> <input type="text"
+										id="sample6_address" readonly>
 								</div>
 								<div class="form-group">
-									<label for="extraAddress">참고항목</label> <input
-										type="text" id="extraAddress" readonly>
+									<label for="sample6_extraAddress">참고항목</label> <input
+										type="text" id="sample6_extraAddress" readonly>
 								</div>
 								<div class="form-group">
-									<label for="detailAddress">상세주소</label> <input
-										type="text" id="detailAddress">
+									<label for="sample6_detailAddress">상세주소</label> <input
+										type="text" id="sample6_detailAddress">
 								</div>
 								<button onclick="searchAddress()">주소 찾기</button>
-								<button onclick="${pageContext.request.contextPath}/board/Pricing.bo">주소 저장하기</button>
-								
 							</div>
- 
 
+
+							<!-- 					 전송하기 버튼 -->
+							<div class="d-none" id="submitSuccessMessage">
+								<div class="text-center mb-3">
+									<div class="fw-bolder">전송성공!!!</div>
+								</div>
+							</div>
+							<!-- Submit error message-->
+							<!---->
+							<!-- This is what your users will see when there is-->
+							<!-- an error submitting the form-->
+							<div class="d-none" id="submitErrorMessage">
+								<div class="text-center text-danger mb-3">Error sending
+									message!</div>
+							</div>
+							<!-- Submit Button-->
+							<div class="d-grid">
+								<button class="btn btn-primary btn-lg disabled"
+									id="submitButton" type="submit">Submit</button>
+							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -241,7 +261,7 @@ button:hover {
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- 		<script src="/js/scripts.js"></script> -->
-	<script src="/js/scripts.js"></script>
+	<script src="/js/scripts2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 </body>

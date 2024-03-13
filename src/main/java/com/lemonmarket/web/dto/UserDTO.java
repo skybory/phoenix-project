@@ -13,10 +13,7 @@ public class UserDTO {
 	private String userEmail; // 사용자 이메일
 	private String phoneNumber; //사용자 핸드폰번호
 	private String userAddress; //사용자 주소
-	private String location; // 사용자 위치(거래용)
-	private String registDate; // 사용자 가입일
-	private String profileUrl; //사용자 프로필 URL
-	private boolean isPremium; // 프리미엄회원 여부
+	// private String location; //사용자 위치
 	
 	// 게터 세터 추가
 	
@@ -68,32 +65,6 @@ public class UserDTO {
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
 	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getRegistDate() {
-		return registDate;
-	}
-	public void setRegistDate(String registDate) {
-		this.registDate = registDate;
-	}
-	public String getProfileUrl() {
-		return profileUrl;
-	}
-	public void setProfileUrl(String profileUrl) {
-		this.profileUrl = profileUrl;
-	}
-	public boolean isPremium() {
-		return isPremium;
-	}
-	public void setIsPremium(boolean isPremium) {
-		this.isPremium = isPremium;
-	}
-	
-	
 	
 	
 	

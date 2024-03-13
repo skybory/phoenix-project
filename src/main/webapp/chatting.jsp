@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
+
 
 <html>
 <head>
@@ -52,6 +48,7 @@ img {
 	border: 1px solid #c4c4c4;
 	clear: both;
 	overflow: hidden;
+	border-radius: 20px; /* Add border-radius for rounded corners */
 }
 
 .top_spac {
@@ -61,6 +58,24 @@ img {
 .recent_heading {
 	float: left;
 	width: 40%;
+}
+
+.sent_msg {
+	float: right;
+	width: 46%;
+	background-color: #ffffff; /* 당근색 */
+	border-radius: 20px; /* Add border-radius for rounded corners */
+	margin: 0 10px 0 0; /* Adjust margin as needed */
+}
+
+.sent_msg p {
+	background: #ff8c00 none repeat scroll 0 0;
+	border-radius: 20px; /* Add border-radius for rounded corners */
+	font-size: 14px;
+	margin: 0;
+	color: #fff;
+	padding: 10px 15px; /* Adjust padding as needed */
+	width: 100%;
 }
 
 .srch_bar {
@@ -163,11 +178,12 @@ img {
 
 .received_withd_msg p {
 	background: #ebebeb none repeat scroll 0 0;
-	border-radius: 3px;
+	border-radius: 20px;
+	/* Increase the border-radius for a more rounded look */
 	color: #646464;
 	font-size: 14px;
 	margin: 0;
-	padding: 5px 10px 5px 12px;
+	padding: 10px 15px; /* Adjust padding as needed */
 	width: 100%;
 }
 
@@ -189,8 +205,8 @@ img {
 }
 
 .sent_msg p {
-	background: #05728f none repeat scroll 0 0;
-	border-radius: 3px;
+	background: #ff8c00 none repeat scroll 0 0;
+	border-radius: 20px;
 	font-size: 14px;
 	margin: 0;
 	color: #fff;
@@ -223,7 +239,7 @@ img {
 }
 
 .msg_send_btn {
-	background: #05728f none repeat scroll 0 0;
+	background: #ff8c00 none repeat scroll 0 0;
 	border: medium none;
 	border-radius: 50%;
 	color: #fff;
@@ -245,9 +261,54 @@ img {
 	overflow-y: auto;
 }
 </style>
+
+<%
+		String userid = null;
+	if(session.getAttribute("userid") != null){
+		userid = (String)session.getAttribute("userid");
+	}
+	String toid = null;
+	if(request.getParameter("toid")!=null){
+		toid = (String)request.getParameter("toid");
+	}
+	
+	%>
+
+<script type = "text/javascript">
+	function autoClosingAlert(selector,delay){
+		var alert = $(selector).alert();
+		alert.show();
+		window.setTimeout(function{alert.hide()},delay);
+	}
+	function sendit(){
+		var fromid = <%= userid%>;
+		var toid = <%= toid%>;
+		var contents = $("#contents").val();
+		$.ajax({
+			type = "POST",
+			url: "./write.chat",
+			data : {
+				fromid = encodeURIComponent(fromid);
+				toid = encodeURIComponent(toid);
+				contents = encodeURIComponent(contents);
+			},
+			success: function(result){
+				if(result ==1){
+					successMessage("#successMessage",2000);
+				}
+			}
+		})
+		$("#contents").val('');
+		
+	}
+</script>
+
 </head>
 <body>
-	<form class="container" method="post" action="/chatSubmit.bo"
+
+	
+
+	<form class="container" method="post" action="/write.chat"
 		name="joinForm">
 		<h3 class=" text-center">Messaging</h3>
 		<div class="messaging">
@@ -255,6 +316,7 @@ img {
 				<div class="inbox_people">
 					<div class="headind_srch">
 						<div class="recent_heading">
+
 							<h4>Recent</h4>
 						</div>
 						<div class="srch_bar">
@@ -433,8 +495,8 @@ img {
 					</div>
 					<div class="type_msg">
 						<div class="input_msg_write">
-							<input type="text" class="write_msg" placeholder="Type a message"
-								name="contents" />
+							<input type="text" class="write_msg" id="contents"
+								placeholder="Type a message" name="contents" />
 							<button class="msg_send_btn" type="button">
 								<i class="fa fa-paper-plane-o" aria-hidden="true"
 									onclick="sendit()"><img src="send.png"> </i>
@@ -442,12 +504,16 @@ img {
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		
+		<div id = "successMessage">
+			<strong>메세지 전송 성공</strong>
+		</div>
 	</form>
 
 
 
-	</div>
-	</div>
 </body>
 <script type="text/javascript" src="js.js"></script>
 </html>

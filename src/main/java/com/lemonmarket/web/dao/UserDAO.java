@@ -27,12 +27,12 @@ public class UserDAO {
 		return result;
 	}
 
-	public boolean login(String userid, String userpw) {
+	public boolean login(String userId, String userPw) {
 		boolean result = false;
 		HashMap<String, String> datas 
 			= new HashMap<String, String>();
-		datas.put("userid", userid);
-		datas.put("userpw", userpw);
+		datas.put("userId", userId);
+		datas.put("userPw", userPw);
 		
 		if((Integer)sqlSession.selectOne("User.login", datas) == 1) {
 			result = true;
