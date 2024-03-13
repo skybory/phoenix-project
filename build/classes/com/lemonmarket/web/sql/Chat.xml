@@ -3,15 +3,12 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="Chat">
-<<<<<<< HEAD
-=======
   	
   	<insert id = "insert" parameterType = "chatdto">
   		INSERT INTO userchat values(
 		null,  'tndud' , 'ahyun','사랑달',now()
 		);
   	</insert>
->>>>>>> 1992ff88fe296cdbf25146edcdff80732aa9375c
   	
  </mapper>
  
