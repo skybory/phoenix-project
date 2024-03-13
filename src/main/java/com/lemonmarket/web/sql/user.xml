@@ -6,14 +6,14 @@
 
  	<insert id="join" parameterType="userDTO">
 
-
 		INSERT INTO `tbl_join` VALUES 
 		(#{userId},#{userPw},#{userName},#{userAge},#{gender},#{phoneNumber},#{userEmail},#{userAddress})
 	</insert>
- 
- 	 <select id="login" parameterType="hashmap" resultType="_int">
+	
+ 	<select id="login" parameterType="hashmap" resultType="_int">
 		SELECT count(*) FROM `tbl_join`
 		WHERE USERID = #{userId} AND USERPW = #{userPw}
 	</select>
+
 </mapper>
  
