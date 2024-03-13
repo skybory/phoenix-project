@@ -21,13 +21,13 @@ public class UserJoinAction implements Action{
 		udto.setUserAge(request.getParameter("userAge"));
 		udto.setGender(request.getParameter("gender"));
 		udto.setUserName(request.getParameter("userName"));
-		udto.setUserEmail(request.getParameter("usereMail"));
+		udto.setUserEmail(request.getParameter("userEmail"));
 		udto.setPhoneNumber(request.getParameter("phoneNumber"));
 		udto.setUserAddress(request.getParameter("userAddress"));
 		
 		
 		if( udao.join(udto) ) {	// 회원가입 성공
-			forward.setPath("/app/user/loginview.jsp");
+			forward.setPath("/index.jsp");
 			forward.setRedirect(false);
 		}
 		
