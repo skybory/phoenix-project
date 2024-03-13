@@ -21,7 +21,7 @@ public class UserLoginOKAction implements Action{
 		if( udao.login(userid, userpw) ) {
 			forward.setPath("/index.jsp");
 		} else {
-			forward.setPath("/user/loginview.jsp");
+			forward.setPath("/user/loginview.jsp?flag=false");
 		}
 		
 		return forward;
