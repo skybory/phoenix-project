@@ -137,14 +137,14 @@ function checkId(userId){
 		// jQuery ajax
 		$.ajax({
 			type	: 'post', 	// 타입작성(get, post)
-			url		: 'idcheck.jsp',
+			url		: '/user/idcheck.jsp',
 			data	: { "userId" : userId },
 			async	: true,		// 비동기화여부(비동기 : true)
 			success : function(result){ // 성공시 콜백함수
 				if (result.trim() == "ok"){
-					document.getElementById("text").innerHTML = "사용할 수 있는 아이디입니다.";
+					document.getElementById("check").innerHTML = "사용할 수 있는 아이디입니다.";
 				} else {
-					document.getElementById("text").innerHTML = "중복된 아이디입니다.";
+					document.getElementById("check").innerHTML = "중복된 아이디입니다.";
 				}
 			},
 			error	: function(result, status, error){		// 실패시 콜백함수

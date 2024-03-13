@@ -1,9 +1,6 @@
 package com.lemonmarket.web.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class UserDAO {
 		if(sqlSession.selectOne("User.login", datas) != null) {
 			result = true;
 		}
-<<<<<<< HEAD
+
 
 		return result;
 	}
@@ -76,14 +73,12 @@ public class UserDAO {
 
 	// 데이터베이스에 저장된 모든 사용자 정보를 조회하는 메소드
 	public List<UserDTO> getList(){
+		
 	    // MyBatis를 사용해 모든 사용자 정보 조회
 	    // 'User.getList'는 MyBatis 매퍼 파일에서 정의된 쿼리의 id
 	    return sqlSession.selectList("User.getList");
 	}
+
+		
 	
-	
-=======
-		return result;
-	}
->>>>>>> 1992ff88fe296cdbf25146edcdff80732aa9375c
 }

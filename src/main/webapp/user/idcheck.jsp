@@ -5,14 +5,11 @@
 	String userId = request.getParameter("userId");
 	UserDAO udao = new UserDAO();
 	// udao.checkId(userId
-	// 중복된 아이디가 있으면 : true return
-	// 중복된 아이디가 없으면 : false return
 	
 	
-	
-	if( !udao.checkId(userId) ){		// 중복아이디 없음 = 가입가능
+	if( !udao.checkId(userId) ){		// 중복아이디 없음
 		out.print("ok");
-	} else {							// 중복아이디 있음 = 가입불가
+	} else {							// 중복아이디 있음
 		out.print("not-ok");
 	}
 
