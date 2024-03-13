@@ -92,7 +92,6 @@ button[type="submit"]:hover {
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-<<<<<<< HEAD
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -104,31 +103,6 @@ button[type="submit"]:hover {
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>                            
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
-=======
-				<a class="navbar-brand" href="index.jsp">Start Bootstrap</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Home.bo">Home</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.us">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
->>>>>>> ec61d1df9c4c01860b6309e56cb508987924e15c
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -154,8 +128,6 @@ button[type="submit"]:hover {
 				</div>
 			</div>
 		</nav>
-
-<<<<<<< HEAD
 		<form action="/user/userJoin.us" method="post" class="container"
 			name="joinForm">
 			<div class="input-form-backgroud row">
@@ -168,7 +140,6 @@ button[type="submit"]:hover {
 								name="userId">
 							<div class="invalid-feedback">아이디를 입력해주세요.</div>
 						</div>
-=======
 			<form action="/user/UserJoinAction.us" method="post" class="container" name="joinForm">
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
@@ -275,7 +246,6 @@ button[type="submit"]:hover {
 							<div class="mb-4"></div>
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();">가입완료</button>
->>>>>>> 1992ff88fe296cdbf25146edcdff80732aa9375c
 					</div>
 					<div class="row">
 						<div class="col-md-6 mb-3">
@@ -444,12 +414,8 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
-<<<<<<< HEAD
+
 	<script src="../user.js"></script>
 	
-=======
-
-
->>>>>>> ec61d1df9c4c01860b6309e56cb508987924e15c
 </body>
 </html>
