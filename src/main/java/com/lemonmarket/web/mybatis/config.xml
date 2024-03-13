@@ -24,7 +24,7 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="com/lemonmarket/web/sql/user.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/User.xml"/>
 		<mapper resource="com/lemonmarket/web/sql/ad.xml"/>
 		<mapper resource="com/lemonmarket/web/sql/Map.xml"/>
 		<mapper resource="com/lemonmarket/web/sql/Product.xml"/>

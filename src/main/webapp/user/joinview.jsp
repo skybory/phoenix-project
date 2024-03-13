@@ -133,7 +133,7 @@ button[type="submit"]:hover {
 			</div>
 		</nav>
 
-			<form action="/user/userJoin.us" method="post" class="container" name="joinForm">
+			<form action="/user/UserJoinAction.us" method="post" class="container" name="joinForm">
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 						<h4 class="mb-3">회원가입</h4>
