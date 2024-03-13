@@ -100,13 +100,20 @@ button[type="submit"]:hover {
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Home.bo">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.us">로그인</a></li>                            
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Home.bo">Home</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.us">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -133,6 +140,20 @@ button[type="submit"]:hover {
 			</div>
 		</nav>
 
+<<<<<<< HEAD
+		<form action="/user/userJoin.us" method="post" class="container"
+			name="joinForm">
+			<div class="input-form-backgroud row">
+				<div class="input-form col-md-12 mx-auto">
+					<h4 class="mb-3">회원가입</h4>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="name">아이디</label> <input type="text"
+								class="form-control" id="id" placeholder="" value="" required
+								name="userId">
+							<div class="invalid-feedback">아이디를 입력해주세요.</div>
+						</div>
+=======
 			<form action="/user/UserJoinAction.us" method="post" class="container" name="joinForm">
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
@@ -237,10 +258,104 @@ button[type="submit"]:hover {
 							<div class="mb-4"></div>
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();">가입완료</button>
+>>>>>>> 1992ff88fe296cdbf25146edcdff80732aa9375c
 					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="nickname">비밀번호</label> <input type="password"
+								class="form-control" id="password" placeholder="" value=""
+								required name="userPw">
+							<div class="invalid-feedback">비밀번호를 입력하세요</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="nickname">비밀번호 확인</label> <input type="password"
+								class="form-control" id="password_re" placeholder="" value=""
+								required name="userPw_re">
+							<div class="invalid-feedback">비밀번호를를 입력하세요</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="name">이름</label> <input type="text"
+								class="form-control" id="name" placeholder="" value="" required
+								name="userName">
+							<div class="invalid-feedback">이름을 입력해주세요.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="age">나이</label> <input type="text"
+								class="form-control" id="age" placeholder="" value="" required
+								name="userAge">
+							<div class="invalid-feedback">나이를 입력해주세요.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="gender">성별</label> <input type="text"
+								class="form-control" id="gender" placeholder="" value=""
+								required name="gender">
+							<div class="invalid-feedback">성별을 입력해주세요.</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="phonenumber">전화번호</label> <input type="text"
+								class="form-control" id="phonenumber" placeholder="" value=""
+								required name="phoneNumber">
+							<div class="invalid-feedback">전화번호를 입력해주세요.</div>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="email">이메일</label> <input type="email"
+							class="form-control" id="email" placeholder="you@example.com"
+							required name="userEmail">
+						<div class="invalid-feedback">이메일을 입력해주세요.</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="postcode">우편번호</label> <input type="text"
+							class="form-control" id="postcode" placeholder="" required
+							name="postcode">
+						<div class="invalid-feedback">주소를 검색해주세요</div>
+					</div>
+					<div class="mb-3">
+						<label for="address">주소</label> <input type="text"
+							class="form-control" id="address" placeholder="서울특별시 강남구"
+							required name="userAddress">
+						<div class="invalid-feedback">주소를 검색해주세요</div>
+					</div>
+					<div class="mb-3">
+						<label for="extraAddress">참고항목</label> <input type="text"
+							class="form-control" id="extraAddress" placeholder="서초동1길14"
+							required name="extraAddress">
+						<div class="invalid-feedback">주소를 검색해주세요.</div>
+					</div>
+					<button onclick="searchAddress()">주소 찾기</button>
+					<div class="mb-3">
+						<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label>
+						<input type="text" class="form-control" id="detailAddress"
+							placeholder="상세주소를 입력해주세요.">
+					</div>
+
+
+					<div class="row"></div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="aggrement"
+							required> <label class="custom-control-label"
+							for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+					</div>
+					<div class="mb-4"></div>
+					<button class="btn btn-primary btn-lg btn-block" type="submit"
+						onclick="sendit();">가입완료</button>
 				</div>
-			</form>
- 
+			</div>
+		</form>
+
 		<!-- Contact cards-->
 		<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 			<div class="col">
@@ -313,7 +428,7 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
-		
+
 
 </body>
 </html>
