@@ -111,17 +111,17 @@ function searchAddress() {
 					extraAddr = ' (' + extraAddr + ')';
 				}
 				// 조합된 참고항목을 해당 필드에 넣는다.
-				document.getElementById("sample6_extraAddress").value = extraAddr;
+				document.getElementById("extraAddress").value = extraAddr;
 
 			} else {
-				document.getElementById("sample6_extraAddress").value = '';
+				document.getElementById("extraAddress").value = '';
 			}
 
 			// 우편번호와 주소 정보를 해당 필드에 넣는다.
-			document.getElementById('sample6_postcode').value = data.zonecode;
-			document.getElementById("sample6_address").value = addr;
+			document.getElementById('postcode').value = data.zonecode;
+			document.getElementById("address").value = addr;
 			// 커서를 상세주소 필드로 이동한다.
-			document.getElementById("sample6_detailAddress").focus();
+			document.getElementById("detailAddress").focus();
 		}
 	}).open();
 }

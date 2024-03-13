@@ -141,42 +141,26 @@ button:hover {
 
 								<!-- 추가한 폼 필드들   -->
 								<div class="form-group">
-									<label for="sample6_postcode">우편번호</label> <input type="text"
-										id="sample6_postcode" readonly>
+									<label for="postcode">우편번호</label> <input type="text"
+										id="postcode" readonly>
 								</div>
 								<div class="form-group">
-									<label for="sample6_address">주소</label> <input type="text"
-										id="sample6_address" readonly>
+									<label for="address">주소</label> <input type="text"
+										id="address" readonly>
 								</div>
 								<div class="form-group">
-									<label for="sample6_extraAddress">참고항목</label> <input
-										type="text" id="sample6_extraAddress" readonly>
+									<label for="extraAddress">참고항목</label> <input
+										type="text" id="extraAddress" readonly>
 								</div>
 								<div class="form-group">
-									<label for="sample6_detailAddress">상세주소</label> <input
-										type="text" id="sample6_detailAddress">
+									<label for="detailAddress">상세주소</label> <input
+										type="text" id="detailAddress">
 								</div>
 								<button onclick="searchAddress()">주소 찾기</button>
 								<button onclick="${pageContext.request.contextPath}/board/Pricing.bo">주소 저장하기</button>
 								
 							</div>
-
-
-							<!-- 					 전송하기 버튼 -->
-<!-- 							<div class="d-none" id="submitSuccessMessage"> -->
-<!-- 								<div class="text-center mb-3"> -->
-<!-- 									<div class="fw-bolder">전송성공!!!</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							<div class="d-none" id="submitErrorMessage"> -->
-<!-- 								<div class="text-center text-danger mb-3">Error sending -->
-<!-- 									message!</div> -->
-<!-- 							</div> -->
-<!-- 							Submit Button -->
-<!-- 							<div class="d-grid"> -->
-<!-- 								<button class="btn btn-primary btn-lg disabled" -->
-<!-- 									id="submitButton" type="submit">저장하기</button> -->
-<!-- 							</div> -->
+ 
 
 						</div>
 					</div>
