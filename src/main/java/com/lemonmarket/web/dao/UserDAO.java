@@ -21,7 +21,7 @@ public class UserDAO {
 	//UserDAO 기능 추가
 	public boolean join(UserDTO udto) {
 		boolean result = false;
-		if(sqlSession.insert("user.join", udto) == 1) {
+		if(sqlSession.insert("User.join", udto) == 1) {
 			result = true;
 		}
 		return result;
@@ -34,7 +34,7 @@ public class UserDAO {
 		datas.put("userId", userId);
 		datas.put("userPw", userPw);
 		
-		if((Integer)sqlSession.selectOne("user.login", datas) == 1) {
+		if((Integer)sqlSession.selectOne("User.login", datas) == 1) {
 			result = true;
 		}
 		

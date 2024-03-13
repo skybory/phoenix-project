@@ -3,7 +3,11 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
+<<<<<<< HEAD
  	<insert id="join" parameterType="com.lemonmarket.web.dto.UserDTO">
+=======
+ 	<insert id="join" parameterType="userDTO">
+>>>>>>> 5ca8c9e90c7cbe20084e0430aa835efbf1b493e0
 		INSERT INTO `tbl_join` VALUES 
 		(#{userId},#{userPw},#{userName},#{userAge},#{gender},#{phoneNumber},#{userEmail},#{userAddress})
 	</insert>
