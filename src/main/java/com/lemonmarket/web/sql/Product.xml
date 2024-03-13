@@ -6,7 +6,7 @@
  
  <insert id="join" parameterType="productdto">
 INSERT INTO `product` VALUES 
-(#{productId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount})
+(#{productId},#{userId}#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount})
 </insert>
   
 

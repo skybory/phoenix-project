@@ -24,39 +24,39 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <style>
-  /* 추가된 이미지의 너비 조정 */
-  .custom-card-img {
-    width: 80%; /* 이미지의 너비를 80%로 설정합니다. */
-    max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* 추가된 이미지의 너비 조정 */
+.custom-card-img {
+	width: 80%; /* 이미지의 너비를 80%로 설정합니다. */
+	max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-  .card-text-explain {
-    word-wrap: break-word;
-  }
+.card-text-explain {
+	word-wrap: break-word;
+}
 
-  .card-body.custom-card-body {
-    border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */
-  }
+.card-body.custom-card-body {
+	border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */
+}
 
-  .card-img2 {
-    width: 100%; /* 부모 요소에 꽉 차게 */
-    height: 200px; /* 원하는 높이로 지정 */
-    object-fit: cover; /* 이미지를 자르기 */
-  }
+.card-img2 {
+	width: 100%; /* 부모 요소에 꽉 차게 */
+	height: 200px; /* 원하는 높이로 지정 */
+	object-fit: cover; /* 이미지를 자르기 */
+}
 
-  /* 모든 상품명의 크기를 동일하게 설정합니다. */
-  .card-title {
-    font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
-    font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */
-    margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */
-  }
-  
-  .card-text-price {
-   font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
-  }
+/* 모든 상품명의 크기를 동일하게 설정합니다. */
+.card-title {
+	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+	font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */
+	margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */
+}
+
+.card-text-price {
+	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+}
 </style>
 
 <body class="d-flex flex-column">
@@ -142,170 +142,60 @@
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
-						<button type="button" class="btn btn-primary">관심 0</button>
-						<a href="chatting.jsp" class="btn btn-outline-primary">채팅
-											5</a>
+						<button class="btn btn-outline-primary mr-2"
+							onclick="toggleInterest()">
+							관심 <span id="interestCount">0</span>
+						</button>
+						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>
 			</div>
 		</div>
 
-	<section class="bg-light py-5">
+		<section class="bg-light py-5">
 			<div class="container px-5 my-5">
 				<div class="text-center mb-5">
 					<h1 class="fw-bolder">인기 중고 거래</h1>
 				</div>
 				<div class="row gx-5 justify-content-center">
 
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
+					<section>
+						<div class="row gx-5 justify-content-center">
+							<%
+							for (int i = 0; i < 12; i++) {
+							%>
+							<!-- Pricing card -->
+							<div class="col-lg-6 col-xl-4 mb-4">
+								<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5" onclick="redirectToProductDetail()">
+										<!-- 상품 이미지 -->
+										<img src="img.png" alt="Product Image" class="card-img mb-3">
+										<!-- 상품명 -->
+										<h4 class="card-title">상품명</h4>
+										<div class="mb-3">
+											<!-- 상품가격 -->
+											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+										</div>
+										<!-- 지역 -->
+										<p class="text-muted mb-4">지역: 서울시 동작구</p>
+										<!-- mb-4로 간격 늘림 -->
+										<!-- 찜하기, 채팅 개수 -->
+										<div class="d-flex justify-content-between align-items-center">
+											<button class="btn btn-outline-primary mr-2"
+												onclick="increaseInterest()">
+												관심 <span id="interestCount">8</span>
+											</button>
+											<p class="text-muted mb-0">채팅 5</p>
+										</div>
+									</div>
 								</div>
 							</div>
+							<%
+							}
+							%>
 						</div>
-					</div>
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="img.png" alt="Product Image" class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="123.png" alt="Product Image" class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Pricing card free-->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5">
-								<!-- 상품 이미지 -->
-								<img src="tomcat-cover.png" alt="Product Image"
-									class="card-img2 mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기 및 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-primary mr-2">관심 8</button>
-									<!-- mr-2로 오른쪽 간격 늘림 -->
-									<button class="btn btn-outline-primary">채팅 5</button>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
-			</div>
-			</div>
 		</section>
 	</main>
 	<!-- Footer-->
@@ -332,5 +222,22 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	<script>
+		let interestCount = 0; // 초기 관심 수 설정
+		let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수
+
+		function toggleInterest() {
+			if (!isIncreased) {
+				interestCount++; // 관심 수 증가
+				isIncreased = true;
+			} else {
+				if (interestCount > 0) {
+					interestCount--; // 관심 수 감소
+				}
+				isIncreased = false;
+			}
+			document.getElementById('interestCount').innerText = interestCount; // 관심 수 표시 업데이트
+		}
+	</script>
 </body>
 </html>

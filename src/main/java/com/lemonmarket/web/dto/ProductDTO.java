@@ -17,12 +17,17 @@ public class ProductDTO {
 	private String productInterestCount;
 	private String productChatCount;
 	
-	
 	public String getProductId() {
 		return productId;
 	}
 	public void setProductId(String productId) {
 		this.productId = productId;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getProductTitle() {
 		return productTitle;
@@ -78,13 +83,6 @@ public class ProductDTO {
 	public void setProductChatCount(String productChatCount) {
 		this.productChatCount = productChatCount;
 	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	
 	
 	
 }
