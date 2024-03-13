@@ -144,6 +144,7 @@ button[type="submit"]:hover {
 										name="userId">
 									<div class="invalid-feedback">아이디를 입력해주세요.</div>
 								</div>
+								<input type="button" value="중복확인" onclick="checkId(joinForm.userId.value);">
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-3">
@@ -308,12 +309,12 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="../user.js"></script>
+	
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
-		
-
+	<script src="../user.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/**
+/*
  *  회원가입 validation 체크
  */
 function sendit() {
@@ -105,24 +105,24 @@ function sendit() {
 }
 
 /*
-	   로그인 validation check
+	로그인 validation check
  */
 function loginit() {
 	// 아이디 빈값처리
 	// 패스워드 빈값처리
 	let frm = document.frm;
-	let userid = frm.userid;
-	let userpw = frm.userpw;
+	let userId = frm.userId;
+	let userPw = frm.userPw;
 
-	if (userid.value == "") {
+	if (userId.value == "") {
 		alert("아이디를 입력하세요!");
-		userid.focus();
+		userId.focus();
 		return false;
 	}
 
-	if (userpw.value == "") {
+	if (userPw.value == "") {
 		alert("패스워드를 입력하세요!");
-		userpw.focus();
+		userPw.focus();
 		return false;
 	}
 

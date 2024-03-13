@@ -13,6 +13,9 @@ public class UserDTO {
 	private String userEmail; // 사용자 이메일
 	private String phoneNumber; //사용자 핸드폰번호
 	private String userAddress; //사용자 주소
+	//private String userZipCode;	//사용자 우편번호
+	//private String userReference; //사용자 참고
+	//private String userAddrDetail; //사용자 상세주소
 	// private String location; //사용자 위치
 	
 	// 게터 세터 추가

@@ -4,31 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="Chat">
  
-  	<select id = "getId"  parameterType = "hashmap" resultType = "chatdto">
-		SELECT * FROM userchat WHERE ((fromID = #{fromId} AND toID = #{toId}) OR 
-		(fromID = #{toId} AND toID = #{fromId})) AND chatid > #{chatId} ORDER BY chatTime
-  	</select> 
-  	
-  	<insert id = "insertChat" parameterType = "chatdto">
-  		INSERT INTO userchat values(
-		null,  #{fromId} , #{toId} ,#{contents},now())
-  	</insert>
-  	
-  	<select id = "getId" parameterType = "hashmap" resultType ="chatdto">
-	  		SELECT * 
-			FROM userchat 
-			WHERE ((fromId = #{fromId} AND toid = #{toId}) OR (toid = #{fromId} AND fromId  = #{toId})) and chatid > ${chatId}
-			ORDER BY chatTime
-		
-  	</select>
-  	
-  	<select id = "getRecent" parameterType = "hashmap" resultType ="chatdto">
-  		SELECT * 
-		FROM userchat 
-		WHERE ((fromId = #{fromId} AND toid = #{toId}) OR (toid = #{fromId} AND fromId  = #{toId})) 
-		and chatid > (SELECT MAX(#{chatId})- 1 from userchat ) 
-		ORDER BY chatTime
-  	</select>
+
   	
   	<insert id = "insert" parameterType = "chatdto">
   		INSERT INTO userchat values(
