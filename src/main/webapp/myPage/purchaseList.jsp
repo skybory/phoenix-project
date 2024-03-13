@@ -37,7 +37,7 @@ Copy code
         <% List<ProductDTO> purchaseList = (List<ProductDTO>) request.getAttribute("purchaseList");
         if (purchaseList != null && !purchaseList.isEmpty()) { %>
             <ul>
-                <% for (ProductDTO product : purchaseList) { %>
+                <% for (ProductDTO product : purchaseList) { %> 
                     <li class="item">
                         <strong>상품명: </strong><%= product.getProductTitle() %><br>
                         <strong>가격: </strong><%= product.getProductCost() %><br>
