@@ -81,7 +81,7 @@
 				<div class="row">
 					<div class="col-lg-8 mx-auto">
 						<h2 class="fw-bolder">상품 등록</h2>
-						<form action="process_registration.jsp" method="POST"
+						<form action="/product/RegisterProductAction.pr" method="POST"
 							enctype="multipart/form-data">
 							<div class="mb-3">
 								<label for="title" class="form-label">제목</label> <input
