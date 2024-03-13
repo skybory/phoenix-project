@@ -142,8 +142,9 @@
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
-						<button type="button" class="btn btn-primary">관심 8</button>
-						<button type="button" class="btn btn-success ms-2">채팅하기 5</button>
+						<button type="button" class="btn btn-primary">관심 0</button>
+						<a href="chatting.jsp" class="btn btn-outline-primary">채팅
+											5</a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>
