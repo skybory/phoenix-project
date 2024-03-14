@@ -35,7 +35,7 @@ public class MyInterestListAction implements Action{
             }
         }
         
-        List<MytradeDTO> interestList = mytrade.interestList(userNum); // MyTradeDAO에서 찜목록 가져오기
+        List<MytradeDTO> interestList = mytrade.getInterestList(userNum); // MyTradeDAO에서 찜목록 가져오기
         
         request.setAttribute("interestList", interestList); // 가져온 찜목록은 request에 저장하기
         

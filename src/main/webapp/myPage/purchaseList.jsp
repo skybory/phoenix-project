@@ -1,5 +1,3 @@
-
-Copy code
 <%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.ProductDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

@@ -1,5 +1,3 @@
-// MyTradeDAO.java
-
 package com.lemonmarket.web.dao;
 
 import java.util.ArrayList;
@@ -9,45 +7,47 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.lemonmarket.web.dto.MytradeDTO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class MyTradeDAO {
-    SqlSessionFactory factory = null; // SqlSessionFactory를 선언할 때 초기화하지 않음
-    SqlSession sqlSession;
+    private SqlSessionFactory factory;
+    private SqlSession sqlSession;
 
     public MyTradeDAO() {
-        factory = SqlMapConfig.getFactory(); // SqlSessionFactory를 생성할 때 초기화
-        sqlSession = factory.openSession(true);
+        // SqlSessionFactory 초기화
+        this.factory = SqlMapConfig.getFactory();
     }
 
-    public List<MytradeDTO> interestList(int userNum) {
+    public List<MytradeDTO> getInterestList(int userNum) {
         List<MytradeDTO> list = new ArrayList<>();
 
         try {
+            sqlSession = factory.openSession(true);
             list = sqlSession.selectList("MyTradeDAO.getInterestList", userNum);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
         }
 
         return list;
     }
 
-    public List<MytradeDTO> purchaseList(int userNum) {
-        List<MytradeDTO> purchaseList = new ArrayList<>();
+    public List<ProductDTO> getPurchaseList(int userNum) {
+        List<ProductDTO> purchaseList = new ArrayList<>();
 
         try {
-            // 여기에 데이터베이스에서 사용자의 구매 목록을 조회하는 쿼리를 실행하는 코드를 작성해주세요.
-            // 예를 들어, MyBatis를 사용한다면 sqlSession.selectList() 메서드를 호출하여 구매 목록을 가져올 수 있습니다.
-            // 쿼리를 실행한 결과를 purchaseList에 저장합니다.
-        	
-        	//SqlSession sqlSession = SqlMapConfig.getFactory().openSession(true);
-        	
-        	
-        	purchaseList = sqlSession.selectList("MyTradeDAO.getPurchaseList", userNum);
-        	 //sqlSession.close();
+            sqlSession = factory.openSession(true);
+            purchaseList = sqlSession.selectList("MyTradeDAO.getPurchaseList", userNum);
         } catch (Exception e) {
             e.printStackTrace();
-            // 오류가 발생하면 예외를 처리하거나 로깅할 수 있습니다.
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
         }
 
         return purchaseList;

@@ -4,6 +4,7 @@ import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.MyTradeDAO;
 import com.lemonmarket.web.dto.MytradeDTO;
+import com.lemonmarket.web.dto.ProductDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,7 +29,7 @@ public class MyPurchaseDetailsAction implements Action {
 
         try {
             // 사용자의 구매 목록을 가져옵니다.
-            List<MytradeDTO> purchaseList = myTradeDAO.purchaseList(userNum);
+            List<ProductDTO> purchaseList = myTradeDAO.getPurchaseList(userNum); // 이 부분을 수정함
 
             // 가져온 구매 목록을 request에 저장합니다.
             request.setAttribute("purchaseList", purchaseList);
@@ -39,7 +40,7 @@ public class MyPurchaseDetailsAction implements Action {
         } catch (Exception e) {
             e.printStackTrace();
             // 오류 발생 시 에러 페이지로 리다이렉트할 수 있습니다.
-            forward.setPath("/error.jsp");
+            forward.setPath("/myPage/error.jsp");
             forward.setRedirect(true);
         }
 
