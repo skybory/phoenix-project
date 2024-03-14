@@ -7,6 +7,13 @@
 .lemon-bg {
 	background-color: #E5D85C;
 }
+#userGreeting {
+    font-weight: bold; /* 굵게 표시 */
+    color: #FF5733; /* 글자 색상 변경 */
+}
+#userGreetingLi{
+margin-left: 20px;
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -14,8 +21,8 @@ String userName = null;
 String userId = null;
 
 if (udto != null) {
- userId = udto.getUserId();
- userName = udto.getUserName();
+	userId = udto.getUserId();
+	userName = udto.getUserName();
 }
 %>
 <head>
@@ -59,14 +66,37 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
+
+						<%
+						if (udto == null) {
+						%>
+						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+        <%=userName%>님(<%=userId%>) 안녕하세요
+    </a></li>
+								
+								
+								
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
+							href="/board/MyPage.bo">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+
+						<%
+						}
+						%>
+
+
+
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -77,22 +107,11 @@ if (udto != null) {
 								<li><a class="dropdown-item" href="blog-post.jsp">Blog
 										Post</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownPortfolio"
-							href="#" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false"> 
-							
-    <% if(udto == null) { %>
-        로그인 해주세요
-    <% } else { %>
-        <%= userName %>님(<%= userId %>) 안녕하세요
-    <% } %>
-						</a>
+						<li class="nav-item dropdown">
 							<ul class="dropdown-menu dropdown-menu-end"
 								aria-labelledby="navbarDropdownPortfolio">
-								<li><a class="dropdown-item" href="portfolio-overview.jsp">마이페이지(연결필요)</a></li>
-								<li><a class="dropdown-item" href="portfolio-item.jsp">로그아웃(구현필요)</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -108,7 +127,9 @@ if (udto != null) {
 						<div class="my-5 text-center text-xl-start">
 							<h1 name="val" class="display-5 fw-bolder text-black mb-2">당신
 								근처의 지역 생활 커뮤니티</h1>
-							<% %>
+							<%
+
+							%>
 							<p class="lead fw-normal text-gray-50 mb-4">
 								동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.
 							</p>
