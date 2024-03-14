@@ -67,7 +67,7 @@
                                 <% %>
                                 <p class="lead fw-normal text-gray-50 mb-4">동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.</p>
                                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">물건 등록하기</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="resgistration/registration.jsp">물건 등록하기</a>
                                     <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                                 </div>
                             </div>

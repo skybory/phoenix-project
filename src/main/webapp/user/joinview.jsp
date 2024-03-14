@@ -236,7 +236,13 @@ button[type="submit"]:hover {
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();">가입완료</button>
 					</div>
+<<<<<<< HEAD
 					
+=======
+			 
+ 
+				</div>
+>>>>>>> a285d5230b22afd8856dab5e88d3e05b49de0528
 			</div>
 		</form>
 

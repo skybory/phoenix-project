@@ -24,6 +24,6 @@
 	 
 	<select id="getList" resultType="userdto">
 	 	SELECT * FROM `tbl_join`
-	 </select>
+</select>
 </mapper>
  
