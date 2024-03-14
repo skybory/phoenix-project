@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,38 +10,38 @@
 <title>카테고리 페이지</title>
 <style>
 .category-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	gap: 20px;
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .category {
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: transform 0.2s;
+	text-align: center;
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	transition: transform 0.2s;
 }
 
 .category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .category img {
-    width: 80px; /* 아이콘 크기 조절 */
-    height: auto;
-    margin-bottom: 8px;
+	width: 80px; /* 아이콘 크기 조절 */
+	height: auto;
+	margin-bottom: 8px;
 }
 
 .category p {
-    margin-top: 5px;
-    font-size: 1rem;
-    color: #333;
+	margin-top: 5px;
+	font-size: 1rem;
+	color: #333;
 }
 </style>
 <link
@@ -66,7 +69,7 @@
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand" href="index.jsp">레몬 마켓</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -114,16 +117,25 @@
 				</div>
 			</div>
 		</nav>
-		<div class="category-container">
-            <% for(int i = 1; i <= 10; i++) { %>
-            <div class="category">
-                <a href="${pageContext.request.contextPath}/path-to-category<%= i %>">
-                    <img src="icon<%= i %>.png" alt="카테고리<%= i %>">
-                    <p>카테고리<%= i %></p>
-                </a>
-            </div>
-            <% } %>
-		</div>
+    <div class="container mt-5">
+        <div class="category-container">
+            <c:choose>
+                <c:when test="${categories != null and fn:length(categories) > 0}">
+                    <c:forEach var="category" items="${categories}">
+                        <div class="category">
+                            <a href="${pageContext.request.contextPath}/categorie/viewCategory?categoryId=${category.categoriesId}">
+                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoriesId}.png" alt="${category.categoriesName}">
+                                <p>${category.categoriesName}</p>
+                            </a>
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div style="text-align: center">등록된 카테고리가 없습니다.</div>
+                </c:otherwise>
+            </c:choose>
+        </div>
+    </div>
 		<!-- Footer-->
 		<footer class="bg-dark py-4 mt-auto">
 			<div class="container px-5">

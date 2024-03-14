@@ -2,9 +2,16 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="Categorie">
- 
- 
-  
+<mapper namespace="Categorie">
 
- </mapper>
+	<!-- 모든 카테고리를 조회 -->
+	<select id="categoryAll" resultType="categoriedto">
+		SELECT * FROM `category`
+	</select>
+
+	<!-- 특정 ID를 가진 카테고리를 조회 -->
+	<select id="categoryById" parameterType="String" resultType="categoriedto">
+		SELECT * FROM `category` WHERE categoriesId = #{categoriesId}
+	</select>
+
+</mapper>
