@@ -1,6 +1,5 @@
 package com.lemonmarket.web.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,45 +10,18 @@ import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class MyTradeDAO {
-    private SqlSessionFactory factory;
-    private SqlSession sqlSession;
+	SqlSessionFactory factory = SqlMapConfig.getFactory();
+	SqlSession sqlSession;
+	
+	public MyTradeDAO() {
+		sqlSession = factory.openSession(true);
+	}
 
-    public MyTradeDAO() {
-        // SqlSessionFactory 초기화
-        this.factory = SqlMapConfig.getFactory();
-    }
+	public List<MytradeDTO> getPurchaseList(String userId) {
 
-    public List<MytradeDTO> getInterestList(int userNum) {
-        List<MytradeDTO> list = new ArrayList<>();
+		// 구매 목록을 가져오는 쿼리 실행 후 ProductDTO 객체의 리스트로 저장
+		List<MytradeDTO> purchaseList = sqlSession.selectList("MyPage.getPurchaseList", userId);
 
-        try {
-            sqlSession = factory.openSession(true);
-            list = sqlSession.selectList("MyTradeDAO.getInterestList", userNum);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (sqlSession != null) {
-                sqlSession.close();
-            }
-        }
-
-        return list;
-    }
-
-    public List<ProductDTO> getPurchaseList(int userNum) {
-        List<ProductDTO> purchaseList = new ArrayList<>();
-
-        try {
-            sqlSession = factory.openSession(true);
-            purchaseList = sqlSession.selectList("MyTradeDAO.getPurchaseList", userNum);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (sqlSession != null) {
-                sqlSession.close();
-            }
-        }
-
-        return purchaseList;
-    }
+		return purchaseList;
+	}
 }

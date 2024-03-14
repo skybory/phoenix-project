@@ -1,6 +1,6 @@
-<%@page import="java.util.List"%>
-<%@page import="com.lemonmarket.web.dto.ProductDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>   
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,23 +30,29 @@
 </head>
 <body>
 <div id="container">
-    <h2 style="text-align: center; color: orange;">구매 목록</h2>
-    <div id="purchaseList">
-        <% List<ProductDTO> purchaseList = (List<ProductDTO>) request.getAttribute("purchaseList");
-        if (purchaseList != null && !purchaseList.isEmpty()) { %>
-            <ul>
-                <% for (ProductDTO product : purchaseList) { %> 
-                    <li class="item">
-                        <strong>상품명: </strong><%= product.getProductTitle() %><br>
-<%--                         <strong>가격: </strong><%= product.getProductCost() %><br> --%>
-<%--                         <strong>구매일: </strong><%= product.getUploadDate() %><br> --%>
-                    </li>
-                <% } %>
-            </ul>
-        <% } else { %>
-            <p>구매 목록이 없습니다.</p>
-        <% } %>
-    </div>
+<h2 style="text-align: center; color: orange;">구매 목록</h2>
+<div id="purchaseList">
+    <!-- 게시글 작성 :게시글이 있는경우-->
+			<c:choose>
+				<c:when test="${mytradeDTO != null and fn:length(mytradeDTO) >0 }">
+					<c:forEach var="trade" items="${mytradeDTO }">
+						<tr align="center" valign="middle" 
+							onmouseover="this.style.background='#bbdefb'"
+                    	    onmouseout="this.style.background=''" height="23px"
+						>
+							<td>${userId }</td>
+							<td height="23px;">${trade.productId}</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr style="height: 50px;">
+		               <td colspan="5" style="text-align: center">
+		                  등록된 게시물이 없습니다.
+		               </td>
+		            </tr>
+				</c:otherwise>
+			</c:choose>	
 </div>
 </body>
 </html>

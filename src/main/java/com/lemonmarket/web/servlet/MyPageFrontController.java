@@ -32,7 +32,7 @@ public class MyPageFrontController extends HttpServlet {
             forward = new MyInterestListAction().execute(req, resp);
         } else if (requestURI.endsWith("/SalesDetails.mp")) {
             forward = new MySalesDetailsAction().execute(req, resp);
-        } else if (requestURI.endsWith("/PurchaseDetails.mp")) {
+        } else if (requestURI.endsWith("/mypage/PurchaseDetails.mp")) {
             forward = new MyPurchaseDetailsAction().execute(req, resp);
         } else if (requestURI.endsWith("/ProfileView.mp")) {
             forward = new MyProfileViewAction().execute(req, resp);
