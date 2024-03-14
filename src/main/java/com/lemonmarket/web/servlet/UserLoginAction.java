@@ -6,6 +6,7 @@ import com.lemonmarket.web.action.ActionForward;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class UserLoginAction implements Action{
 
@@ -13,12 +14,14 @@ public class UserLoginAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		UserDAO udao = new UserDAO();
 		ActionForward forward = new ActionForward();
+		HttpSession session = request.getSession(); // 세션을 가져옵니다.
 		
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
 		
 		forward.setRedirect(true);	// redirect
-		if( udao.login(userId, userPw) ) {
+		if( udao.login(userId, userPw, session) ) {
+			
 			forward.setRedirect(true);
 			forward.setPath("/index.jsp");
 		} else {
