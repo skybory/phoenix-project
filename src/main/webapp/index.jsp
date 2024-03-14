@@ -30,12 +30,18 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<<<<<<< HEAD
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Home.bo">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지2(편집부탁)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Contact.bo">Contact페이지(편집부탁)</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Map.bo">위치</a></li>
+=======
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+>>>>>>> a285d5230b22afd8856dab5e88d3e05b49de0528
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.us">로그인</a></li>                            
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>                            
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
                             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
                             <li class="nav-item dropdown">
@@ -51,7 +57,7 @@
                                     <li><a class="dropdown-item" href="portfolio-overview.jsp">Portfolio Overview</a></li>
                                     <li><a class="dropdown-item" href="portfolio-item.jsp">Portfolio Item</a></li>
                                 </ul>
-                 ㅌ           </li>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +74,7 @@
                                 <% %>
                                 <p class="lead fw-normal text-gray-50 mb-4">동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.</p>
                                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">물건 등록하기</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="resgistration/registration.jsp">물건 등록하기</a>
                                     <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                                 </div>
                             </div>
