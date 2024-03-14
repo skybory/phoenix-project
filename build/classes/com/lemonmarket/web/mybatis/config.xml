@@ -31,5 +31,6 @@
 		<mapper resource="com/lemonmarket/web/sql/Product.xml"/>
 		<mapper resource="com/lemonmarket/web/sql/Chat.xml"/>
 		<mapper resource="com/lemonmarket/web/sql/MyPage.xml"/>
+		<mapper resource="com/lemonmarket/web/sql/Categorie.xml"/>
 	</mappers>
 </configuration>
