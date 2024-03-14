@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.product;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("*.us")
-public class UserFrontController extends HttpServlet{
+//@WebServlet("*.pr")
+public class ProductFrontController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
@@ -28,16 +28,8 @@ public class UserFrontController extends HttpServlet{
 		
 		
 		switch (requestURI) {
-		case "/user/UserLoginAction.us":
-			forward = new UserLoginAction().execute(req, resp);
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
-		case "/user/UserJoinAction.us":
-			forward = new UserJoinAction().execute(req, resp);
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
-		case "/user/UserLogoutAction.us":
-			forward = new UserLogoutAction().execute(req, resp);
+		case "/product/RegisterProductAction.pr":
+			forward = new ProductRegisterAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		}

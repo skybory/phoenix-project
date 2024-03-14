@@ -38,8 +38,8 @@
                 <% for (ProductDTO product : purchaseList) { %> 
                     <li class="item">
                         <strong>상품명: </strong><%= product.getProductTitle() %><br>
-                        <strong>가격: </strong><%= product.getProductCost() %><br>
-                        <strong>구매일: </strong><%= product.getUploadDate() %><br>
+<%--                         <strong>가격: </strong><%= product.getProductCost() %><br> --%>
+<%--                         <strong>구매일: </strong><%= product.getUploadDate() %><br> --%>
                     </li>
                 <% } %>
             </ul>
