@@ -9,6 +9,28 @@ public class MytradeDTO {
 	private String userId;
 	private List<ProductDTO> purchaseList; // 구매 목록
 	
+	private int productPrice;
+	private String productLocation;
+	 private String productTitle;
+	
+	public String getProductTitle() {
+		return productTitle;
+	}
+	public void setProductTitle(String productTitle) {
+		this.productTitle = productTitle;
+	}
+	public int getProductPrice() {
+		return productPrice;
+	}
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
+	}
+	public String getProductLocation() {
+		return productLocation;
+	}
+	public void setProductLocation(String productLocation) {
+		this.productLocation = productLocation;
+	}
 	public String getProductId() {
 		return productId;
 	}
