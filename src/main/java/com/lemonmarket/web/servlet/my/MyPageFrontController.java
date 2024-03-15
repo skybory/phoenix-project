@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.my;
 
 import java.io.IOException;
 

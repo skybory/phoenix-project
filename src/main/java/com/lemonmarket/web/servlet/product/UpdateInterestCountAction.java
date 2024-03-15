@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.product;
 
 import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;

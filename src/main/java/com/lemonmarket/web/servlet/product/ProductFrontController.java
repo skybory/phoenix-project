@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
-import com.lemonmarket.web.servlet.UpdateInterestCountAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

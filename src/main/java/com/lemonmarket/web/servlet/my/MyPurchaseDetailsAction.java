@@ -1,5 +1,5 @@
 // MyPurchaseDetailsAction 수정
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.my;
 
 import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;

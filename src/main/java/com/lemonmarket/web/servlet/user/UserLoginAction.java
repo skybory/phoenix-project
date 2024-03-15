@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.user;
 
 import com.lemonmarket.web.dao.UserDAO;
 import com.lemonmarket.web.action.Action;
