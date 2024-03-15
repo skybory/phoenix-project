@@ -31,6 +31,7 @@ public class ProductRegisterAction implements Action{
 		pdto.setProductRegisterTime(request.getParameter("productRegisterTime"));
 		pdto.setProductInterestCount(request.getParameter("productInterestCount"));
 		pdto.setProductChatCount(request.getParameter("productChatCount"));
+		pdto.setCategoryId(request.getParameter("categoryId"));
 		
 		
 		if( pdao.register(pdto) ) {	// 물품 등록 성공
