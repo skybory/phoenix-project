@@ -1,6 +1,8 @@
 package com.lemonmarket.web.dao;
 
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -23,6 +25,10 @@ public class ProductDAO {
 		}
 		return result;
 	}
+	
+	public List<ProductDTO> selectProductsByCategoryId(String categoryId) {
+        return sqlSession.selectList("selectProductsByCategoryId", categoryId);
+    }
 	
 
 	

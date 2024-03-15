@@ -123,7 +123,7 @@
                 <c:when test="${category != null and fn:length(category) > 0}">
                     <c:forEach var="category" items="${category}">
                         <div class="category">
-                            <a href="${pageContext.request.contextPath}/category/viewCategory?categoryId=${category.categoryId}">
+                            <a href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${category.categoryId}">
                                 <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
                                 <p>${category.categoryName}</p>
                             </a>
@@ -135,12 +135,7 @@
                 </c:otherwise>
             </c:choose>
         </div>
-    </div>
-    <div class="relative flex items-center justify-between">
-    <a class="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-6 pe-4 transition duration-300 ease-in-out" href="/search?category=1">
-    <span class="block w-full ga4_main_gnb" id="수입명품">수입명품</span>
-    </a>
-    </div>
+    
 		<!-- Footer-->
 		<footer class="bg-dark py-4 mt-auto">
 			<div class="container px-5">
