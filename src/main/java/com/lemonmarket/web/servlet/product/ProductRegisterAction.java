@@ -34,7 +34,7 @@ public class ProductRegisterAction implements Action{
 		
 		
 		if( pdao.register(pdto) ) {	// 물품 등록 성공
-			forward.setPath("/index.jsp");
+			forward.setPath("/product/productMain.jsp");
 			forward.setRedirect(false);
 		}
 		
