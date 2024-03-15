@@ -29,7 +29,7 @@ public class MyInterestListAction implements Action{
         MyTradeDAO myTradeDAO = new MyTradeDAO();
         request.setAttribute("mytradeDTO", myTradeDAO.getInterestList(userId));
         
-        forward.setPath("/myPage/InterestList.jsp");
+        forward.setPath("/myPage/myInterestList.jsp");
         forward.setRedirect(false);
         
         return forward;

@@ -27,18 +27,20 @@ public class MyPageFrontController extends HttpServlet {
 
 
 		switch (requestURI) {
-		case "/my/InterestList.my":
-			forward = new MyInterestListAction().execute(req, resp);
+		case "/my/PurchaseDetails.my":
+			forward = new MyPurchaseDetailsAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/my/SalesDetails.my":
 			forward = new MySalesDetailsAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/my/PurchaseDetails.my":
-			forward = new MyPurchaseDetailsAction().execute(req, resp);
+		case "/my/InterestList.my":
+			forward = new MyInterestListAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+
+
 		case "/my/ProfileView.my":
 			forward = new MyProfileViewAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward

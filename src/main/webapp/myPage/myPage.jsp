@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>마이 페이지</title>
 <style>
-    body {
+   body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         margin: 0;
@@ -17,16 +17,18 @@
         margin: 50px auto;
         background-color: #fff;
         border: 1px solid #ccc;
-        border-radius: 110px;
-        padding: 100px; 
+        border-radius: 5px;
+        padding: 50px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     .button {
         display: block;
-        width: 100%;
+        width: calc(100% - 40px); /* 버튼의 width에서 좌우 패딩값만큼 제외 */
         padding: 15px 20px;
         margin-bottom: 10px;
-        background-color: #007bff;
+        margin-left: 0px; /* 왼쪽 마진 추가 */
+        margin-right: 500px; /* 오른쪽 마진 추가 */
+        background-color: #FFD700;
         color: #fff;
         text-align: center;
         text-decoration: none;
@@ -36,7 +38,7 @@
         transition: background-color 0.3s ease;
     }
     .button:hover {
-        background-color: #0056b3;
+        background-color: #FFA500;
     }
 </style>
 </head>
@@ -46,13 +48,19 @@
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/my/PurchaseDetails.bo">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/my/PurchaseDetails.my">구매내역</a> 
     <!-- 판매내역 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/my/SalesDetails.my">판매내역</a>
     <!-- 찜 목록 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/my/InterestList.my">찜 목록</a>
     <!-- 내 정보 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/my/ProfileView.my">내 정보</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+            홈으로 돌아가기
+        </a>
 </div>
+</div>
+
 </body>
 </html>

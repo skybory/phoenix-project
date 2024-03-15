@@ -23,7 +23,7 @@ public class MyProfileViewAction implements Action{
 
      request.setAttribute("userDTO", userDAO.getProfileList(userId));
      
-     forward.setPath("/myPage/ProfileList.jsp");
+     forward.setPath("/myPage/myProfile.jsp");
      forward.setRedirect(false);
      
 		return forward;

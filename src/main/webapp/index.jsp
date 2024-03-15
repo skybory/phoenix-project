@@ -1,11 +1,11 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <style>
 .lemon-bg {
-	background-color: #E5D85C;
+   background-color: #E5D85C;
 }
 #userGreeting {
     font-weight: bold; /* 굵게 표시 */
@@ -14,6 +14,19 @@
 #userGreetingLi{
 margin-left: 20px;
 }
+
+.logo-container{
+	 position: absolute;
+    top: 0px;
+    left: 250px;
+    right: 0;
+    
+}
+#lemonLogo {
+    width: 50px; /* 원하는 너비로 조정 */
+    height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+}
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -21,19 +34,19 @@ String userName = null;
 String userId = null;
 
 if (udto != null) {
-	userId = udto.getUserId();
-	userName = udto.getUserName();
+   userId = udto.getUserId();
+   userName = udto.getUserName();
 }
 %>
 <head>
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+   crossorigin="anonymous">
 <meta charset="utf-8" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Modern Business - Start Bootstrap Template</title>
@@ -41,16 +54,22 @@ if (udto != null) {
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" />
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+   rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
+  
+         
+
+
 </head>
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
+			             <img src="${pageContext.request.contextPath}/picture/lemon_logo5.png" alt="Logo" class="img-fluid" id="lemonLogo">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -67,29 +86,29 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
 
-						<%
-						if (udto == null) {
-						%>
-						<!--         로그인이 안되어있을때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+                  <%
+                  if (udto == null) {
+                  %>
+                  <!--         로그인이 안되어있을때 나오는 값 -->
+                  <li class="nav-item"><a class="nav-link"
+                     href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                     href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
-						<%
-						} else {
-						%>
+                  <%
+                  } else {
+                  %>
 
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+                  <!--     로그인이 되어있을 때 나오는 값 -->
+                  <li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
         <%=userName%>님(<%=userId%>) 안녕하세요
     </a></li>
-								
-								
-								
-						<li class="nav-item"><a class="nav-link"
-							href="/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+                        
+                        
+                        
+                  <li class="nav-item"><a class="nav-link"
+                     href="/board/MyPage.bo">마이페이지</a></li>
+                  <li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
 						}
@@ -121,11 +140,11 @@ if (udto != null) {
 					class="row gx-5 align-items-center justify-content-center">
 
 
-					<div class="col-lg-8 col-xl-7 col-xxl-6">
-						<div class="my-5 text-center text-xl-start">
-							<h1 name="val" class="display-5 fw-bolder text-black mb-2">당신
-								근처의 지역 생활 커뮤니티</h1>
-							<%
+               <div class="col-lg-8 col-xl-7 col-xxl-6">
+                  <div class="my-5 text-center text-xl-start">
+                     <h1 name="val" class="display-5 fw-bolder text-black mb-2">당신
+                        근처의 지역 생활 커뮤니티</h1>
+                     <%
 
 							%>
 							<p class="lead fw-normal text-gray-50 mb-4">
