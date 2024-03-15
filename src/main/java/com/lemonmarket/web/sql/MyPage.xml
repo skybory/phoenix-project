@@ -4,12 +4,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MyPage">
 
-    <select id="getInterestList" resultType="com.lemonmarket.web.dto.MytradeDTO" parameterType="mytradedto">
-        SELECT * FROM interest_table WHERE userId = #{userId}
-    </select>
+    
     
     <select id="getPurchaseList" resultType="mytradedto" parameterType="string">
         SELECT * FROM purchase_table WHERE userId = #{userId}
     </select>
+    
+    <select id="getSalesList" resultType="mytradedto" parameterType="string">
+    SELECT * FROM sales_table where userid= #{userId}
+    </select>
+    
+    <select id="getInterestList" resultType="mytradedto" parameterType="string">
+    SELECT * from interest_table where userid=#{userId}
+    </select>
 
+	<select id="getProfileList" resultType="userDTO" parameterType="string">
+	SELECT * from tbl_join where userid=#{userId}
+	</select>
+	
 </mapper>

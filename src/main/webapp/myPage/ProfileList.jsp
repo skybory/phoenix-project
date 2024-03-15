@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>찜 목록</title>
+    <title>프로필 보기 </title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -63,33 +63,33 @@
 </head>
 <body>
 <div id="container">
-    <h2>내 구매 목록</h2>
+    <h2>내 프로필</h2>
     <table>
         <thead>
             <tr>
-                <th>상품번호</th>
-                <th>상품명</th>
-                <th>거래금액</th>
-                <th>거래장소</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>전화번호</th>
             </tr>
         </thead>
         <tbody>
             <c:choose>
-                <c:when test="${mytradeDTO != null and fn:length(mytradeDTO) > 0}">
-                    <c:forEach var="trade" items="${mytradeDTO}" varStatus="loop">
+                <c:when test="${userDTO != null and fn:length(userDTO) > 0}">
+                    <c:forEach var="profile" items="${userDTO}" varStatus="loop">
                         <tr>
                             <c:choose>
                                 <c:when test="${loop.first}">
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
+                                    <td>${profile.userName}</td>
+                                    <td>${profile.userAge}</td>
+                                    <td>${profile.gender}</td>
+                                    <td>${profile.phoneNumber}</td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
+                                    <td>${profile.userName}</td>
+                                    <td>${profile.userAge}</td>
+                                    <td>${profile.gender}</td>
+                                    <td>${profile.phoneNumber}</td>
                                 </c:otherwise>
                             </c:choose>
                         </tr>

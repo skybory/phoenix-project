@@ -63,7 +63,7 @@
 </head>
 <body>
 <div id="container">
-    <h2>내 구매 목록</h2>
+    <h2>내 찜 목록</h2>
     <table>
         <thead>
             <tr>
@@ -103,11 +103,13 @@
             </c:choose>
         </tbody>
     </table>
-</div>
-<div style="text-align: center; margin-top: 20px;">
+    
+     <div style="text-align: center; margin-top: 20px;">
         <a href="/myPage/myPage.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #333; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
             마이 페이지로 돌아가기
         </a>
     </div>
+    
+</div>
 </body>
 </html>

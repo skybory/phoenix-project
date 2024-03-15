@@ -42,7 +42,7 @@
 </head>
 <body>
 <div id="container">
-    <h2 style="text-align: center; color:orange;">마이 페이지4</h2>
+    <h2 style="text-align: center; color:orange;">마이 페이지</h2>
     
    
     <!-- 구매내역 링크 -->
