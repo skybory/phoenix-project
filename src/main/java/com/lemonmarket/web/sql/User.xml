@@ -4,7 +4,6 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="User">
 
-<<<<<<< HEAD
 <select id="checkId" parameterType="string" resultType="_int">
 		SELECT COUNT(*) FROM tbl_join WHERE userId = #{userId} 
 	</select>
@@ -25,28 +24,6 @@
 	 
 	<select id="getList" resultType="userdto">
 	 	SELECT * FROM `tbl_join`
-=======
-   <select id="checkId" parameterType="string" resultType="_int">
-      SELECT COUNT(*) FROM tbl_join WHERE userId = #{userId} 
-   </select>
-
-   <insert id="join" parameterType="userdto">
-      INSERT INTO `tbl_join` VALUES 
-      (#{userId},#{userPw},#{userName},#{userAge},#{gender},#{phoneNumber},#{userEmail},#{userAddress})
-   </insert>
-
-   <select id="login" parameterType="hashmap" resultType="userdto">
-      select * from `tbl_join`
-      where userId = #{userId} and userPw = #{userPw}
-   </select>
-   
-   <select id="searchById" parameterType="string" resultType="userdto">
-       SELECT * FROM `tbl_join` WHERE userId = #{userId}
-    </select>
-    
-   <select id="getList" resultType="userdto">
-       SELECT * FROM `tbl_join`
->>>>>>> 7fa836d2abe3ae8ac445b0eb235869fad4e19a88
 </select>
 </mapper>
  
