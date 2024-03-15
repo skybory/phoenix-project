@@ -48,18 +48,17 @@
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/mypage/PurchaseDetails.bo">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/my/PurchaseDetails.bo">구매내역</a> 
     <!-- 판매내역 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/SalesDetails.mp">판매내역</a>
+    <a class="button" href="${pageContext.request.contextPath}/my/SalesDetails.my">판매내역</a>
     <!-- 찜 목록 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/InterestList.mp">찜 목록</a>
+    <a class="button" href="${pageContext.request.contextPath}/my/InterestList.my">찜 목록</a>
     <!-- 내 정보 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/ProfileView.mp">내 정보</a>
-    
+    <a class="button" href="${pageContext.request.contextPath}/my/ProfileView.my">내 정보</a>
     <div style="text-align: center; margin-top: 20px;">
-    <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-        홈으로 돌아가기
-    </a>
+        <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+            홈으로 돌아가기
+        </a>
 </div>
 </div>
 
