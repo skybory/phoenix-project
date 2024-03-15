@@ -46,13 +46,13 @@
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/mypage/PurchaseDetails.bo">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/my/PurchaseDetails.bo">구매내역</a> 
     <!-- 판매내역 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/SalesDetails.mp">판매내역</a>
+    <a class="button" href="${pageContext.request.contextPath}/my/SalesDetails.my">판매내역</a>
     <!-- 찜 목록 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/InterestList.mp">찜 목록</a>
+    <a class="button" href="${pageContext.request.contextPath}/my/InterestList.my">찜 목록</a>
     <!-- 내 정보 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/mypage/ProfileView.mp">내 정보</a>
+    <a class="button" href="${pageContext.request.contextPath}/my/ProfileView.my">내 정보</a>
 </div>
 </body>
 </html>

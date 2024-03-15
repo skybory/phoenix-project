@@ -48,11 +48,11 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Pricing.bo":
-			forward = new ActionForward(true, "/pricing/pricing.jsp");
+			forward = new ActionForward(true, "/product/productMain.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Faq.bo":
-			forward = new ActionForward(true,"/faq/faq.jsp");
+			forward = new ActionForward(true, "/faq/faq.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/MyPage.bo":
@@ -60,21 +60,18 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Login.bo":
-			forward = new ActionForward(true,"/user/loginview.jsp");
+			forward = new ActionForward(true, "/user/loginview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Join.bo":
-			forward = new ActionForward(true,"/user/joinview.jsp");
+			forward = new ActionForward(true, "/user/joinview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Category.bo":
-			forward = new SelectCategoryAction().execute(req, resp);
+			forward = new ActionForward(true, "/category/category.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/mypage/PurchaseDetails.bo" :
-			forward = new MyPurchaseDetailsAction().execute(req, resp);
-			break;
-			
+
 
 
 //		case "/board/BoardList.bo":

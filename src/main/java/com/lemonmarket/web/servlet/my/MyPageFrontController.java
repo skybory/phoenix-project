@@ -10,40 +10,47 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("*.mp")
+@WebServlet("*.my")
 public class MyPageFrontController extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doProcess(req, resp);
-    }
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doProcess(req, resp);
-    }
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
 
-    protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String requestURI = req.getRequestURI();
-        ActionForward forward = null;
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String requestURI = req.getRequestURI();
+		ActionForward forward = null;
 
-        System.out.println("프론트컨트롤러 도착!");
-        
-        // 요청 URI로부터 액션을 결정합니다.
-        if (requestURI.endsWith("/InterestList.mp")) {
-            forward = new MyInterestListAction().execute(req, resp);
-        } else if (requestURI.endsWith("/SalesDetails.mp")) {
-            forward = new MySalesDetailsAction().execute(req, resp);
-        } else if (requestURI.endsWith("/mypage/PurchaseDetails.mp")) {
-            forward = new MyPurchaseDetailsAction().execute(req, resp);
-        } else if (requestURI.endsWith("/ProfileView.mp")) {
-            forward = new MyProfileViewAction().execute(req, resp);
-        }
 
-        if (forward != null) {
-            if (forward.isRedirect()) {
-                resp.sendRedirect(forward.getPath());
-            } else {
-                req.getRequestDispatcher(forward.getPath()).forward(req, resp);
-            }
-        }
-    }
+		switch (requestURI) {
+		case "/my/InterestList.my":
+			forward = new MyInterestListAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/my/SalesDetails.my":
+			forward = new MySalesDetailsAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/my/PurchaseDetails.my":
+			forward = new MyPurchaseDetailsAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/my/ProfileView.my":
+			forward = new MyProfileViewAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		}
+
+		if (forward != null) {
+			if (forward.isRedirect()) {
+				resp.sendRedirect(forward.getPath());
+			} else {
+				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
+			}
+		}
+	}
 }

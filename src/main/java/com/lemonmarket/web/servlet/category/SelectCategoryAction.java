@@ -14,7 +14,7 @@ public class SelectCategoryAction implements Action{
 		ActionForward forward = new ActionForward();
 		CategoryDAO cdao = new CategoryDAO();
 		request.setAttribute("category", cdao.getcategoryAll());
-		forward.setPath(request.getContextPath()+"/category/categoryview.jsp");
+		forward.setPath(request.getContextPath()+"/category/category.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

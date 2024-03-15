@@ -48,7 +48,7 @@ if (udto != null) {
 </head>
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
-		<!-- Navigation-->
+		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
@@ -61,9 +61,9 @@ if (udto != null) {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
 
@@ -94,28 +94,26 @@ if (udto != null) {
 						<%
 						}
 						%>
-
-
-
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="blog-home.jsp">Blog
-										Home</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">Blog
-										Post</a></li>
-							</ul></li>
-						<li class="nav-item dropdown">
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-							</ul>
-						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+		<!-- 						<li class="nav-item dropdown"><a -->
+<!-- 							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" -->
+<!-- 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a> -->
+<!-- 							<ul class="dropdown-menu dropdown-menu-end" -->
+<!-- 								aria-labelledby="navbarDropdownBlog"> -->
+<!-- 								<li><a class="dropdown-item" href="blog-home.jsp">Blog -->
+<!-- 										Home</a></li> -->
+<!-- 								<li><a class="dropdown-item" href="blog-post.jsp">Blog -->
+<!-- 										Post</a></li> -->
+<!-- 							</ul></li> -->
+<!-- 						<li class="nav-item dropdown"> -->
+<!-- 							<ul class="dropdown-menu dropdown-menu-end" -->
+<!-- 								aria-labelledby="navbarDropdownPortfolio"> -->
+<!-- 							</ul> -->
+<!-- 						</li> -->
 		<!-- Header-->
 		<header class="lemon-bg py-5">
 			<div class="container px-5">
@@ -137,8 +135,7 @@ if (udto != null) {
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="resgistration/registration.jsp">물건 등록하기</a> <a
-									class="btn btn-outline-light btn-lg px-4" href="#!">Learn
-									More</a>
+									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지 고민중...</a>
 							</div>
 						</div>
 					</div>
@@ -370,7 +367,7 @@ if (udto != null) {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<script src="js/map.js"></script>
 </body>
 </html>
 

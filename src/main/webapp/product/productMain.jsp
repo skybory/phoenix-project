@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="../css/styles.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -47,10 +48,10 @@ if (udto != null) {
 <body class="d-flex flex-column">
 	<main class="flex-shrink-0">
 		<!-- Navigation-->
+		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -60,41 +61,39 @@ if (udto != null) {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
+
+						<%
+						if (udto == null) {
+						%>
+						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+        <%=userName%>님(<%=userId%>) 안녕하세요
+    </a></li>
+								
+								
+								
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="blog-home.jsp">Blog
-										Home</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">Blog
-										Post</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownPortfolio"
-							href="#" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false"> 
-							<% if(udto == null) { %> 로그인 해주세요 <% } else { %>
-								<%= userName %>님(<%= userId %>) 안녕하세요 <% } %>
-						</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-								<li><a class="dropdown-item" href="portfolio-overview.jsp">마이페이지(연결필요)</a></li>
-								<li><a class="dropdown-item" href="portfolio-item.jsp">로그아웃(구현필요)</a></li>
-							</ul></li>
+							href="/board/MyPage.bo">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+
+						<%
+						}
+						%>
 					</ul>
 				</div>
 			</div>
