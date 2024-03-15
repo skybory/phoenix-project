@@ -1,7 +1,18 @@
+<%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+}
+%>
 <style>
 /* 전체 폼 컨테이너 스타일 */
 body {
@@ -63,7 +74,7 @@ button[type="submit"]:hover {
 </style>
 
 <head>
-
+<link href="../css/styles.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -89,41 +100,52 @@ button[type="submit"]:hover {
 	
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
-		<!-- Navigation-->
+		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>                            
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
-                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="blog-home.jsp">Blog
-										Home</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">Blog
-										Post</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownPortfolio"
-							href="#" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false">Portfolio</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-								<li><a class="dropdown-item" href="portfolio-overview.jsp">Portfolio
-										Overview</a></li>
-								<li><a class="dropdown-item" href="portfolio-item.jsp">Portfolio
-										Item</a></li>
-							</ul></li>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+
+						<%
+						if (udto == null) {
+						%>
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+        <%=userName%>님(<%=userId%>) 안녕하세요
+    </a></li>
+								
+								
+								
+						<li class="nav-item"><a class="nav-link"
+							href="/board/MyPage.bo">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+
+						<%
+						}
+						%>
 					</ul>
 				</div>
 			</div>
@@ -218,7 +240,7 @@ button[type="submit"]:hover {
 									required name="extraAddress">
 								<div class="invalid-feedback">주소를 검색해주세요.</div>
 							</div>
-							<button onclick="searchAddress()">주소 찾기</button>
+							<button onclick="searchAddress();">주소 찾기</button>
 							<div class="mb-3">
 								<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label> <input type="text" class="form-control" id="detailAddress"
 									placeholder="상세주소를 입력해주세요.">
@@ -236,10 +258,8 @@ button[type="submit"]:hover {
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();">가입완료</button>
 					</div>
-			 
  
 				</div>
-			</div>
 		</form>
 
 		<!-- Contact cards-->
@@ -315,6 +335,7 @@ button[type="submit"]:hover {
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 
 	<script src="../user.js"></script>
+	<script src="../js/scripts.js"></script>
 	
 </body>
 </html>
