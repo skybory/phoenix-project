@@ -8,6 +8,8 @@ import java.util.List;
 import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.lemonmarket.web.dto.MytradeDTO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
@@ -81,6 +83,15 @@ public class UserDAO {
 	    // 'User.getList'는 MyBatis 매퍼 파일에서 정의된 쿼리의 id
 	    return sqlSession.selectList("User.getList");
 	}
+
+
+	public List<UserDTO> getProfileList(String userId) {
+		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
+		return ProfileList;
+	}
+
+
+	
 
 		
 	

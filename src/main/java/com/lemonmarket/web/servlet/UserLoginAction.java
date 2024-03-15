@@ -18,6 +18,7 @@ public class UserLoginAction implements Action{
 		
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
+		session.setAttribute("userId", userId);
 		
 		forward.setRedirect(true);	// redirect
 		if( udao.login(userId, userPw, session) ) {

@@ -69,6 +69,10 @@ public class BoardFrontController extends HttpServlet {
 			forward = new SelectCategoryAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+		case "/mypage/PurchaseDetails.bo" :
+			forward = new MyPurchaseDetailsAction().execute(req, resp);
+			break;
+			
 
 
 //		case "/board/BoardList.bo":

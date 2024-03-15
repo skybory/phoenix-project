@@ -42,11 +42,11 @@
 </head>
 <body>
 <div id="container">
-    <h2 style="text-align: center; color:orange;">마이 페이지4</h2>
+    <h2 style="text-align: center; color:orange;">마이 페이지</h2>
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/mypage/PurchaseDetails.mp">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/mypage/PurchaseDetails.bo">구매내역</a> 
     <!-- 판매내역 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/mypage/SalesDetails.mp">판매내역</a>
     <!-- 찜 목록 링크 -->
