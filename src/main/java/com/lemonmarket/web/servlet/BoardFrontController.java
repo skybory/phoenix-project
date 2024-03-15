@@ -50,7 +50,7 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Faq.bo":
-			forward = new ActionForward(true, "/faq/faq.jsp");
+			forward = new ActionForward(true, req.getContextPath()+"/faq/faq.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 			
@@ -63,12 +63,13 @@ public class BoardFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/myPage/myPage.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/board/Login.bo":
-			forward = new ActionForward(true, "/user/loginview.jsp");
+		case "/LemonMarket/board/Login.bo":
+			System.out.println("잘도착해씁니다");
+			forward = new ActionForward(true, req.getContextPath()+"/user/loginview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Join.bo":
-			forward = new ActionForward(true, "/user/joinview.jsp");
+			forward = new ActionForward(true, req.getContextPath()+"/user/joinview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 
