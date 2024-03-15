@@ -151,7 +151,7 @@
 					<div class="d-flex justify-content-center mt-3">
 						<button class="btn btn-outline-primary mr-2"
 							onclick="toggleInterest()">
-							관심 <span id="productInterestCount">0</span>
+							관심 <span id="interestCount">0</span>
 						</button>
 						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
 						<!-- Adjust the left margin -->
@@ -234,7 +234,7 @@
 			window.location.href = 'product_detail.jsp';
 		}
 
-		let interestCount = 0; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
+		let interestCount = ${"ProductDTO.productInterestCount"}; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
 		let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수	--> 페이지에서 관리하는 변수라고 칩시다.
 		// 이 변수가 false -> true : productDTO 의 interest count 를 update 시키는 작업(product.xml) (1 늘리기)
 		// 이 변수가 true -> false : productDTO의 interest count 를 update 시킴 ( 1 줄이기)
