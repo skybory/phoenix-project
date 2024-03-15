@@ -25,7 +25,7 @@ public class MyPurchaseDetailsAction implements Action {
         MyTradeDAO myTradeDAO = new MyTradeDAO();
         request.setAttribute("mytradeDTO", myTradeDAO.getPurchaseList(userId));
 
-        forward.setPath("/myPage/purchaseList.jsp");
+        forward.setPath("/myPage/myPurchaseList.jsp");
         forward.setRedirect(false);
 
         return forward;

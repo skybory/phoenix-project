@@ -69,6 +69,7 @@ if (udto != null) {
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
+			             <img src="${pageContext.request.contextPath}/picture/lemon_logo5.png" alt="Logo" class="img-fluid" id="lemonLogo">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

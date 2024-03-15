@@ -20,7 +20,7 @@ public class MySalesDetailsAction implements Action{
 	        MyTradeDAO myTradeDAO = new MyTradeDAO();
 	        request.setAttribute("mytradeDTO", myTradeDAO.getSalesList(userId));
 	        
-	        forward.setPath("/myPage/SalesList.jsp");
+	        forward.setPath("/myPage/mySalesList.jsp");
 	        forward.setRedirect(false);
 
 		return forward;
