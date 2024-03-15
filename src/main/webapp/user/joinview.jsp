@@ -218,7 +218,7 @@ button[type="submit"]:hover {
 									required name="extraAddress">
 								<div class="invalid-feedback">주소를 검색해주세요.</div>
 							</div>
-							<button onclick="searchAddress()">주소 찾기</button>
+							<button onclick="searchAddress();">주소 찾기</button>
 							<div class="mb-3">
 								<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label> <input type="text" class="form-control" id="detailAddress"
 									placeholder="상세주소를 입력해주세요.">
@@ -236,10 +236,8 @@ button[type="submit"]:hover {
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();">가입완료</button>
 					</div>
-			 
  
 				</div>
-			</div>
 		</form>
 
 		<!-- Contact cards-->
@@ -315,6 +313,7 @@ button[type="submit"]:hover {
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 
 	<script src="../user.js"></script>
+	<script src="../js/scripts.js"></script>
 	
 </body>
 </html>
