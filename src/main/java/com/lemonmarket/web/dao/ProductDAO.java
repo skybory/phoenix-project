@@ -23,6 +23,16 @@ public class ProductDAO {
 		}
 		return result;
 	}
+
+	public boolean updateInterestCount(String interestProductId, int interestCount) {
+		return false;
+		// TODO Auto-generated method stub
+	}
+
+	public boolean register(ProductDTO pdto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 	

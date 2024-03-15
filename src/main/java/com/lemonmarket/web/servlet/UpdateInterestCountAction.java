@@ -11,7 +11,7 @@ public class UpdateInterestCountAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// ActionForward 객체 생성
 		ActionForward forward = new ActionForward();
-		String productId = 
+		String productId = "plzeFix"; 
 		// productDAO 객체 생성
 		ProductDAO pdao = new ProductDAO();
 
