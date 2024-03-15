@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,94 +104,96 @@
 				</div>
 			</div>
 		</nav>
-
-		<!-- 추가된 이미지 -->
-		<div class="row justify-content-center align-items-center mt-4">
-			<div class="card text-center align-items-center">
-				<img src="123.png" class="card-img custom-card-img" alt="이미지 설명">
-				<div class="card-body">
-					<!-- 프로필, 닉네임, 거주지 -->
-					<div class="d-flex align-items-center mb-3"
-						style="margin-left: -190px;">
-						<!-- Adjust the left margin -->
-						<img src="123.png" class="rounded-circle" alt="프로필 사진"
-							style="width: 50px; height: 50px;">
-						<div class="ms-3" style="margin-left: -190px;">
-							<p class="m-0">
-								홍길동<br> 서울시 동작구
-							</p>
+		
+		
+			<!-- 추가된 이미지 -->
+			<div class="row justify-content-center align-items-center mt-4">
+				<div class="card text-center align-items-center">
+					<img src="123.png" class="card-img custom-card-img" alt="이미지 설명">
+					<div class="card-body">
+						<!-- 프로필, 닉네임, 거주지 -->
+						<div class="d-flex align-items-center mb-3"
+							style="margin-left: -190px;">
+							<!-- Adjust the left margin -->
+							<img src="123.png" class="rounded-circle" alt="프로필 사진"
+								style="width: 50px; height: 50px;">
+							<div class="ms-3" style="margin-left: -190px;">
+								<p class="m-0">
+									홍길동<br> 서울시 동작구
+								</p>
+							</div>
 						</div>
-					</div>
-					<!-- 상품 정보 -->
-					<div class="text-start" style="margin-left: -190px;">
-						<!-- Adjust the left margin -->
-						<h4 class="card-title-name">
-							<strong>마우스</strong>
-						</h4>
-						<p class="card-text-time">3시간 전</p>
-						<p class="card-text-price">
-							<strong>300,000원</strong>
-						</p>
-						<p class="card-text-explain">상세설명</p>
-					</div>
-					<!-- 관심 버튼, 채팅 버튼 -->
-					<div class="d-flex justify-content-center mt-3">
-						<button class="btn btn-outline-primary mr-2"
-							onclick="toggleInterest()">
-							관심 <span id="interestCount">0</span>
-						</button>
-						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
-						<!-- Adjust the left margin -->
+						<!-- 상품 정보 -->
+						<div class="text-start" style="margin-left: -190px;">
+							<!-- Adjust the left margin -->
+							<h4 class="card-title-name">
+								<strong>마우스</strong>
+							</h4>
+							<p class="card-text-time">3시간 전</p>
+							<p class="card-text-price">
+								<strong>300,000원</strong>
+							</p>
+							<p class="card-text-explain">상세설명</p>
+						</div>
+						<!-- 관심 버튼, 채팅 버튼 -->
+						<div class="d-flex justify-content-center mt-3">
+							<button class="btn btn-outline-primary mr-2"
+								onclick="toggleInterest()">
+								관심 <span id="productInterestCount">0</span>
+							</button>
+							<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
+							<!-- Adjust the left margin -->
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<section class="bg-light py-5">
-			<div class="container px-5 my-5">
-				<div class="text-center mb-5">
-					<h1 class="fw-bolder">인기 중고 거래</h1>
-				</div>
-				<div class="row gx-5 justify-content-center">
 
-					<section>
-						<div class="row gx-5 justify-content-center">
-							<%
-							for (int i = 0; i < 12; i++) {
-							%>
-							<!-- Pricing card -->
-							<div class="col-lg-6 col-xl-4 mb-4">
-								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5" onclick="redirectToProductDetail()">
-										<!-- 상품 이미지 -->
-										<img src="img.png" alt="Product Image" class="card-img mb-3">
-										<!-- 상품명 -->
-										<h4 class="card-title">상품명</h4>
-										<div class="mb-3">
-											<!-- 상품가격 -->
-											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-										</div>
-										<!-- 지역 -->
-										<p class="text-muted mb-4">지역: 서울시 동작구</p>
-										<!-- mb-4로 간격 늘림 -->
-										<!-- 찜하기, 채팅 개수 -->
-										<div class="d-flex justify-content-between align-items-center">
-											<button class="btn btn-outline-primary mr-2"
-												onclick="increaseInterest()">
-												관심 <span id="interestCount">8</span>
-											</button>
-											<p class="text-muted mb-0">채팅 5</p>
+			<!--인기 중고 거래 목록!-->
+			<section class="bg-light py-5">
+				<div class="container px-5 my-5">
+					<div class="text-center mb-5">
+						<h1 class="fw-bolder">인기 중고 거래</h1>
+					</div>
+					<div class="row gx-5 justify-content-center">
+
+						<section>
+							<div class="row gx-5 justify-content-center">
+								<%
+								for (int i = 0; i < 12; i++) {
+								%>
+								<!-- Pricing card -->
+								<div class="col-lg-6 col-xl-4 mb-4">
+									<div class="card mb-5 mb-xl-0">
+										<div class="card-body p-5" onclick="redirectToProductDetail()">
+											<!-- 상품 이미지 -->
+											<img src="img.png" alt="Product Image" class="card-img mb-3">
+											<!-- 상품명 -->
+											<h4 class="card-title">상품명</h4>
+											<div class="mb-3">
+												<!-- 상품가격 -->
+												<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+											</div>
+											<!-- 지역 -->
+											<p class="text-muted mb-4">지역: 서울시 동작구</p>
+											<!-- mb-4로 간격 늘림 -->
+											<!-- 찜하기, 채팅 개수 -->
+											<div
+												class="d-flex justify-content-between align-items-center">
+												<p class="text-muted mb-0">관심 8</p>
+												<p class="text-muted mb-0">채팅 5</p>
+											</div>
 										</div>
 									</div>
 								</div>
+								<%
+								}
+								%>
 							</div>
-							<%
-							}
-							%>
-						</div>
-				</div>
-		</section>
+					</div>
+			</section>
 	</main>
+	
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
 		<div class="container px-5">
@@ -214,8 +219,10 @@
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script>
-		let interestCount = 0; // 초기 관심 수 설정
-		let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수
+		let interestCount = 0; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
+		let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수	--> 페이지에서 관리하는 변수라고 칩시다.
+								// 이 변수가 false -> true : productDTO 의 interest count 를 update 시키는 작업(product.xml) (1 늘리기)
+								// 이 변수가 true -> false : productDTO의 interest count 를 update 시킴 ( 1 줄이기)
 
 		function toggleInterest() {
 			if (!isIncreased) {
@@ -227,8 +234,9 @@
 				}
 				isIncreased = false;
 			}
-			document.getElementById('interestCount').innerText = interestCount; // 관심 수 표시 업데이트
+			document.getElementById('productInterestCount').innerText = interestCount; // 관심 수 표시 업데이트
 		}
 	</script>
+
 </body>
 </html>

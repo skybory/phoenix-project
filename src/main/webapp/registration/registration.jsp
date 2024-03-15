@@ -107,7 +107,7 @@
 									type="text" class="form-control" id="location" name="location">
 							</div>
 							<div class="text-center">
-								<button type="submit" class="btn btn-primary">작성 완료</button>
+								<button type="button" class="btn btn-primary" onclick=>작성 완료</button>
 								<a href="#" class="btn btn-secondary">취소</a>
 							</div>
 						</form>

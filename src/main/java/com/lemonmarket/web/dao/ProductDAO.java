@@ -1,34 +1,26 @@
 package com.lemonmarket.web.dao;
 
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-
-import com.lemonmarket.web.dto.ProductDTO;
-import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class ProductDAO {
 	SqlSessionFactory factory = SqlMapConfig.getFactory();
 	SqlSession sqlSession;
-	
+
 	public ProductDAO() {
-		sqlSession = factory.openSession(true);
+		sqlSession = factory.openSession(true); // autoCommit 설정
 	}
 
-	public boolean register(ProductDTO pdto) {
+	// 상품 등록 메서드
+	public boolean insertProduct(ProductDTO product) {
 		boolean result = false;
-		if(sqlSession.insert("Product.register", pdto) == 1) {
+		if (sqlSession.insert("Product.insertProduct", product) == 1) {
 			result = true;
 		}
 		return result;
 	}
-	
-	public List<ProductDTO> selectProductsByCategoryId(String categoryId) {
-        return sqlSession.selectList("selectProductsByCategoryId", categoryId);
-    }
 	
 
 	
