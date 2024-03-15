@@ -17,6 +17,8 @@ public class ProductDTO {
 	private int productInterestCount;
 	private int productChatCount;
 	private String categoryId;
+	
+	
 	public int getProductId() {
 		return productId;
 	}
