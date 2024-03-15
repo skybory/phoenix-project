@@ -3,6 +3,8 @@ package com.lemonmarket.web.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class ProductDAO {
