@@ -6,7 +6,11 @@
 
 	<insert id="join" parameterType="productdto">
 		INSERT INTO `product` VALUES
+<<<<<<< HEAD
 		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#{categoryId})
+=======
+		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#(categoryId))
+>>>>>>> 39b36173770b7eb329a188e01794e34abb255eb8
 	</insert>
 
 	<select id="selectProductsByCategoryId" parameterType="String" resultType="productdto">

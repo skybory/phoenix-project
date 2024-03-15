@@ -10,6 +10,10 @@
 		<typeAlias type="com.lemonmarket.web.dto.UserDTO" alias="userdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.ProductDTO" alias="productdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.CategoryDTO" alias="categorydto"/>
+<<<<<<< HEAD
+=======
+		<typeAlias type="com.lemonmarket.web.dto.MytradeDTO" alias="mytradedto"/>
+>>>>>>> 39b36173770b7eb329a188e01794e34abb255eb8
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
