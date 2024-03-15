@@ -99,65 +99,66 @@ if (udto != null) {
 			</div>
 		</nav>
 		<!-- Pricing section-->
-		<section class="bg-light py-5">
-			<div class="container px-5 my-5">
-				<div class="text-center mb-5">
-					<h1 class="fw-bolder">믿을만한 이웃 간 중고거래</h1>
-					<p class="lead fw-normal text-muted mb-0">동네 주민들과 가깝고 따뜻한 거래를
-						지금 경험해보세요.</p>
-				</div>
-				<div class="row gx-5 justify-content-center">
-					<!-- Banner -->
-					<section class="banner-section bg-primary py-3 mb-5">
-						<div class="container px-4">
-							<div class="row justify-content-center align-items-center">
-								<div class="col-lg-8 text-center">
+<section class="bg-light py-5">
+    <div class="container px-5 my-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bolder">믿을만한 이웃 간 중고거래</h1>
+            <p class="lead fw-normal text-muted mb-0">동네 주민들과 가깝고 따뜻한 거래를
+                지금 경험해보세요.</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <!-- Banner -->
+            <section class="banner-section bg-primary py-3 mb-5">
+                <div class="container px-4">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-8 text-center">
+                            <span id="setLocation"></span>
+                            <p class="banner-text text-white-50">위치를 설정하시겠어요?</p>
+                            <!-- 수정된 버튼 -->
+                            <a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치 등록하기</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
 
-									<span id="setLocation"></span>
-
-									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p>
-									<!-- 추가된 버튼 -->
-									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치
-										등록하기</a>
-								</div>
-							</div>
-						</div>
-					</section>
-
-					<section>
-						<div class="row gx-5 justify-content-center">
-							<%
-							for (int i = 0; i < 12; i++) {
-							%>
-							<!-- Pricing card -->
-							<div class="col-lg-6 col-xl-4 mb-4">
-								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5" onclick="redirectToProductDetail()">
-										<!-- 상품 이미지 -->
-										<img src="img.png" alt="Product Image" class="card-img mb-3">
-										<!-- 상품명 -->
-										<h4 class="card-title">상품명</h4>
-										<div class="mb-3">
-											<!-- 상품가격 -->
-											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-										</div>
-										<!-- 지역 -->
-										<p class="text-muted mb-4">지역: 서울시 동작구</p>
-										<!-- mb-4로 간격 늘림 -->
-										<!-- 찜하기, 채팅 개수 -->
-										<div class="d-flex justify-content-between align-items-center">
-											<p class="text-muted mb-0">관심 8</p>
-											<p class="text-muted mb-0">채팅 5</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<%
-							}
-							%>
-						</div>
-				</div>
-		</section>
+<section>
+    <div class="row gx-5 justify-content-center">
+        <%
+        for (int i = 0; i < 12; i++) {
+        %>
+        <!-- Pricing card -->
+        <div class="col-lg-6 col-xl-4 mb-4">
+            <div class="card mb-5 mb-xl-0">
+                <div class="card-body p-5">
+                    <a href="/product/ViewDetailAction.pr" class="card-link">
+                        <!-- 상품 이미지 -->
+                        <img src="img.png" alt="Product Image" class="card-img mb-3">
+                        <!-- 상품명 -->
+                        <h4 class="card-title">상품명</h4>
+                        <div class="mb-3">
+                            <!-- 상품가격 -->
+                            <span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+                        </div>
+                        <!-- 지역 -->
+                        <p class="text-muted mb-4">지역: 서울시 동작구</p>
+                        <!-- mb-4로 간격 늘림 -->
+                        <!-- 찜하기, 채팅 개수 -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="text-muted mb-0">관심 8</p>
+                            <p class="text-muted mb-0">채팅 5</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%
+        }
+        %>
+    </div>
+</section>
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
@@ -184,9 +185,9 @@ if (udto != null) {
 	<script src="js/scripts.js"></script>
 
 	<script>
-		function redirectToProductDetail() {
-			window.location.href = 'product_detail.jsp';
-		}
+// 		function redirectToProductDetail() {
+// 			window.location.href = 'product_detail.jsp';
+// 		}
 
 		function addInterest() {
 			var interestCountElement = document.getElementById("interestCount");
