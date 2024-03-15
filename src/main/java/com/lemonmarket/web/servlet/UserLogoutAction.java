@@ -1,6 +1,5 @@
 package com.lemonmarket.web.servlet;
 
-import com.lemonmarket.web.dao.UserDAO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;

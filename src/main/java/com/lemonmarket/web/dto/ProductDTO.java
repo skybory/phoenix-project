@@ -16,6 +16,7 @@ public class ProductDTO {
 	private String productRegisterTime;
 	private String productInterestCount;
 	private String productChatCount;
+	private String categoryId;
 	
 	public String getProductId() {
 		return productId;
@@ -83,6 +84,13 @@ public class ProductDTO {
 	public void setProductChatCount(String productChatCount) {
 		this.productChatCount = productChatCount;
 	}
+	public String getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
 	
+
 	
 }
