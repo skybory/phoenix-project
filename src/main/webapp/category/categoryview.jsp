@@ -81,7 +81,7 @@
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리(편집부탁)</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -120,12 +120,12 @@
     <div class="container mt-5">
         <div class="category-container">
             <c:choose>
-                <c:when test="${categories != null and fn:length(categories) > 0}">
-                    <c:forEach var="category" items="${categories}">
+                <c:when test="${category != null and fn:length(category) > 0}">
+                    <c:forEach var="category" items="${category}">
                         <div class="category">
-                            <a href="${pageContext.request.contextPath}/categorie/viewCategory?categoryId=${category.categoriesId}">
-                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoriesId}.png" alt="${category.categoriesName}">
-                                <p>${category.categoriesName}</p>
+                            <a href="${pageContext.request.contextPath}/category/viewCategory?categoryId=${category.categoryId}">
+                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
+                                <p>${category.categoryName}</p>
                             </a>
                         </div>
                     </c:forEach>
@@ -135,6 +135,11 @@
                 </c:otherwise>
             </c:choose>
         </div>
+    </div>
+    <div class="relative flex items-center justify-between">
+    <a class="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-6 pe-4 transition duration-300 ease-in-out" href="/search?category=1">
+    <span class="block w-full ga4_main_gnb" id="수입명품">수입명품</span>
+    </a>
     </div>
 		<!-- Footer-->
 		<footer class="bg-dark py-4 mt-auto">

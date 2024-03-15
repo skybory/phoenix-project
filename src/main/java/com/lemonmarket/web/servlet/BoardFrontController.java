@@ -71,7 +71,7 @@ public class BoardFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/user/joinview.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/board/Categorie.bo":
+		case "/board/Category.bo":
 			forward = new SelectCateegoriesAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;

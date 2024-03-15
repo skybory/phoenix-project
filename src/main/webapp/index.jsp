@@ -63,7 +63,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리(편집부탁)</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
 
