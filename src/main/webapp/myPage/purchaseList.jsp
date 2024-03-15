@@ -63,7 +63,7 @@
 </head>
 <body>
 <div id="container">
-    <h2>내 구매 목록</h2>
+    <h2 style="text-align: center; color:orange;">내 구매 목록</h2>
     <table>
         <thead>
             <tr>
