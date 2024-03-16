@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.lemonmarket.web.dto.ProductDTO;
+import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class ProductDAO {
@@ -32,8 +33,11 @@ public class ProductDAO {
 	}
 
 	public boolean register(ProductDTO pdto) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		if(sqlSession.insert("Product.register",pdto)==1) {
+			result = true;
+		}
+		return result;
 	}
 
 	public ProductDTO viewProductDetail(int productId) {
@@ -46,7 +50,6 @@ public class ProductDAO {
 		HashMap<String, Integer> datas = new HashMap<>();
 		datas.put("startRow", startRow);
 		datas.put("pageSize", pageSize);
-		
 		List<ProductDTO> productList
 			=sqlSession.selectList("Product.getList",datas);
 		return productList;

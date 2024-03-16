@@ -9,6 +9,7 @@ import com.lemonmarket.web.action.ActionForward;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class ProductRegisterAction implements Action{
 
@@ -17,21 +18,20 @@ public class ProductRegisterAction implements Action{
 		
 		ProductDAO pdao = new ProductDAO();
 		ProductDTO pdto = new ProductDTO();
-		
+		HttpSession session = request.getSession();
+		UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+		String userId = udto.getUserId();
 		ActionForward forward = new ActionForward();
 		
-		pdto.setProductId(Integer.parseInt(request.getParameter("productId")));
-		pdto.setUserId(null);
+		pdto.setUserId(userId);
 		pdto.setProductTitle(request.getParameter("productTitle"));
 		pdto.setProductDescription(request.getParameter("productDescription"));
 		pdto.setProductImage(request.getParameter("productImage"));
 		pdto.setProductDealType(request.getParameter("productDealType"));
-		pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
+//		pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
+		pdto.setProductPrice(5);
 		pdto.setProductLocation(request.getParameter("productLocation"));
-		pdto.setProductRegisterTime(request.getParameter("productRegisterTime"));
-		pdto.setProductInterestCount(Integer.parseInt(request.getParameter("productInterestCount")));
-		pdto.setProductChatCount(Integer.parseInt(request.getParameter("productChatCount")));
-		
+
 		
 		if( pdao.register(pdto) ) {	// 물품 등록 성공
 			forward.setPath("/product/productMain.jsp");

@@ -4,9 +4,9 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Product">
 
-	<insert id="join" parameterType="productdto">
+	<insert id="register" parameterType="productdto">
 		INSERT INTO `product` VALUES
-		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#{categoryId})
+		(null,#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,null,0,0,'1')
 	</insert>
 
 	<select id="selectProductsByCategoryId" parameterType="String"
@@ -31,7 +31,8 @@
 	</select>
 
 	<select id="getProductCnt" resultType="_int">
-		SELECT COUNT('productId') FROM `product`
+		SELECT COUNT('productId')
+		FROM `product`
 	</select>
 
 </mapper>
