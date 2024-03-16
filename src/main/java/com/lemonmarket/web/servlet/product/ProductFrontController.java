@@ -41,6 +41,9 @@ public class ProductFrontController extends HttpServlet {
 		case "/product/ViewDetailAction.pr":
 			forward = new ProductViewDetailAction().execute(req,resp);
 			break;
+		case "/product/DecreaseInterest.pr":
+			forward = new DecreaseInterestAction().execute(req,resp);
+			break;
 //		case "/product/UpdateChatCountAction.pr":
 //			// 채팅 수 업데이트 액션 요청 처리
 //			String productId = req.getParameter("productId");
@@ -52,8 +55,8 @@ public class ProductFrontController extends HttpServlet {
 		case "/product/UpdateInterestCountAction.pr":
 			// 관심 수 업데이트 액션 요청 처리
 			String interestProductId = req.getParameter("productId");
-			int interestCount = Integer.parseInt(req.getParameter("interestCount"));
-			new ProductDAO().updateInterestCount(interestProductId, interestCount);
+			int productInterestCount = Integer.parseInt(req.getParameter("productInterestCount"));
+			new ProductDAO().updateInterestCount(interestProductId, productInterestCount);
 			forward = new UpdateInterestCountAction().execute(req, resp);
 			break;
 		}

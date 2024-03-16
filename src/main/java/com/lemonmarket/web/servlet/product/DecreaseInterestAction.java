@@ -6,27 +6,29 @@ import java.io.IOException;
 
 import org.json.simple.JSONObject;
 
+import com.lemonmarket.web.action.Action;
+import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
 
-public class DecreaseInterestAction {
+public class DecreaseInterestAction implements Action {
 
-	public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+
 		JSONObject obj = null;
 		obj = new JSONObject();
 		ProductDAO pdao = new ProductDAO();
-		
-		int prId = Integer.parseInt(req.getParameter("productId"));
-		int inter = Integer.parseInt(req.getParameter("interestCount"));
+
+		int prId = Integer.parseInt(request.getParameter("productId"));
+		int inter = Integer.parseInt(request.getParameter("interestCount"));
 		inter = pdao.DecreaseInterestCount(prId) ? -1 : 1;
-		int result = 6; 
+		int result = 6;
 		System.out.println(inter);
 
 		obj.put("inter", inter);// 하고싶은거에 따라 추가
-		
-		
-		
-		resp.getWriter().println(obj);
-		resp.setContentType("application/json");
-	}
 
+		response.getWriter().println(obj);
+		response.setContentType("application/json");
+
+	}
 }

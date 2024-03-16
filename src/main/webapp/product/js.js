@@ -63,8 +63,8 @@ let productId = 102;
 //
 //		});
 //	} else {
-		if (interestCount > 0) {
-			interestCount--; // 관심 수 감소
+		if (productInterestCount > 0) {
+			productInterestCount--; // 관심 수 감소
 		}
 		isIncreased = false;
 
@@ -73,7 +73,7 @@ let productId = 102;
 			url: '/product/DecreaseInterest.pr',
 			data: {
 				"productId": productId,
-				"interestCount": interestCount
+				"productInterestCount": productInterestCount
 			},
 			success: function(result) {
 

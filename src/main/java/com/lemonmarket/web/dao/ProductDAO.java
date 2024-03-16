@@ -27,9 +27,9 @@ public class ProductDAO {
 		return result;
 	}
 
-	public boolean updateInterestCount(String interestProductId, int interestCount) {
+	public boolean DecreaseInterestCount (String interestProductId, int interestCount) {
+		
 		return false;
-		// TODO Auto-generated method stub
 	}
 
 	public boolean register(ProductDTO pdto) {
