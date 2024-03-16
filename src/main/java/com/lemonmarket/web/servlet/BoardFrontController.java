@@ -2,9 +2,9 @@ package com.lemonmarket.web.servlet;
 
 import java.io.IOException;
 
+
 import com.lemonmarket.web.action.ActionForward;
-import com.lemonmarket.web.servlet.category.SelectCategoryAction;
-import com.lemonmarket.web.servlet.my.MyPurchaseDetailsAction;
+import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -47,8 +47,8 @@ public class BoardFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/about/about.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/board/Pricing.bo":
-			forward = new ActionForward(true, "/product/productMain.jsp");
+		case "/board/Product.bo":
+			forward = new ProductViewMainAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Faq.bo":
