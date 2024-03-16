@@ -27,20 +27,20 @@ public class CategoryFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		
-		switch (requestURI) {
-		case "/user/cat":
-			forward = new UserLoginAction().execute(req, resp);
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
-		case "/user/UserJoinAction.cat":
-			forward = new UserJoinAction().execute(req, resp);
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
-		case "/user/UserLogoutAction.cat":
-			forward = new UserLogoutAction().execute(req, resp);
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
-		}
+//		switch (requestURI) {
+//		case "/user/cat":
+//			forward = new UserLoginAction().execute(req, resp);
+//			// 화면을 바로 보여줄땐 ActionForward
+//			break;
+//		case "/user/UserJoinAction.cat":
+//			forward = new UserJoinAction().execute(req, resp);
+//			// 화면을 바로 보여줄땐 ActionForward
+//			break;
+//		case "/user/UserLogoutAction.cat":
+//			forward = new UserLogoutAction().execute(req, resp);
+//			// 화면을 바로 보여줄땐 ActionForward
+//			break;
+//		}
 			
 		// 페이지 이동에 대한 일괄처리
 		if( forward != null ) {

@@ -132,24 +132,33 @@ if (udto != null) {
 		</nav>
 		<div class="container mt-5">
 			<div class="category-container">
-				<c:choose>
-					<c:when test="${category != null and fn:length(category) > 0}">
-						<c:forEach var="category" items="${category}">
-							<div class="category">
-								<a
-									href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${category.categoryId}">
-									<img
-									src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png"
-									alt="${category.categoryName}">
-									<p>${category.categoryName}</p>
-								</a>
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div style="text-align: center">등록된 카테고리가 없습니다.</div>
-					</c:otherwise>
-				</c:choose>
+            <c:choose>
+                <c:when test="${category != null and fn:length(category) > 0}">
+                    <c:forEach var="category" items="${category}">
+                        <div class="category">
+                            <c:choose>
+                        <c:when test="${category.categoryId == '1'}">
+                            <!-- '의류' 카테고리일 경우의 링크 -->
+                            <a href="${pageContext.request.contextPath}/category/cloth.jsp">
+                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
+                                <p>${category.categoryName}</p>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 다른 카테고리의 일반 링크 -->
+                            <a href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${category.categoryId}">
+                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
+                                <p>${category.categoryName}</p>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div style="text-align: center">등록된 카테고리가 없습니다.</div>
+                </c:otherwise>
+            </c:choose>
 			</div>
 
 			<!-- Footer-->
