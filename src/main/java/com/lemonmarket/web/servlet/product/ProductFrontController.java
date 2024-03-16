@@ -53,13 +53,6 @@ public class ProductFrontController extends HttpServlet {
 			forward = new UpdateInterestCountAction().execute(req, resp);
 			break;
 			
-		case "/product/RandomProductListAction.pro":
-		    // 랜덤 상품 목록 액션 요청 처리를 위한 액션 클래스 인스턴스 생성
-		    Action randomProductListAction = new RandomProductListAction();
-		    
-		    // 액션 실행
-		    forward = randomProductListAction.execute(req, resp);
-		    break;
 
 		}
 		
