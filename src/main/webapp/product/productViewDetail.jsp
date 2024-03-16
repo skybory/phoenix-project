@@ -26,6 +26,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
 /* 추가된 이미지의 너비 조정 */
 .custom-card-img {
@@ -151,9 +152,9 @@
 					<div class="d-flex justify-content-center mt-3">
 						<button class="btn btn-outline-primary mr-2"
 							onclick="toggleInterest()">
-							${pdto.productInterestCount } <span id="productInterestCount">0</span>
 						</button>
-						<a href="chatting.jsp" class="btn btn-outline-primary">${pdto.productChatCount }</a>
+							관심 ${pdto.productInterestCount } <span id="productInterestCount"></span>
+						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>
@@ -191,7 +192,7 @@
 										<!-- mb-4로 간격 늘림 -->
 										<!-- 찜하기, 채팅 개수 -->
 										<div class="d-flex justify-content-between align-items-center">
-											<p class="text-muted mb-0">관심 8</p>
+											<p class="text-muted mb-0">관심 : <span id = "interest"></span></p>
 											<p class="text-muted mb-0">채팅 5</p>
 										</div>
 									</div>
@@ -228,29 +229,30 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<script src="./js/scripts.js"></script>
+	<script src="./js.js"></script>
 	<script>
-		function redirectToProductDetail() {
-			window.location.href = 'product_detail.jsp';
-		}
+		//function redirectToProductDetail() {
+			//window.location.href = 'product_detail.jsp';
+// 		}
 
-		let interestCount = ${"ProductDTO.productInterestCount"}; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
-		let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수	--> 페이지에서 관리하는 변수라고 칩시다.
+		//let interestCount = ${"ProductDTO.productInterestCount"}; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
+	//	let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수	--> 페이지에서 관리하는 변수라고 칩시다.
 		// 이 변수가 false -> true : productDTO 의 interest count 를 update 시키는 작업(product.xml) (1 늘리기)
 		// 이 변수가 true -> false : productDTO의 interest count 를 update 시킴 ( 1 줄이기)
 
-		function toggleInterest() {
-			if (!isIncreased) {
-				interestCount++; // 관심 수 증가
-				isIncreased = true;
-			} else {
-				if (interestCount > 0) {
-					interestCount--; // 관심 수 감소
-				}
-				isIncreased = false;
-			}
-			document.getElementById('productInterestCount').innerText = interestCount; // 관심 수 표시 업데이트
-		}
+// 		function toggleInterest() {
+// 			if (!isIncreased) {
+// 				interestCount++; // 관심 수 증가
+// 				isIncreased = true;
+// 			} else {
+// 				if (interestCount > 0) {
+// 					interestCount--; // 관심 수 감소
+// 				}
+// 				isIncreased = false;
+// 			}
+// 			document.getElementById('productInterestCount').innerText = interestCount; // 관심 수 표시 업데이트
+// 		}
 	</script>
 
 </body>

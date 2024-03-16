@@ -35,5 +35,15 @@
 		FROM `product`
 	</select>
 
+	<update id="updateInterestCount" parameterType="string">
+		UPDATE product
+		SET productInterestCount = productInterestCount + 1
+		WHERE productId = #{productId}
+
+	</update>
+	<select id="getInterest" parameterType = "_int" resultType = "_int">
+		select productInterestCount from `product` where productId= #{productId}
+	
+	</select>
 </mapper>
  

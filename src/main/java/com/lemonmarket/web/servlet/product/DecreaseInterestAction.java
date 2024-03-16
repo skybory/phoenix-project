@@ -21,7 +21,7 @@ public class DecreaseInterestAction implements Action {
 
 		int prId = Integer.parseInt(request.getParameter("productId"));
 		int inter = Integer.parseInt(request.getParameter("interestCount"));
-		inter = pdao.DecreaseInterestCount(prId) ? -1 : 1;
+		inter = pdao.updateInterestCount(prId) ? -1 : 1;
 		int result = 6;
 		System.out.println(inter);
 

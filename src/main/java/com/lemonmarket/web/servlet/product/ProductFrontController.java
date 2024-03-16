@@ -41,23 +41,10 @@ public class ProductFrontController extends HttpServlet {
 		case "/product/ViewDetailAction.pr":
 			forward = new ProductViewDetailAction().execute(req,resp);
 			break;
-		case "/product/DecreaseInterest.pr":
-			forward = new DecreaseInterestAction().execute(req,resp);
-			break;
-//		case "/product/UpdateChatCountAction.pr":
-//			// 채팅 수 업데이트 액션 요청 처리
-//			String productId = req.getParameter("productId");
-//			int chatCount = Integer.parseInt(req.getParameter("chatCount"));
-//			new ProductDAO().updateChatCount(productId, chatCount);
-//			forward = new ActionForward("/pricing/product_detail.jsp", true); // 적절한 URL과 리다이렉트 여부 설정
-//			break;
 
-		case "/product/UpdateInterestCountAction.pr":
+		case "/product/DecreaseInterest.pr":
 			// 관심 수 업데이트 액션 요청 처리
-			String interestProductId = req.getParameter("productId");
-			int productInterestCount = Integer.parseInt(req.getParameter("productInterestCount"));
-			new ProductDAO().updateInterestCount(interestProductId, productInterestCount);
-			forward = new UpdateInterestCountAction().execute(req, resp);
+			new UpdateInterestCountAction().execute(req, resp);
 			break;
 		}
 

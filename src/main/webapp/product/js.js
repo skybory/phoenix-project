@@ -36,9 +36,9 @@ function toggleInterest() {
 //	let interestCount = session.setAttribute("productInterestCount", productInterestCouont );
 //	let productId = session.setAttribute("productId", productId);
 	// 세션에서 값 받아오기 태연님께 모르는거 물어보기
-let interestCount = 34; 
+let productInterestCount = 34; 
 let productId = 102;
-
+let interest = 1;
 //	if (!isIncreased) {
 //		interestCount++; // 관심 수 증가
 //		isIncreased = true;
@@ -63,23 +63,24 @@ let productId = 102;
 //
 //		});
 //	} else {
-		if (productInterestCount > 0) {
-			productInterestCount--; // 관심 수 감소
-		}
-		isIncreased = false;
+//		if (productInterestCount > 0) {
+//			productInterestCount--; // 관심 수 감소
+//		}
+//		isIncreased = false;
 
 		$.ajax({
 			type: 'POST',
-			url: '/product/DecreaseInterest.pr',
+			url: '/product/DecreaseInterest.pr?productId=154',
 			data: {
 				"productId": productId,
-				"productInterestCount": productInterestCount
+				"productInterestCount": productInterestCount,
+				"interest" : interest
 			},
 			success: function(result) {
 
 				let ajaxresult = JSON.parse(JSON.stringify(result));
 				// 				             $("#max").val(ajaxresult.max);
-				$("#min").val(ajaxresult.inter);
+				$("#interest").val(ajaxresult.interest);
 
 			},
 			error: function(result) {

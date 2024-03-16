@@ -1,5 +1,10 @@
 package com.lemonmarket.web.servlet.product;
 
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+
+
 import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
@@ -7,23 +12,32 @@ import com.lemonmarket.web.dao.ProductDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class UpdateInterestCountAction implements Action {
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		// ActionForward 객체 생성
-		ActionForward forward = new ActionForward();
-		String productId = "plzeFix"; 
-		// productDAO 객체 생성
-		ProductDAO pdao = new ProductDAO();
+public class UpdateInterestCountAction {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		JSONObject obj = null;
+		int productId = Integer.parseInt(request.getParameter("productId"));
+//		int interest = Integer.parseInt("interest");		ProductDAO pdao = new ProductDAO();
 
-		int productInterestCount = Integer.parseInt(request.getParameter("productInterestCount"));
+		obj = new JSONObject();
+		String userid; //로그인한 아이디
+		int productInterestCount = pdao.updateInterestCount(userid);
+		int interest = pdao.getInterest(productId);
+		int result = 6;
+		System.out.println(interest); //test
 
-		// 관심수 업데이트가 성공하면
-		if (pdao.updateInterestCount(productId, productInterestCount)) {
-			// forward를 리다이렉트로 설정함
-			forward.setRedirect(true);
+		obj.put("interest", interest);// 하고싶은거에 따라 추가
 
-		}
-		return forward;
+		response.getWriter().println(obj);
+		response.setContentType("application/json");
+		
+		
+		
 
+		
+		
+		
+
+	
 	}
 }
