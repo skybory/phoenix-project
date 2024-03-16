@@ -1,9 +1,13 @@
 package com.lemonmarket.web.servlet.product;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
+import com.lemonmarket.web.dto.ProductDTO;
+import com.lemonmarket.web.servlet.category.RandomProductListAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,7 +30,7 @@ public class ProductFrontController extends HttpServlet {
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
-
+	
 		switch (requestURI) {
 		case "/product/RegisterProductAction.pro":
 			forward = new ProductRegisterAction().execute(req, resp);
@@ -48,7 +52,18 @@ public class ProductFrontController extends HttpServlet {
 			new ProductDAO().updateInterestCount(interestProductId, interestCount);
 			forward = new UpdateInterestCountAction().execute(req, resp);
 			break;
+			
+		case "/product/RandomProductListAction.pro":
+		    // 랜덤 상품 목록 액션 요청 처리를 위한 액션 클래스 인스턴스 생성
+		    Action randomProductListAction = new RandomProductListAction();
+		    
+		    // 액션 실행
+		    forward = randomProductListAction.execute(req, resp);
+		    break;
+
 		}
+		
+		
 
 		// 페이지 이동에 대한 일괄처리
 		if (forward != null) {

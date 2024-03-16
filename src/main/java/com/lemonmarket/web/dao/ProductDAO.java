@@ -41,5 +41,9 @@ public class ProductDAO {
     }
 	
 
+	public List<ProductDTO> getRandomProducts() {
+        return sqlSession.selectList("getRandomProducts");
+    }
+	
 	
 }

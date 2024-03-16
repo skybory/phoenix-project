@@ -13,6 +13,9 @@
 		SELECT * FROM `product` WHERE categoryId = #{categoryId}
 	</select>
 
-
+	<select id="getRandomProducts" resultType="productdto">
+    	SELECT * FROM `product` ORDER BY RAND() LIMIT 10
+	</select>	
+	
 </mapper>
  
