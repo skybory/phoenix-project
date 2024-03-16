@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+    <wb-module deploy-name="LemonMarket">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="LemonMarket"/>
+        <property name="java-output-path" value="/LemonMarket/build/classes"/>
+=======
+    <wb-module deploy-name="Phoenix">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="Phoenix"/>
+        <property name="java-output-path" value="/Phoenix/build/classes"/>
+>>>>>>> e5c19760649f538c7c3cf98ff2af1b29c0881898
+    </wb-module>
+</project-modules>
