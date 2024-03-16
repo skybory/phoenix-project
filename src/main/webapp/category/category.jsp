@@ -132,59 +132,65 @@ if (udto != null) {
 		</nav>
 		<div class="container mt-5">
 			<div class="category-container">
-            <c:choose>
-                <c:when test="${category != null and fn:length(category) > 0}">
-                    <c:forEach var="category" items="${category}">
-                        <div class="category">
-                            <c:choose>
-                        <c:when test="${category.categoryId == '1'}">
-                            <!-- '의류' 카테고리일 경우의 링크 -->
-                            <a href="${pageContext.request.contextPath}/category/cloth.jsp">
-                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
-                                <p>${category.categoryName}</p>
-                            </a>
-                        </c:when>
-                        <c:otherwise>
-                            <!-- 다른 카테고리의 일반 링크 -->
-                            <a href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${category.categoryId}">
-                                <img src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png" alt="${category.categoryName}">
-                                <p>${category.categoryName}</p>
-                            </a>
-                        </c:otherwise>
-                    </c:choose>
-                        </div>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <div style="text-align: center">등록된 카테고리가 없습니다.</div>
-                </c:otherwise>
-            </c:choose>
+				<c:choose>
+					<c:when test="${category != null and fn:length(category) > 0}">
+						<c:forEach var="cat" items="${category}">
+							<div class="category">
+								<c:choose>
+									<c:when test="${cat.categoryId == '1'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a
+											href="${pageContext.request.contextPath}/category/cloth.jsp">
+											<img src="/category/cloth.png" alt="의류">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:otherwise>
+										<!-- 다른 카테고리의 일반 링크 -->
+										<a
+											href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${cat.categoryId}">
+											<img
+											src="${pageContext.request.contextPath}/images/icons/${cat.categoryId}.png"
+											alt="${cat.categoryName}">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div style="text-align: center">등록된 카테고리가 없습니다.</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
+		</div>
 
-			<!-- Footer-->
-			<footer class="bg-dark py-4 mt-auto">
-				<div class="container px-5">
-					<div
-						class="row align-items-center justify-content-between flex-column flex-sm-row">
-						<div class="col-auto">
-							<div class="small m-0 text-white">Copyright &copy; Your
-								Website 2023</div>
-						</div>
-						<div class="col-auto">
-							<a class="link-light small" href="#!">Privacy</a> <span
-								class="text-white mx-1">&middot;</span> <a
-								class="link-light small" href="#!">Terms</a> <span
-								class="text-white mx-1">&middot;</span> <a
-								class="link-light small" href="#!">Contact</a>
-						</div>
+
+		<!-- Footer-->
+		<footer class="bg-dark py-4 mt-auto">
+			<div class="container px-5">
+				<div
+					class="row align-items-center justify-content-between flex-column flex-sm-row">
+					<div class="col-auto">
+						<div class="small m-0 text-white">Copyright &copy; Your
+							Website 2023</div>
+					</div>
+					<div class="col-auto">
+						<a class="link-light small" href="#!">Privacy</a> <span
+							class="text-white mx-1">&middot;</span> <a
+							class="link-light small" href="#!">Terms</a> <span
+							class="text-white mx-1">&middot;</span> <a
+							class="link-light small" href="#!">Contact</a>
 					</div>
 				</div>
-				
-			</footer>
-			<!-- Bootstrap core JS-->
-			<script
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-			<!-- Core theme JS-->
-			<script src="js/scripts.js"></script>
+			</div>
+
+		</footer>
+		<!-- Bootstrap core JS-->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="js/scripts.js"></script>
 </body>
 </html>
