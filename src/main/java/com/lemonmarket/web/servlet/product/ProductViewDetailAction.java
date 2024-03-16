@@ -15,13 +15,25 @@ public class ProductViewDetailAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		ProductDAO pdao = new ProductDAO();
-		ProductDTO pdto = new ProductDTO();
 		
 		ActionForward forward = new ActionForward();
-		HttpSession session = request.getSession(); // 세션을 가져옵니다.
-		forward.setPath("/product/productViewDetail.jsp");
-		forward.setRedirect(true);	// redirect
+        
+        // ProductDAO를 통해 해당 제품의 세부 정보 가져오기
+        ProductDAO pdao = new ProductDAO();
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        ProductDTO pdto = pdao.viewProductDetail(productId);
+	        if (pdto != null) {
+	            // ProductDTO 객체가 유효한 경우
+	            request.setAttribute("pdto", pdto);
+	            forward.setRedirect(false); // redirect하지 않음
+	            forward.setPath("/product/productViewDetail.jsp");
+	        } else {
+	            // ProductDTO 객체가 null인 경우
+	            forward.setRedirect(true);
+	            forward.setPath("/error.jsp");
+	        }
+
+
 		return forward;
 	}
 

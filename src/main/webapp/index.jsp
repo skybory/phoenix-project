@@ -84,7 +84,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 
                   <%
                   if (udto == null) {
@@ -153,7 +153,7 @@ if (udto != null) {
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
-									href="resgistration/registration.jsp">물건 등록하기</a> <a
+									href="/product/ProductWriteBoard.pr">물건 등록하기</a> <a
 									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지 고민중...</a>
 							</div>
 						</div>

@@ -131,7 +131,7 @@
 							style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
 							<p class="m-0">
-								홍길동<br> 서울시 동작구
+								${pdto.userId }<br> ${pdto.productLocation }
 							</p>
 						</div>
 					</div>
@@ -139,21 +139,21 @@
 					<div class="text-start" style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
 						<h4 class="card-title-name">
-							<strong>마우스</strong>
+							<strong>${pdto.productId}</strong>
 						</h4>
-						<p class="card-text-time">3시간 전</p>
+						<p class="card-text-time">${pdto.productRegisterTime }</p>
 						<p class="card-text-price">
-							<strong>300,000원</strong>
+							<strong>${pdto.productPrice }</strong>
 						</p>
-						<p class="card-text-explain">상세설명</p>
+						<p class="card-text-explain">${pdto.productDescription }</p>
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
 						<button class="btn btn-outline-primary mr-2"
 							onclick="toggleInterest()">
-							관심 <span id="interestCount">0</span>
+							${pdto.productInterestCount } <span id="productInterestCount">0</span>
 						</button>
-						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
+						<a href="chatting.jsp" class="btn btn-outline-primary">${pdto.productChatCount }</a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>

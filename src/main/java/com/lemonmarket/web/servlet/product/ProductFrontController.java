@@ -28,7 +28,12 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 
 		switch (requestURI) {
-		case "/product/RegisterProductAction.pr":
+		
+		case "/product/ProductWriteBoard.pr":
+			forward = new ActionForward(true, "/product/productRegistration.jsp");
+			break;
+			
+		case "/product/ProductRegisterAction.pr":
 			forward = new ProductRegisterAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
