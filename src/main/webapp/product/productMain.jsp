@@ -1,8 +1,6 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +39,8 @@ String userName = null;
 String userId = null;
 
 if (udto != null) {
-	userId = udto.getUserId();
-	userName = udto.getUserName();
+ userId = udto.getUserId();
+ userName = udto.getUserName();
 }
 %>
 
@@ -53,8 +51,7 @@ if (udto != null) {
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -84,16 +81,15 @@ if (udto != null) {
 						%>
 
 						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting"> <%=userName%>님(<%=userId%>) 안녕하세요
-						</a></li>
-
-
-
+						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+        <%=userName%>님(<%=userId%>) 안녕하세요
+    </a></li>
+								
+								
+								
 						<li class="nav-item"><a class="nav-link"
 							href="/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
 						}
@@ -116,79 +112,51 @@ if (udto != null) {
 						<div class="container px-4">
 							<div class="row justify-content-center align-items-center">
 								<div class="col-lg-8 text-center">
+
 									<span id="setLocation"></span>
+
 									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p>
-									<!-- 수정된 버튼 -->
+									<!-- 추가된 버튼 -->
 									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치
 										등록하기</a>
 								</div>
 							</div>
 						</div>
 					</section>
-				</div>
-			</div>
-		</section>
 
-		<section>
-			<div class="row gx-5 justify-content-center">
-				<c:choose>
-					<c:when
-						test="${productList != null and fn:length(productList) > 0 }">
-						<c:forEach var="product" items="${productList}">
+					<section>
+						<div class="row gx-5 justify-content-center">
+							<%
+							for (int i = 0; i < 12; i++) {
+							%>
 							<!-- Pricing card -->
 							<div class="col-lg-6 col-xl-4 mb-4">
 								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5">
-										<a
-											href="/product/ViewDetailAction.pr?productId=${product.productId}"
-											class="card-link"> <!-- 상품 이미지 --> <img
-											src="${product.productImage}" alt="Product Image"
-											class="card-img mb-3"> <!-- 상품명 -->
-											<h4 class="card-title">${product.productTitle }</h4>
-											<div class="mb-3">
-												<!-- 상품가격 -->
-												<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
-											</div> <!-- 지역 -->
-											<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
-											<!-- 찜하기, 채팅 개수 -->
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0">${product.productInterestCount }</p>
-												<p class="text-muted mb-0">${product.productChatCount }</p>
-											</div>
-										</a>
+									<div class="card-body p-5" onclick="redirectToProductDetail()">
+										<!-- 상품 이미지 -->
+										<img src="img.png" alt="Product Image" class="card-img mb-3">
+										<!-- 상품명 -->
+										<h4 class="card-title">상품명</h4>
+										<div class="mb-3">
+											<!-- 상품가격 -->
+											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+										</div>
+										<!-- 지역 -->
+										<p class="text-muted mb-4">지역: 서울시 동작구</p>
+										<!-- mb-4로 간격 늘림 -->
+										<!-- 찜하기, 채팅 개수 -->
+										<div class="d-flex justify-content-between align-items-center">
+											<p class="text-muted mb-0">관심 8</p>
+											<p class="text-muted mb-0">채팅 5</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12 text-center">
-							<p>등록된 상품이 없습니다.</p>
+							<%
+							}
+							%>
 						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
-
-			<!-- Pagination -->
-			<c:if test="${totalPage > 1}">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center mt-4">
-						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
-						</li>
-						<c:forEach begin="${startPage}" end="${endPage}" step="1"
-							varStatus="loop">
-							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
-							</li>
-						</c:forEach>
-						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-						</li>
-					</ul>
-				</nav>
-			</c:if>
+				</div>
 		</section>
 	</main>
 	<!-- Footer-->
@@ -216,9 +184,9 @@ if (udto != null) {
 	<script src="js/scripts.js"></script>
 
 	<script>
-		// 		function redirectToProductDetail() {
-		// 			window.location.href = 'product_detail.jsp';
-		// 		}
+		function redirectToProductDetail() {
+			window.location.href = 'product_detail.jsp';
+		}
 
 		function addInterest() {
 			var interestCountElement = document.getElementById("interestCount");

@@ -6,33 +6,13 @@
 
 	<insert id="join" parameterType="productdto">
 		INSERT INTO `product` VALUES
-		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#{categoryId})
+		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#(categoryId))
 	</insert>
 
-	<select id="selectProductsByCategoryId" parameterType="String"
-		resultType="productdto">
+	<select id="selectProductsByCategoryId" parameterType="String" resultType="productdto">
 		SELECT * FROM `product` WHERE categoryId = #{categoryId}
 	</select>
 
-
-
-	<select id="viewProductDetail" parameterType="_int"
-		resultType="productdto">
-		select * from `product` where productId = #{productId}
-	</select>
-
-
-	<select id="getList" parameterType="hashmap"
-		resultType="productdto">
-		SELECT * FROM product
-		ORDER BY productId DESC
-		LIMIT
-		#{startRow}, #{pageSize}
-	</select>
-
-	<select id="getProductCnt" resultType="_int">
-		SELECT COUNT('productId') FROM `product`
-	</select>
 
 </mapper>
  

@@ -20,7 +20,7 @@ public class ProductRegisterAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		
-		pdto.setProductId(Integer.parseInt(request.getParameter("productId")));
+		pdto.setProductId(request.getParameter("productId"));
 		pdto.setUserId(null);
 		pdto.setProductTitle(request.getParameter("productTitle"));
 		pdto.setProductDescription(request.getParameter("productDescription"));
@@ -29,12 +29,12 @@ public class ProductRegisterAction implements Action{
 		pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
 		pdto.setProductLocation(request.getParameter("productLocation"));
 		pdto.setProductRegisterTime(request.getParameter("productRegisterTime"));
-		pdto.setProductInterestCount(Integer.parseInt(request.getParameter("productInterestCount")));
-		pdto.setProductChatCount(Integer.parseInt(request.getParameter("productChatCount")));
+		pdto.setProductInterestCount(request.getParameter("productInterestCount"));
+		pdto.setProductChatCount(request.getParameter("productChatCount"));
 		
 		
 		if( pdao.register(pdto) ) {	// 물품 등록 성공
-			forward.setPath("/product/productMain.jsp");
+			forward.setPath("/index.jsp");
 			forward.setRedirect(false);
 		}
 		
