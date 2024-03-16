@@ -14,13 +14,8 @@ public class ProductDTO {
 	private int productPrice;
 	private String productLocation;
 	private String productRegisterTime;
-<<<<<<< HEAD
 	private int productInterestCount;
 	private int productChatCount;
-=======
-	private String productInterestCount;
-	private String productChatCount;
->>>>>>> 7fa836d2abe3ae8ac445b0eb235869fad4e19a88
 	private String categoryId;
 	
 	
@@ -96,10 +91,6 @@ public class ProductDTO {
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 7fa836d2abe3ae8ac445b0eb235869fad4e19a88
 	
 
 	
