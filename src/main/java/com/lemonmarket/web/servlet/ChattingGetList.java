@@ -22,7 +22,7 @@ public class ChattingGetList{
 
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
+		System.out.println(" 오긴하니?");
 		List<ChatDTO> chatList = new ArrayList<>();
 		ChatDAO cdao = new ChatDAO();
 		ChatDTO cdto = new ChatDTO();
