@@ -1,6 +1,6 @@
 package com.lemonmarket.web.dao;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -67,4 +67,15 @@ public class ProductDAO {
 	public int getInterest(int productId) {
 		return sqlSession.selectOne("Product.getInterest",productId);
 	}
+	
+	public List<ProductDTO> selectProductsByCategoryId(String categoryId) {
+        return sqlSession.selectList("selectProductsByCategoryId", categoryId);
+    }
+	
+
+	public List<ProductDTO> getRandomProducts() {
+        return sqlSession.selectList("getRandomProducts");
+    }
+	
+	
 }

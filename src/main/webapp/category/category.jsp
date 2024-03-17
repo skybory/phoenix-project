@@ -22,39 +22,46 @@ if (udto != null) {
 <title>카테고리 페이지</title>
 <style>
 .category-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-	gap: 20px;
-	padding: 20px;
-	max-width: 1200px;
-	margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 카테고리 카드의 최소 너비를 조정해줍니다. */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .category {
-	text-align: center;
-	margin: 10px;
-	padding: 20px;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	transition: transform 0.2s;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    background-color: #fff; /* 배경색 추가 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 그림자 추가 */
 }
 
 .category:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .category img {
-	width: 80px; /* 아이콘 크기 조절 */
-	height: auto;
-	margin-bottom: 8px;
+    width: 100%; /* 이미지가 div에 꽉 차게 */
+    height: auto; /* 이미지의 비율을 유지하면서 높이를 자동 조정 */
+    max-width: 80px; /* 최대 이미지 너비를 제한합니다. */
+    margin-bottom: 8px;
+    display: block; /* 이미지를 블록 요소로 만들어 줄 바꿈을 추가 */
+    margin-left: auto; /* 가운데 정렬 */
+    margin-right: auto; /* 가운데 정렬 */
 }
 
 .category p {
-	margin-top: 5px;
-	font-size: 1rem;
-	color: #333;
+    margin-top: 5px;
+    font-size: 0.9rem; /* 폰트 크기 조정 */
+    color: #333;
 }
+
 </style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -134,15 +141,67 @@ if (udto != null) {
 			<div class="category-container">
 				<c:choose>
 					<c:when test="${category != null and fn:length(category) > 0}">
-						<c:forEach var="category" items="${category}">
+						<c:forEach var="cat" items="${category}">
 							<div class="category">
-								<a
-									href="${pageContext.request.contextPath}/pricing/pricing.jsp?categoryId=${category.categoryId}">
-									<img
-									src="${pageContext.request.contextPath}/images/icons/${category.categoryId}.png"
-									alt="${category.categoryName}">
-									<p>${category.categoryName}</p>
-								</a>
+								<c:choose>
+									<c:when test="${cat.categoryId == '1'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a
+											href="${pageContext.request.contextPath}/category/cloth.jsp">
+											<img src="/category/cloth.png" alt="의류">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '2'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/.jsp">
+											<img src="/category/beauty.png" alt="뷰티">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '3'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/.jsp">
+											<img src="/category/food.png" alt="식품">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '4'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/.jsp">
+											<img src="/category/digital.png" alt="가전디지털">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '5'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/.jsp">
+											<img src="/category/home.png" alt="홈인테리어">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '6'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/.jsp">
+											<img src="/category/book.png" alt="도서">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '7'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/cloth.jsp">
+											<img src="/category/kitchin.png" alt="주방용품">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+									<c:when test="${cat.categoryId == '8'}">
+										<!-- '의류' 카테고리일 경우의 링크 -->
+										<a href="${pageContext.request.contextPath}/category/cloth.jsp">
+											<img src="/category/sports.png" alt="스포츠">
+											<p>${cat.categoryName}</p>
+										</a>
+									</c:when>
+								</c:choose>
 							</div>
 						</c:forEach>
 					</c:when>
@@ -151,31 +210,33 @@ if (udto != null) {
 					</c:otherwise>
 				</c:choose>
 			</div>
+		</div>
 
-			<!-- Footer-->
-			<footer class="bg-dark py-4 mt-auto">
-				<div class="container px-5">
-					<div
-						class="row align-items-center justify-content-between flex-column flex-sm-row">
-						<div class="col-auto">
-							<div class="small m-0 text-white">Copyright &copy; Your
-								Website 2023</div>
-						</div>
-						<div class="col-auto">
-							<a class="link-light small" href="#!">Privacy</a> <span
-								class="text-white mx-1">&middot;</span> <a
-								class="link-light small" href="#!">Terms</a> <span
-								class="text-white mx-1">&middot;</span> <a
-								class="link-light small" href="#!">Contact</a>
-						</div>
+
+		<!-- Footer-->
+		<footer class="bg-dark py-4 mt-auto">
+			<div class="container px-5">
+				<div
+					class="row align-items-center justify-content-between flex-column flex-sm-row">
+					<div class="col-auto">
+						<div class="small m-0 text-white">Copyright &copy; Your
+							Website 2023</div>
+					</div>
+					<div class="col-auto">
+						<a class="link-light small" href="#!">Privacy</a> <span
+							class="text-white mx-1">&middot;</span> <a
+							class="link-light small" href="#!">Terms</a> <span
+							class="text-white mx-1">&middot;</span> <a
+							class="link-light small" href="#!">Contact</a>
 					</div>
 				</div>
-				
-			</footer>
-			<!-- Bootstrap core JS-->
-			<script
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-			<!-- Core theme JS-->
-			<script src="js/scripts.js"></script>
+			</div>
+
+		</footer>
+		<!-- Bootstrap core JS-->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="js/scripts.js"></script>
 </body>
 </html>
