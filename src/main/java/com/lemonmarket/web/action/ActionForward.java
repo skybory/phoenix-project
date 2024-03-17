@@ -13,7 +13,6 @@ public class ActionForward {
 		this.path = path;
 	}
 	
-
 	public boolean isRedirect() {
 		return isRedirect;
 	}

@@ -2,7 +2,6 @@ package com.lemonmarket.web.servlet;
 
 import java.io.IOException;
 
-
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
@@ -29,7 +28,11 @@ public class BoardFrontController extends HttpServlet {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 
+		// 화면 이동
 
+		// 예시
+
+ 
 		switch (requestURI) {
 		case "/board/Home.bo":
 			forward = new ActionForward(true, "/index.jsp");
