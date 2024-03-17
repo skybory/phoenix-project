@@ -130,7 +130,7 @@ if (udto != null) {
                         <input type="text" class="form-control" id="productLocation" name="productLocation">
                     </div>
                     <div class="text-center"></div>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();">가입완료</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();">물품 등록하기</button>
                     <a href="javascript:history.back()" class="btn btn-secondary">취소</a>
                 </form>
             </div>
