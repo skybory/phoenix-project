@@ -2,11 +2,14 @@ package com.lemonmarket.web.dao;
 
 
 import java.util.HashMap;
-import java.util.List;
 
+
+import java.util.List;
+import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.lemonmarket.web.dto.MytradeDTO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
@@ -28,9 +31,8 @@ public class UserDAO {
 		return result;
 	}
 
-	public boolean login(String userId, String userPw) {
+	public boolean login(String userId, String userPw, HttpSession session) {
 //		UserDTO udto = new UserDTO();
-		
 //		udto.setUserId(userId);
 //		udto.setUserPw(userPw);
 		boolean result = false;
@@ -38,8 +40,11 @@ public class UserDAO {
 			= new HashMap<String, String>();
 		datas.put("userId", userId);
 		datas.put("userPw", userPw);
+		UserDTO udto = sqlSession.selectOne("User.login", datas);
 		
-		if(sqlSession.selectOne("User.login", datas) != null) {
+//		if(sqlSession.selectOne("User.login", datas) != null) {
+		if(udto != null) {
+			session.setAttribute("userDTO", udto);	// 세션에 정보 저장. 0314 편집
 			result = true;
 		}
 
@@ -78,6 +83,15 @@ public class UserDAO {
 	    // 'User.getList'는 MyBatis 매퍼 파일에서 정의된 쿼리의 id
 	    return sqlSession.selectList("User.getList");
 	}
+
+
+	public List<UserDTO> getProfileList(String userId) {
+		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
+		return ProfileList;
+	}
+
+
+	
 
 		
 	
