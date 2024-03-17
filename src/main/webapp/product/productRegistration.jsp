@@ -1,4 +1,3 @@
-<%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,20 +23,10 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 </head>
-<%
-UserDTO udto = (UserDTO) session.getAttribute("userDTO");
-String userName = null;
-String userId = null;
 
-if (udto != null) {
-   userId = udto.getUserId();
-   userName = udto.getUserName();
-}
-%>
-
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column">
 	<main class="flex-shrink-0">
-		<!-- 상단바 -->
+		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
 				<img

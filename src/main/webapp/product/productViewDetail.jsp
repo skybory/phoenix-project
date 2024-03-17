@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,32 +68,19 @@
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>                            
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
+						<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
 							<ul class="dropdown-menu dropdown-menu-end"
 								aria-labelledby="navbarDropdownBlog">
@@ -112,28 +99,51 @@
 										Overview</a></li>
 								<li><a class="dropdown-item" href="portfolio-item.jsp">Portfolio
 										Item</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-
-
-		<!-- 추가된 이미지 -->
-		<div class="row justify-content-center align-items-center mt-4">
-			<div class="card text-center align-items-center">
-				<img src="123.png" class="card-img custom-card-img" alt="이미지 설명">
-				<div class="card-body">
-					<!-- 프로필, 닉네임, 거주지 -->
-					<div class="d-flex align-items-center mb-3"
-						style="margin-left: -190px;">
-						<!-- Adjust the left margin -->
-						<img src="123.png" class="rounded-circle" alt="프로필 사진"
-							style="width: 50px; height: 50px;">
-						<div class="ms-3" style="margin-left: -190px;">
-							<p class="m-0">
-								${pdto.userId }<br> ${pdto.productLocation }
+		
+		
+			<!-- 추가된 이미지 -->
+			<div class="row justify-content-center align-items-center mt-4">
+				<div class="card text-center align-items-center">
+					<img src="123.png" class="card-img custom-card-img" alt="이미지 설명">
+					<div class="card-body">
+						<!-- 프로필, 닉네임, 거주지 -->
+						<div class="d-flex align-items-center mb-3"
+							style="margin-left: -190px;">
+							<!-- Adjust the left margin -->
+							<img src="123.png" class="rounded-circle" alt="프로필 사진"
+								style="width: 50px; height: 50px;">
+							<div class="ms-3" style="margin-left: -190px;">
+								<p class="m-0">
+									홍길동<br> 서울시 동작구
+								</p>
+							</div>
+						</div>
+						<!-- 상품 정보 -->
+						<div class="text-start" style="margin-left: -190px;">
+							<!-- Adjust the left margin -->
+							<h4 class="card-title-name">
+								<strong>마우스</strong>
+							</h4>
+							<p class="card-text-time">3시간 전</p>
+							<p class="card-text-price">
+								<strong>300,000원</strong>
 							</p>
+							<p class="card-text-explain">상세설명</p>
+						</div>
+						<!-- 관심 버튼, 채팅 버튼 -->
+						<div class="d-flex justify-content-center mt-3">
+							<button class="btn btn-outline-primary mr-2"
+								onclick="toggleInterest()">
+								관심 <span id="productInterestCount">0</span>
+							</button>
+							<a href="chatting.jsp" class="btn btn-outline-primary">채팅 5</a>
+							<!-- Adjust the left margin -->
 						</div>
 					</div>
 					<!-- 상품 정보 -->
@@ -159,16 +169,15 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
 
-		<!--인기 중고 거래 목록!-->
-		<section class="bg-light py-5">
-			<div class="container px-5 my-5">
-				<div class="text-center mb-5">
-					<h1 class="fw-bolder">인기 중고 거래</h1>
-				</div>
-				<div class="row gx-5 justify-content-center">
+			<!--인기 중고 거래 목록!-->
+			<section class="bg-light py-5">
+				<div class="container px-5 my-5">
+					<div class="text-center mb-5">
+						<h1 class="fw-bolder">인기 중고 거래</h1>
+					</div>
+					<div class="row gx-5 justify-content-center">
 
 					<section>
 						<div class="row gx-5 justify-content-center">
@@ -197,15 +206,14 @@
 										</div>
 									</div>
 								</div>
+								<%
+								}
+								%>
 							</div>
-							<%
-							}
-							%>
-						</div>
-				</div>
-		</section>
+					</div>
+			</section>
 	</main>
-
+	
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
 		<div class="container px-5">
