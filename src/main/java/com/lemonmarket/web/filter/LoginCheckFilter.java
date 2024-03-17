@@ -28,7 +28,7 @@ public class LoginCheckFilter implements Filter {
 
         try {
             // 로그인 페이지인 경우에는 필터를 건너뛰고 다음 필터 또는 서블릿을 실행합니다.
-            if (requestURI.endsWith("/Login.bo")) {
+            if (requestURI.endsWith("/Login.bo") || requestURI.endsWith("/Join.bo")) {
                 chain.doFilter(request, response);
                 return;
             }

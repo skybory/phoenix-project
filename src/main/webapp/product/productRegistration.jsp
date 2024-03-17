@@ -58,7 +58,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 
 						<%
                   if (udto == null) {
