@@ -3,6 +3,7 @@ package com.lemonmarket.web.servlet;
 import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,11 +32,8 @@ public class BoardFrontController extends HttpServlet {
 
 		// 예시
 
+ 
 		switch (requestURI) {
-		case "/chatSubmit.bo":
-			System.out.println("gd");
-			forward = new ChattingSubmit().execute(req, resp);
-			System.out.println("gd");
 		case "/board/Home.bo":
 			forward = new ActionForward(true, "/index.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
@@ -52,19 +50,36 @@ public class BoardFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/about/about.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/board/Pricing.bo":
-			forward = new ActionForward(true, "/pricing/pricing.jsp");
+		case "/board/Product.bo":
+			forward = new ProductViewMainAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Faq.bo":
 			forward = new ActionForward(true, "/faq/faq.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-
-		case "/board/Mypage.bo":
+		case "/board/MyPage.bo":
 			forward = new ActionForward(true, "/myPage/myPage.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+		case "/board/Login.bo":
+			forward = new ActionForward(true, "/user/loginview.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/board/Join.bo":
+			forward = new ActionForward(true, "/user/joinview.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/board/Category.bo":
+			forward = new ActionForward(true, "/category/category.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/board/ERROR.bo":
+			forward = new ActionForward(true, "/error.jsp");
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+
+
 
 //		case "/board/BoardList.bo":
 //			forward = new BoardListAction().execute(req, resp);

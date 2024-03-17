@@ -54,12 +54,7 @@ public class ChatDTO {
 	public void setRoomseq(int roomseq) {
 		this.roomseq = roomseq;
 	}
-	
-	
-	// 게터 세터 추가
-	
-
-	
+ 
 	
 	
 }

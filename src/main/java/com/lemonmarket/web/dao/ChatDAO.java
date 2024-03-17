@@ -27,11 +27,7 @@ public class ChatDAO {
 
 	public List<ChatDTO> getChatListById(String fromId, String toId, String chatId){
 		List<ChatDTO> chatList = null;
-//		HashMap<String, String> datas = new HashMap<>();
-//		datas.put("fromId", fromId);
-//		datas.put("toId", toId);
-//		datas.put("chatId", chatId);
-		
+ 
 		chatList = sqlSession.selectList("Chat.getId");
 		
 		return chatList;

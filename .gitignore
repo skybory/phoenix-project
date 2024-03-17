@@ -1,1 +1,10 @@
-/build/
+build/classes/com/lemonmarket/web/sql/User.xml
+.metadata
+bin/
+tmp/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
