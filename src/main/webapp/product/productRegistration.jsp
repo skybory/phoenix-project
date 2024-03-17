@@ -92,59 +92,51 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		<section class="py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="fw-bolder">상품 등록</h2>
-						<form name="joinForm" action="/product/ProductRegisterAction.pr"
-							method="POST">
-							<div class="mb-3">
-								<label for="title" class="form-label">제목</label> <input
-									type="text" class="form-control" id="productTitle"
-									name="productTitle" required>
-							</div>
-							<div class="mb-3">
-								<label for="description" class="form-label">자세한 설명</label>
-								<textarea class="form-control" id="productDescription"
-									name="productDescription" rows="3" required></textarea>
-							</div>
-							<div class="mb-3">
-								<input type="file" id="productImage" name="productImage"
-									accept="image/*" onchange="previewImages(event);" multiple />
-								<div id="image_container"></div>
-							</div>
-							<div id="image-preview" class="row mt-3"></div>
-							<div class="mb-3">
-								<label for="dealType" class="form-label">거래방식</label> <select
-									class="form-select" id="productDealType" name="productDealType"
-									required>
-									<option value="sell">판매하기</option>
-									<option value="share">나눔하기</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="price" class="form-label">가격</label> <input
-									type="text" class="form-control" id="productPrice"
-									name="productPrice" required>
-							</div>
-							<div class="mb-3">
-								<label for="location" class="form-label">거래 희망 장소</label> <input
-									type="text" class="form-control" id="productLocation"
-									name="productLocation">
-							</div>
-							<div class="text-center"></div>
-							<button class="btn btn-primary btn-lg btn-block" type="submit"
-								onclick="sendit();">가입완료</button>
-							<a href="javascript:history.back()" class="btn btn-secondary">취소</a>
-						</form>
-
-						<!--                         <input type="submit" class="btn btn-primary" value="상품 등록"> -->
-
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bolder">상품 등록</h2>
+                <form name="joinForm" action="/product/ProductRegisterAction.pr" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="productTitle" name="productTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">자세한 설명</label>
+                        <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+                    </div>
+                    <!-- 이미지 업로드 추가 -->
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">이미지 업로드</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImages(event);" multiple />
+                        <div id="image_container"></div>
+                    </div>
+                    <!-- 이미지 미리보기 영역 -->
+                    <div id="image-preview" class="row mt-3"></div>
+                    <div class="mb-3">
+                        <label for="dealType" class="form-label">거래방식</label>
+                        <select class="form-select" id="productDealType" name="productDealType" required>
+                            <option value="sell">판매하기</option>
+                            <option value="share">나눔하기</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">가격</label>
+                        <input type="text" class="form-control" id="productPrice" name="productPrice" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">거래 희망 장소</label>
+                        <input type="text" class="form-control" id="productLocation" name="productLocation">
+                    </div>
+                    <div class="text-center"></div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();">가입완료</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary">취소</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 	</main>
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">
@@ -159,6 +151,7 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	
 	<script>
 	function previewImages(event) {
 	    document.querySelector("#image_container").innerHTML = "";
@@ -220,6 +213,6 @@ if (udto != null) {
 		joinForm.submit();
 	}
 </script>
-
+<script src="product.js"></script>
 </body>
 </html>

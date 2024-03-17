@@ -92,5 +92,30 @@ let interest = 1;
 	}
 
 //}
+    function previewImages(event) {
+        var fileList = event.target.files;
+        var imageContainer = document.getElementById('image-preview');
+
+        imageContainer.innerHTML = '';
+
+        for (var i = 0; i < fileList.length; i++) {
+            var file = fileList[i];
+            var img = document.createElement('img');
+            img.classList.add('preview-image');
+            img.file = file;
+            img.style.width = '150px';
+            img.style.height = 'auto';
+            imageContainer.appendChild(img);
+
+            var reader = new FileReader();
+            reader.onload = (function(aImg) {
+                return function(e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+
+            reader.readAsDataURL(file);
+        }
+    }
 
 

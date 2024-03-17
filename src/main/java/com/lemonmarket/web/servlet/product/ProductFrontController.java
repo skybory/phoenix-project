@@ -34,7 +34,7 @@ public class ProductFrontController extends HttpServlet {
 			break;
 			
 		case "/product/ProductRegisterAction.pr":
-			forward = new ProductRegisterAction().execute(req, resp);
+			new ProductRegisterAction().doPost(req,resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 			

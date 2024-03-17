@@ -9,7 +9,8 @@
 		(null,#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,null,0,0,'1')
 	</insert>
 
-	<select id="selectProductsByCategoryId" parameterType="String" resultType="productdto">
+	<select id="selectProductsByCategoryId" parameterType="String"
+		resultType="productdto">
 		SELECT * FROM `product` WHERE categoryId = #{categoryId}
 	</select>
 
@@ -44,9 +45,5 @@
 		select productInterestCount from `product` where productId= #{productId}
 	
 	</select>
-	<select id="getRandomProducts" resultType="productdto">
-    	SELECT * FROM `product` ORDER BY RAND() LIMIT 10
-	</select>	
-	
 </mapper>
  

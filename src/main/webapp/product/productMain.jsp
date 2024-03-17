@@ -26,6 +26,33 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+ <script>
+        function previewImages(event) {
+            var fileList = event.target.files;
+            var imageContainer = document.getElementById('image-preview');
+
+            imageContainer.innerHTML = '';
+
+            for (var i = 0; i < fileList.length; i++) {
+                var file = fileList[i];
+                var img = document.createElement('img');
+                img.classList.add('preview-image');
+                img.file = file;
+                img.style.width = '150px';
+                img.style.height = 'auto';
+                imageContainer.appendChild(img);
+
+                var reader = new FileReader();
+                reader.onload = (function(aImg) {
+                    return function(e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </head>
 <style>
 /* 이미지 크기 및 자르기 */
@@ -141,7 +168,8 @@ if (udto != null) {
 									<div class="card-body p-5">
 										<a
 											href="/product/ViewDetailAction.pr?productId=${product.productId}"
-											class="card-link"> <!-- 상품 이미지 --> <img
+											class="card-link"> <!-- 상품 이미지 --> 
+											<img
 											src="${product.productImage}" alt="Product Image"
 											class="card-img mb-3"> <!-- 상품명 -->
 											<h4 class="card-title">${product.productTitle }</h4>
@@ -214,7 +242,7 @@ if (udto != null) {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/scripts.js"></script>
-
+<script src="product.js"></script>
 	<script>
 		// 		function redirectToProductDetail() {
 		// 			window.location.href = 'product_detail.jsp';

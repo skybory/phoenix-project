@@ -30,9 +30,10 @@ if (udto != null) {
     
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
-            <!-- Navigation-->
-            		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<!-- 상단바 -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
+			             <img src="${pageContext.request.contextPath}/picture/lemon_logo5.png" alt="Logo" class="img-fluid" id="lemonLogo">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -47,31 +48,31 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 
-						<%
-						if (udto == null) {
-						%>
-						<!--         로그인이 안되어있을때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+                  <%
+                  if (udto == null) {
+                  %>
+                  <!--         로그인이 안되어있을때 나오는 값 -->
+                  <li class="nav-item"><a class="nav-link"
+                     href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                     href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
-						<%
-						} else {
-						%>
+                  <%
+                  } else {
+                  %>
 
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
+                  <!--     로그인이 되어있을 때 나오는 값 -->
+                  <li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
         <%=userName%>님(<%=userId%>) 안녕하세요
     </a></li>
-								
-								
-								
-						<li class="nav-item"><a class="nav-link"
-							href="/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+                        
+                        
+                        
+                  <li class="nav-item"><a class="nav-link"
+                     href="/board/MyPage.bo">마이페이지</a></li>
+                  <li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
 						}
