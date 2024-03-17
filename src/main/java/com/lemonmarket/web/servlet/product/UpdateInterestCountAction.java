@@ -17,7 +17,8 @@ public class UpdateInterestCountAction {
 		
 		JSONObject obj = null;
 		int productId = Integer.parseInt(request.getParameter("productId"));
-//		int interest = Integer.parseInt("interest");		ProductDAO pdao = new ProductDAO();
+//		int interest = Integer.parseInt("interest");
+		ProductDAO pdao = new ProductDAO();
 
 		obj = new JSONObject();
 		String userid; //로그인한 아이디
@@ -34,7 +35,8 @@ public class UpdateInterestCountAction {
 		
 		
 
-		
+		
+
 		
 		
 
