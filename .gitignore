@@ -7,3 +7,4 @@ tmp/
 *.ear
 *.nar
 hs_err_pid*
+build/classes/com/lemonmarket/web/sql/User.xml
