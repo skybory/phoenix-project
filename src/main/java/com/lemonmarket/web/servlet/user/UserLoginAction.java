@@ -1,6 +1,7 @@
 package com.lemonmarket.web.servlet.user;
 
 import com.lemonmarket.web.dao.UserDAO;
+import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;
 
@@ -15,6 +16,7 @@ public class UserLoginAction implements Action{
 		UserDAO udao = new UserDAO();
 		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession(); // 세션을 가져옵니다.
+		
 		
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");

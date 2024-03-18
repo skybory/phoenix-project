@@ -6,6 +6,23 @@ public class RoomDTO {
 	private String prName;
 	private String toId;
 	private String roomDate;
+	private ProductDTO productDTO;
+	
+	
+	
+	
+	public String getFromId() {
+		return fromId;
+	}
+	public void setFromId(String fromId) {
+		this.fromId = fromId;
+	}
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
 	public String getRoomDate() {
 		return roomDate;
 	}

@@ -18,13 +18,12 @@ public class UserJoinAction implements Action{
 		
 		udto.setUserId(request.getParameter("userId"));
 		udto.setUserPw(request.getParameter("userPw"));
-		udto.setUserAge(request.getParameter("userAge"));
-		udto.setGender(request.getParameter("gender"));
 		udto.setUserName(request.getParameter("userName"));
+		udto.setUserAge(request.getParameter("userAge"));
+		udto.setUserGender(request.getParameter("userGender"));
+		udto.setUserPhoneNumber(request.getParameter("userPhoneNumber"));
 		udto.setUserEmail(request.getParameter("userEmail"));
-		udto.setPhoneNumber(request.getParameter("phoneNumber"));
 		udto.setUserAddress(request.getParameter("userAddress"));
-		
 		
 		if( udao.join(udto) ) {	// 회원가입 성공
 			forward.setPath("/index.jsp");
@@ -35,8 +34,6 @@ public class UserJoinAction implements Action{
 			forward.setPath("/joinview.jsp");
 			forward.setRedirect(true);
 		}
-		
-		
 		
 		return forward;
 	}

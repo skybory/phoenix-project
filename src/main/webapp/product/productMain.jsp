@@ -209,7 +209,7 @@ if (udto != null) {
 								<div class="card mb-5 mb-xl-0">
 									<div class="card-body p-5">
 										<a
-											href="/product/ViewDetailAction.pr?productId=${product.productId}"
+											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 											class="card-link"> <!-- 상품 이미지 --> 
 											<img
 											src="${product.productImage}" alt="Product Image"

@@ -16,18 +16,11 @@ public class ProductDAO {
 	SqlSession sqlSession;
 
 	public ProductDAO() {
-		sqlSession = factory.openSession(true); // autoCommit 설정
+		sqlSession = factory.openSession(true);
 	}
 
+	
 	// 상품 등록 메서드
-	public boolean insertProduct(ProductDTO product) {
-		boolean result = false;
-		if (sqlSession.insert("Product.insertProduct", product) == 1) {
-			result = true;
-		}
-		return result;
-	}
-
 	public boolean register(ProductDTO pdto) {
 		boolean result = false;
 		if (sqlSession.insert("Product.register", pdto) == 1) {
@@ -36,11 +29,18 @@ public class ProductDAO {
 		return result;
 	}
 
-	public ProductDTO viewProductDetail(int productId) {
-		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productId);
+	// 카테고리로 상품 검색
+//	public List<ProductDTO> selectProductsByCategoryId(int categoryIdx) {
+//        return sqlSession.selectList("selectProductsByCategoryId", categoryIdx);
+//    }
+//	
+	// index 값으로 물품 상세보기
+	public ProductDTO viewProductDetail(int productIdx) {
+		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productIdx);
 		return pdto;
 	}
 
+	// 물품 전체 리스트 가져오기(페이징처리) 
 	public List<ProductDTO> getProductList(int startRow, int pageSize) {
 		HashMap<String, Integer> datas = new HashMap<>();
 		datas.put("startRow", startRow);
@@ -49,34 +49,25 @@ public class ProductDAO {
 		return productList;
 	}
 
+//	물품 총 갯수 가져오기 
 	public int getProductCnt() {
 		int productCnt = sqlSession.selectOne("Product.getProductCnt");
 		return productCnt;
 	}
-
-	public int updateInterestCount(String userid) {
-//		int result = sqlSession.selectOne("Product.check",userid);
-		int result = 1;
-//		if(result == 1) {
-//			sqlSession.update(userid); //0으로 바꾸기
-//		}else {
-//			sqlSession.update(userid); //1로 바꾸기	찜테이블
-//		}
-		return result;
-	}
-
-	public int getInterest(int productId) {
-		return sqlSession.selectOne("Product.getInterest",productId);
-	}
+ 
+////	물품 관심 수 가져오기(수정필요)
+//	public int getInterestCount(int productIdx) {
+//		return sqlSession.selectOne("Product.getInterestCount",productIdx);
+//	}
 	
-	public List<ProductDTO> selectProductsByCategoryId(String categoryId) {
-        return sqlSession.selectList("selectProductsByCategoryId", categoryId);
-    }
-	
-
-	public List<ProductDTO> getRandomProducts() {
-        return sqlSession.selectList("getRandomProducts");
-    }
-	
+////	물품 관심 수 갱신하기(수정필요)
+//	public boolean updateInterestCount(userIdx) {
+//		아이디값을 통해서 insert 하는 방식으로 구현하면될것같음.
+//	}
+//	
+//// 	 랜덤 물품 뽑아오기?
+//	public List<ProductDTO> getRandomProducts() {
+//        return sqlSession.selectList("getRandomProducts");
+//    }
 	
 }

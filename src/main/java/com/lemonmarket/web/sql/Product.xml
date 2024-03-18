@@ -3,47 +3,60 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Product">
-
+	
+<!-- 	물품등록 -->
 	<insert id="register" parameterType="productdto">
-		INSERT INTO `product` VALUES
-		(null,#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,null,0,0,'1')
+		INSERT INTO `PRODUCT` VALUES
+		(null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,now(),0,0,'1')
 	</insert>
 
-	<select id="selectProductsByCategoryId" parameterType="String"
-		resultType="productdto">
-		SELECT * FROM `product` WHERE categoryId = #{categoryId}
+<!-- 카테고리로 물품 검색 -->
+<!-- 	<select id="selectProductsByCategoryId" parameterType="_int" resultType="productdto"> -->
+<!-- 		SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx} -->
+<!-- 	</select> -->
+
+<!-- 물품 상세정보 보기 -->
+	<select id="viewProductDetail" parameterType="_int" resultType="productdto">
+		select * from `PRODUCT` where productIdx = #{productIdx}
 	</select>
 
-
-
-	<select id="viewProductDetail" parameterType="_int"
-		resultType="productdto">
-		select * from `product` where productId = #{productId}
-	</select>
-
-
-	<select id="getList" parameterType="hashmap"
-		resultType="productdto">
-		SELECT * FROM product
-		ORDER BY productId DESC
+<!-- 물품 전체 리스트 가져오기(페이징처리) -->
+	<select id="getList" parameterType="hashmap" resultType="productdto">
+		SELECT * FROM `PRODUCT`
+		ORDER BY productIdx DESC
 		LIMIT
 		#{startRow}, #{pageSize}
 	</select>
 
+<!-- 물품 총 갯수 가져오기 -->
 	<select id="getProductCnt" resultType="_int">
-		SELECT COUNT('productId')
-		FROM `product`
+		SELECT COUNT(`productIdx`)
+		FROM `PRODUCT`
 	</select>
 
-	<update id="updateInterestCount" parameterType="string">
-		UPDATE product
-		SET productInterestCount = productInterestCount + 1
-		WHERE productId = #{productId}
-
-	</update>
-	<select id="getInterest" parameterType = "_int" resultType = "_int">
-		select productInterestCount from `product` where productId= #{productId}
+<!-- 	물품 관심 수 가져오기(수정필요) -->
+<!-- 	<select id="getInterestCount" parameterType = "_int" resultType = "_int"> -->
+<!-- 		select productInterestCount from `PRODUCT` where productIdx= #{productIdx} -->
+<!-- 	</select> -->
 	
-	</select>
+<!-- 물품 관심 수 갱신하기(수정필요) -->
+<!-- 	<update id="updateInterestCount"  parameterType="string"> -->
+<!-- 		UPDATE PRODUCT -->
+<!-- 		SET productInterestCount = productInterestCount + 1 -->
+<!-- 		WHERE productIdx = #{productIdx} -->
+<!-- 	</update> -->
+<!-- 	resulttype = roomdto. -->
+
+	
+<!-- 	select c.useridx , p.useridx  -->
+<!-- 	From chattingroom c -->
+<!-- 	innerjoin user u -->
+<!-- 	innerjoin product p -->
+<!-- 	on u.useridx = c.useridx -->
+<!-- 	and -->
+<!-- 	u.useridx = p.useridx; -->
+	
+	
+
+	
 </mapper>
- 

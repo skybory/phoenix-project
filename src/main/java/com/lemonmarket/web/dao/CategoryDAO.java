@@ -1,8 +1,6 @@
 package com.lemonmarket.web.dao;
 
-import java.util.HashMap;
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -25,8 +23,8 @@ public class CategoryDAO {
     }
     
     // 특정 ID의 카테고리를 조회하는 메서드
-    public CategoryDTO getcategoryById(String categoryId) {
-        CategoryDTO category = sqlSession.selectOne("Category.categoryById", categoryId);
+    public CategoryDTO getcategoryById(int categoryIdx) {
+        CategoryDTO category = sqlSession.selectOne("Category.categoryByIdx", categoryIdx);
         return category;
     }
     

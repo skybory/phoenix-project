@@ -3,9 +3,8 @@ package com.lemonmarket.web.dto;
 public class ProductDTO {
 
 	
-	// 변수 설정
-	
-	private int productId;
+	private int productIdx;
+	private int userIdx;
 	private String userId;
 	private String productTitle;
 	private String productDescription;
@@ -13,23 +12,29 @@ public class ProductDTO {
 	private String productDealType;
 	private int productPrice;
 	private String productLocation;
-	private String productRegisterTime;
+	private String productRegisterDate;
 	private int productInterestCount;
 	private int productChatCount;
-	private String categoryId;
+	private int categoryIdx;
 	
 	
-	public int getProductId() {
-		return productId;
-	}
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
 	public String getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public int getProductIdx() {
+		return productIdx;
+	}
+	public void setProductIdx(int productIdx) {
+		this.productIdx = productIdx;
+	}
+	public int getUserIdx() {
+		return userIdx;
+	}
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public String getProductTitle() {
 		return productTitle;
@@ -67,11 +72,11 @@ public class ProductDTO {
 	public void setProductLocation(String productLocation) {
 		this.productLocation = productLocation;
 	}
-	public String getProductRegisterTime() {
-		return productRegisterTime;
+	public String getProductRegisterDate() {
+		return productRegisterDate;
 	}
-	public void setProductRegisterTime(String productRegisterTime) {
-		this.productRegisterTime = productRegisterTime;
+	public void setProductRegisterDate(String productRegisterDate) {
+		this.productRegisterDate = productRegisterDate;
 	}
 	public int getProductInterestCount() {
 		return productInterestCount;
@@ -85,11 +90,10 @@ public class ProductDTO {
 	public void setProductChatCount(int productChatCount) {
 		this.productChatCount = productChatCount;
 	}
-	public String getCategoryId() {
-		return categoryId;
+	public int getCategoryIdx() {
+		return categoryIdx;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategoryIdx(int categoryIdx) {
+		this.categoryIdx = categoryIdx;
 	}
-	 
 }

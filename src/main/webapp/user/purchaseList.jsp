@@ -75,23 +75,13 @@
         </thead>
         <tbody>
             <c:choose>
-                <c:when test="${mytradeDTO != null and fn:length(mytradeDTO) > 0}">
-                    <c:forEach var="trade" items="${mytradeDTO}" varStatus="loop">
+                <c:when test="${not empty purchaseList}">
+                    <c:forEach var="trade" items="${purchaseList}" varStatus="loop">
                         <tr>
-                            <c:choose>
-                                <c:when test="${loop.first}">
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:otherwise>
-                            </c:choose>
+                            <td>${trade.productDTO.productIdx}</td>
+                            <td>${trade.productDTO.productTitle}</td>
+                            <td>${trade.productDTO.productPrice}</td>
+                            <td>${trade.productDTO.productLocation}</td>
                         </tr>
                     </c:forEach>
                 </c:when>

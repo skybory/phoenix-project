@@ -141,7 +141,7 @@ if (udto != null) {
 							style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
 							<p class="m-0">
-								${pdto.userId }<br> ${pdto.productLocation }
+								파는 사람 아이디 ${pdto.userId }<br> 상품 위치 ${pdto.productLocation }
 							</p>
 						</div>
 					</div>
@@ -149,20 +149,20 @@ if (udto != null) {
 					<div class="text-start" style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
 						<h4 class="card-title-name">
-							<strong>${pdto.productId}</strong>
+							<strong>상품 번호 ${pdto.productIdx}</strong>
 						</h4>
-						<p class="card-text-time">${pdto.productRegisterTime }</p>
+						<p class="card-text-time">상품 시간 ${pdto.productRegisterDate }</p>
 						<p class="card-text-price">
-							<strong>${pdto.productPrice }</strong>
+							<strong>상품 가격 ${pdto.productPrice }원</strong>
 						</p>
-						<p class="card-text-explain">${pdto.productDescription }</p>
+						<p class="card-text-explain">상품 상세 설명 ${pdto.productDescription }</p>
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
-						<button class="btn btn-outline-primary mr-2"
-							onclick="toggleInterest()">
-						</button>
-							관심 ${pdto.productInterestCount } <span id="productInterestCount"></span>
+<!-- 						<button class="btn btn-outline-primary mr-2" -->
+<!-- 							onclick="toggleInterest()"> -->
+<!-- 						</button> -->
+						<a href="" class="btn btn-outline-primary">관심 ${pdto.productInterestCount }</a>
 						<a href="/board/Chatting.bo" class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
 						<!-- Adjust the left margin -->
 					</div>

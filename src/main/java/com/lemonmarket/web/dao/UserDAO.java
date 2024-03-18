@@ -3,13 +3,12 @@ package com.lemonmarket.web.dao;
 
 import java.util.HashMap;
 
-
 import java.util.List;
 import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.lemonmarket.web.dto.MytradeDTO;
+import com.lemonmarket.web.dto.TradeDTO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
@@ -85,10 +84,10 @@ public class UserDAO {
 	}
 
 
-	public List<UserDTO> getProfileList(String userId) {
-		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
-		return ProfileList;
-	}
+//	public List<UserDTO> getProfileList(String userId) {
+//		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
+//		return ProfileList;
+//	}
 
 
 	public boolean updateAddress(String userId, String userAddress) {
@@ -103,4 +102,19 @@ public class UserDAO {
 		return result;
 	}
 	
+	
+	public List<TradeDTO> getPurchaseList(int userIdx) {
+	    // 구매 목록을 가져오는 쿼리 실행 후 ProductDTO 객체의 리스트로 저장
+	    List<TradeDTO> purchaseList = sqlSession.selectList("User.getPurchaseList", userIdx);
+	    System.out.println("purchaseList 가져왔나?");
+	    for (TradeDTO trade : purchaseList) {
+	        System.out.println(trade);
+	    }
+	    return purchaseList;
+	}
+	
+	public List<TradeDTO> getSalesList(int userIdx) {
+		List<TradeDTO> salesList = sqlSession.selectList("User.getSalesList", userIdx);
+		return salesList;
+	}
 }
