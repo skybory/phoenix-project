@@ -6,8 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     
     
-    <select id="getPurchaseList" resultType="mytradedto" parameterType="string">
-        SELECT * FROM purchase_table WHERE userId = #{userId}
+    <select id="getPurchaseList" resultType="productdto" parameterType="string">
+       <!--   SELECT * FROM purchase_table where userid= #{userId} -->
+       <!--   SELECT * from product where userid='#{userId}' ORDER BY productImage  ASC -->
+       	SELECT 
+      		   #{productImage},
+		       #{productid}, #{userid}, #{productTitle}, #{productDealType},
+		       #{productPrice}, #{productLocation}, #{productRegisterTime},
+		       #{productInterestCount}, #{productChatCount}, #{categoryId}
+		FROM product p
+		INNER JOIN product_purchase pp ON p.productid = pp.productid       
     </select>
     
     <select id="getSalesList" resultType="mytradedto" parameterType="string">
