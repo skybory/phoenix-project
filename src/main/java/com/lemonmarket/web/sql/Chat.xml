@@ -3,13 +3,46 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="Chat">
-
+ 
   	
-  	<insert id = "insert" parameterType = "chatdto">
-  		INSERT INTO userchat values(
-		null,  'tndud' , 'ahyun','사랑달',now()
-		);
-  	</insert>
+
+  	<select id = "getRecent" resultType = "string" parameterType = "_int">
+  	
+  		select contents from chat where  chatseq = (SELECT max(chatseq) from chat where roomseq = ${roomseq})
+  	</select>
+
+  	<select id = "getId" resultType ="chatdto" parameterType = "_int">
+<!--	  		SELECT * -->
+<!--			FROM userchat -->
+<!--			WHERE fromid = #{userid}-->
+<!--			ORDER BY chatTime -->
+		SELECT roomseq , chatseq, contents, chatDate, userid, toid, prName, roomDate FROM chat natural join room where roomseq = #{roomseq} ORDER BY chatDate 
+		
+  	</select>
+  	
+  	
+  	<select id = "getRoomList" resultType = "roomdto" parameterType = "string">
+  	
+  		select * from room where userId = #{userId}
+  	</select>
+
+
+
+	<insert id = "insert" parameterType = "chatdto">
+  		INSERT INTO chat values(
+		#{roomseq},  null , #{contents} ,now())
+	</insert>
+
+	<select id = "getMax" parameterType = "int" resultType = "_int">
+		SELECT MAX(chatseq) from chat WHERE roomseq = #{roomseq}
+	</select>
+	
+	<select id = "check" parameterType = "_int" resultType = "_int">
+		select count(*) from userchat where chatId > #{max}
+  	</select>
+  	
+  	<select id = "getNew" parameterType = "chatdto" resultType = "chatdto">
+		select userid,toId,contents,chatdate from chat natural join room where chatseq > #{max} and roomseq = #{roomseq}
+  	</select>
   	
  </mapper>
- 

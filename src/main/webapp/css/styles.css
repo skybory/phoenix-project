@@ -10,6 +10,31 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+.lemon-bg {
+	background-color: #E5D85C;
+}
+
+#userGreeting {
+	font-weight: bold; /* 굵게 표시 */
+	color: #FF5733; /* 글자 색상 변경 */
+}
+
+#userGreetingLi {
+	margin-left: 20px;
+}
+
+.logo-container {
+	position: absolute;
+	top: 0px;
+	left: 250px;
+	right: 0;
+}
+
+#lemonLogo {
+	width: 50px; /* 원하는 너비로 조정 */
+	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+}
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

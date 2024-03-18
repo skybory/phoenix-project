@@ -4,18 +4,46 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Product">
 
-	<insert id="join" parameterType="productdto">
+	<insert id="register" parameterType="productdto">
 		INSERT INTO `product` VALUES
-		(#{productId},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},#{productRegisterTime},#{productInterestCount},#{productChatCount},#(categoryId))
+		(null,#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,null,0,0,'1')
 	</insert>
 
-	<select id="selectProductsByCategoryId" parameterType="String" resultType="productdto">
+	<select id="selectProductsByCategoryId" parameterType="String"
+		resultType="productdto">
 		SELECT * FROM `product` WHERE categoryId = #{categoryId}
 	</select>
 
-	<select id="getRandomProducts" resultType="productdto">
-    	SELECT * FROM `product` ORDER BY RAND() LIMIT 10
-	</select>	
+
+
+	<select id="viewProductDetail" parameterType="_int"
+		resultType="productdto">
+		select * from `product` where productId = #{productId}
+	</select>
+
+
+	<select id="getList" parameterType="hashmap"
+		resultType="productdto">
+		SELECT * FROM product
+		ORDER BY productId DESC
+		LIMIT
+		#{startRow}, #{pageSize}
+	</select>
+
+	<select id="getProductCnt" resultType="_int">
+		SELECT COUNT('productId')
+		FROM `product`
+	</select>
+
+	<update id="updateInterestCount" parameterType="string">
+		UPDATE product
+		SET productInterestCount = productInterestCount + 1
+		WHERE productId = #{productId}
+
+	</update>
+	<select id="getInterest" parameterType = "_int" resultType = "_int">
+		select productInterestCount from `product` where productId= #{productId}
 	
+	</select>
 </mapper>
  

@@ -5,7 +5,7 @@ public class ProductDTO {
 	
 	// 변수 설정
 	
-	private String productId;
+	private int productId;
 	private String userId;
 	private String productTitle;
 	private String productDescription;
@@ -14,14 +14,15 @@ public class ProductDTO {
 	private int productPrice;
 	private String productLocation;
 	private String productRegisterTime;
-	private String productInterestCount;
-	private String productChatCount;
+	private int productInterestCount;
+	private int productChatCount;
 	private String categoryId;
 	
-	public String getProductId() {
+	
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	public String getUserId() {
@@ -72,16 +73,16 @@ public class ProductDTO {
 	public void setProductRegisterTime(String productRegisterTime) {
 		this.productRegisterTime = productRegisterTime;
 	}
-	public String getProductInterestCount() {
+	public int getProductInterestCount() {
 		return productInterestCount;
 	}
-	public void setProductInterestCount(String productInterestCount) {
+	public void setProductInterestCount(int productInterestCount) {
 		this.productInterestCount = productInterestCount;
 	}
-	public String getProductChatCount() {
+	public int getProductChatCount() {
 		return productChatCount;
 	}
-	public void setProductChatCount(String productChatCount) {
+	public void setProductChatCount(int productChatCount) {
 		this.productChatCount = productChatCount;
 	}
 	public String getCategoryId() {
@@ -90,7 +91,5 @@ public class ProductDTO {
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-	
-
-	
+	 
 }

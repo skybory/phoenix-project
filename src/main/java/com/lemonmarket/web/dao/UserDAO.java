@@ -91,6 +91,9 @@ public class UserDAO {
 	}
 
 
+	public void updateAddress(String address) {
+		sqlSession.update("Map.updateAddress",address);
+	}
 	
 
 		

@@ -8,6 +8,7 @@
 		<typeAlias type="com.lemonmarket.web.dto.ChatDTO" alias="chatdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.MapDTO" alias="mapdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.UserDTO" alias="userdto"/>
+		<typeAlias type="com.lemonmarket.web.dto.RoomDTO" alias="roomdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.ProductDTO" alias="productdto"/>
 		<typeAlias type="com.lemonmarket.web.dto.CategoryDTO" alias="categorydto"/>
 		<typeAlias type="com.lemonmarket.web.dto.MytradeDTO" alias="mytradedto"/>
