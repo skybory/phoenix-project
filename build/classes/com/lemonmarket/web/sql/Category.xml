@@ -6,12 +6,12 @@
 
 	<!-- 모든 카테고리를 조회 -->
 	<select id="categoryAll" resultType="categorydto">
-		SELECT * FROM `category`
+		SELECT * FROM `CATEGORY`
 	</select>
 
 	<!-- 특정 ID를 가진 카테고리를 조회 -->
 	<select id="categoryById" parameterType="String" resultType="categorydto">
-		SELECT * FROM `category` WHERE categoryId = #{categoryId}
+		SELECT * FROM `CATEGORY` WHERE categoryIdx = #{categoryIdx}
 	</select>
 
 </mapper>

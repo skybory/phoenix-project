@@ -21,7 +21,7 @@ public class RandomProductListAction implements Action {
         // 올바르게 ActionForward 인스턴스를 생성하고 반환
         ActionForward forward = new ActionForward();
         forward.setPath("/category/category.jsp");
-        forward.setRedirect(false); // 여기서 false는 페이지를 forward 방식으로 이동한다는 의미입니다.
+        forward.setRedirect(false); // 여기서 false는 페이지를 forward 방식으로 이동한다.
         return forward; // 수정된 부분: forward 변수를 반환
     }
 }

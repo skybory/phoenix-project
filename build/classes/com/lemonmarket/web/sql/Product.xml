@@ -11,7 +11,7 @@
 
 	<select id="selectProductsByCategoryId" parameterType="String"
 		resultType="productdto">
-		SELECT * FROM `product` WHERE categoryId = #{categoryId}
+		SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx}
 	</select>
 
 

@@ -90,7 +90,7 @@ if (udto != null) {
 			</div>
 		</nav>
 		<div class="container mt-5">
-			<h2>의류 카테고리 상품</h2>
+			<h2>뷰티 카테고리 상품</h2>
 			<div class="row">
 				<c:forEach items="${productList}" var="product">
 					<div class="col-md-4 mb-4">

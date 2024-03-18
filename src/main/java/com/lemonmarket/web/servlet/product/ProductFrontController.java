@@ -48,10 +48,6 @@ public class ProductFrontController extends HttpServlet {
 			new UpdateInterestCountAction().execute(req, resp);
 			break;
 			
-		case "/category/cloth.bo":
-		    forward = new ClothCategoryAction().execute(req, resp);
-		    break;
-		    // "의류"페이지로 가는 행동 처리
 		}
 
 		// 페이지 이동에 대한 일괄처리
