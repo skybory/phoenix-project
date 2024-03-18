@@ -42,7 +42,7 @@ if (udto != null) {
 			<div class="container px-5">
 				<img
 					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					alt="Logo" class="img-fluid" id="lemonLogo" style = "width : 40px"> <a
 					class="navbar-brand"
 					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
