@@ -37,9 +37,6 @@ public class MapFrontController extends HttpServlet {
 			forward = new ActionForward(true, "/map/map.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-		case "/map/updateAddressAction.map":
-			forward = new MapUpdateAddressAction().execute(req, resp);
-			break;
 
 		case "/ ":
 			forward = new MapFindMyTownAction().execute(req, resp);
