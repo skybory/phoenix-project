@@ -40,6 +40,10 @@ public class UserFrontController extends HttpServlet{
 			forward = new UserLogoutAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
+		case "/user/UserupdateAddressAction.us":
+			forward = new UserUpdateAddressAction().execute(req, resp);
+			break;
+
 //		case "/user/UserCheckLoginAction.us":
 //			forward = new UserCheckLoginAction().execute(req, resp);
 		}

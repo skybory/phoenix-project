@@ -4,11 +4,6 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Map">
 
-	<update id="updateAddress" parameterType="string">
-		UPDATE `tbl_join`
-		SET UserAddress = #{UserAddress}
-		WHERE userId = #{userId}
-	</update>
 
 </mapper>
  
