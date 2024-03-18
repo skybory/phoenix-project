@@ -62,8 +62,10 @@ public class ProductRegisterAction extends HttpServlet {
                 }
             }
         }
+        
+        
         if (pdao.register(pdto)) {    // 물품 등록 성공
-            forward.setPath("/product/productMain.jsp");
+            forward.setPath("/board/Product.bo");
             forward.setRedirect(false);
         } else {
             forward.setPath("/error.jsp");    // 물품 등록 실패

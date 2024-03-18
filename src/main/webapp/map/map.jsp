@@ -174,53 +174,29 @@ button:hover {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
-			<div class="container px-5">
-				<!-- Contact form-->
-				<div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
-					<div class="text-center mb-5">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-envelope"></i>
-						</div>
-						<h1 class="fw-bolder">내 위치 설정</h1>
-						<p class="lead fw-normal text-muted mb-0">주소를 입력해서 내 위치를
-							등록해주세요!</p>
-					</div>
-					<div class="row gx-5 justify-content-center">
-						<div class="col-lg-8 col-xl-6">
-							<!--  여기에 주소 입력해서 내 위치를 등록하자  -->
-
-							<div id="addressForm">
-
-
-								<!-- 추가한 폼 필드들   -->
-								<div class="form-group">
-									<label for="postcode">우편번호</label> <input type="text"
-										id="postcode" readonly>
-								</div>
-								<div class="form-group">
-									<label for="address">주소</label> <input type="text" id="address"
-										readonly>
-								</div>
-								<div class="form-group">
-									<label for="extraAddress">참고항목</label> <input type="text"
-										id="extraAddress" readonly>
-								</div>
-								<div class="form-group">
-									<label for="detailAddress">상세주소</label> <input type="text"
-										id="detailAddress">
-								</div>
-								<button onclick="searchAddress()">주소 찾기</button>
-								<button
-									onclick="/map/UpdateAddressAction.map">주소
-									저장하기</button>
-
-							</div>
-
-
-						</div>
-					</div>
-				</div>
+			<div class="row gx-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6">
+        <!-- 주소 입력 폼 -->
+        <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
+            <div class="form-group">
+                <label for="postcode">우편번호</label> <input type="text" id="postcode" readonly>
+            </div>
+            <div class="form-group">
+                <label for="address">주소</label> <input type="text" id="address" readonly>
+            </div>
+            <div class="form-group">
+                <label for="extraAddress">참고항목</label> <input type="text" id="extraAddress" readonly>
+            </div>
+            <div class="form-group">
+                <label for="detailAddress">상세주소</label> <input type="text" id="detailAddress">
+            </div>
+            <input type="hidden" name="userAddress" id="userAddress"> <!-- userAddress를 담을 hidden 필드 추가 -->
+            <button type="button" onclick="searchAddress()">주소 찾기</button>
+            <button type="button" onclick="combineAddress()">주소 저장하기</button>
+            <button type="submit">주소 보내기</button>
+        </form>
+    </div>
+</div>
 				<!-- Contact cards-->
 				<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 					<div class="col">

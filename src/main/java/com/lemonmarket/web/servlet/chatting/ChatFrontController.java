@@ -1,5 +1,5 @@
 
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.chatting;
 
 import java.io.IOException;
 

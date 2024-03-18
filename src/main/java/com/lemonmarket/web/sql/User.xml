@@ -25,5 +25,12 @@
    <select id="getList" resultType="userdto">
        SELECT * FROM `tbl_join`
 </select>
+
+	<update id="updateAddress" parameterType="hashmap">
+		UPDATE `tbl_join`
+		SET userAddress = #{userAddress}
+		WHERE userId = #{userId}
+	</update>
+
 </mapper>
  

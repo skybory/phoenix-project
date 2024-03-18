@@ -106,6 +106,8 @@ button[type="submit"]:hover {
 <body>
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
+
+	
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
@@ -120,19 +122,19 @@ button[type="submit"]:hover {
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-
 						<%
 						if (udto == null) {
 						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/LoginCheck.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/LoginCheck.bo">중고거래</a></li>
+
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/LoginCheck.bo">회원가입</a></li>
 
 						<%
 						} else {

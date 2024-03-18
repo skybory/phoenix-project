@@ -98,30 +98,33 @@ if (udto != null) {
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-
 						<%
-                  if (udto == null) {
-                  %>
+                  if (udto == null) {  %>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Logincheck.bo" onclick = "showAlert()">중고거래</a></li>
+
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
 
 						<%
                   } else {
                   %>
 
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="/board/Map.bo">내 동네 바꾸기</a></li>
 						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
 							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>) 안녕하세요
 						</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/board/Map.bo">내 동네 바꾸기</a></li>
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -403,6 +406,13 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/map.js"></script>
+	
+	<script>
+	function showAlert(){
+		alert("로그인 후 사용해주세요");
+		
+	}
+	</script>
 </body>
 </html>
 

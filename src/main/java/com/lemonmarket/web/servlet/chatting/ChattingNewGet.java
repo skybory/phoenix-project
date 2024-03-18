@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.chatting;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,38 +11,28 @@ import com.lemonmarket.web.action.Action;
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ChatDAO;
 import com.lemonmarket.web.dto.ChatDTO;
-import com.lemonmarket.web.dto.UserDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import netscape.javascript.JSObject;
 
+public class ChattingNewGet{
 
-public class ChattingGetList{
-
-	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println(" 오긴하니?");
-		List<ChatDTO> chatList = new ArrayList<>();
+
+		
 		ChatDAO cdao = new ChatDAO();
-		ChatDTO cdto = new ChatDTO();
-		String userid = request.getParameter("userid");
-		cdto.setToId(request.getParameter("toid"));
-		cdto.setuserId(userid);
-		cdto.setRoomseq(Integer.parseInt(request.getParameter("roomseq")));
-		
+		int max = Integer.parseInt(request.getParameter("max"));
+		List<ChatDTO> chatList = new ArrayList<>();
+		System.out.println("이거너냐?:"+max);
 		JSONObject obj = null;
-		
 		JSONArray arry = new JSONArray();
-		
-		
-		
-		int roomseq = cdto.getRoomseq();
-		int max = cdao.getMax(roomseq);		
-		chatList = cdao.getList(cdto.getRoomseq());
-		
-		int result = cdao.getCheck(max);
-		
+		ChatDTO cdto = new ChatDTO();
+		cdto.setMax(max);
+		cdto.setRoomseq(Integer.parseInt(request.getParameter("roomseq")));
+		chatList = cdao.getNewList(cdto);
+		max = cdao.getMax(Integer.parseInt(request.getParameter("roomseq")));
+		System.out.println(max);
 		for(ChatDTO chat : chatList) {
 			obj = new JSONObject();
 			obj.put("fromId", chat.getuserId());
@@ -53,27 +43,12 @@ public class ChattingGetList{
 			obj.put("max", max);
 			arry.add(obj);
 		}
+//
 		response.getWriter().println(arry);
 		response.setContentType("application/json");
 		
+
+
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
