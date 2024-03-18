@@ -3,6 +3,7 @@ package com.lemonmarket.web.servlet;
 import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.servlet.category.SelectCategoryAction;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
 import jakarta.servlet.ServletException;
@@ -71,7 +72,7 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Category.bo":
-			forward = new ActionForward(true, "/category/category.jsp");
+			forward = new SelectCategoryAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Chatting.bo":

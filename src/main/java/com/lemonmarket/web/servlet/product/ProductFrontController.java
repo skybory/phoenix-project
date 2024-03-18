@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
+import com.lemonmarket.web.servlet.category.ClothCategoryAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -46,6 +47,11 @@ public class ProductFrontController extends HttpServlet {
 			// 관심 수 업데이트 액션 요청 처리
 			new UpdateInterestCountAction().execute(req, resp);
 			break;
+			
+		case "/category/cloth.bo":
+		    forward = new ClothCategoryAction().execute(req, resp);
+		    break;
+		    // "의류"페이지로 가는 행동 처리
 		}
 
 		// 페이지 이동에 대한 일괄처리

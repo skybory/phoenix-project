@@ -5,25 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>의류 카테고리 상품</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Modern Business - Start Bootstrap Template</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="css/styles.css" rel="stylesheet" />
+	rel="stylesheet">
+<link href="/css/styles.css" rel="stylesheet">
 </head>
 <style>
 /* 이미지 크기 및 자르기 */
@@ -45,12 +34,15 @@ if (udto != null) {
 %>
 
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
-		<!-- Navigation-->
+		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand"
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
 					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -61,46 +53,60 @@ if (udto != null) {
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">About페이지(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Categorie.bo">카테고리(편집부탁)</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/LoginTest.bo">로그인테스트</a></li>
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+
+						<%
+                  if (udto == null) {
+                  %>
+						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="blog-home.jsp">Blog
-										Home</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">Blog
-										Post</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdownPortfolio"
-							href="#" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false"> 
-							<% if(udto == null) { %> 로그인 해주세요 <% } else { %>
-								<%= userName %>님(<%= userId %>) 안녕하세요 <% } %>
-						</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-								<li><a class="dropdown-item" href="portfolio-overview.jsp">마이페이지(연결필요)</a></li>
-								<li><a class="dropdown-item" href="portfolio-item.jsp">로그아웃(구현필요)</a></li>
-							</ul></li>
+
+						<%
+                  } else {
+                  %>
+
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
+								안녕하세요
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us">로그아웃</a></li>
+
+						<%
+						}
+						%>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<!-- Pricing section-->
+		<div class="container mt-5">
+			<h2>의류 카테고리 상품</h2>
+			<div class="row">
+				<c:forEach items="${productList}" var="product">
+					<div class="col-md-4 mb-4">
+						<div class="card">
+							<img src="${product.imagePath}" class="card-img-top" alt="상품 이미지">
+							<div class="card-body">
+								<h5 class="card-title">${product.name}</h5>
+								<p class="card-text">${product.description}</p>
+								<a href="/product/detail?productId=${product.productId}"
+									class="btn btn-primary">상품 상세보기</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
 
 
 
@@ -124,22 +130,7 @@ if (udto != null) {
 			</div>
 		</div>
 	</footer>
-	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/scripts.js"></script>
-
-	<script>
-		function redirectToProductDetail() {
-			window.location.href = 'product_detail.jsp';
-		}
-
-		function addInterest() {
-			var interestCountElement = document.getElementById("interestCount");
-			var currentCount = parseInt(interestCountElement.innerText);
-			var newCount = currentCount + 1;
-			interestCountElement.innerText = newCount;
-		}
-	</script>
 </body>
 </html>

@@ -22,83 +22,86 @@ if (udto != null) {
 <title>카테고리 페이지</title>
 <style>
 .lemon-bg {
-   background-color: #E5D85C;
+	background-color: #E5D85C;
 }
+
 .navbar {
-  background-color: #343a40; /* 배경색 설정 */
+	background-color: #343a40; /* 배경색 설정 */
 }
 
 .navbar-brand {
-  font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
+	font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
 }
 
 .navbar-toggler-icon {
-  color: white; /* 햄버거 아이콘 색상 설정 */
+	color: white; /* 햄버거 아이콘 색상 설정 */
 }
 
 .navbar-nav .nav-link {
-  color: white; /* 네비게이션 링크 텍스트 색상 설정 */
+	color: white; /* 네비게이션 링크 텍스트 색상 설정 */
 }
 
 /* 로그인/회원가입 링크 스타일 */
 .navbar-nav .nav-item:not(:last-child) .nav-link {
-  margin-right: 15px; /* 네비게이션 링크 간격 설정 */
+	margin-right: 15px; /* 네비게이션 링크 간격 설정 */
 }
 
 /* 사용자 인사 메시지 스타일 */
 #userGreeting {
-  font-weight: bold; /* 굵게 설정 */
-  color: #FF5733; /* 글자 색상 설정 */
+	font-weight: bold; /* 굵게 설정 */
+	color: #FF5733; /* 글자 색상 설정 */
 }
 
 #userGreetingLi {
-  margin-left: 20px; /* 왼쪽 여백 설정 */
+	margin-left: 20px; /* 왼쪽 여백 설정 */
 }
+
 #lemonLogo {
-  width: 50px; /* 원하는 너비로 조정 */
-  height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+	width: 50px; /* 원하는 너비로 조정 */
+	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+
 .category-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 카테고리 카드의 최소 너비를 조정해줍니다. */
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	/* 카테고리 카드의 최소 너비를 조정해줍니다. */
+	gap: 20px;
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .category {
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: transform 0.2s;
-    background-color: #fff; /* 배경색 추가 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 그림자 추가 */
+	text-align: center;
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	transition: transform 0.2s;
+	background-color: #fff; /* 배경색 추가 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
 .category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .category img {
-    width: 100%; /* 이미지가 div에 꽉 차게 */
-    height: auto; /* 이미지의 비율을 유지하면서 높이를 자동 조정 */
-    max-width: 80px; /* 최대 이미지 너비를 제한합니다. */
-    margin-bottom: 8px;
-    display: block; /* 이미지를 블록 요소로 만들어 줄 바꿈을 추가 */
-    margin-left: auto; /* 가운데 정렬 */
-    margin-right: auto; /* 가운데 정렬 */
+	width: 100%; /* 이미지가 div에 꽉 차게 */
+	height: auto; /* 이미지의 비율을 유지하면서 높이를 자동 조정 */
+	max-width: 80px; /* 최대 이미지 너비를 제한합니다. */
+	margin-bottom: 8px;
+	display: block; /* 이미지를 블록 요소로 만들어 줄 바꿈을 추가 */
+	margin-left: auto; /* 가운데 정렬 */
+	margin-right: auto; /* 가운데 정렬 */
 }
 
 .category p {
-    margin-top: 5px;
-    font-size: 0.9rem; /* 폰트 크기 조정 */
-    color: #333;
+	margin-top: 5px;
+	font-size: 0.9rem; /* 폰트 크기 조정 */
+	color: #333;
 }
-
 </style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -146,8 +149,8 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 
 						<%
-                  if (udto == null) {
-                  %>
+						if (udto == null) {
+						%>
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
@@ -155,15 +158,16 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
 						<%
-                  } else {
-                  %>
+						} else {
+						%>
 
 						<!--     로그인이 되어있을 때 나오는 값 -->
 						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>) 안녕하세요
+							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
+								안녕하세요
 						</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/board/Map.bo">내 동네 바꾸기</a></li>
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -176,78 +180,82 @@ if (udto != null) {
 		</nav>
 		<div class="container mt-5">
 			<div class="category-container">
-				<c:choose>
-					<c:when test="${category != null and fn:length(category) > 0}">
-						<c:forEach var="cat" items="${category}">
-							<div class="category">
-								<c:choose>
-									<c:when test="${cat.categoryId == '1'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a
-											href="${pageContext.request.contextPath}/category/cloth.jsp">
-											<img src="/category/cloth.png" alt="의류">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '2'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/.jsp">
-											<img src="/category/beauty.png" alt="뷰티">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '3'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/.jsp">
-											<img src="/category/food.png" alt="식품">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '4'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/.jsp">
-											<img src="/category/digital.png" alt="가전디지털">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '5'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/.jsp">
-											<img src="/category/home.png" alt="홈인테리어">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '6'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/.jsp">
-											<img src="/category/book.png" alt="도서">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '7'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/cloth.jsp">
-											<img src="/category/kitchin.png" alt="주방용품">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-									<c:when test="${cat.categoryId == '8'}">
-										<!-- '의류' 카테고리일 경우의 링크 -->
-										<a href="${pageContext.request.contextPath}/category/cloth.jsp">
-											<img src="/category/sports.png" alt="스포츠">
-											<p>${cat.categoryName}</p>
-										</a>
-									</c:when>
-								</c:choose>
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div style="text-align: center">등록된 카테고리가 없습니다.</div>
-					</c:otherwise>
-				</c:choose>
+				<!-- '의류' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/cloth.jsp?categoryId=1">
+						<img src="${pageContext.request.contextPath}/category/cloth.png"
+						alt="의류">
+						<p>의류</p>
+					</a>
+				</div>
+				<!-- '뷰티' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/beauty.jsp?categoryId=2">
+						<img src="${pageContext.request.contextPath}/category/beauty.png"
+						alt="뷰티">
+						<p>뷰티</p>
+					</a>
+				</div>
+				<!-- '식품' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/food.jsp?categoryId=3">
+						<img src="${pageContext.request.contextPath}/category/food.png"
+						alt="식품">
+						<p>식품</p>
+					</a>
+				</div>
+				<!-- '가전디지털' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/digital.jsp?categoryId=4">
+						<img src="${pageContext.request.contextPath}/category/digital.png"
+						alt="가전디지털">
+						<p>가전디지털</p>
+					</a>
+				</div>
+				<!-- '홈인테리어' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/home.jsp?categoryId=5">
+						<img src="${pageContext.request.contextPath}/category/home.png"
+						alt="홈인테리어">
+						<p>홈인테리어</p>
+					</a>
+				</div>
+				<!-- '도서' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/book.jsp?categoryId=6">
+						<img src="${pageContext.request.contextPath}/category/book.png"
+						alt="도서">
+						<p>도서</p>
+					</a>
+				</div>
+				<!-- '주방용품' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/kitchen.jsp?categoryId=7">
+						<img src="${pageContext.request.contextPath}/category/kitchen.png"
+						alt="주방용품">
+						<p>주방용품</p>
+					</a>
+				</div>
+				<!-- '스포츠' 카테고리 카드 -->
+				<div class="category">
+					<a
+						href="${pageContext.request.contextPath}/category/sports.jsp?categoryId=8">
+						<img src="${pageContext.request.contextPath}/category/sports.png"
+						alt="스포츠">
+						<p>스포츠</p>
+					</a>
+				</div>
 			</div>
 		</div>
+
+
 
 
 		<!-- Footer-->
