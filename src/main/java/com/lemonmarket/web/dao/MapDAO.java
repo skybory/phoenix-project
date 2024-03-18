@@ -25,5 +25,4 @@ public class MapDAO {
 	}
 	
 	
-	//MapDAO 기능 추가
 }

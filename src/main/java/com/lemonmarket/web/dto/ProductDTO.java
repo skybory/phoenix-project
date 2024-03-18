@@ -91,7 +91,5 @@ public class ProductDTO {
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-	
-
-	
+	 
 }

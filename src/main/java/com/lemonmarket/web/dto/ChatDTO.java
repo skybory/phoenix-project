@@ -4,16 +4,36 @@ public class ChatDTO {
 
 	
 	// 변수 설정
-	
-    private String fromId;
+	int chatseq;
+	int roomseq;
+	int max;
+	private String userId;
     private String toId;
     private String contents;
-    private String chatTime;
-	public String getFromId() {
-		return fromId;
+    private String chatDate;
+    public int getMax() {
+    	return max;
+    }
+    public void setMax(int max) {
+    	this.max = max;
+    }
+    public String getcontents() {
+		return contents;
 	}
-	public void setFromId(String fromId) {
-		this.fromId = fromId;
+	public void setcontents(String contents) {
+		this.contents = contents;
+	}
+    public int getchatseq() {
+    	return chatseq;
+    }
+	public void setchatseq(int chatseq) {
+		this.chatseq = chatseq;
+	}
+	public String getuserId() {
+		return userId;
+	}
+	public void setuserId(String userId) {
+		this.userId = userId;
 	}
 	public String getToId() {
 		return toId;
@@ -21,24 +41,20 @@ public class ChatDTO {
 	public void setToId(String toId) {
 		this.toId = toId;
 	}
-	public String getContents() {
-		return contents;
-	}
-	public void setContents(String contents) {
-		this.contents = contents;
-	}
-	public String getChatTime() {
-		return chatTime;
-	}
-	public void setChatTime(String chatTime) {
-		this.chatTime = chatTime;
-	}
-	
-	
-	// 게터 세터 추가
-	
 
-	
+	public String getchatDate() {
+		return chatDate;
+	}
+	public void setchatDate(String chatDate) {
+		this.chatDate = chatDate;
+	}
+	public int getRoomseq() {
+		return roomseq;
+	}
+	public void setRoomseq(int roomseq) {
+		this.roomseq = roomseq;
+	}
+ 
 	
 	
 }

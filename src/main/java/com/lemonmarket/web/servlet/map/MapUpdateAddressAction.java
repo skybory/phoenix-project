@@ -21,9 +21,9 @@ public class MapUpdateAddressAction implements Action {
 		forward.setRedirect(true); // redirect
 
 		if (true) {
-			forward.setPath("/index.jsp");
+			forward.setPath("/board/Home.bo");
 		} else {
-			forward.setPath("/1234");
+			forward.setPath("/board/ERROR.bo");
 		}
 
 		return forward;

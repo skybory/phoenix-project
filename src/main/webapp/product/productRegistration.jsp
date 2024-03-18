@@ -40,8 +40,11 @@ if (udto != null) {
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-			             <img src="${pageContext.request.contextPath}/picture/lemon_logo5.png" alt="Logo" class="img-fluid" id="lemonLogo">
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
+					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -55,31 +58,32 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 
-                  <%
+						<%
                   if (udto == null) {
                   %>
-                  <!--         로그인이 안되어있을때 나오는 값 -->
-                  <li class="nav-item"><a class="nav-link"
-                     href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-                  <li class="nav-item"><a class="nav-link"
-                     href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
-                  <%
+						<%
                   } else {
                   %>
 
-                  <!--     로그인이 되어있을 때 나오는 값 -->
-                  <li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
-        <%=userName%>님(<%=userId%>) 안녕하세요
-    </a></li>
-                        
-                        
-                        
-                  <li class="nav-item"><a class="nav-link"
-                     href="/board/MyPage.bo">마이페이지</a></li>
-                  <li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+							id="userGreeting"> <%=userName%>님(<%=userId%>) 안녕하세요
+						</a></li>
+
+
+
+						<li class="nav-item"><a class="nav-link"
+							href="/board/MyPage.bo">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
 						}
@@ -88,57 +92,51 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		<!-- Product Registration Form -->
-		<section class="py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="fw-bolder">상품 등록</h2>
-						<form action="/product/RegisterProductAction.pr" method="POST"
-							enctype="multipart/form-data">
-							<div class="mb-3">
-								<label for="title" class="form-label">제목</label> <input
-									type="text" class="form-control" id="title" name="title"
-									required>
-							</div>
-							<div class="mb-3">
-								<label for="description" class="form-label">자세한 설명</label>
-								<textarea class="form-control" id="description"
-									name="description" rows="3" required></textarea>
-							</div>
-							<div class="mb-3">
-								<input type="file" id="image" accept="image/*"
-									onchange="previewImages(event);" multiple />
-								<div id="image_container"></div>
-							</div>
-							<div id="image-preview" class="row mt-3"></div>
-							<div class="mb-3">
-								<label for="dealType" class="form-label">거래방식</label> <select
-									class="form-select" id="dealType" name="dealType" required>
-									<option value="sell">판매하기</option>
-									<option value="share">나눔하기</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="price" class="form-label">가격</label> <input
-									type="text" class="form-control" id="price" name="price"
-									required>
-							</div>
-
-							<div class="mb-3">
-								<label for="location" class="form-label">거래 희망 장소</label> <input
-									type="text" class="form-control" id="location" name="location">
-							</div>
-							<div class="text-center">
-								<button type="button" class="btn btn-primary" onclick=>작성
-									완료</button>
-								<a href="#" class="btn btn-secondary">취소</a>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bolder">상품 등록</h2>
+                <form name="joinForm" action="/product/ProductRegisterAction.pr" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="productTitle" name="productTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">자세한 설명</label>
+                        <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+                    </div>
+                    <!-- 이미지 업로드 추가 -->
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">이미지 업로드</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImages(event);" multiple />
+                        <div id="image_container"></div>
+                    </div>
+                    <!-- 이미지 미리보기 영역 -->
+                    <div id="image-preview" class="row mt-3"></div>
+                    <div class="mb-3">
+                        <label for="dealType" class="form-label">거래방식</label>
+                        <select class="form-select" id="productDealType" name="productDealType" required>
+                            <option value="sell">판매하기</option>
+                            <option value="share">나눔하기</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">가격</label>
+                        <input type="text" class="form-control" id="productPrice" name="productPrice" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">거래 희망 장소</label>
+                        <input type="text" class="form-control" id="productLocation" name="productLocation">
+                    </div>
+                    <div class="text-center"></div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();">물품 등록하기</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary">취소</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 	</main>
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">
@@ -153,6 +151,7 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	
 	<script>
 	function previewImages(event) {
 	    document.querySelector("#image_container").innerHTML = "";
@@ -209,7 +208,11 @@ if (udto != null) {
 	        reader.readAsDataURL(image);
 	    }
 	}
+	
+	function sendit(){
+		joinForm.submit();
+	}
 </script>
-
+<script src="product.js"></script>
 </body>
 </html>
