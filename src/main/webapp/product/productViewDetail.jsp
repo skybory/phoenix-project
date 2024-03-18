@@ -163,7 +163,7 @@ if (udto != null) {
 							onclick="toggleInterest()">
 						</button>
 							관심 ${pdto.productInterestCount } <span id="productInterestCount"></span>
-						<a href="chatting.jsp" class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
+						<a href="/board/Chatting.bo" class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>
