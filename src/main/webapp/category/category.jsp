@@ -144,17 +144,12 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<%
-<<<<<<< HEAD
-						if (udto == null) {
-						%>
-=======
                   if (udto == null) {  %>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Logincheck.bo" onclick = "showAlert()">중고거래</a></li>
 
->>>>>>> dc2acb54e07b685f2bc168395adefba1023a565c
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
@@ -176,11 +171,6 @@ if (udto != null) {
 							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
 								안녕하세요
 						</a></li>
-<<<<<<< HEAD
-						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-								동네 바꾸기</a></li>
-=======
->>>>>>> dc2acb54e07b685f2bc168395adefba1023a565c
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
