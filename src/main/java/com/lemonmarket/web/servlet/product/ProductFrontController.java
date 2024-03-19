@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.ProductDAO;
-import com.lemonmarket.web.servlet.category.ClothCategoryAction;
+import com.lemonmarket.web.servlet.category.CategoryDisplayAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

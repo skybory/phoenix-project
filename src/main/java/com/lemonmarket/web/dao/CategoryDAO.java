@@ -22,11 +22,6 @@ public class CategoryDAO {
         return categoryList;
     }
     
-    // 특정 ID의 카테고리를 조회하는 메서드
-    public CategoryDTO getcategoryByIdx(int categoryIdx) {
-        CategoryDTO cdto = sqlSession.selectOne("Category.categoryByIdx", categoryIdx);
-        return cdto;
-    }
     
     // 메모리 자원을 해제하는 메서드
     public void close() {

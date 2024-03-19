@@ -27,31 +27,31 @@ public class CategoryFrontController extends HttpServlet {
 		ActionForward forward = null;
 
 		switch (requestURI) {
-		case "/category/cloth.cat":
-			forward = new ClothCategoryAction().execute(req, resp);
+		case "/category/categoryDisplay.cat":
+			forward = new CategoryDisplayAction().execute(req, resp);
 			break;
-		case "/category/beauty.cat":
-			forward = new BeautyCategoryAction().execute(req, resp);
-			break;
-		case "/category/food.cat":
-			forward = new FoodCategoryAction().execute(req, resp);
-			break;
-		case "/category/digital.cat":
-			forward = new DigitalCategoryAction().execute(req, resp);
-			break;
-		case "/category/home.cat":
-			forward = new HomeCategoryAction().execute(req, resp);
-			break;
-		case "/category/book.cat":
-			forward = new BookCategoryAction().execute(req, resp);
-			break;
-		case "/category/kitchen.cat":
-			forward = new KitchenCategoryAction().execute(req, resp);
-			break;
-		case "/category/sports.cat":
-			forward = new SportsCategoryAction().execute(req, resp);
-			break;
-		}
+//		case "/category/beauty.cat":
+//			forward = new BeautyCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/food.cat":
+//			forward = new FoodCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/digital.cat":
+//			forward = new DigitalCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/home.cat":
+//			forward = new HomeCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/book.cat":
+//			forward = new BookCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/kitchen.cat":
+//			forward = new KitchenCategoryAction().execute(req, resp);
+//			break;
+//		case "/category/sports.cat":
+//			forward = new SportsCategoryAction().execute(req, resp);
+//			break;
+		}	
 		
  
 

@@ -10,8 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 <!-- 	특정 ID를 가진 카테고리를 조회 -->
-	<select id="categoryByIdx" parameterType="_int" resultType="categorydto">
-		SELECT * FROM `CATEGORY` WHERE categoryIdx = #{categoryIdx}
+	<select id="selectProductsByCategoryIdx" parameterType="_int" resultType="productdto">
+		SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx}
 	</select>
 
 </mapper>
