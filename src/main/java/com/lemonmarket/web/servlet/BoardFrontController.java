@@ -3,6 +3,7 @@ package com.lemonmarket.web.servlet;
 import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.servlet.category.SelectCategoryAction;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
 import jakarta.servlet.ServletException;
@@ -71,9 +72,14 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Category.bo":
-			forward = new ActionForward(true, "/category/category.jsp");
-			// 화면을 바로 보여줄땐 ActionForward
-			break;
+	        // 첫 번째 액션 실행: 카테고리 목록 가져오기
+	        SelectCategoryAction selectCategoryAction = new SelectCategoryAction();
+	        selectCategoryAction.execute(req, resp); // 이 액션은 categoryList를 request 속성에 설정합니다.
+	  
+	        // category.jsp로 포워딩. categoryList와 randomProductList 둘 다 사용할 수 있음
+	        //forward.setPath("/category.jsp");
+	        forward.setRedirect(false);
+	        break;
 		case "/board/Chatting.bo":
 			forward = new ActionForward(true, "/chatting/chatting.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
