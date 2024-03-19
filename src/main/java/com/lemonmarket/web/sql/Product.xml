@@ -7,7 +7,7 @@
 	<!-- 물품등록 -->
 	<insert id="register" parameterType="productdto">
 		INSERT INTO `PRODUCT` VALUES
-		(null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,now(),0,0,'1',null,null,null)
+		(null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,now(),0,0,#{categoryIdx},null,null,null)
 	</insert>
 
 	<!-- 카테고리로 물품 검색 -->

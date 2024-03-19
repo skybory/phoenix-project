@@ -1,6 +1,8 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -239,83 +241,23 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		<div class="container mt-5">
-			<div class="category-container">
-				<!-- '의류' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/cloth.cat?categoryIdx=1">
-						<img src="${pageContext.request.contextPath}/category/cloth.png"
-						alt="의류">
-						<p>의류</p>
-					</a>
-				</div>
-				<!-- '뷰티' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/beauty.cat?categoryIdx=2">
-						<img src="${pageContext.request.contextPath}/category/beauty.png"
-						alt="뷰티">
-						<p>뷰티</p>
-					</a>
-				</div>
-				<!-- '식품' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/food.cat?categoryIdx=3">
-						<img src="${pageContext.request.contextPath}/category/food.png"
-						alt="식품">
-						<p>식품</p>
-					</a>
-				</div>
-				<!-- '가전디지털' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/digital.cat?categoryIdx=4">
-						<img src="${pageContext.request.contextPath}/category/digital.png"
-						alt="가전디지털">
-						<p>가전디지털</p>
-					</a>
-				</div>
-				<!-- '홈인테리어' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/home.cat?categoryIdx=5">
-						<img src="${pageContext.request.contextPath}/category/home.png"
-						alt="홈인테리어">
-						<p>홈인테리어</p>
-					</a>
-				</div>
-				<!-- '도서' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/book.cat?categoryIdx=6">
-						<img src="${pageContext.request.contextPath}/category/book.png"
-						alt="도서">
-						<p>도서</p>
-					</a>
-				</div>
-				<!-- '주방용품' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/kitchen.cat?categoryIdx=7">
-						<img src="${pageContext.request.contextPath}/category/kitchen.png"
-						alt="주방용품">
-						<p>주방용품</p>
-					</a>
-				</div>
-				<!-- '스포츠' 카테고리 카드 -->
-				<div class="category">
-					<a
-						href="${pageContext.request.contextPath}/category/sports.cat?categoryIdx=8">
-						<img src="${pageContext.request.contextPath}/category/sports.png"
-						alt="스포츠">
-						<p>스포츠</p>
-					</a>
-				</div>
-			</div>
-		</div>
-
+<c:choose>
+    <c:when test="${not empty categoryList}">
+        <c:forEach var="category" items="${categoryList}">
+            <!-- 카테고리가 있는 경우 -->
+            <div class="category">
+                <a href="${pageContext.request.contextPath}/category/?categoryIdx=${category.categoryIdx}">
+                    <img src="${pageContext.request.contextPath}/${category.categoryImage}" alt="${category.categoryName}">
+                    <p>${category.categoryName}</p>
+                </a>
+            </div>
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        <!-- 카테고리가 없는 경우 -->
+        <p>No categories available</p>
+    </c:otherwise>
+</c:choose>
 
 
 

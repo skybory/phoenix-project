@@ -172,6 +172,17 @@ if (udto != null) {
 									type="text" class="form-control" id="productTitle"
 									name="productTitle" required>
 							</div>
+							                    <!-- 카테고리 추가 -->
+                    <div class="mb-3">
+                        <label for="categoryIdx" class="form-label">카테고리</label>
+                        <select class="form-select" id="categoryIdx" name="categoryIdx" required>
+                            <option value="">카테고리를 선택하세요</option>
+                            <option value="1">카테고리 1</option>
+                            <option value="2">카테고리 2</option>
+                            <option value="3">카테고리 3</option>
+                            <!-- 필요에 따라 추가 -->
+                        </select>
+                    </div>
 							<div class="mb-3">
 								<label for="description" class="form-label">자세한 설명</label>
 								<textarea class="form-control" id="productDescription"

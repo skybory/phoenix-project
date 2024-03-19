@@ -1,9 +1,12 @@
 package com.lemonmarket.web.servlet.product;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.dao.CategoryDAO;
 import com.lemonmarket.web.dao.ProductDAO;
+import com.lemonmarket.web.dto.CategoryDTO;
 import com.lemonmarket.web.servlet.category.ClothCategoryAction;
 
 import jakarta.servlet.ServletException;
@@ -31,6 +34,9 @@ public class ProductFrontController extends HttpServlet {
 		switch (requestURI) {
 		//확인.
 		case "/product/ProductWriteBoard.pr":
+			CategoryDAO cdao = new CategoryDAO();
+			List<CategoryDTO> categoryList = cdao.getcategoryAll();
+			req.setAttribute("categoryList", categoryList);
 			forward = new ActionForward(true, "/product/productRegistration.jsp");
 			break;
 		//
