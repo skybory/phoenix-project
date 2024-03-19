@@ -247,7 +247,7 @@ if (udto != null) {
             <!-- 카테고리가 있는 경우 -->
             <div class="category">
                 <a href="${pageContext.request.contextPath}/category/?categoryIdx=${category.categoryIdx}">
-                    <img src="${pageContext.request.contextPath}/${category.categoryImage}" alt="${category.categoryName}">
+                    <img src="${category.categoryImage}" alt="${category.categoryName}">
                     <p>${category.categoryName}</p>
                 </a>
             </div>
