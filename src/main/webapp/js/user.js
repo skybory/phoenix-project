@@ -21,7 +21,7 @@ function sendit() {
 	let userPw_re = frm.userPw_re;
 	let userName = frm.userName;
 	let phoneNumber = frm.userPhoneNumber;
-	let userAddress = frm.userAddress;
+	let userAddress = frm.address;
 	let gender = frm.userGender;
 	let userEmail = frm.userEmail;
 	let userAge = frm.userAge;
