@@ -10,7 +10,7 @@ import com.lemonmarket.web.dto.ProductDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ClothCategoryAction implements Action {
+public class CategoryDisplayAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -18,7 +18,7 @@ public class ClothCategoryAction implements Action {
 
 		try {
 			// '의류' 카테고리의 ID를 정의합니다. 실제 값은 데이터베이스 상의 '의류' 카테고리 ID와 일치 해야함
-			int categoryIdx = 1;
+			int categoryIdx = Integer.parseInt(request.getParameter("categoryIdx"));
 
 			ProductDAO productDAO = new ProductDAO();
 			List<ProductDTO> productList = productDAO.selectProductsByCategoryIdx(categoryIdx);
@@ -26,7 +26,7 @@ public class ClothCategoryAction implements Action {
 			// 검색된 상품 목록을 request 속성에 설정
 			request.setAttribute("productList", productList);
 
-			forward.setPath("/webapp/category/cloth.jsp"); // 상대 경로로 설정
+			forward.setPath("/category/categoryDisplay.jsp"); // 상대 경로로 설정
 			forward.setRedirect(false); // 포워드 방식으로 페이지 이동
 		} catch (Exception e) {
 			e.printStackTrace();

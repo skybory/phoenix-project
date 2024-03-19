@@ -25,4 +25,7 @@ public class CategoryDTO {
 		this.categoryImage = categoryImage;
 	}
 
+	
+	
+	
 }

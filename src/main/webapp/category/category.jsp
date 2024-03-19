@@ -1,4 +1,7 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
+<%@page import="com.lemonmarket.web.dto.ProductDTO"%>
+<%@ page import="java.util.List"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -241,6 +244,8 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
+<div class="container mt-5">
+	<div class="category-container">
 <c:choose>
     <c:when test="${not empty categoryList}">
         <c:forEach var="category" items="${categoryList}">
@@ -258,6 +263,8 @@ if (udto != null) {
         <p>No categories available</p>
     </c:otherwise>
 </c:choose>
+</div>
+</div>
 
 
 

@@ -8,6 +8,7 @@ import com.lemonmarket.web.dao.CategoryDAO;
 import com.lemonmarket.web.dao.ProductDAO;
 import com.lemonmarket.web.dto.CategoryDTO;
 import com.lemonmarket.web.servlet.category.ClothCategoryAction;
+import com.lemonmarket.web.servlet.category.CategoryDisplayAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

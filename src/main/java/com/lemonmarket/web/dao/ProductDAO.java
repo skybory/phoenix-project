@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.lemonmarket.web.dto.CategoryDTO;
 import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
@@ -50,11 +51,17 @@ public class ProductDAO {
 		return productList;
 	}
 
-//	물품 총 갯수 가져오기 
+	//	물품 총 갯수 가져오기 
 	public int getProductCnt() {
 		int productCnt = sqlSession.selectOne("Product.getProductCnt");
 		return productCnt;
 	}
+	
+//    // 특정 ID의 카테고리를 조회하는 메서드
+//    public ProductDTO getProdutByIdx(int categoryIdx) {
+//        ProductDTO pdto = sqlSession.selectOne("Product.productByIdx", categoryIdx);
+//        return pdto;
+//    }
  
  
 	
