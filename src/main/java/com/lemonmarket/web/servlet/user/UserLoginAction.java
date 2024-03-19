@@ -26,11 +26,11 @@ public class UserLoginAction implements Action{
 		if( udao.login(userId, userPw, session) ) {
 			
 			forward.setRedirect(true);
-			forward.setPath("/index.jsp");
+			forward.setPath("/board/Home.bo");
 		} else {
 			forward.setRedirect(true);
 			
-			forward.setPath("/error.jsp");
+			forward.setPath("/board/ERROR.bo");
 		}
 		
 		return forward;

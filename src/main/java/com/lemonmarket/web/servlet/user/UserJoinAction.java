@@ -7,6 +7,7 @@ import com.lemonmarket.web.action.ActionForward;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class UserJoinAction implements Action{
 
@@ -25,13 +26,23 @@ public class UserJoinAction implements Action{
 		udto.setUserEmail(request.getParameter("userEmail"));
 		udto.setUserAddress(request.getParameter("userAddress"));
 		
+		
 		if( udao.join(udto) ) {	// 회원가입 성공
-			forward.setPath("/index.jsp");
+	
+		HttpSession session = request.getSession(); // 세션을 가져옵니다.
+//		session.set
+		String userId = udto.getUserId();
+		String userPw = udto.getUserPw();
+//		session.setAttribute("userId", userId);
+		udao.login(userId, userPw, session);
+			
+		
+			forward.setPath("/board/Home.bo");
 			forward.setRedirect(false);
 		}
 		
 		else {
-			forward.setPath("/joinview.jsp");
+			forward.setPath("/board/Join.bo");
 			forward.setRedirect(true);
 		}
 		

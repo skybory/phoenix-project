@@ -40,10 +40,8 @@ public class UserDAO {
 		datas.put("userId", userId);
 		datas.put("userPw", userPw);
 		UserDTO udto = sqlSession.selectOne("User.login", datas);
-		
-//		if(sqlSession.selectOne("User.login", datas) != null) {
 		if(udto != null) {
-			session.setAttribute("userDTO", udto);	// 세션에 정보 저장. 0314 편집
+			session.setAttribute("userDTO", udto);	// 세션에 정보 저장. 0314 편집 , 0319 다시 이해함.
 			result = true;
 		}
 

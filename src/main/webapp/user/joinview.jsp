@@ -15,41 +15,43 @@ if (udto != null) {
 %>
 <style>
 .lemon-bg {
-   background-color: #E5D85C;
+	background-color: #E5D85C;
 }
+
 .navbar {
-  background-color: #343a40; /* 배경색 설정 */
+	background-color: #343a40; /* 배경색 설정 */
 }
 
 .navbar-brand {
-  font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
+	font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
 }
 
 .navbar-toggler-icon {
-  color: white; /* 햄버거 아이콘 색상 설정 */
+	color: white; /* 햄버거 아이콘 색상 설정 */
 }
 
 .navbar-nav .nav-link {
-  color: white; /* 네비게이션 링크 텍스트 색상 설정 */
+	color: white; /* 네비게이션 링크 텍스트 색상 설정 */
 }
 
 /* 로그인/회원가입 링크 스타일 */
 .navbar-nav .nav-item:not(:last-child) .nav-link {
-  margin-right: 15px; /* 네비게이션 링크 간격 설정 */
+	margin-right: 15px; /* 네비게이션 링크 간격 설정 */
 }
 
 /* 사용자 인사 메시지 스타일 */
 #userGreeting {
-  font-weight: bold; /* 굵게 설정 */
-  color: #FF5733; /* 글자 색상 설정 */
+	font-weight: bold; /* 굵게 설정 */
+	color: #FF5733; /* 글자 색상 설정 */
 }
 
 #userGreetingLi {
-  margin-left: 20px; /* 왼쪽 여백 설정 */
+	margin-left: 20px; /* 왼쪽 여백 설정 */
 }
+
 #lemonLogo {
-  width: 50px; /* 원하는 너비로 조정 */
-  height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+	width: 50px; /* 원하는 너비로 조정 */
+	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
 /* 전체 폼 컨테이너 스타일 */
 body {
@@ -133,8 +135,9 @@ button[type="submit"]:hover {
 <title>회원가입</title>
 
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
@@ -174,15 +177,16 @@ button[type="submit"]:hover {
 						%>
 
 						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi">    <a class="nav-link"  id="userGreeting">
-        <%=userName%>님(<%=userId%>) 안녕하세요
-    </a></li>
-								
-								
-								
+						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+							id="userGreeting"> <%=userName%>님(<%=userId%>) 안녕하세요
+						</a></li>
+
+
+
 						<li class="nav-item"><a class="nav-link"
 							href="/board/MyPage.bo">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting" href="/user/UserLogoutAction.us">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
 						}
@@ -192,105 +196,125 @@ button[type="submit"]:hover {
 			</div>
 		</nav>
 
-			<form action="/user/UserJoinAction.us" method="post" class="container" name="joinForm">
-				<div class="input-form-backgroud row">
-					<div class="input-form col-md-12 mx-auto">
-						<h4 class="mb-3">회원가입</h4>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="name">아이디</label> <input type="text"
-										class="form-control" id="id" placeholder="" value=""  
-										name="userId">
-									<div class="invalid-feedback">아이디를 입력해주세요.</div>
-								<input type="button" value="중복확인" onclick="checkId(joinForm.userId.value);"/>
-								<span id = "check"></span>
-								</div>
+		<form action="/user/UserJoinAction.us" method="post" class="container"
+			name="joinForm">
+			<div class="input-form-backgroud row">
+				<div class="input-form col-md-12 mx-auto">
+					<h4 class="mb-3">회원가입</h4>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="name">아이디</label> <input type="text"
+								class="form-control" id="id" placeholder="" value=""
+								name="userId">
+							<div class="invalid-feedback">아이디를 입력해주세요.</div>
+							<input type="button" value="중복확인"
+								onclick="checkId(joinForm.userId.value);" /> <span id="check"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="nickname">비밀번호</label> <input type="password"
+								class="form-control" id="password" placeholder="" value=""
+								name="userPw">
+							<div class="invalid-feedback">비밀번호를 입력하세요</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="nickname">비밀번호 확인</label> <input type="password"
+								class="form-control" id="password_re" placeholder="" value=""
+								name="userPw_re">
+							<div class="invalid-feedback">비밀번호를를 입력하세요</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="name">이름</label> <input type="text"
+								class="form-control" id="name" placeholder="" value=""
+								name="userName">
+							<div class="invalid-feedback">이름을 입력해주세요.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="age">나이</label> <input type="text"
+								class="form-control" id="age" placeholder="" value=""
+								name="userAge">
+							<div class="invalid-feedback">나이를 입력해주세요.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="gender">성별</label>
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-secondary"> <input type="radio"
+									name="userGender" id="male" value="male"> 남
+								</label> <label class="btn btn-secondary"> <input type="radio"
+									name="userGender" id="female" value="female"> 여
+								</label> <label class="btn btn-secondary"> <input type="radio"
+									name="userGender" id="notSpecified" value="notSpecified">
+									미공개
+								</label>
 							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="nickname">비밀번호</label> <input type="password"
-										class="form-control" id="password" placeholder="" value=""
-										  name="userPw">
-									<div class="invalid-feedback">비밀번호를 입력하세요</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="nickname">비밀번호 확인</label> <input type="password"
-										class="form-control" id="password_re" placeholder="" value=""
-										  name="userPw_re">
-									<div class="invalid-feedback">비밀번호를를 입력하세요</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="name">이름</label> <input type="text"
-										class="form-control" id="name" placeholder="" value=""
-										 name="userName">
-									<div class="invalid-feedback">이름을 입력해주세요.</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="age">나이</label> <input type="text"
-										class="form-control" id="age" placeholder="" value=""  
-										name="userAge">
-									<div class="invalid-feedback">나이를 입력해주세요.</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="gender">성별</label> <input type="text"
-										class="form-control" id="gender" placeholder="" value=""
-										  name="userGender">
-									<div class="invalid-feedback">성별을 입력해주세요.</div>
-								</div>
-							</div>
+						</div>
 
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="phonenumber">전화번호</label> <input type="text"
-										class="form-control" id="phonenumber" placeholder="" value=""
-										  name="userPhoneNumber">
-									<div class="invalid-feedback">전화번호를 입력해주세요.</div>
-								</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="phonenumber">전화번호</label> <input type="text"
+									class="form-control" id="phonenumber" placeholder="" value=""
+									name="userPhoneNumber">
+								<div class="invalid-feedback">전화번호를 입력해주세요.</div>
 							</div>
+						</div>
 
-							<div class="mb-3">
-								<label for="email">이메일</label> <input type="email"
-									class="form-control" id="email" placeholder="you@example.com"
-									  name="userEmail">
-								<div class="invalid-feedback">이메일을 입력해주세요.</div>
-							</div>
- 
-							    <div class="form-group">
-                <label for="postcode">우편번호</label> <input type="text" id="postcode" readonly>
-            </div>
-            <div class="form-group">
-                <label for="address">주소</label> <input type="text" id="address" readonly>
-            </div>
-            <div class="form-group">
-                <label for="extraAddress">참고항목</label> <input type="text" id="extraAddress" readonly>
-            </div>
-            <div class="form-group">
-                <label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label> <input type="text" id="detailAddress">
-            </div>
-             <button type="button" onclick="searchAddress()">주소 찾기</button>
-             <button type="button" onclick="combineAddress()">주소 저장하기</button>
- 							<input type="hidden" name="userAddress" id="userAddress"> <!-- userAddress를 담을 hidden 필드 추가 -->
+						<div class="mb-3">
+							<label for="email">이메일</label> <input type="email"
+								class="form-control" id="email" placeholder="you@example.com"
+								name="userEmail">
+							<div class="invalid-feedback">이메일을 입력해주세요.</div>
+						</div>
 
-							<div class="row"></div>
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input"
-									id="aggrement"> <label
-									class="custom-control-label" for="aggrement">개인정보 수집 및
-									이용에 동의합니다.</label>
+						<div class="form-group">
+							<label for="postcode">우편번호</label> <input type="text"
+								id="postcode" readonly>
+						</div>
+						<div class="form-group">
+							<label for="address">주소</label> <input type="text" id="address"
+								readonly>
+						</div>
+						<div class="form-group">
+							<label for="extraAddress">참고항목</label> <input type="text"
+								id="extraAddress" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label>
+							<input type="text" id="detailAddress">
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<button type="button" onclick="searchAddress()"
+									class="btn btn-primary">주소 찾기</button>
+								<input type="hidden" name="userAddress" id="userAddress">
 							</div>
-							<div class="mb-4"></div>
-							<button class="btn btn-primary btn-lg btn-block" type="submit"
-								onclick="sendit();">가입완료</button>
+						</div>
+						<!-- 							<button type="button" onclick="combineAddress()">주소 저장하기</button> -->
+
+						<!-- userAddress를 담을 hidden 필드 추가 -->
+
+						<div class="row"></div>
+						<div class="custom-control custom-checkbox mb-3">
+							<input type="checkbox" class="custom-control-input"
+								id="agreement" required> <label
+								class="custom-control-label" for="agreement">개인정보 수집 및
+								이용에 동의합니다.</label>
+							<div class="invalid-feedback">개인정보 수집 및 이용에 동의해야 합니다.</div>
+						</div>
+						<div class="mb-4"></div>
+						<button class="btn btn-primary btn-lg btn-block" type="submit"
+							onclick="sendit();" id="submitButton" disabled>가입완료</button>
 					</div>
 				</div>
+			</div>
 		</form>
 
 		<!-- Contact cards-->
@@ -359,7 +383,7 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	
+
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
@@ -368,6 +392,7 @@ button[type="submit"]:hover {
 	<script src="../user.js"></script>
 	<script src="../js/scripts.js"></script>
 	<script src="../js/map.js"></script>
-	
+	<script src="../js/user.js"></script>
+
 </body>
 </html>

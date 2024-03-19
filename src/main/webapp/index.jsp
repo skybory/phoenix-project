@@ -103,7 +103,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Logincheck.bo" onclick = "showAlert()">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">중고거래</a></li>
 
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
