@@ -33,7 +33,6 @@ public class ProductViewDetailAction implements Action{
 	            forward.setPath("/board/Error.bo");
 	        }
 
-
 		return forward;
 	}
 

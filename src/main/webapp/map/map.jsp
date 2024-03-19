@@ -1,17 +1,9 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<%
-UserDTO udto = (UserDTO) session.getAttribute("userDTO");
-String userName = null;
-String userId = null;
-
-if (udto != null) {
-	userId = udto.getUserId();
-	userName = udto.getUserName();
-}
-%>
 <html lang="en">
 <style>
 .lemon-bg {
@@ -53,49 +45,60 @@ if (udto != null) {
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
-
 #addressForm {
-	max-width: 400px;
-	margin: 50px auto;
-	padding: 20px;
-	background-color: #f5f5f5;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 20px;
+   background-color: #f5f5f5;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the form fields */
 .form-group {
-	margin-bottom: 15px;
+   margin-bottom: 15px;
 }
 
 label {
-	display: block;
-	font-weight: bold;
-	margin-bottom: 5px;
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
 }
 
 input {
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+   width: 100%;
+   padding: 10px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 3px;
 }
 
 /* Style for the button */
 button {
-	background-color: #4caf50;
-	color: #fff;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
+   background-color: #4caf50;
+   color: #fff;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
 }
 
 button:hover {
-	background-color: #45a049;
+   background-color: #45a049;
 }
 </style>
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+int userAccount = 0;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
+}
+%>
 <head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -105,8 +108,8 @@ button:hover {
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content />
-<meta name="author" content />
+<meta name="description" content="" />
+<meta name="author" content="" />
 <title>Modern Business - Start Bootstrap Template</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -116,8 +119,13 @@ button:hover {
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
+
+
+
+
 </head>
-<body class="d-flex flex-column">
+<body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -137,31 +145,52 @@ button:hover {
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-
 						<%
 						if (udto == null) {
 						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
+
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
 
 						<%
 						} else {
 						%>
 
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-								안녕하세요
-						</a></li>
 						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
 								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 

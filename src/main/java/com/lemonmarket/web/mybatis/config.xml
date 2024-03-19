@@ -13,8 +13,6 @@
 			alias="productdto" />
 <!-- 		<typeAlias type="com.lemonmarket.web.dto.RoomDTO" -->
 <!-- 			alias="roomdto" /> -->
-		<typeAlias type="com.lemonmarket.web.dto.TradeDTO"
-			alias="tradedto" />
 		<typeAlias type="com.lemonmarket.web.dto.UserDTO"
 			alias="userdto" />
 <!-- 		<typeAlias type="com.lemonmarket.web.dto.WishlistDTO" -->
