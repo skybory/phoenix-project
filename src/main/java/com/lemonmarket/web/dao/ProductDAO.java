@@ -29,11 +29,11 @@ public class ProductDAO {
 		return result;
 	}
 
-	// 카테고리로 상품 검색
-//	public List<ProductDTO> selectProductsByCategoryId(int categoryIdx) {
-//        return sqlSession.selectList("selectProductsByCategoryId", categoryIdx);
-//    }
-//	
+//	 카테고리로 상품 검색
+	public List<ProductDTO> selectProductsByCategoryIdx(int categoryIdx) {
+        return sqlSession.selectList("selectProductsByCategoryIdx", categoryIdx);
+    }
+	
 	// index 값으로 물품 상세보기
 	public ProductDTO viewProductDetail(int productIdx) {
 		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productIdx);

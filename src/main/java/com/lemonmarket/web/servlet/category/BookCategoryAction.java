@@ -18,10 +18,10 @@ public class BookCategoryAction implements Action {
 
 		try {
 			// '도서' 카테고리의 ID를 정의합니다. 실제 값은 데이터베이스 상의 '의류' 카테고리 ID와 일치 해야함
-			String categoryId = "6";
+//			int categoryIdx = 6;
 
 			ProductDAO productDAO = new ProductDAO();
-			List<ProductDTO> productList = productDAO.selectProductsByCategoryId(categoryId);
+			List<ProductDTO> productList = productDAO.selectProductsByCategoryIdx(6);
 
 			// 검색된 상품 목록을 request 속성에 설정
 			request.setAttribute("productList", productList);

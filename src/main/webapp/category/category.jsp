@@ -189,7 +189,7 @@ if (udto != null) {
 				<!-- '의류' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/cloth.cat?categoryId=1">
+						href="${pageContext.request.contextPath}/category/cloth.cat?categoryIdx=1">
 						<img src="${pageContext.request.contextPath}/category/cloth.png"
 						alt="의류">
 						<p>의류</p>
@@ -198,7 +198,7 @@ if (udto != null) {
 				<!-- '뷰티' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/beauty.cat?categoryId=2">
+						href="${pageContext.request.contextPath}/category/beauty.cat?categoryIdx=2">
 						<img src="${pageContext.request.contextPath}/category/beauty.png"
 						alt="뷰티">
 						<p>뷰티</p>
@@ -207,7 +207,7 @@ if (udto != null) {
 				<!-- '식품' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/food.cat?categoryId=3">
+						href="${pageContext.request.contextPath}/category/food.cat?categoryIdx=3">
 						<img src="${pageContext.request.contextPath}/category/food.png"
 						alt="식품">
 						<p>식품</p>
@@ -216,7 +216,7 @@ if (udto != null) {
 				<!-- '가전디지털' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/digital.cat?categoryId=4">
+						href="${pageContext.request.contextPath}/category/digital.cat?categoryIdx=4">
 						<img src="${pageContext.request.contextPath}/category/digital.png"
 						alt="가전디지털">
 						<p>가전디지털</p>
@@ -225,7 +225,7 @@ if (udto != null) {
 				<!-- '홈인테리어' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/home.cat?categoryId=5">
+						href="${pageContext.request.contextPath}/category/home.cat?categoryIdx=5">
 						<img src="${pageContext.request.contextPath}/category/home.png"
 						alt="홈인테리어">
 						<p>홈인테리어</p>
@@ -234,7 +234,7 @@ if (udto != null) {
 				<!-- '도서' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/book.cat?categoryId=6">
+						href="${pageContext.request.contextPath}/category/book.cat?categoryIdx=6">
 						<img src="${pageContext.request.contextPath}/category/book.png"
 						alt="도서">
 						<p>도서</p>
@@ -243,7 +243,7 @@ if (udto != null) {
 				<!-- '주방용품' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/kitchen.cat?categoryId=7">
+						href="${pageContext.request.contextPath}/category/kitchen.cat?categoryIdx=7">
 						<img src="${pageContext.request.contextPath}/category/kitchen.png"
 						alt="주방용품">
 						<p>주방용품</p>
@@ -252,7 +252,7 @@ if (udto != null) {
 				<!-- '스포츠' 카테고리 카드 -->
 				<div class="category">
 					<a
-						href="${pageContext.request.contextPath}/category/sports.cat?categoryId=8">
+						href="${pageContext.request.contextPath}/category/sports.cat?categoryIdx=8">
 						<img src="${pageContext.request.contextPath}/category/sports.png"
 						alt="스포츠">
 						<p>스포츠</p>

@@ -73,12 +73,8 @@ public class BoardFrontController extends HttpServlet {
 			break;
 		case "/board/Category.bo":
 	        // 첫 번째 액션 실행: 카테고리 목록 가져오기
-	        SelectCategoryAction selectCategoryAction = new SelectCategoryAction();
-	        selectCategoryAction.execute(req, resp); // 이 액션은 categoryList를 request 속성에 설정합니다.
-	  
-	        // category.jsp로 포워딩. categoryList와 randomProductList 둘 다 사용할 수 있음
-	        //forward.setPath("/category.jsp");
-	        forward.setRedirect(false);
+			forward = new SelectCategoryAction().execute(req, resp);
+
 	        break;
 		case "/board/Chatting.bo":
 			forward = new ActionForward(true, "/chatting/chatting.jsp");
