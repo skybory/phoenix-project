@@ -1,6 +1,8 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -48,10 +50,12 @@
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+int userAccount = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
 }
 %>
 <head>
@@ -107,7 +111,8 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Login.bo"
 							onclick="showAlert()">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
 
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
@@ -126,10 +131,25 @@ if (udto != null) {
 						<!--     로그인이 되어있을 때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
 								동네 바꾸기</a></li>
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-								안녕하세요
-						</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -140,22 +160,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
-		<!-- 						<li class="nav-item dropdown"><a -->
-		<!-- 							class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" -->
-		<!-- 							role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a> -->
-		<!-- 							<ul class="dropdown-menu dropdown-menu-end" -->
-		<!-- 								aria-labelledby="navbarDropdownBlog"> -->
-		<!-- 								<li><a class="dropdown-item" href="blog-home.jsp">Blog -->
-		<!-- 										Home</a></li> -->
-		<!-- 								<li><a class="dropdown-item" href="blog-post.jsp">Blog -->
-		<!-- 										Post</a></li> -->
-		<!-- 							</ul></li> -->
-		<!-- 						<li class="nav-item dropdown"> -->
-		<!-- 							<ul class="dropdown-menu dropdown-menu-end" -->
-		<!-- 								aria-labelledby="navbarDropdownPortfolio"> -->
-		<!-- 							</ul> -->
-		<!-- 						</li> -->
+
 		<!-- Header-->
 		<header class="lemon-bg py-5">
 			<div class="container px-5">

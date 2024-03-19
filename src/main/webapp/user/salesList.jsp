@@ -75,36 +75,26 @@
         </thead>
         <tbody>
             <c:choose>
-                <c:when test="${mytradeDTO != null and fn:length(mytradeDTO) > 0}">
-                    <c:forEach var="trade" items="${mytradeDTO}" varStatus="loop">
+                <c:when test="${not empty salesList}">
+                    <c:forEach var="productDTO" items="${salesList}" varStatus="loop">
                         <tr>
-                            <c:choose>
-                                <c:when test="${loop.first}">
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:otherwise>
-                            </c:choose>
+                            <td>${productDTO.productIdx}</td>
+                            <td>${productDTO.productTitle}</td>
+                            <td>${productDTO.productPrice}</td>
+                            <td>${productDTO.productLocation}</td>
                         </tr>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <tr>
-                        <td colspan="4" class="no-item">등록된 게시물이 없습니다.</td>
+                        <td colspan="4" class="no-item">판매한 물품이 없습니다.</td>
                     </tr>
                 </c:otherwise>
             </c:choose>
         </tbody>
     </table>
 </div>
-<div style="text-align: center; margin-top: 20px;">
+ <div style="text-align: center; margin-top: 20px;">
         <a href="/myPage/myPage.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #333; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
             마이 페이지로 돌아가기
         </a>

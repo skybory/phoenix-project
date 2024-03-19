@@ -14,6 +14,7 @@ public class UserDTO {
 	private String userPhoneNumber; //사용자 핸드폰번호
 	private String userEmail; // 사용자 이메일
 	private String userAddress; //사용자 주소
+	private int userAccount;
 	
 	
 	public int getUserIdx() {
@@ -69,6 +70,12 @@ public class UserDTO {
 	}
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
+	}
+	public int getUserAccount() {
+		return userAccount;
+	}
+	public void setUserAccount(int userAccount) {
+		this.userAccount = userAccount;
 	}
 	
 	

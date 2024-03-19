@@ -76,18 +76,18 @@
         <tbody>
             <c:choose>
                 <c:when test="${not empty purchaseList}">
-                    <c:forEach var="trade" items="${purchaseList}" varStatus="loop">
+                    <c:forEach var="productDTO" items="${purchaseList}" varStatus="loop">
                         <tr>
-                            <td>${trade.productDTO.productIdx}</td>
-                            <td>${trade.productDTO.productTitle}</td>
-                            <td>${trade.productDTO.productPrice}</td>
-                            <td>${trade.productDTO.productLocation}</td>
+                            <td>${productDTO.productIdx}</td>
+                            <td>${productDTO.productTitle}</td>
+                            <td>${productDTO.productPrice}</td>
+                            <td>${productDTO.productLocation}</td>
                         </tr>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <tr>
-                        <td colspan="4" class="no-item">등록된 게시물이 없습니다.</td>
+                        <td colspan="4" class="no-item">구매한 물품이 없습니다.</td>
                     </tr>
                 </c:otherwise>
             </c:choose>

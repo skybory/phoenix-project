@@ -2,6 +2,7 @@ package com.lemonmarket.web.dao;
 
 
 import java.util.HashMap;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -55,6 +56,9 @@ public class ProductDAO {
 		return productCnt;
 	}
  
+ 
+	
+	
 ////	물품 관심 수 가져오기(수정필요)
 //	public int getInterestCount(int productIdx) {
 //		return sqlSession.selectOne("Product.getInterestCount",productIdx);

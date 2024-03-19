@@ -1,9 +1,12 @@
 package com.lemonmarket.web.servlet.user;
 
+import java.util.List;
+
 import com.lemonmarket.web.action.Action;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.UserDAO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.dto.UserDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,9 +23,11 @@ public class UserViewSalesListAction implements Action{
 
 		int userIdx = udto.getUserIdx();
 	        UserDAO udao = new UserDAO();
+        	List<ProductDTO> salesList = udao.getSalesList(userIdx);	        
 	        
-	        
-	        if (udao.getSalesList(userIdx) != null) {
+	        if (salesList != null  ) {
+
+	        	request.setAttribute("salesList", salesList);
 	        	 forward.setPath("/user/salesList.jsp");
 	        }
 	        else {

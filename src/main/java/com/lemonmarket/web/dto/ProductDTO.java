@@ -16,8 +16,29 @@ public class ProductDTO {
 	private int productInterestCount;
 	private int productChatCount;
 	private int categoryIdx;
+	private int purchaseUserIdx;
+	private String userName;
+	private String productSellDate;
 	
 	
+	public int getPurchaseUserIdx() {
+		return purchaseUserIdx;
+	}
+	public void setPurchaseUserIdx(int purchaseUserIdx) {
+		this.purchaseUserIdx = purchaseUserIdx;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getProductSellDate() {
+		return productSellDate;
+	}
+	public void setProductSellDate(String productSellDate) {
+		this.productSellDate = productSellDate;
+	}
 	public String getUserId() {
 		return userId;
 	}
