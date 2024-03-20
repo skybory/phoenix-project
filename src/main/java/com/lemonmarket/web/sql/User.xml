@@ -4,37 +4,68 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
 
-   <select id="checkId" parameterType="string" resultType="_int">
-      SELECT COUNT(*) FROM `USER` WHERE userId = #{userId} 
-   </select>
 
-   <insert id="join" parameterType="userdto">
-      INSERT INTO `USER` VALUES 
-      (null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress})
-   </insert>
 
-   <select id="login" parameterType="hashmap" resultType="userdto">
-      select * from `USER`
-      where userId = #{userId} and userPw = #{userPw}
-   </select>
-   
-   <select id="searchById" parameterType="string" resultType="userdto">
-       SELECT * FROM `USER` WHERE userId = #{userId}
-    </select>
-    
-   <select id="getList" resultType="userdto">
-       SELECT * FROM `USER`
-</select>
+	<select id="checkId" parameterType="string" resultType="_int">
+		SELECT
+		COUNT(*) FROM `USER` WHERE userId = #{userId}
+	</select>
 
-   <update id="updateAddress" parameterType="hashmap">
-      UPDATE `USER`
-      SET userAddress = #{userAddress}
-      WHERE userId = #{userId}
-   </update>
+	<insert id="join" parameterType="userdto">
+		INSERT INTO `USER` VALUES
+		(null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress},1000000,#{userImage})
+	</insert>
 
-<select id="getUserId" parameterType="_int" resultType="String">
-   select userId from `USER` where userIdx=#{userIdx}
-</select>
+	<select id="getData" parameterType="_int" resultType="userdto">
+	 select * from USER where userIdx = #{userIdx}
+	</select>
 
+
+	<select id="login" parameterType="hashmap" resultType="userdto">
+		select *
+		from `USER`
+		where userId = #{userId} and userPw = #{userPw}
+	</select>
+
+	<select id="searchById" parameterType="string"
+		resultType="userdto">
+		SELECT * FROM `USER` WHERE userId = #{userId}
+	</select>
+
+	<select id="getList" resultType="userdto">
+		SELECT * FROM `USER`
+	</select>
+
+	<update id="updateAddress" parameterType="hashmap">
+		UPDATE `USER`
+		SET
+		userAddress = #{userAddress}
+		WHERE userId = #{userId}
+	</update>
+
+	<select id="getUserId" parameterType="_int" resultType="string">
+		select
+		userId from `USER` where userIdx=#{userIdx}
+	</select>
+
+
+	<select id="getPurchaseList" parameterType="_int"
+		resultType="productdto">
+		SELECT *
+		FROM PRODUCT
+		WHERE purchaseUserIdx = #{userIdx}
+	</select>
+
+
+	<!-- 판매자 idx가 나랑 같고, 누군가 샀다는 뜻 -->
+	<select id="getSalesList" parameterType="_int"
+		resultType="productdto">
+		SELECT *
+		FROM PRODUCT
+		WHERE userIdx = #{userIdx}
+		AND purchaseUserIdx IS NOT NULL
+	</select>
+
+	<!-- get profile List? -->
 </mapper>
  

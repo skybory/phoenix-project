@@ -26,12 +26,6 @@ public class UserDTO {
 	public String getUserId() {
 		return userId;
 	}
-	public int getUserIdx() {
-		return userIdx;
-	}
-	public void setUserIdx(int userIdx) {
-		this.userIdx = userIdx;
-	}
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}

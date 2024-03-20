@@ -242,7 +242,8 @@ if (udto != null) {
 						</button>
 						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
 						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
-						<!-- Adjust the left margin -->
+						<!-- Adjust the left margin --><button type="button" class="btn btn-outline-primary"
+							id="purchaseBtn">구매하기</button>
 					</div>
 				</div>
 			</div>
