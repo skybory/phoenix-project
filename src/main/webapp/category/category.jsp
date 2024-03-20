@@ -9,6 +9,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+a {
+    text-decoration: none !important;
+}
 .lemon-bg {
 	background-color: #E5D85C;
 }

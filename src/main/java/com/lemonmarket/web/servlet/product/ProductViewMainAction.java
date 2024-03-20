@@ -30,7 +30,7 @@ public class ProductViewMainAction implements Action{
 		String temp = request.getParameter("page");
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		int startRow = (page - 1) * pageSize;
-		int endRow = startRow + pageSize - 1;
+//		int endRow = startRow + pageSize - 1;
 
 		// [1],[2]...[10] : 1페이지, [11],[12]...[20] : 11페이지
 		int startPage = (page - 1) / pageSize * pageSize + 1;

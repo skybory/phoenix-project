@@ -8,6 +8,10 @@
 <html lang="en">
 
 <style>
+a {
+	text-decoration: none !important;
+}
+
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -93,7 +97,7 @@ if (udto != null) {
 	userName = udto.getUserName();
 	userAccount = udto.getUserAccount();
 	userImage = udto.getUserImage();
-}	
+}
 %>
 <head>
 <link
@@ -114,8 +118,7 @@ if (udto != null) {
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="css/styles.css" rel="stylesheet" />
-
+<link href="../css/styles.css" rel="stylesheet" />
 
 
 
@@ -208,8 +211,8 @@ if (udto != null) {
 					<div class="d-flex align-items-center mb-3"
 						style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
-						<img src=${sellUserDto.userImage } class="rounded-circle" alt="프로필 사진"
-							style="width: 50px; height: 50px;">
+						<img src=${sellUserDto.userImage } class="rounded-circle"
+							alt="프로필 사진" style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
 							<p class="m-0">
 								판매자 : ${pdto.userId}<br> 거래 장소 : ${pdto.productLocation }
@@ -217,13 +220,15 @@ if (udto != null) {
 						</div>
 					</div>
 					<!-- 상품 정보 -->
-					<input type="hidden" name="productIdx" id="productIdx" value="${pdto.productIdx}">
+					<input type="hidden" name="productIdx" id="productIdx"
+						value="${pdto.productIdx}">
 					<div class="text-start" style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
 						<h4 class="card-title-name">
 							<strong>${pdto.productTitle}</strong>
 						</h4>
-						<p class="card-text-time">상품 시간 ${pdto.productRegisterDate }</p>
+						<p class="card-text-time" > ${cdto.categoryName }</p>
+						<p class="card-text-time">${pdto.productRegisterDate }</p>
 						<p class="card-text-price">
 							<strong>${pdto.productPrice }원</strong>
 						</p>
@@ -246,46 +251,67 @@ if (udto != null) {
 		</div>
 
 
-		<!--인기 중고 거래 목록!-->
-		<section class="bg-light py-5">
-			<div class="container px-5 my-5">
-				<div class="text-center mb-5">
-					<h1 class="fw-bolder">인기 중고 거래</h1>
-				</div>
-				<div class="row gx-5 justify-content-center">
-					<%
-					for (int i = 0; i < 12; i++) {
-					%>
-					<!-- Pricing card -->
-					<div class="col-lg-6 col-xl-4 mb-4">
-						<div class="card mb-5 mb-xl-0">
-							<div class="card-body p-5" onclick="redirectToProductDetail()">
-								<!-- 상품 이미지 -->
-								<img src="img.png" alt="Product Image" class="card-img mb-3">
-								<!-- 상품명 -->
-								<h4 class="card-title">상품명</h4>
-								<div class="mb-3">
-									<!-- 상품가격 -->
-									<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-								</div>
-								<!-- 지역 -->
-								<p class="text-muted mb-4">지역: 서울시 동작구</p>
-								<!-- mb-4로 간격 늘림 -->
-								<!-- 찜하기, 채팅 개수 -->
-								<div class="d-flex justify-content-between align-items-center">
-									<p class="text-muted mb-0">
-										관심 : <span id="interest"></span>
-									</p>
-									<p class="text-muted mb-0">채팅 5</p>
+		<section>
+			<div class="row gx-5 justify-content-center">
+				<c:choose>
+					<c:when
+						test="${productList != null and fn:length(productList) > 0 }">
+						<c:forEach var="product" items="${productList}">
+							<!-- Pricing card -->
+							<div class="col-lg-6 col-xl-4 mb-4">
+								<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5">
+										<a
+											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+											class="card-link"> <!-- 상품 이미지 --> 
+											<img
+											src="${product.productImage}" alt="Product Image"
+											class="card-img mb-3"> <!-- 상품명 -->
+											<h4 class="card-title">${product.productTitle }</h4>
+											<div class="mb-3">
+												<!-- 상품가격 -->
+												<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
+											</div> <!-- 지역 -->
+											<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
+											<!-- 찜하기, 채팅 개수 -->
+											<div
+												class="d-flex justify-content-between align-items-center">
+												<p class="text-muted mb-0">관심 : ${product.productInterestCount }</p>
+												<p class="text-muted mb-0">채팅 : ${product.productChatCount }</p>
+											</div>
+										</a>
+									</div>
 								</div>
 							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="col-12 text-center">
+							<p>등록된 상품이 없습니다.</p>
 						</div>
-					</div>
-					<%
-					}
-					%>
-				</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
+
+			<!-- Pagination -->
+			<c:if test="${totalPage > 1}">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center mt-4">
+						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+						</li>
+						<c:forEach begin="${startPage}" end="${endPage}" step="1"
+							varStatus="loop">
+							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+							</li>
+						</c:forEach>
+						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</c:if>
 		</section>
 	</main>
 

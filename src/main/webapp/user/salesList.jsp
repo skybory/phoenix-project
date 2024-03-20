@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <title>찜 목록</title>
 <style>
+a {
+	text-decoration: none !important;
+}
+
 body {
 	font-family: 'Arial', sans-serif;
 	background-color: #f8f9fa;
@@ -79,15 +83,35 @@ tr:hover {
 				<c:choose>
 					<c:when test="${not empty salesList}">
 						<c:forEach var="productDTO" items="${salesList}" varStatus="loop">
+							
 							<tr>
-								<td><a
-									href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-										${productDTO.productIdx} </a></td>
-								<td>${productDTO.productTitle}</td>
-								<td>${productDTO.productPrice}</td>
-								<td>${productDTO.productLocation}</td>
-								<td>${productDTO.productSellDate}</td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productIdx}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productTitle}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productPrice}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productLocation}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productSellDate}
+            </a>
+        </td>
 							</tr>
+							
 						</c:forEach>
 					</c:when>
 					<c:otherwise>

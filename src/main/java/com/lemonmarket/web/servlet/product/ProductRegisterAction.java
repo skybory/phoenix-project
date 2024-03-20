@@ -34,6 +34,7 @@ public class ProductRegisterAction extends HttpServlet {
 		UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 		String userId = udto.getUserId();
 		int userIdx = udto.getUserIdx();
+		String productLocation = udto.getUserAddress();
 		ActionForward forward = new ActionForward();
 
 		pdto.setUserIdx(userIdx);
@@ -44,7 +45,7 @@ public class ProductRegisterAction extends HttpServlet {
 		pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
 		pdto.setProductLocation(request.getParameter("productLocation"));
 		pdto.setCategoryIdx(Integer.parseInt(request.getParameter("categoryIdx")));
-
+		pdto.setProductLocation(productLocation);
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
 			if (part.getName().equals("productImage")) {
@@ -69,7 +70,7 @@ public class ProductRegisterAction extends HttpServlet {
 		}
 
 		if (pdao.register(pdto)) { // 물품 등록 성공
-			forward.setPath("/board/Product.bo");
+			forward.setPath("/board/Home.bo");
 			forward.setRedirect(false);
 		} else {
 			forward.setPath("/board/Error.bo"); // 물품 등록 실패
