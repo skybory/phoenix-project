@@ -30,6 +30,8 @@ public class ProductDAO {
 		}
 		return result;
 	}
+	
+	
 	public List<ProductDTO> selectProductsByCategoryIdx(int categoryIdx) {
         return sqlSession.selectList("selectProductsByCategoryIdx", categoryIdx);
     }
