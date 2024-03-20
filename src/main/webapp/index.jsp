@@ -151,7 +151,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -416,12 +416,15 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/map.js"></script>
-
+	
 	<script>
-		function showAlert() {
-			alert("로그인 후 사용해주세요");
-
-		}
+	function showAlert(){
+		alert("로그인 후 사용해주세요.");
+		
+	}
+	function showLog(){
+		alert("로그아웃 합니다.")
+	}
 	</script>
 </body>
 </html>

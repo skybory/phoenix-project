@@ -236,15 +236,13 @@ if (udto != null) {
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
-						<!-- 						<button class="btn btn-outline-primary mr-2" -->
-						<!-- 							onclick="toggleInterest()"> -->
-						<!-- 						</button> -->
-						<a href="" class="btn btn-outline-primary">관심
-							${pdto.productInterestCount }</a> <a href="/board/Chatting.bo"
-							class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
-						<!-- 						<a  class="btn btn-outline-primary" id ="purchaseBtn">구매하기</a> -->
-						<button type="button" class="btn btn-outline-primary"
-							id="purchaseBtn">구매하기</button>
+						<button class="btn btn-outline-primary mr-2"
+							onclick="test()">
+							<span id="productInterestCount">관심 </span><span id = "interest"></span>
+						</button>
+						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
+						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
+						<!-- Adjust the left margin -->
 					</div>
 				</div>
 			</div>
@@ -260,26 +258,23 @@ if (udto != null) {
 							<!-- Pricing card -->
 							<div class="col-lg-6 col-xl-4 mb-4">
 								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5">
-										<a
-											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
-											class="card-link"> <!-- 상품 이미지 --> 
-											<img
-											src="${product.productImage}" alt="Product Image"
-											class="card-img mb-3"> <!-- 상품명 -->
-											<h4 class="card-title">${product.productTitle }</h4>
-											<div class="mb-3">
-												<!-- 상품가격 -->
-												<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
-											</div> <!-- 지역 -->
-											<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
-											<!-- 찜하기, 채팅 개수 -->
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0">관심 : ${product.productInterestCount }</p>
-												<p class="text-muted mb-0">채팅 : ${product.productChatCount }</p>
-											</div>
-										</a>
+									<div class="card-body p-5" onclick="redirectToProductDetail()">
+										<!-- 상품 이미지 -->
+										<img src="img.png" alt="Product Image" class="card-img mb-3">
+										<!-- 상품명 -->
+										<h4 class="card-title">상품명</h4>
+										<div class="mb-3">
+											<!-- 상품가격 -->
+											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
+										</div>
+										<!-- 지역 -->
+										<p class="text-muted mb-4">지역: 서울시 동작구</p>
+										<!-- mb-4로 간격 늘림 -->
+										<!-- 찜하기, 채팅 개수 -->
+										<div class="d-flex justify-content-between align-items-center">
+											<p class="text-muted mb-0">관심 : <span id = "interest"></span></p>
+											<p class="text-muted mb-0">채팅 : <span id = room></span></p>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -391,8 +386,75 @@ if (udto != null) {
 	<!-- Bootstrap 5 JavaScript -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- 이하 생략 -->
-	<script src="../js/product.js"></script>
+	<!-- Core theme JS-->
+	<script src="./product/product.js"></script>
+	<script src="./js.js"></script>
+	<script>
+	
+	window.onload = function(){
+		view();
+		
+	}
+
+	function view(){
+		
+		$.ajax({
+			type : 'POST',
+			url : '/product/getItem.pr',
+			data : {
+				"prIdx" : ${pdto.productIdx},
+			},
+			success : function(result) {
+
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+				// 				             $("#max").val(ajaxresult.max);
+				document.getElementById("interest").innerHTML = ajaxresult.interCnt;
+				document.getElementById("room").innerHTML = ajaxresult.roomCnt;
+
+			},
+			error : function(result) {
+				console.log(result);
+			}
+		}
+
+		);
+	}
+	
+	function test(){
+// 		document.getElementById("test").innerHTML = "돼?";
+			var userId = <%=userIdx%> // 임시;
+			var prIdx = ${pdto.productIdx} // 임시
+			//idx로 바꿔라
+			toggleInterest(userId, prIdx)
+		}
+	
+	function toggleInterest(userIdx, prIdx) {
+
+		$.ajax({
+			type : 'POST',
+			url : '/product/DecreaseInterest.pr',
+			data : {
+				"prIdx" : prIdx,
+				"userIdx" : userIdx
+			},
+			success : function(result) {
+
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+				// 				             $("#max").val(ajaxresult.max);
+				document.getElementById("interest").innerHTML = ajaxresult.result;
+
+			},
+			error : function(result) {
+				console.log(result);
+			}
+		}
+
+		);
+	}
+
+
+	</script>
+	
 
 </body>
 </html>

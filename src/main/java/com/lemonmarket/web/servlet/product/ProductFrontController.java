@@ -43,10 +43,14 @@ public class ProductFrontController extends HttpServlet {
 			forward = new ProductViewDetailAction().execute(req,resp);
 			break;
 
-//		case "/product/DecreaseInterest.pr":
-//			// 관심 수 업데이트 액션 요청 처리
-//			new UpdateInterestCountAction().execute(req, resp);
-//			break;
+		case "/product/DecreaseInterest.pr":
+			// 관심 수 업데이트 액션 요청 처리
+			new UpdateInterestCountAction().execute(req, resp);
+			break;
+		case "/product/getItem.pr":
+			// 관심 수 업데이트 액션 요청 처리
+			new GetItem().execute(req, resp);
+			break;
 		}
 
 		// 페이지 이동에 대한 일괄처리
