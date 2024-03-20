@@ -14,7 +14,8 @@ public class UserDTO {
 	private String userPhoneNumber; //사용자 핸드폰번호
 	private String userEmail; // 사용자 이메일
 	private String userAddress; //사용자 주소
-	private int userAccount;
+	private int userAccount; // 사용자 계좌
+	private String userImage; // 사용자 이미지
 	
 	
 	public int getUserIdx() {
@@ -77,6 +78,13 @@ public class UserDTO {
 	public void setUserAccount(int userAccount) {
 		this.userAccount = userAccount;
 	}
+	public String getUserImage() {
+		return userImage;
+	}
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
+	}
+	
 	
 	
 }
