@@ -418,7 +418,7 @@ if (udto != null) {
 	<script src="js/map.js"></script>
 	
 	<script>
-	function showAlert(){
+<%-- 	function showAlert(){
 		alert("로그인 후 사용해주세요.");
 		
 	}
@@ -445,7 +445,7 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 							<%
 						}
-						%>
+						%> --%>
 </body>
 </html>
 
