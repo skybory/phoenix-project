@@ -17,6 +17,9 @@
 <link href="/css/styles.css" rel="stylesheet">
 </head>
 <style>
+a {
+    text-decoration: none !important;
+}
 .lemon-bg {
 	background-color: #E5D85C;
 }

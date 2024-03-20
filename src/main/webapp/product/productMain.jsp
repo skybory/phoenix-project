@@ -6,6 +6,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html lang="en">
 <style>
+a {
+    text-decoration: none !important;
+}
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -59,6 +62,7 @@ if (udto != null) {
 }
 %>
 <head>
+<link href="../css/styles.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -77,7 +81,6 @@ if (udto != null) {
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="css/styles.css" rel="stylesheet" />
 
 
 

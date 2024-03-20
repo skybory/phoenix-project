@@ -30,7 +30,7 @@ public class UserLoginAction implements Action{
 		} else {
 			forward.setRedirect(true);
 			
-			forward.setPath("/board/ERROR.bo");
+			forward.setPath("/board/Login.bo");
 		}
 		
 		return forward;

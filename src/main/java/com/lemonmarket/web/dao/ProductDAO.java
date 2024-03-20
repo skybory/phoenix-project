@@ -30,13 +30,9 @@ public class ProductDAO {
 		}
 		return result;
 	}
-
-//	 카테고리로 상품 검색
 	public List<ProductDTO> selectProductsByCategoryIdx(int categoryIdx) {
         return sqlSession.selectList("selectProductsByCategoryIdx", categoryIdx);
     }
-	
-	// index 값으로 물품 상세보기
 	public ProductDTO viewProductDetail(int productIdx) {
 		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productIdx);
 		return pdto;
@@ -56,6 +52,18 @@ public class ProductDAO {
 		int productCnt = sqlSession.selectOne("Product.getProductCnt");
 		return productCnt;
 	}
+
+	public int updateInterestCount(String userid) {
+//		int result = sqlSession.selectOne("Product.check",userid);
+		int result = 1;
+//		if(result == 1) {
+//			sqlSession.update(userid); //0으로 바꾸기
+//		}else {
+//			sqlSession.update(userid); //1로 바꾸기	찜테이블
+//		}
+		return result;
+	}
+
 	
 	
 //    // 특정 ID의 카테고리를 조회하는 메서드
@@ -81,5 +89,35 @@ public class ProductDAO {
 //	public List<ProductDTO> getRandomProducts() {
 //        return sqlSession.selectList("getRandomProducts");
 //    }
+	
+	
+	
+
+	public int checkWish(HashMap<String, Integer> list) {
+		return sqlSession.selectOne("Product.CheckWish",list);
+	}
+
+	public int confirm(HashMap<String, Integer> list) {
+		return sqlSession.selectOne("Product.confirm",list);
+	}
+
+	public void insertInterset(HashMap<String, Integer> list) {
+
+		sqlSession.insert("Product.insertInterset",list);
+	}
+
+	public int getInterest(int prIdx) {
+		return sqlSession.selectOne("Product.getInterest", prIdx);
+	}
+
+	public void upInterest(HashMap<String, Integer> list) {
+		// TODO Auto-generated method stub
+		sqlSession.update("Product.upInterest",list);
+	}
+	public void downInterest(HashMap<String, Integer> list) {
+		// TODO Auto-generated method stub
+		sqlSession.update("Product.downInterest",list);
+	}
+	
 	
 }
