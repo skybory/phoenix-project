@@ -13,7 +13,7 @@
 
 	<insert id="join" parameterType="userdto">
 		INSERT INTO `USER` VALUES
-		(null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress},#{userImage},0)
+		(null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress},#{userAccount},#{userImage})
 	</insert>
 
 	<select id="getData" parameterType="_int" resultType="userdto">
