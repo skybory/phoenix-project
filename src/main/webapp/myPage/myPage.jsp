@@ -48,9 +48,9 @@
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/my/PurchaseDetails.my">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매내역</a> 
     <!-- 판매내역 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/my/SalesDetails.my">판매내역</a>
+    <a class="button" href="/user/SalesListAction.us">판매내역</a>
     <!-- 찜 목록 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/my/InterestList.my">찜 목록</a>
     <!-- 내 정보 링크 -->

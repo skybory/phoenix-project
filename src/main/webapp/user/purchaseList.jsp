@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>찜 목록</title>
+    <title>구매 목록</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -63,7 +63,7 @@
 </head>
 <body>
 <div id="container">
-    <h2 style="text-align: center; color:orange;">내 판매 목록</h2>
+    <h2 style="text-align: center; color:orange;">내 구매 목록</h2>
     <table>
         <thead>
             <tr>
@@ -75,29 +75,19 @@
         </thead>
         <tbody>
             <c:choose>
-                <c:when test="${mytradeDTO != null and fn:length(mytradeDTO) > 0}">
-                    <c:forEach var="trade" items="${mytradeDTO}" varStatus="loop">
+                <c:when test="${not empty purchaseList}">
+                    <c:forEach var="productDTO" items="${purchaseList}" varStatus="loop">
                         <tr>
-                            <c:choose>
-                                <c:when test="${loop.first}">
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>${trade.productId}</td>
-                                    <td>${trade.productTitle}</td>
-                                    <td>${trade.productPrice}</td>
-                                    <td>${trade.productLocation}</td>
-                                </c:otherwise>
-                            </c:choose>
+                            <td>${productDTO.productIdx}</td>
+                            <td>${productDTO.productTitle}</td>
+                            <td>${productDTO.productPrice}</td>
+                            <td>${productDTO.productLocation}</td>
                         </tr>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <tr>
-                        <td colspan="4" class="no-item">등록된 게시물이 없습니다.</td>
+                        <td colspan="4" class="no-item">구매한 물품이 없습니다.</td>
                     </tr>
                 </c:otherwise>
             </c:choose>

@@ -1,10 +1,20 @@
+<%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>의류 카테고리 상품</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/css/styles.css" rel="stylesheet">
+</head>
 <style>
 .lemon-bg {
 	background-color: #E5D85C;
@@ -45,19 +55,30 @@
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+/* 추가된 타이틀에 대한 스타일 */
+/* 상품 페이지 타이틀 스타일 */
+.page-title {
+    font-size: 2.5rem; /* 타이틀 크기 */
+    color: #343a40; /* 타이틀 색상 */
+    margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
+    font-weight: bold; /* 글자 굵기 */
+    text-transform: uppercase; /* 대문자로 변환 */
+}
+
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
-int userAccount = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
-	userAccount = udto.getUserAccount();
 }
 %>
+
+
 <head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -131,25 +152,10 @@ if (udto != null) {
 						<!--     로그인이 되어있을 때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
 								동네 바꾸기</a></li>
-						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="userGreeting" href=""
-							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
-								안녕하세요</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
-										<%=userAccount%>원
-								</a></li>
-							</ul></li>
-						<li class="nav-item dropdown">
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-							</ul>
-						</li>
-
-
+						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
+								안녕하세요
+						</a></li>
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -160,82 +166,101 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		<section class="py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2 class="fw-bolder">상품 등록</h2>
-						<form name="joinForm" action="/product/ProductRegisterAction.pr"
-							method="POST" enctype="multipart/form-data">
-							<div class="mb-3">
-								<label for="title" class="form-label">제목</label> <input
-									type="text" class="form-control" id="productTitle"
-									name="productTitle" required>
+		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
+		<div class="container text-center my-4">
+        <h1 class="page-title">의류 상품</h1>
+    </div>
+
+		<div class="row gx-5 justify-content-center">
+			<c:if test="${not empty productList}">
+				<c:forEach items="${productList}" var="product">
+					<!-- Pricing card -->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<a
+									href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+									class="card-link"> <!-- 상품 이미지 --> <img
+									src="${product.productImage}" alt="Product Image"
+									class="card-img mb-3"> <!-- 상품명 -->
+									<h4 class="card-title">${product.productTitle }</h4>
+									<div class="mb-3">
+										<!-- 상품가격 -->
+										<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
+									</div> <!-- 지역 -->
+									<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
+									<!-- 찜하기, 채팅 개수 -->
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="text-muted mb-0">${product.productInterestCount }</p>
+										<p class="text-muted mb-0">${product.productChatCount }</p>
+									</div>
+								</a>
 							</div>
-							                    <!-- 카테고리 추가 -->
-                    <div class="mb-3">
-                        <label for="categoryIdx" class="form-label">카테고리</label>
-                        <select class="form-select" id="categoryIdx" name="categoryIdx" required>
-                            <option value="">카테고리를 선택하세요</option>
-                            <option value="1">카테고리 1</option>
-                            <option value="2">카테고리 2</option>
-                            <option value="3">카테고리 3</option>
-                            <!-- 필요에 따라 추가 -->
-                        </select>
-                    </div>
-							<div class="mb-3">
-								<label for="description" class="form-label">자세한 설명</label>
-								<textarea class="form-control" id="productDescription"
-									name="productDescription" rows="3" required></textarea>
-							</div>
-							<!-- 이미지 업로드 추가 -->
-							<div class="mb-3">
-								<label for="productImage" class="form-label">이미지 업로드</label> <input
-									type="file" id="productImage" name="productImage"
-									accept="image/*" onchange="previewImages(event);" multiple />
-								<div id="image_container"></div>
-							</div>
-							<!-- 이미지 미리보기 영역 -->
-							<div id="image-preview" class="row mt-3"></div>
-							<div class="mb-3">
-								<label for="dealType" class="form-label">거래방식</label> <select
-									class="form-select" id="productDealType" name="productDealType"
-									required>
-									<option value="sell">판매하기</option>
-									<option value="share">나눔하기</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="price" class="form-label">가격</label> <input
-									type="text" class="form-control" id="productPrice"
-									name="productPrice" required>
-							</div>
-							<div class="mb-3">
-								<label for="location" class="form-label">거래 희망 장소</label> <input
-									type="text" class="form-control" id="productLocation"
-									name="productLocation">
-							</div>
-							<div class="text-center"></div>
-							<button class="btn btn-primary btn-lg btn-block" type="submit"
-								onclick="sendit();">물품 등록하기</button>
-							<a href="javascript:history.back()" class="btn btn-secondary">취소</a>
-						</form>
+						</div>
 					</div>
+				</c:forEach>
+			</c:if>
+			<c:if test="${empty productList}">
+				<div class="col-12 text-center">
+					<p>등록된 상품이 없습니다.</p>
 				</div>
-			</div>
-		</section>
+			</c:if>
+		</div>
+		<!-- Pagination -->
+		<c:if test="${totalPage > 1}">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center mt-4">
+					<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+						class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+					</li>
+					<c:forEach begin="${startPage}" end="${endPage}" step="1"
+						varStatus="loop">
+						<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+							<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+						</li>
+					</c:forEach>
+					<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+						<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</c:if>
+
 	</main>
 	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Footer Content</p>
+	<footer class="bg-dark py-4 mt-auto">
+		<div class="container px-5">
+			<div
+				class="row align-items-center justify-content-between flex-column flex-sm-row">
+				<div class="col-auto">
+					<div class="small m-0 text-white">Copyright &copy; Your
+						Website 2023</div>
+				</div>
+				<div class="col-auto">
+					<a class="link-light small" href="#!">Privacy</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Terms</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Contact</a>
+				</div>
+			</div>
 		</div>
 	</footer>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="product.js"></script>
+	<script>
+		// 		function redirectToProductDetail() {
+		// 			window.location.href = 'product_detail.jsp';
+		// 		}
 
-	<script src="../js/map.js"></script>
+		function addInterest() {
+			var interestCountElement = document.getElementById("interestCount");
+			var currentCount = parseInt(interestCountElement.innerText);
+			var newCount = currentCount + 1;
+			interestCountElement.innerText = newCount;
+		}
+	</script>
 </body>
 </html>

@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.lemonmarket.web.dto.MytradeDTO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.dto.UserDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
@@ -33,18 +33,14 @@ public class UserDAO {
 //		udto.setUserId(userId);
 //		udto.setUserPw(userPw);
 		boolean result = false;
-		HashMap<String, String> datas 
-			= new HashMap<String, String>();
+		HashMap<String, String> datas = new HashMap<String, String>();
 		datas.put("userId", userId);
 		datas.put("userPw", userPw);
 		UserDTO udto = sqlSession.selectOne("User.login", datas);
-		
-		if(sqlSession.selectOne("User.login", datas) != null) {
-		if(udto != null) {
-			session.setAttribute("userDTO", udto);	// 세션에 정보 저장. 0314 편집
+		if (udto != null) {
+			session.setAttribute("userDTO", udto); // 세션에 정보 저장. 0314 편집 , 0319 다시 이해함.
 			result = true;
 		}
-
 
 		return result;
 	}
@@ -81,11 +77,15 @@ public class UserDAO {
 		return sqlSession.selectList("User.getList");
 	}
 
-	public List<UserDTO> getProfileList(String userId) {
-		List<UserDTO> ProfileList = sqlSession.selectList("MyPage.getProfileList", userId);
-		return ProfileList;
-	}
+//	public List<UserDTO> getProfileList(String userId) {
+//		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
+//		return ProfileList;
+//	}
 
+	public UserDTO getData(int userIdx) {
+		return sqlSession.selectOne("User.getData", userIdx);
+	}
+	
 	public boolean updateAddress(String userId, String userAddress) {
 		boolean result = false;
 		HashMap<String, String> datas = new HashMap<String, String>();
@@ -97,4 +97,48 @@ public class UserDAO {
 		return result;
 	}
 
+	public boolean purchase(int purchaseUserIdx, int productIdx) {
+		boolean result = false;
+		
+		int productPrice = sqlSession.selectOne("Product.getProductPrice", productIdx);
+		// 구매 1단계 : PRODUCT 테이블에 구매자 추가하기
+		HashMap<String, Integer> datas = new HashMap<String, Integer>();
+		datas.put("userIdx", purchaseUserIdx);
+		datas.put("productIdx", productIdx);
+		datas.put("productPrice", productPrice);
+
+		// 구매 2단계 : 구매자의 돈 차감하고, 판매자의 돈 늘리기
+		// 먼저, PRODUCT 테이블에서 productIdx 를 통해서 productPrice, sellUserIdx 선택해오기
+		
+		
+		int sellUserIdx = sqlSession.selectOne("Product.getUserIdx", productIdx);
+		
+		HashMap<String, Integer> datas2 = new HashMap<String, Integer>();
+//		datas2.put("userAccount", userAccount);
+		datas2.put("productPrice", productPrice);
+		datas2.put("sellUserIdx", sellUserIdx);
+
+		HashMap<String,Integer> datas3 = new HashMap<String, Integer>();
+		datas3.put("productPrice", productPrice);
+		datas3.put("userIdx",purchaseUserIdx);
+		
+		
+		if (sqlSession.update("Product.purchase", datas) == 1 && sqlSession.update("Product.sell", datas2)==1 && sqlSession.update("Product.purchase2", datas3) ==1) {
+			result = true;
+		}
+		return result;
+	}
+
+	
+	
+	public List<ProductDTO> getPurchaseList(int userIdx) {
+	    // 구매 목록을 가져오는 쿼리 실행 후 ProductDTO 객체의 리스트로 저장
+	    List<ProductDTO> purchaseList = sqlSession.selectList("User.getPurchaseList", userIdx);
+	    return purchaseList;
+	}
+//	
+	public List<ProductDTO> getSalesList(int userIdx) {
+		List<ProductDTO> salesList = sqlSession.selectList("User.getSalesList", userIdx);
+		return salesList;
+	}
 }

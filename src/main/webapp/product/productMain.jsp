@@ -1,12 +1,64 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html lang="en">
+<style>
+.lemon-bg {
+	background-color: #E5D85C;
+}
+
+.navbar {
+	background-color: #343a40; /* 배경색 설정 */
+}
+
+.navbar-brand {
+	font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
+}
+
+.navbar-toggler-icon {
+	color: white; /* 햄버거 아이콘 색상 설정 */
+}
+
+.navbar-nav .nav-link {
+	color: white; /* 네비게이션 링크 텍스트 색상 설정 */
+}
+
+/* 로그인/회원가입 링크 스타일 */
+.navbar-nav .nav-item:not(:last-child) .nav-link {
+	margin-right: 15px; /* 네비게이션 링크 간격 설정 */
+}
+
+/* 사용자 인사 메시지 스타일 */
+#userGreeting {
+	font-weight: bold; /* 굵게 설정 */
+	color: #FF5733; /* 글자 색상 설정 */
+}
+
+#userGreetingLi {
+	margin-left: 20px; /* 왼쪽 여백 설정 */
+}
+
+#lemonLogo {
+	width: 50px; /* 원하는 너비로 조정 */
+	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+}
+</style>
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+int userAccount = 0;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
+}
+%>
 <head>
-<link href="../css/styles.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -26,98 +78,21 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
- <script>
-        function previewImages(event) {
-            var fileList = event.target.files;
-            var imageContainer = document.getElementById('image-preview');
 
-            imageContainer.innerHTML = '';
 
-            for (var i = 0; i < fileList.length; i++) {
-                var file = fileList[i];
-                var img = document.createElement('img');
-                img.classList.add('preview-image');
-                img.file = file;
-                img.style.width = '150px';
-                img.style.height = 'auto';
-                imageContainer.appendChild(img);
 
-                var reader = new FileReader();
-                reader.onload = (function(aImg) {
-                    return function(e) {
-                        aImg.src = e.target.result;
-                    };
-                })(img);
 
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
+
 </head>
-<style>
-.lemon-bg {
-   background-color: #E5D85C;
-}
-.navbar {
-  background-color: #343a40; /* 배경색 설정 */
-}
-
-.navbar-brand {
-  font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
-}
-
-.navbar-toggler-icon {
-  color: white; /* 햄버거 아이콘 색상 설정 */
-}
-
-.navbar-nav .nav-link {
-  color: white; /* 네비게이션 링크 텍스트 색상 설정 */
-}
-
-/* 로그인/회원가입 링크 스타일 */
-.navbar-nav .nav-item:not(:last-child) .nav-link {
-  margin-right: 15px; /* 네비게이션 링크 간격 설정 */
-}
-
-/* 사용자 인사 메시지 스타일 */
-#userGreeting {
-  font-weight: bold; /* 굵게 설정 */
-  color: #FF5733; /* 글자 색상 설정 */
-}
-
-#userGreetingLi {
-  margin-left: 20px; /* 왼쪽 여백 설정 */
-}
-#lemonLogo {
-  width: 50px; /* 원하는 너비로 조정 */
-  height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
-}
-/* 이미지 크기 및 자르기 */
-.card-img {
-	width: 100%; /* 부모 요소에 꽉 차게 */
-	height: 200px; /* 원하는 높이로 지정 */
-	object-fit: cover; /* 이미지를 자르기 */
-}
-</style>
-<%
-UserDTO udto = (UserDTO) session.getAttribute("userDTO");
-String userName = null;
-String userId = null;
-
-if (udto != null) {
-	userId = udto.getUserId();
-	userName = udto.getUserName();
-}
-%>
-
-
-<body class="d-flex flex-column">
+<body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
-		<!-- Navigation-->
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand"
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
 					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -126,36 +101,55 @@ if (udto != null) {
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<%
-                  if (udto == null) {  %>
+						if (udto == null) {
+						%>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">카테고리</a></li>
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Logincheck.bo" onclick = "showAlert()">중고거래</a></li>
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
 
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
 						<%
-                  } else {
-                  %>
+						} else {
+						%>
 
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link"
-							href="/board/Map.bo">내 동네 바꾸기</a></li>
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>) 안녕하세요
-						</a></li>
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -209,7 +203,7 @@ if (udto != null) {
 								<div class="card mb-5 mb-xl-0">
 									<div class="card-body p-5">
 										<a
-											href="/product/ViewDetailAction.pr?productId=${product.productId}"
+											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 											class="card-link"> <!-- 상품 이미지 --> 
 											<img
 											src="${product.productImage}" alt="Product Image"
@@ -223,8 +217,8 @@ if (udto != null) {
 											<!-- 찜하기, 채팅 개수 -->
 											<div
 												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0">${product.productInterestCount }</p>
-												<p class="text-muted mb-0">${product.productChatCount }</p>
+												<p class="text-muted mb-0">관심 : ${product.productInterestCount }</p>
+												<p class="text-muted mb-0">채팅 : ${product.productChatCount }</p>
 											</div>
 										</a>
 									</div>
@@ -283,19 +277,9 @@ if (udto != null) {
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/scripts.js"></script>
-<script src="product.js"></script>
-	<script>
-		// 		function redirectToProductDetail() {
-		// 			window.location.href = 'product_detail.jsp';
-		// 		}
+	<script src="../user.js"></script>
+	<script src="../js/map.js"></script>
+	<script src="../js/product.js"></script>
 
-		function addInterest() {
-			var interestCountElement = document.getElementById("interestCount");
-			var currentCount = parseInt(interestCountElement.innerText);
-			var newCount = currentCount + 1;
-			interestCountElement.innerText = newCount;
-		}
-	</script>
 </body>
 </html>
