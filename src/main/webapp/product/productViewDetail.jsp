@@ -293,23 +293,22 @@ if (udto != null) {
 
 			<!-- Pagination -->
 			<c:if test="${totalPage > 1}">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center mt-4">
-						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
-						</li>
-						<c:forEach begin="${startPage}" end="${endPage}" step="1"
-							varStatus="loop">
-							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
-							</li>
-						</c:forEach>
-						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-						</li>
-					</ul>
-				</nav>
-			</c:if>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-4">
+            <li class="page-item ${nowPage == 1 ? 'disabled' : ''}">
+                <a class="page-link" href="?page=${nowPage - 1}&productIdx=${productIdx}" tabindex="-1">Previous</a>
+            </li>
+            <c:forEach begin="${startPage}" end="${endPage}" step="1" varStatus="loop">
+                <li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+                    <a class="page-link" href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
+                </li>
+            </c:forEach>
+            <li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+                <a class="page-link" href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</c:if>
 		</section>
 	</main>
 

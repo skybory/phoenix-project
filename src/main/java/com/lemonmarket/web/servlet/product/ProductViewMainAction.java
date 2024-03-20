@@ -30,7 +30,6 @@ public class ProductViewMainAction implements Action{
 		String temp = request.getParameter("page");
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		int startRow = (page - 1) * pageSize;
-//		int endRow = startRow + pageSize - 1;
 
 		// [1],[2]...[10] : 1페이지, [11],[12]...[20] : 11페이지
 		int startPage = (page - 1) / pageSize * pageSize + 1;
@@ -41,7 +40,6 @@ public class ProductViewMainAction implements Action{
 
 		List<ProductDTO> productList = pdao.getProductList(startRow, pageSize);
 		request.setAttribute("productList", productList);
-		
 		request.setAttribute("totalCnt", totalCnt);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("nowPage", page);

@@ -196,46 +196,53 @@ if (udto != null) {
 			</div>
 		</section>
 
-<section>
-    <div class="row gx-5 justify-content-center">
-        <c:choose>
-            <c:when test="${productList != null and fn:length(productList) > 0}">
-                <c:forEach var="product" items="${productList}" varStatus="loop">
-                    <!-- 상품 카드 -->
-                    <div class="col-lg-4 mb-4">
-                        <!-- 카드의 고정된 높이 설정 -->
-                        <div class="card mb-5 mb-lg-0" style="height: 100%;">
-                            <!-- 카드 본문의 고정된 높이 설정 -->
-                            <div class="card-body p-3" style="height: 100%;">
-                                <!-- 카드 링크 -->
-                                <a href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}" class="card-link" style="display: block; height: 100%;">
-                                    <!-- 상품 이미지 -->
-                                    <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;">
-                                    <!-- 상품명 -->
-                                    <h4 class="card-title" style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.productTitle}</h4>
-                                    <!-- 상품가격 -->
-                                    <div class="mb-1">
-                                        <span class="fw-bold" style="font-size: 1rem;">${product.productPrice}</span>
-                                    </div>
-                                    <!-- 지역 -->
-                                    <p class="text-muted mb-2" style="font-size: 0.875rem;">${product.productLocation}</p>
-                                    <!-- 관심, 채팅 개수 -->
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="text-muted mb-0" style="font-size: 0.875rem;">관심 : ${product.productInterestCount}</p>
-                                        <p class="text-muted mb-0" style="font-size: 0.875rem;">채팅 : ${product.productChatCount}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:when>
-            <c:otherwise>
-                <div class="col-12 text-center">
-                    <p>등록된 상품이 없습니다.</p>
-                </div>
-            </c:otherwise>
-        </c:choose>
+		<section>
+			<div class="row gx-5 justify-content-center">
+				<c:choose>
+					<c:when
+						test="${productList != null and fn:length(productList) > 0}">
+						<c:forEach var="product" items="${productList}" varStatus="loop">
+							<!-- 상품 카드 -->
+							<div class="col-lg-4 mb-4">
+								<!-- 카드의 고정된 높이 설정 -->
+								<div class="card mb-5 mb-lg-0" style="height: 100%;">
+									<!-- 카드 본문의 고정된 높이 설정 -->
+									<div class="card-body p-3" style="height: 100%;">
+										<!-- 카드 링크 -->
+										<a
+											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+											class="card-link" style="display: block; height: 100%;">
+											<!-- 상품 이미지 --> <img src="${product.productImage}"
+											alt="Product Image" class="card-img mb-3"> <!-- 상품명 -->
+											<%--                                     <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;"> --%>
+											<!-- 상품명 -->
+											<h4 class="card-title"
+												style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.productTitle}</h4>
+											<!-- 상품가격 -->
+											<div class="mb-1">
+												<span class="fw-bold" style="font-size: 1rem;">${product.productPrice}</span>
+											</div> <!-- 지역 -->
+											<p class="text-muted mb-2" style="font-size: 0.875rem;">${product.productLocation}</p>
+											<!-- 관심, 채팅 개수 -->
+											<div
+												class="d-flex justify-content-between align-items-center">
+												<p class="text-muted mb-0" style="font-size: 0.875rem;">관심
+													: ${product.productInterestCount}</p>
+												<p class="text-muted mb-0" style="font-size: 0.875rem;">채팅
+													: ${product.productChatCount}</p>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="col-12 text-center">
+							<p>등록된 상품이 없습니다.</p>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<!-- Pagination -->
 			<c:if test="${totalPage > 1}">
