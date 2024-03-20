@@ -25,6 +25,7 @@ public class UserJoinAction implements Action{
 		udto.setUserPhoneNumber(request.getParameter("userPhoneNumber"));
 		udto.setUserEmail(request.getParameter("userEmail"));
 		udto.setUserAddress(request.getParameter("userAddress"));
+		udto.setUserImage(request.getParameter("userImage"));
 		
 		
 		if( udao.join(udto) ) {	// 회원가입 성공
