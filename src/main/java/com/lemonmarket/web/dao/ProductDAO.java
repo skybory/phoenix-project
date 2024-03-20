@@ -36,8 +36,8 @@ public class ProductDAO {
 		return result;
 	}
 
-	public ProductDTO viewProductDetail(int productId) {
-		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productId);
+	public ProductDTO viewProductDetail(int productIdx) {
+		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productIdx);
 		return pdto;
 	}
 
@@ -65,9 +65,6 @@ public class ProductDAO {
 		return result;
 	}
 
-	public int getInterest(int productId) {
-		return sqlSession.selectOne("Product.getInterest",productId);
-	}
 	
 	public List<ProductDTO> selectProductsByCategoryId(String categoryId) {
         return sqlSession.selectList("selectProductsByCategoryId", categoryId);
@@ -77,6 +74,36 @@ public class ProductDAO {
 	public List<ProductDTO> getRandomProducts() {
         return sqlSession.selectList("getRandomProducts");
     }
+	
+	
+	
+	
+
+	public int checkWish(HashMap<String, Integer> list) {
+		return sqlSession.selectOne("Product.CheckWish",list);
+	}
+
+	public int confirm(HashMap<String, Integer> list) {
+		return sqlSession.selectOne("Product.confirm",list);
+	}
+
+	public void insertInterset(HashMap<String, Integer> list) {
+
+		sqlSession.insert("Product.insertInterset",list);
+	}
+
+	public int getInterest(int prIdx) {
+		return sqlSession.selectOne("Product.getInterest", prIdx);
+	}
+
+	public void upInterest(HashMap<String, Integer> list) {
+		// TODO Auto-generated method stub
+		sqlSession.update("Product.upInterest",list);
+	}
+	public void downInterest(HashMap<String, Integer> list) {
+		// TODO Auto-generated method stub
+		sqlSession.update("Product.downInterest",list);
+	}
 	
 	
 }

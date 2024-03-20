@@ -56,7 +56,6 @@ public class ChatDAO {
 	public boolean insertChatting(ChatDTO cdto) {
 		boolean result = false;
 		if(sqlSession.insert("Chat.insertChat",cdto) == 1) {
-			System.out.println(cdto.getcontents());
 			result = true;
 		}
 		
@@ -70,33 +69,88 @@ public class ChatDAO {
 		return list;	
 	}
 	
-	public List<RoomDTO> getRoomList(String userId) {
+	public List<RoomDTO> getRoomList(int useridx) {
 		
-		List<RoomDTO> list = sqlSession.selectList("Chat.getRoomList",userId);
+		List<RoomDTO> list = sqlSession.selectList("Chat.getRoomList",useridx);
 		
 		return list;	
 	}
 
 	public int getMax(int roomseq) {
 		// TODO Auto-generated method stub
-		int cnt;
-		cnt = sqlSession.selectOne("Chat.getMax",roomseq);
-		return cnt;
+		if(sqlSession.selectOne("Chat.getMax",roomseq) == null) {
+			return 0;
+		}
+		return sqlSession.selectOne("Chat.getMax",roomseq);
 	}
+
 
 	public int getCheck(int max) {
 		
-		
+		if(sqlSession.selectOne("Chat.check",max) == null) {
+			return 0;
+		}
 		return sqlSession.selectOne("Chat.check",max);
 	}
 
-	public List<ChatDTO> getNewList(ChatDTO max) {
+	public List<ChatDTO> getNewList(HashMap<String, Integer> list) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("Chat.getNew",max);
+		return sqlSession.selectList("Chat.getNew",list);
 	}
 
-	public String getRecentContents(int roomseq) {
+	public String getRecentContents(int roonIdx) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("Chat.getRecent",roomseq);
+		return sqlSession.selectOne("Chat.getRecent",roonIdx);
+	}
+
+	public String getUserId(int userIdx) {
+		return sqlSession.selectOne("User.getUserId",userIdx);
+	}
+
+
+	public String getProductName(int productIdx) {
+		// TODO Auto-generated method stub
+		String n=  sqlSession.selectOne("Chat.getToId",productIdx);
+//		System.out.println(n);
+		return n;
+	}
+
+	public int getUserIdx(int roomIdx) {
+		// TODO Auto-generated method stub
+		System.out.println("이거 값언샤?"+roomIdx);
+		return sqlSession.selectOne("Chat.getUserIdx",roomIdx);
+	}
+
+	public int getProductIdx(int roomIdx) {
+		// TODO Auto-generated method stub
+		int pridx = sqlSession.selectOne("Chat.getPrIdx",roomIdx);
+		System.out.println(pridx);
+		return pridx;
+	}
+
+	public void insertRoom(RoomDTO rdto) {
+
+		sqlSession.insert("Chat.insertRoom",rdto);
+	}
+
+	public String getRecentTime(int roomIdx) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("Chat.getRecentTime",roomIdx);
+	}
+
+	public int confirm(RoomDTO rdto) {
+		return sqlSession.selectOne("Chat.confirm",rdto);
+	}
+
+	public String getFromId(int chatIdx) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("Chat.fromId",chatIdx);
+	}
+
+	public int getRoomCnt(int prIdx) {
+		return sqlSession.selectOne("Chat.RoomCnt",prIdx);
+	}
+	public int getInterCnt(int prIdx) {
+		return sqlSession.selectOne("Chat.InterCnt",prIdx);
 	}
 }

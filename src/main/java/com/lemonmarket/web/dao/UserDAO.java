@@ -91,11 +91,16 @@ public class UserDAO {
 	}
 
 
-	public void updateAddress(String address) {
-		sqlSession.update("Map.updateAddress",address);
+	public boolean updateAddress(String userId, String userAddress) {
+		boolean result = false;
+		HashMap<String, String> datas 
+			= new HashMap<String, String>();
+		datas.put("userId", userId);
+		datas.put("userAddress", userAddress);
+		if(sqlSession.update("User.updateAddress", datas) == 1) {
+			result = true;
+		}
+		return result;
 	}
-	
-
-		
 	
 }

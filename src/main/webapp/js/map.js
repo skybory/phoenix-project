@@ -117,13 +117,28 @@ function searchAddress() {
 				document.getElementById("extraAddress").value = '';
 			}
 
+
 			// 우편번호와 주소 정보를 해당 필드에 넣는다.
 			document.getElementById('postcode').value = data.zonecode;
 			document.getElementById("address").value = addr;
 			// 커서를 상세주소 필드로 이동한다.
 			document.getElementById("detailAddress").focus();
+			
+
 		}
 	}).open();
 }
 
+function combineAddress(){
+	
+				            // userAddress에 주소 정보를 결합하여 저장한다.
+            var detailAddress = document.getElementById("detailAddress").value;
+            var address = document.getElementById("address").value;
+            var extraAddress = document.getElementById("extraAddress").value;
+            var userAddress = address + extraAddress + ' ' + detailAddress;
+
+            // userAddress 값을 hidden 필드에 넣는다.
+            document.getElementById("userAddress").value = userAddress;
+alert("저장되었습니다");
+}
  

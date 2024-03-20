@@ -1,4 +1,4 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.chatting;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,9 +17,9 @@ public class ChattingSubmit implements Action{
 		ActionForward forward = new ActionForward ();
 		
 		ChatDTO cdto = new ChatDTO();
-		cdto.setuserId(request.getParameter("userid"));
+		cdto.setUserId(request.getParameter("userid"));
 		cdto.setToId(request.getParameter("toid"));
-		cdto.setcontents(request.getParameter("contents"));
+		cdto.setContents(request.getParameter("contents"));
 		
 		ChatDAO cdao = new ChatDAO();
 		System.out.println("gd");

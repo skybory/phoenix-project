@@ -4,7 +4,7 @@ public class UserDTO {
 
 	
 	// 변수 설정
-	
+	private int userIdx;
 	private String userId; //사용자 아이디
 	private String userPw; //사용자 비밀번호
 	private String userAge; //사용자나이
@@ -22,6 +22,12 @@ public class UserDTO {
 	
 	public String getUserId() {
 		return userId;
+	}
+	public int getUserIdx() {
+		return userIdx;
+	}
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;

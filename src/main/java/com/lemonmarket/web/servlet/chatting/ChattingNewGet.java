@@ -1,7 +1,8 @@
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.chatting;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -20,26 +21,29 @@ public class ChattingNewGet{
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		
 		ChatDAO cdao = new ChatDAO();
 		int max = Integer.parseInt(request.getParameter("max"));
+		int roomIdx = Integer.parseInt(request.getParameter("roomIdx"));
 		List<ChatDTO> chatList = new ArrayList<>();
-		System.out.println("이거너냐?:"+max);
+		HashMap<String, Integer> newList = new HashMap<>();
+		newList.put("max", max);
+		newList.put("roomIdx", roomIdx);
 		JSONObject obj = null;
 		JSONArray arry = new JSONArray();
 		ChatDTO cdto = new ChatDTO();
-		cdto.setMax(max);
-		cdto.setRoomseq(Integer.parseInt(request.getParameter("roomseq")));
-		chatList = cdao.getNewList(cdto);
-		max = cdao.getMax(Integer.parseInt(request.getParameter("roomseq")));
-		System.out.println(max);
+		chatList = cdao.getNewList(newList);
+		max = cdao.getMax(roomIdx);
 		for(ChatDTO chat : chatList) {
 			obj = new JSONObject();
-			obj.put("fromId", chat.getuserId());
-			obj.put("toId", chat.getToId());
-			obj.put("chatTime", chat.getchatDate());
-			obj.put("contents", chat.getcontents());
-			obj.put("chatId", chat.getchatseq());
+//			user테이블
+			obj.put("fromId", cdao.getFromId(chat.getChatIdx()));
+			
+			
+			int productIdx = cdao.getProductIdx(roomIdx);
+			obj.put("toId", cdao.getProductName(productIdx));
+			
+			obj.put("chatTime", chat.getChatDate());
+			obj.put("contents", chat.getContents());
 			obj.put("max", max);
 			arry.add(obj);
 		}

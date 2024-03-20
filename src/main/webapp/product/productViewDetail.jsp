@@ -7,10 +7,12 @@
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+int userIdx = 0;
 
 if (udto != null) {
    userId = udto.getUserId();
    userName = udto.getUserName();
+   userIdx = udto.getUserIdx();
 }
 %>
 <!DOCTYPE html>
@@ -149,7 +151,7 @@ if (udto != null) {
 					<div class="text-start" style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
 						<h4 class="card-title-name">
-							<strong>${pdto.productId}</strong>
+							<strong>${pdto.productIdx}</strong>
 						</h4>
 						<p class="card-text-time">${pdto.productRegisterTime }</p>
 						<p class="card-text-price">
@@ -160,10 +162,11 @@ if (udto != null) {
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
 						<button class="btn btn-outline-primary mr-2"
-							onclick="toggleInterest()">
+							onclick="test()">
+							<span id="productInterestCount">관심 </span><span id = "interest"></span>
 						</button>
-							관심 ${pdto.productInterestCount } <span id="productInterestCount"></span>
-						<a href="/board/Chatting.bo" class="btn btn-outline-primary">채팅 ${pdto.productChatCount }</a>
+						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
+						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
 						<!-- Adjust the left margin -->
 					</div>
 				</div>
@@ -202,7 +205,7 @@ if (udto != null) {
 										<!-- 찜하기, 채팅 개수 -->
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-muted mb-0">관심 : <span id = "interest"></span></p>
-											<p class="text-muted mb-0">채팅 5</p>
+											<p class="text-muted mb-0">채팅 : <span id = room></span></p>
 										</div>
 									</div>
 								</div>
@@ -238,31 +241,74 @@ if (udto != null) {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="./js/scripts.js"></script>
+	<script src="./product/product.js"></script>
 	<script src="./js.js"></script>
 	<script>
-		//function redirectToProductDetail() {
-			//window.location.href = 'product_detail.jsp';
-// 		}
+	
+	window.onload = function(){
+		view();
+		
+	}
 
-		//let interestCount = ${"ProductDTO.productInterestCount"}; // 초기 관심 수 설정 	--> productDTO 에서 관심수를 받아와야함. ${""}
-	//	let isIncreased = false; // 관심 수가 증가했는지 여부를 나타내는 변수	--> 페이지에서 관리하는 변수라고 칩시다.
-		// 이 변수가 false -> true : productDTO 의 interest count 를 update 시키는 작업(product.xml) (1 늘리기)
-		// 이 변수가 true -> false : productDTO의 interest count 를 update 시킴 ( 1 줄이기)
+	function view(){
+		
+		$.ajax({
+			type : 'POST',
+			url : '/product/getItem.pr',
+			data : {
+				"prIdx" : ${pdto.productIdx},
+			},
+			success : function(result) {
 
-// 		function toggleInterest() {
-// 			if (!isIncreased) {
-// 				interestCount++; // 관심 수 증가
-// 				isIncreased = true;
-// 			} else {
-// 				if (interestCount > 0) {
-// 					interestCount--; // 관심 수 감소
-// 				}
-// 				isIncreased = false;
-// 			}
-// 			document.getElementById('productInterestCount').innerText = interestCount; // 관심 수 표시 업데이트
-// 		}
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+				// 				             $("#max").val(ajaxresult.max);
+				document.getElementById("interest").innerHTML = ajaxresult.interCnt;
+				document.getElementById("room").innerHTML = ajaxresult.roomCnt;
+
+			},
+			error : function(result) {
+				console.log(result);
+			}
+		}
+
+		);
+	}
+	
+	function test(){
+// 		document.getElementById("test").innerHTML = "돼?";
+			var userId = <%=userIdx%> // 임시;
+			var prIdx = ${pdto.productIdx} // 임시
+			//idx로 바꿔라
+			toggleInterest(userId, prIdx)
+		}
+	
+	function toggleInterest(userIdx, prIdx) {
+
+		$.ajax({
+			type : 'POST',
+			url : '/product/DecreaseInterest.pr',
+			data : {
+				"prIdx" : prIdx,
+				"userIdx" : userIdx
+			},
+			success : function(result) {
+
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+				// 				             $("#max").val(ajaxresult.max);
+				document.getElementById("interest").innerHTML = ajaxresult.result;
+
+			},
+			error : function(result) {
+				console.log(result);
+			}
+		}
+
+		);
+	}
+
+
 	</script>
+	
 
 </body>
 </html>

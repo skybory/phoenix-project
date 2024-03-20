@@ -1,5 +1,5 @@
 
-package com.lemonmarket.web.servlet;
+package com.lemonmarket.web.servlet.chatting;
 
 import java.io.IOException;
 
@@ -36,6 +36,9 @@ public class ChatFrontController extends HttpServlet {
 		switch (requestURI) {
 		case "/chatting/chatwrite.chat":
 			forward = new ActionForward(true,"/chatting/chatting.jsp");
+			break;
+		case "/chatting/chatting.chat":
+			forward = new ChattingView().execute(req,resp);
 			break;
 		case "/chatting/getNewChat.chat":
 			new ChattingNewGet().execute(req, resp);

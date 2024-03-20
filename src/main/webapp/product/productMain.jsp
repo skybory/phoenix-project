@@ -126,36 +126,36 @@ if (udto != null) {
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Pricing.bo">중고거래</a></li>
-
 						<%
-						if (udto == null) {
-						%>
+                  if (udto == null) {  %>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo" onclick = "showAlert()">중고거래</a></li>
+
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
 
 						<%
-						} else {
-						%>
-
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting"> <%=userName%>님(<%=userId%>) 안녕하세요
-						</a></li>
-
-
+                  } else {
+                  %>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/board/MyPage.bo">마이페이지</a></li>
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="/board/Map.bo">내 동네 바꾸기</a></li>
+						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>) 안녕하세요
+						</a></li>
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -188,7 +188,7 @@ if (udto != null) {
 									<span id="setLocation"></span>
 									<p class="banner-text text-white-50">물건을 등록하시겠습니까?</p>
 									<!-- 수정된 버튼 -->
-									<a class="btn btn-outline-light btn-lg" href="/product/ProductRegisterAction.pr">물건
+									<a class="btn btn-outline-light btn-lg" href="/product/ProductWriteBoard.pr">물건
 										등록하기</a>
 								</div>
 							</div>
@@ -209,7 +209,7 @@ if (udto != null) {
 								<div class="card mb-5 mb-xl-0">
 									<div class="card-body p-5">
 										<a
-											href="/product/ViewDetailAction.pr?productId=${product.productId}"
+											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 											class="card-link"> <!-- 상품 이미지 --> 
 											<img
 											src="${product.productImage}" alt="Product Image"

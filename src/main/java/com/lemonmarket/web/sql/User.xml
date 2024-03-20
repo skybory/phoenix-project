@@ -5,25 +5,36 @@
  <mapper namespace="User">
 
    <select id="checkId" parameterType="string" resultType="_int">
-      SELECT COUNT(*) FROM tbl_join WHERE userId = #{userId} 
+      SELECT COUNT(*) FROM `USER` WHERE userId = #{userId} 
    </select>
 
    <insert id="join" parameterType="userdto">
-      INSERT INTO `tbl_join` VALUES 
-      (#{userId},#{userPw},#{userName},#{userAge},#{gender},#{phoneNumber},#{userEmail},#{userAddress})
+      INSERT INTO `USER` VALUES 
+      (null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress})
    </insert>
 
    <select id="login" parameterType="hashmap" resultType="userdto">
-      select * from `tbl_join`
+      select * from `USER`
       where userId = #{userId} and userPw = #{userPw}
    </select>
    
    <select id="searchById" parameterType="string" resultType="userdto">
-       SELECT * FROM `tbl_join` WHERE userId = #{userId}
+       SELECT * FROM `USER` WHERE userId = #{userId}
     </select>
     
    <select id="getList" resultType="userdto">
-       SELECT * FROM `tbl_join`
+       SELECT * FROM `USER`
 </select>
+
+   <update id="updateAddress" parameterType="hashmap">
+      UPDATE `USER`
+      SET userAddress = #{userAddress}
+      WHERE userId = #{userId}
+   </update>
+
+<select id="getUserId" parameterType="_int" resultType="String">
+   select userId from `USER` where userIdx=#{userIdx}
+</select>
+
 </mapper>
  

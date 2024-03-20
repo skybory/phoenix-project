@@ -5,7 +5,7 @@ public class ProductDTO {
 	
 	// 변수 설정
 	
-	private int productId;
+	private int productIdx;
 	private String userId;
 	private String productTitle;
 	private String productDescription;
@@ -19,11 +19,11 @@ public class ProductDTO {
 	private String categoryId;
 	
 	
-	public int getProductId() {
-		return productId;
+	public int getProductIdx() {
+		return productIdx;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductIdx(int productId) {
+		this.productIdx = productId;
 	}
 	public String getUserId() {
 		return userId;

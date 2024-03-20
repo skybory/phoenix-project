@@ -1,16 +1,37 @@
 package com.lemonmarket.web.dto;
 
 public class RoomDTO {
-	private int roomSeq;
-	private String fromId;
-	private String prName;
+	private int roomIdx;
+	private int userIdx;
+	private String userId;
 	private String toId;
+	private int productIdx;
+	private String productTitle;
 	private String roomDate;
-	public String getRoomDate() {
-		return roomDate;
+	private String productId;
+	public String getProductId() {
+		return productId;
 	}
-	public void setRoomDate(String roomDate) {
-		this.roomDate = roomDate;
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public int getRoomIdx() {
+		return roomIdx;
+	}
+	public void setRoomIdx(int roomIdx) {
+		this.roomIdx = roomIdx;
+	}
+	public int getUserIdx() {
+		return userIdx;
+	}
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getToId() {
 		return toId;
@@ -18,22 +39,22 @@ public class RoomDTO {
 	public void setToId(String toId) {
 		this.toId = toId;
 	}
-	public int getRoomSeq() {
-		return roomSeq;
+	public int getProductIdx() {
+		return productIdx;
 	}
-	public void setRoomSeq(int roomSeq) {
-		this.roomSeq = roomSeq;
+	public void setProductIdx(int productIdx) {
+		this.productIdx = productIdx;
 	}
-	public String getfromId() {
-		return fromId;
+	public String getProductTitle() {
+		return productTitle;
 	}
-	public void setfromId(String fromId) {
-		this.fromId = fromId;
+	public void setProductTitle(String productTitle) {
+		this.productTitle = productTitle;
 	}
-	public String getPrName() {
-		return prName;
+	public String getRoomDate() {
+		return roomDate;
 	}
-	public void setPrName(String prName) {
-		this.prName = prName;
+	public void setRoomDate(String roomDate) {
+		this.roomDate = roomDate;
 	}
 }

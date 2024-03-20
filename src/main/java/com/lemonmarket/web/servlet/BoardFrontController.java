@@ -3,6 +3,8 @@ package com.lemonmarket.web.servlet;
 import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.dao.ProductDAO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
 import jakarta.servlet.ServletException;
@@ -75,6 +77,11 @@ public class BoardFrontController extends HttpServlet {
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/board/Chatting.bo":
+	        ProductDAO pdao = new ProductDAO();
+	        int productIdx = Integer.parseInt(req.getParameter("productIdx"));
+	        System.out.println(productIdx);
+	        ProductDTO pdto = pdao.viewProductDetail(productIdx);
+	        req.setAttribute("pdto", pdto);
 			forward = new ActionForward(true, "/chatting/chatting.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
