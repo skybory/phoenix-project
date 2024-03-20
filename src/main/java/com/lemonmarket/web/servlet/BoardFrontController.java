@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.CategoryDAO;
+import com.lemonmarket.web.dao.ProductDAO;
 import com.lemonmarket.web.dto.CategoryDTO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.servlet.category.SelectCategoryAction;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 

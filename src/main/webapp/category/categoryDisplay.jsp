@@ -1,3 +1,4 @@
+<%@page import="com.lemonmarket.web.dto.CategoryDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,16 +10,18 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>의류 카테고리 상품</title>
+<title>의류 카테고리55 상품</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="/css/styles.css" rel="stylesheet">
 </head>
 <style>
+ 
 a {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
+
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -61,19 +64,18 @@ a {
 /* 추가된 타이틀에 대한 스타일 */
 /* 상품 페이지 타이틀 스타일 */
 .page-title {
-    font-size: 2.5rem; /* 타이틀 크기 */
-    color: #343a40; /* 타이틀 색상 */
-    margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
-    font-weight: bold; /* 글자 굵기 */
-    text-transform: uppercase; /* 대문자로 변환 */
+	font-size: 2.5rem; /* 타이틀 크기 */
+	color: #343a40; /* 타이틀 색상 */
+	margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
+	font-weight: bold; /* 글자 굵기 */
+	text-transform: uppercase; /* 대문자로 변환 */
 }
-
-
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+CategoryDTO cdto = (CategoryDTO) request.getAttribute("cdto");
 
 if (udto != null) {
 	userId = udto.getUserId();
@@ -170,9 +172,12 @@ if (udto != null) {
 			</div>
 		</nav>
 		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
-		<div class="container text-center my-4">
-        <h1 class="page-title">의류 상품</h1>
-    </div>
+<div class="container text-center my-4">
+    <h1 class="page-title"><%= cdto.getCategoryName() %> 목록</h1>
+<!--     <div class="category"> -->
+<%--         <img src="<%= cdto.getCategoryImage() %>" class="category-image"> --%>
+<!--     </div> -->
+</div>
 
 		<div class="row gx-5 justify-content-center">
 			<c:if test="${not empty productList}">

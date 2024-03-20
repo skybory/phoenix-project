@@ -37,7 +37,7 @@
 			null , #{roomIdx} , #{userId} , #{contents},now())
 	</insert>
 	
-	<insert id = "insertRoom" parameterType = "com.lemonmarket.web.dto.RoomDTO">
+	<insert id = "insertRoom" parameterType = "roomdto">
   		INSERT INTO CHATTINGROOM values(
 		null , #{productIdx},#{userIdx},#{productId})
 	</insert>
@@ -46,10 +46,6 @@
 		SELECT max(chatIdx) FROM CHAT WHERE roomIdx = #{roomseq}
 	</select>
 	
-	<select id = "check" parameterType = "_int" resultType = "_int">
-		select count(*) from userchat where chatId > #{max}
-  	</select>
-  	
 	<select id = "getNew" parameterType = "hashmap" resultType = "chatdto">
 		select chatIdx,roomIdx,userId,contents ,chatDate from CHAT natural join CHATTINGROOM 
 		where chatIdx > #{max} and roomIdx= #{roomIdx}
@@ -67,8 +63,8 @@
   		SELECT productIdx from CHATTINGROOM where roomIdx = #{roomIdx}
   	</select>
   	
-  	<select id = "confirm" parameterType = "com.lemonmarket.web.dto.RoomDTO" resultType = "_int">
-  		SELECT count(*) from CHATTINGROOM WHERE useridx = #{userIdx} and productIdx = #{productIdx}
+  	<select id = "confirm" parameterType = "roomdto" resultType = "_int">
+  		SELECT count(*) from CHATTINGROOM WHERE userIdx = #{userIdx} and productIdx = #{productIdx}
   	</select>
   	
   	<select id = "fromId" parameterType = "_int" resultType = "string">
@@ -81,10 +77,6 @@
   	<select id = "InterCnt" parameterType = "_int" resultType = "_int">
   		SELECT count(*) from WISHLIST where productIdx = #{prIdx} and wish = 1
   	</select>
-  	
-  	
-  	
-  	
   	
   	
  </mapper>

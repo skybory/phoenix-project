@@ -91,12 +91,14 @@ String userName = null;
 String userId = null;
 String userImage = null;
 int userAccount = 0;
+int userIdx = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
 	userAccount = udto.getUserAccount();
 	userImage = udto.getUserImage();
+	userIdx = udto.getUserIdx();
 }
 %>
 <head>
