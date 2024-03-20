@@ -416,6 +416,7 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/map.js"></script>
+<<<<<<< HEAD
 	
 	<script>
 <%-- 	function showAlert(){
@@ -446,6 +447,9 @@ if (udto != null) {
 							<%
 						}
 						%> --%>
+=======
+	<script src="js/all.js"></script>
+>>>>>>> 6d3efb4961233c21914b83b84aa0ef2ecbb6b7c5
 </body>
 </html>
 

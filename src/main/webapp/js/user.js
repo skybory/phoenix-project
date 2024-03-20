@@ -2,18 +2,7 @@
  *  회원가입 validation 체크
  */
 function sendit() {
-	// 아이디 빈값체크	-> alert 아이디를 입렵하세요!
-	// 아이디 길이체크	-> alert 아이디는 5자리 이상, 16자리 미만으로 작성
-	// 비밀번호 빈값체크	-> alert 비밀번호를 입력하세요!
-	// 비밀번호 자리체크	-> alert 비밀번호는 8자리 이상으로 입력하세요!
-	// 비밀번호=비밀번호확인-> alert 비밀번호와 비밀번호확인이 일치하지 않습니다!
-	// 이름 빈값체크		-> alert 이름을 입력하세요!
-	// 휴대폰번호 빈값체크	-> alert 휴대폰번호를 입력하세요!
-	// 주소체크		-> alert 주소를 입력하세요!
-	// 성별체크		-> alert 성별을 입력하세요!
-	// 이메일체크		-> alert 이메일을 입력하세요!
-	// 나이체크		-> alert 나이를 입력하세요!
-	// submit();
+ 
 
 	let frm = document.joinForm;
 	let userId = frm.userId;
@@ -98,13 +87,8 @@ function sendit() {
 	frm.submit();
 }
 
-/*
-	로그인 validation check
- */
 function loginit() {
-	// 아이디 빈값처리
-	// 패스워드 빈값처리
-	let frm = document.frm;
+ 	let frm = document.frm;
 	let userId = frm.userId;
 	let userPw = frm.userPw;
 

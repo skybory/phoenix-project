@@ -458,4 +458,5 @@ if (udto != null) {
 	
 
 </body>
+<script src="../js/all.js"></script>
 </html>

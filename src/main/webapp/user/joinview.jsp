@@ -397,10 +397,10 @@ button[type="submit"]:hover {
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 
-	<script src="../user.js"></script>
 	<script src="../js/scripts.js"></script>
 	<script src="../js/map.js"></script>
 	<script src="../js/user.js"></script>
+	<script src="../js/all.js"></script>
 
 </body>
 </html>

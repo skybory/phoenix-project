@@ -283,6 +283,6 @@ if (udto != null) {
 	<script src="../user.js"></script>
 	<script src="../js/map.js"></script>
 	<script src="../js/product.js"></script>
-
+<script src="../js/all.js"></script>
 </body>
 </html>

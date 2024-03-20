@@ -258,5 +258,6 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	<script src="../js/map.js"></script>
+	<script src="../js/all.js"></script>
 </body>
 </html>

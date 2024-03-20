@@ -267,4 +267,5 @@ if (udto != null) {
 		}
 	</script>
 </body>
+<script src="../js/all.js"></script>
 </html>

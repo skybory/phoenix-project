@@ -193,7 +193,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -204,34 +204,7 @@ if (udto != null) {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
-<!-- 			<div class="row gx-5 justify-content-center"> -->
-<!-- 				<div class="col-lg-8 col-xl-6"> -->
-<!-- 					주소 입력 폼 -->
-<!-- 					<form id="addressForm" action="/user/UserupdateAddressAction.us" -->
-<!-- 						method="post"> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="postcode">우편번호</label> <input type="text" -->
-<!-- 								id="postcode" readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="address">주소</label> <input type="text" id="address" -->
-<!-- 								readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="extraAddress">참고항목</label> <input type="text" -->
-<!-- 								id="extraAddress" readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="detailAddress">상세주소</label> <input type="text" -->
-<!-- 								id="detailAddress"> -->
-<!-- 						</div> -->
-<!-- 						<input type="hidden" name="userAddress" id="userAddress"> -->
-<!-- 						<button type="button" onclick="searchAddress()">주소 찾기</button> -->
-<!-- 						<button class="btn btn-primary btn-lg btn-block" type="submit" -->
-<!-- 							onclick="sendit();" id="submitButton">변경 완료</button> -->
-<!-- 					</form> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
+ 
 <div class="row gx-5 justify-content-center">
     <div class="col-lg-8 col-xl-6">
         <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
@@ -336,4 +309,5 @@ if (udto != null) {
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 </body>
+<script src="../js/all.js"></script>
 </html>
