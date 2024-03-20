@@ -1,15 +1,12 @@
 package com.lemonmarket.web.servlet.product;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.CategoryDAO;
-import com.lemonmarket.web.dao.ProductDAO;
 import com.lemonmarket.web.dto.CategoryDTO;
-import com.lemonmarket.web.servlet.category.ClothCategoryAction;
-import com.lemonmarket.web.servlet.category.CategoryDisplayAction;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,14 +30,10 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 
 		switch (requestURI) {
-		//확인.
 		case "/product/ProductWriteBoard.pr":
-			CategoryDAO cdao = new CategoryDAO();
-			List<CategoryDTO> categoryList = cdao.getcategoryAll();
-			req.setAttribute("categoryList", categoryList);
-			forward = new ActionForward(true, "/product/productRegistration.jsp");
+			forward = new ProductRegisterPage().execute(req, resp);
 			break;
-		//
+			
 		case "/product/ProductRegisterAction.pr":
 			new ProductRegisterAction().doPost(req,resp);
 			// 화면을 바로 보여줄땐 ActionForward

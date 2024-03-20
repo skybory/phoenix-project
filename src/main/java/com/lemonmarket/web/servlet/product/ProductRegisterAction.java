@@ -41,7 +41,7 @@ public class ProductRegisterAction extends HttpServlet {
         pdto.setProductDealType(request.getParameter("productDealType"));
         pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
         pdto.setProductLocation(request.getParameter("productLocation"));
-        pdto.setCategoryIdx(1);
+        pdto.setCategoryIdx(Integer.parseInt(request.getParameter("categoryIdx")));
         
         Collection<Part> parts = request.getParts();
         for (Part part : parts) {

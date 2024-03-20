@@ -45,46 +45,47 @@
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+
 #addressForm {
-   max-width: 400px;
-   margin: 50px auto;
-   padding: 20px;
-   background-color: #f5f5f5;
-   border-radius: 5px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the form fields */
 .form-group {
-   margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 label {
-   display: block;
-   font-weight: bold;
-   margin-bottom: 5px;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 input {
-   width: 100%;
-   padding: 10px;
-   box-sizing: border-box;
-   border: 1px solid #ccc;
-   border-radius: 3px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 }
 
 /* Style for the button */
 button {
-   background-color: #4caf50;
-   color: #fff;
-   padding: 10px 15px;
-   border: none;
-   border-radius: 3px;
-   cursor: pointer;
+	background-color: #4caf50;
+	color: #fff;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
 }
 
 button:hover {
-   background-color: #45a049;
+	background-color: #45a049;
 }
 </style>
 <%
@@ -203,68 +204,98 @@ if (udto != null) {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
-			<div class="row gx-5 justify-content-center">
+<!-- 			<div class="row gx-5 justify-content-center"> -->
+<!-- 				<div class="col-lg-8 col-xl-6"> -->
+<!-- 					주소 입력 폼 -->
+<!-- 					<form id="addressForm" action="/user/UserupdateAddressAction.us" -->
+<!-- 						method="post"> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="postcode">우편번호</label> <input type="text" -->
+<!-- 								id="postcode" readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="address">주소</label> <input type="text" id="address" -->
+<!-- 								readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="extraAddress">참고항목</label> <input type="text" -->
+<!-- 								id="extraAddress" readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="detailAddress">상세주소</label> <input type="text" -->
+<!-- 								id="detailAddress"> -->
+<!-- 						</div> -->
+<!-- 						<input type="hidden" name="userAddress" id="userAddress"> -->
+<!-- 						<button type="button" onclick="searchAddress()">주소 찾기</button> -->
+<!-- 						<button class="btn btn-primary btn-lg btn-block" type="submit" -->
+<!-- 							onclick="sendit();" id="submitButton">변경 완료</button> -->
+<!-- 					</form> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<div class="row gx-5 justify-content-center">
     <div class="col-lg-8 col-xl-6">
-        <!-- 주소 입력 폼 -->
         <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
             <div class="form-group">
-                <label for="postcode">우편번호</label> <input type="text" id="postcode" readonly>
+                <label for="postcode">우편번호</label>
+                <input type="text" id="postcode" readonly>
             </div>
             <div class="form-group">
-                <label for="address">주소</label> <input type="text" id="address" readonly>
+                <label for="address">주소</label>
+                <input type="text" id="address">
             </div>
             <div class="form-group">
-                <label for="extraAddress">참고항목</label> <input type="text" id="extraAddress" readonly>
+                <label for="extraAddress">참고항목</label>
+                <input type="text" id="extraAddress">
             </div>
             <div class="form-group">
-                <label for="detailAddress">상세주소</label> <input type="text" id="detailAddress">
+                <label for="detailAddress">상세주소</label>
+                <input type="text" id="detailAddress">
             </div>
-            <input type="hidden" name="userAddress" id="userAddress"> <!-- userAddress를 담을 hidden 필드 추가 -->
+            <input type="hidden" name="userAddress" id="userAddress">
             <button type="button" onclick="searchAddress()">주소 찾기</button>
-            <button type="button" onclick="combineAddress()">주소 저장하기</button>
-            <button type="submit">주소 보내기</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();" id="submitButton">변경 완료</button>
         </form>
     </div>
 </div>
-				<!-- Contact cards-->
-				<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-chat-dots"></i>
-						</div>
-						<div class="h5 mb-2">Chat with us</div>
-						<p class="text-muted mb-0">Chat live with one of our support
-							specialists.</p>
+			<!-- Contact cards-->
+			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-chat-dots"></i>
 					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-people"></i>
-						</div>
-						<div class="h5">Ask the community</div>
-						<p class="text-muted mb-0">Explore our community forums and
-							communicate with other users.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-question-circle"></i>
-						</div>
-						<div class="h5">Support center</div>
-						<p class="text-muted mb-0">Browse FAQ's and support articles
-							to find solutions.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-telephone"></i>
-						</div>
-						<div class="h5">Call us</div>
-						<p class="text-muted mb-0">Call us during normal business
-							hours at (555) 892-9403.</p>
-					</div>
+					<div class="h5 mb-2">Chat with us</div>
+					<p class="text-muted mb-0">Chat live with one of our support
+						specialists.</p>
 				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-people"></i>
+					</div>
+					<div class="h5">Ask the community</div>
+					<p class="text-muted mb-0">Explore our community forums and
+						communicate with other users.</p>
+				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-question-circle"></i>
+					</div>
+					<div class="h5">Support center</div>
+					<p class="text-muted mb-0">Browse FAQ's and support articles to
+						find solutions.</p>
+				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-telephone"></i>
+					</div>
+					<div class="h5">Call us</div>
+					<p class="text-muted mb-0">Call us during normal business hours
+						at (555) 892-9403.</p>
+				</div>
+			</div>
 			</div>
 		</section>
 	</main>

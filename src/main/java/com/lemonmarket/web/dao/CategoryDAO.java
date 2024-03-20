@@ -17,18 +17,13 @@ public class CategoryDAO {
 	}
     
     // 모든 카테고리를 조회하는 메서드
-    public List<CategoryDTO> getcategoryAll() {
+    public List<CategoryDTO> getCategoryAll() {
         List<CategoryDTO> categoryList = sqlSession.selectList("Category.categoryAll");
         return categoryList;
     }
-    
-    
-    // 메모리 자원을 해제하는 메서드
-    public void close() {
-        if (sqlSession != null) {
-            sqlSession.close();
-        }
 	
-	}
-	
+    // 카테고리 정보 가져오는 메서드
+    public CategoryDTO getCategory(int categoryIdx) {
+    	return sqlSession.selectOne("Category.getCategory",categoryIdx);
+    }
 }

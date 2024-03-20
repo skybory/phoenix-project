@@ -251,7 +251,7 @@ if (udto != null) {
         <c:forEach var="category" items="${categoryList}">
             <!-- 카테고리가 있는 경우 -->
             <div class="category">
-                <a href="${pageContext.request.contextPath}/category/?categoryIdx=${category.categoryIdx}">
+                <a href="/category/CategoryDisplayAction.cat?categoryIdx=${category.categoryIdx}">
                     <img src="${category.categoryImage}" alt="${category.categoryName}">
                     <p>${category.categoryName}</p>
                 </a>
