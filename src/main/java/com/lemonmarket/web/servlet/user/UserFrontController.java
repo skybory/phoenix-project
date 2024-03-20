@@ -55,10 +55,14 @@ public class UserFrontController extends HttpServlet{
 			forward = new UserPurchaseProductAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
-//		case "/user/ProfileView.us":
-//			forward = new UserProfileViewAction().execute(req, resp);
-//			// 화면을 바로 보여줄땐 ActionForward
-//			break;
+		case "/user/ViewMyProfileAction.us":
+			forward = new UserViewMyProfileAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/user/InterestListAction.us":
+//			forward = new UserViewMyProfileAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
 		}
 			
  

@@ -21,6 +21,7 @@ public class ProductViewDetailAction implements Action{
         // ProductDAO를 통해 해당 제품의 세부 정보 가져오기
         ProductDAO pdao = new ProductDAO();
         int productIdx = Integer.parseInt(request.getParameter("productIdx"));
+        
         ProductDTO pdto = pdao.viewProductDetail(productIdx);
 	        if (pdto != null) {
 	            // ProductDTO 객체가 유효한 경우

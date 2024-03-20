@@ -10,10 +10,10 @@
 		(null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,now(),0,0,#{categoryIdx},null,null,null)
 	</insert>
 
-	<!-- 카테고리로 물품 검색 -->
-	<!-- <select id="selectProductsByCategoryId" parameterType="_int" resultType="productdto"> -->
-	<!-- SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx} -->
-	<!-- </select> -->
+<!-- 	카테고리로 물품 검색 -->
+	<select id="selectProductsByCategoryIdx" parameterType="_int" resultType="productdto">
+	SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx}
+	</select>
 
 	<!-- 물품 상세정보 보기 -->
 	<select id="viewProductDetail" parameterType="_int"

@@ -76,9 +76,6 @@ public class BoardFrontController extends HttpServlet {
 			break;
 		case "/board/Category.bo":
 			//카테고리 리스트 가져옴
-			CategoryDAO cdao = new CategoryDAO();
-			List<CategoryDTO> categoryList = cdao.getcategoryAll();
-			req.setAttribute("categoryList", categoryList);
 			forward = new SelectCategoryAction().execute(req, resp);
 	        break;
 		case "/board/Chatting.bo":

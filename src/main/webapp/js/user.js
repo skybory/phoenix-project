@@ -93,12 +93,6 @@ function sendit() {
 		return false;
 	}
 
-
-
-	
-
-	
-	
 	
 	combineAddress();
 	frm.submit();

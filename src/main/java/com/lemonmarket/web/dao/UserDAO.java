@@ -77,11 +77,8 @@ public class UserDAO {
 		return sqlSession.selectList("User.getList");
 	}
 
-//	public List<UserDTO> getProfileList(String userId) {
-//		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
-//		return ProfileList;
-//	}
 
+//	유저 정보 가져오기
 	public UserDTO getData(int userIdx) {
 		return sqlSession.selectOne("User.getData", userIdx);
 	}
@@ -97,27 +94,26 @@ public class UserDAO {
 		return result;
 	}
 
+	
+//	물품 구매하기
 	public boolean purchase(int purchaseUserIdx, int productIdx) {
 		boolean result = false;
 		
 		int productPrice = sqlSession.selectOne("Product.getProductPrice", productIdx);
+
 		// 구매 1단계 : PRODUCT 테이블에 구매자 추가하기
 		HashMap<String, Integer> datas = new HashMap<String, Integer>();
 		datas.put("userIdx", purchaseUserIdx);
 		datas.put("productIdx", productIdx);
 		datas.put("productPrice", productPrice);
-
-		// 구매 2단계 : 구매자의 돈 차감하고, 판매자의 돈 늘리기
-		// 먼저, PRODUCT 테이블에서 productIdx 를 통해서 productPrice, sellUserIdx 선택해오기
-		
 		
 		int sellUserIdx = sqlSession.selectOne("Product.getUserIdx", productIdx);
-		
+		// 구매 2단계 : 판매자의 돈 업데이트하기
 		HashMap<String, Integer> datas2 = new HashMap<String, Integer>();
-//		datas2.put("userAccount", userAccount);
 		datas2.put("productPrice", productPrice);
 		datas2.put("sellUserIdx", sellUserIdx);
 
+		// 구매 3단계 : 구매자의 돈 업데이트하기
 		HashMap<String,Integer> datas3 = new HashMap<String, Integer>();
 		datas3.put("productPrice", productPrice);
 		datas3.put("userIdx",purchaseUserIdx);
@@ -130,15 +126,21 @@ public class UserDAO {
 	}
 
 	
-	
+//	구매 목록 가져오기
 	public List<ProductDTO> getPurchaseList(int userIdx) {
 	    // 구매 목록을 가져오는 쿼리 실행 후 ProductDTO 객체의 리스트로 저장
 	    List<ProductDTO> purchaseList = sqlSession.selectList("User.getPurchaseList", userIdx);
 	    return purchaseList;
 	}
-//	
+//	판매 목록 가져오기
 	public List<ProductDTO> getSalesList(int userIdx) {
 		List<ProductDTO> salesList = sqlSession.selectList("User.getSalesList", userIdx);
 		return salesList;
+	}
+	
+//	유저 프로필 가져오기
+	public List<UserDTO> viewProfile(String userId) {
+		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
+		return ProfileList;
 	}
 }
