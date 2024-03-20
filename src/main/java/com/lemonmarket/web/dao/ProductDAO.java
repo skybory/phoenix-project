@@ -73,6 +73,7 @@ public class ProductDAO {
 	}
 
 	
+	
 //    // 특정 ID의 카테고리를 조회하는 메서드
 //    public ProductDTO getProdutByIdx(int categoryIdx) {
 //        ProductDTO pdto = sqlSession.selectOne("Product.productByIdx", categoryIdx);

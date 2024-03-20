@@ -193,7 +193,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -204,32 +204,33 @@ if (udto != null) {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
- 
-<div class="row gx-5 justify-content-center">
-    <div class="col-lg-8 col-xl-6">
-        <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
-            <div class="form-group">
-                <label for="postcode">우편번호</label>
-                <input type="text" id="postcode" readonly>
-            </div>
-            <div class="form-group">
-                <label for="address">주소</label>
-                <input type="text" id="address">
-            </div>
-            <div class="form-group">
-                <label for="extraAddress">참고항목</label>
-                <input type="text" id="extraAddress">
-            </div>
-            <div class="form-group">
-                <label for="detailAddress">상세주소</label>
-                <input type="text" id="detailAddress">
-            </div>
-            <input type="hidden" name="userAddress" id="userAddress">
-            <button type="button" onclick="searchAddress()">주소 찾기</button>
-            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();" id="submitButton">변경 완료</button>
-        </form>
-    </div>
-</div>
+
+			<div class="row gx-5 justify-content-center">
+				<div class="col-lg-8 col-xl-6">
+					<form id="addressForm" action="/user/UserupdateAddressAction.us"
+						method="post">
+						<div class="form-group">
+							<label for="postcode">우편번호</label> <input type="text"
+								id="postcode" readonly>
+						</div>
+						<div class="form-group">
+							<label for="address">주소</label> <input type="text" id="address">
+						</div>
+						<div class="form-group">
+							<label for="extraAddress">참고항목</label> <input type="text"
+								id="extraAddress">
+						</div>
+						<div class="form-group">
+							<label for="detailAddress">상세주소</label> <input type="text"
+								id="detailAddress">
+						</div>
+						<input type="hidden" name="userAddress" id="userAddress">
+						<button type="button" onclick="searchAddress()">주소 찾기</button>
+						<button class="btn btn-primary btn-lg btn-block" type="submit"
+							onclick="sendit();" id="submitButton">변경 완료</button>
+					</form>
+				</div>
+			</div>
 			<!-- Contact cards-->
 			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 				<div class="col">
@@ -237,36 +238,32 @@ if (udto != null) {
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 						<i class="bi bi-chat-dots"></i>
 					</div>
-					<div class="h5 mb-2">Chat with us</div>
-					<p class="text-muted mb-0">Chat live with one of our support
-						specialists.</p>
+					<div class="h5 mb-2">일대일 문의</div>
+					<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 				</div>
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 						<i class="bi bi-people"></i>
 					</div>
-					<div class="h5">Ask the community</div>
-					<p class="text-muted mb-0">Explore our community forums and
-						communicate with other users.</p>
+					<div class="h5">커뮤니티</div>
+					<p class="text-muted mb-0">커뮤니티에 질문 해주세요.</p>
 				</div>
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 						<i class="bi bi-question-circle"></i>
 					</div>
-					<div class="h5">Support center</div>
-					<p class="text-muted mb-0">Browse FAQ's and support articles to
-						find solutions.</p>
+					<div class="h5">서비스센터</div>
+					<p class="text-muted mb-0">FAQ's 와 여러가지 문제들 해결해 드립니다.</p>
 				</div>
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 						<i class="bi bi-telephone"></i>
 					</div>
-					<div class="h5">Call us</div>
-					<p class="text-muted mb-0">Call us during normal business hours
-						at (555) 892-9403.</p>
+					<div class="h5">연락처</div>
+					<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 				</div>
 			</div>
 			</div>
