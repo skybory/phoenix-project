@@ -129,7 +129,7 @@ public class ProductDAO {
 
 
 	public int getProductCntByCategoryIdx(int categoryIdx) {
-		int productCnt = sqlSession.selectOne("Product.getProductCntByCategoryIdx");
+		int productCnt = sqlSession.selectOne("Product.getProductCntByCategoryIdx", categoryIdx);
 		return productCnt;
 	}
 	

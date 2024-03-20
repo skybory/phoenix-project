@@ -229,7 +229,7 @@ if (udto != null) {
 						<h4 class="card-title-name">
 							<strong>${pdto.productTitle}</strong>
 						</h4>
-						<p class="card-text-time" > ${cdto.categoryName }</p>
+						<p class="card-text-time">${cdto.categoryName }</p>
 						<p class="card-text-time">${pdto.productRegisterDate }</p>
 						<p class="card-text-price">
 							<strong>${pdto.productPrice }원</strong>
@@ -238,13 +238,13 @@ if (udto != null) {
 					</div>
 					<!-- 관심 버튼, 채팅 버튼 -->
 					<div class="d-flex justify-content-center mt-3">
-						<button class="btn btn-outline-primary mr-2"
-							onclick="test()">
-							<span id="productInterestCount">관심 </span><span id = "interest"></span>
+						<button class="btn btn-outline-primary mr-2" onclick="test()">
+							<span id="productInterestCount">관심 </span><span id="interest"></span>
 						</button>
 						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
-						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
-						<!-- Adjust the left margin --><button type="button" class="btn btn-outline-primary"
+							class="btn btn-outline-primary">채팅 <span id="room"></span></a>
+						<!-- Adjust the left margin -->
+						<button type="button" class="btn btn-outline-primary"
 							id="purchaseBtn">구매하기</button>
 					</div>
 				</div>
@@ -256,31 +256,41 @@ if (udto != null) {
 			<div class="row gx-5 justify-content-center">
 				<c:choose>
 					<c:when
-						test="${productList != null and fn:length(productList) > 0 }">
-						<c:forEach var="product" items="${productList}">
-							<!-- Pricing card -->
-							<div class="col-lg-6 col-xl-4 mb-4">
-								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5" onclick="redirectToProductDetail()">
-										<!-- 상품 이미지 -->
-										<img src="img.png" alt="Product Image" class="card-img mb-3">
-										<!-- 상품명 -->
-										<h4 class="card-title">상품명</h4>
-										<div class="mb-3">
-											<!-- 상품가격 -->
-											<span class="fw-bold" style="font-size: 2rem;">300,000원</span>
-										</div>
-										<!-- 지역 -->
-										<p class="text-muted mb-4">지역: 서울시 동작구</p>
-										<!-- mb-4로 간격 늘림 -->
-										<!-- 찜하기, 채팅 개수 -->
-										<div class="d-flex justify-content-between align-items-center">
-											<p class="text-muted mb-0">관심 : <span id = "interest"></span></p>
-											<p class="text-muted mb-0">채팅 : <span id = room></span></p>
+						test="${productList != null and fn:length(productList) > 0}">
+						<c:forEach var="product" items="${productList}" varStatus="loop">
+							<!-- 상품 카드 -->
+							<div class="col-lg-4 mb-4">
+								<!-- 카드의 고정된 높이 설정 -->
+								<div class="card mb-5 mb-lg-0" style="height: 100%;">
+									<!-- 카드 본문의 고정된 높이 설정 -->
+									<div class="card-body p-3" style="height: 100%;">
+										<!-- 카드 링크 -->
+										<div class="card-body p-5">
+											<a
+												href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+												class="card-link"> <!-- 상품 이미지 --> <img
+												src="${product.productImage}" alt="Product Image"
+												class="card-img mb-3"> <!-- 상품명 -->
+												<h4 class="card-title">${product.productTitle }</h4>
+												<div class="mb-3">
+													<!-- 상품가격 -->
+													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
+												</div> <!-- 지역 -->
+												<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
+												<!-- 찜하기, 채팅 개수 -->
+												<div
+													class="d-flex justify-content-between align-items-center">
+													<p class="text-muted mb-0">
+														관심 : <span id="interest"></span>
+													</p>
+													<p class="text-muted mb-0">
+														채팅 : <span id=room></span>
+													</p>
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
-							</div>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
@@ -289,26 +299,29 @@ if (udto != null) {
 						</div>
 					</c:otherwise>
 				</c:choose>
-			</div>
 
-			<!-- Pagination -->
-			<c:if test="${totalPage > 1}">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center mt-4">
-            <li class="page-item ${nowPage == 1 ? 'disabled' : ''}">
-                <a class="page-link" href="?page=${nowPage - 1}&productIdx=${productIdx}" tabindex="-1">Previous</a>
-            </li>
-            <c:forEach begin="${startPage}" end="${endPage}" step="1" varStatus="loop">
-                <li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-                    <a class="page-link" href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
-                </li>
-            </c:forEach>
-            <li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-                <a class="page-link" href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
-            </li>
-        </ul>
-    </nav>
-</c:if>
+				<!-- Pagination -->
+				<c:if test="${totalPage > 1}">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center mt-4">
+							<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+								class="page-link"
+								href="?page=${nowPage - 1}&productIdx=${productIdx}"
+								tabindex="-1">Previous</a></li>
+							<c:forEach begin="${startPage}" end="${endPage}" step="1"
+								varStatus="loop">
+								<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+									<a class="page-link"
+									href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
+								</li>
+							</c:forEach>
+							<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+								<a class="page-link"
+								href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
+							</li>
+						</ul>
+					</nav>
+				</c:if>
 		</section>
 	</main>
 
@@ -456,8 +469,9 @@ if (udto != null) {
 
 
 	</script>
-	
+
 
 </body>
+<script src="./product/product.js"></script>
 <script src="../js/all.js"></script>
 </html>
