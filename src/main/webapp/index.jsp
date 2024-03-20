@@ -423,6 +423,26 @@ if (udto != null) {
 
 		}
 	</script>
+	<%
+						if (udto == null) {
+						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
+							<%
+						} else {
+						%>
+
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+							<%
+						}
+						%>
 </body>
 </html>
 

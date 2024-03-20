@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -168,7 +169,7 @@ if (udto != null) {
 		</nav>
 		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
 		<div class="container text-center my-4">
-        <h1 class="page-title">의류 상품</h1>
+        <h1 class="page-title">${cdto.categoryName}</h1>
     </div>
 
 		<div class="row gx-5 justify-content-center">
