@@ -43,6 +43,18 @@
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+
+.team-member {
+  width: 120px; /* 모든 이미지에 적용될 너비 */
+  height: 120px; /* 모든 이미지에 적용될 높이 */
+  border-radius: 50%; /* 이미지를 원형으로 만듭니다 */
+  object-fit: cover; /* 이미지가 컨테이너를 채우도록 설정합니다 */
+}
+
+/* 원형 이미지를 위한 추가적인 스타일링 */
+.rounded-circle {
+  border-radius: 50% !important; /* 이미지를 강제로 원형으로 만듭니다 */
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -220,42 +232,49 @@ if (udto != null) {
 		<section class="py-5 bg-light">
 			<div class="container px-5 my-5">
 				<div class="text-center">
-					<h2 class="fw-bolder">Our team</h2>
-					<p class="lead fw-normal text-muted mb-5">Dedicated to quality
-						and your success</p>
+					<h2 class="fw-bolder">팀</h2>
+					<p class="lead fw-normal text-muted mb-5">팀 Pheonix불사조</p>
 				</div>
 				<div
-					class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+					class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-5 justify-content-center " style = "width : 100%">
 					<div class="col mb-5 mb-5 mb-xl-0">
 						<div class="text-center">
-							<img class="img-fluid rounded-circle mb-4 px-4"
-								src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-							<h5 class="fw-bolder">Ibbie Eckart</h5>
-							<div class="fst-italic text-muted">Founder &amp; CEO</div>
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/ceo.jpg" alt="About Image" />
+							<h5 class="fw-bolder">Taeyeon Kim</h5>
+							<div class="fst-italic text-muted">CEO &amp; Team Leader &amp; CAO</div>
 						</div>
 					</div>
 					<div class="col mb-5 mb-5 mb-xl-0">
 						<div class="text-center">
-							<img class="img-fluid rounded-circle mb-4 px-4"
-								src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-							<h5 class="fw-bolder">Arden Vasek</h5>
-							<div class="fst-italic text-muted">CFO</div>
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cio.jpg" alt="About Image" />
+							<h5 class="fw-bolder">Sooyoung Jo</h5>
+							<div class="fst-italic text-muted">CIO &amp; CTO</div>
 						</div>
 					</div>
 					<div class="col mb-5 mb-5 mb-sm-0">
 						<div class="text-center">
-							<img class="img-fluid rounded-circle mb-4 px-4"
-								src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-							<h5 class="fw-bolder">Toribio Nerthus</h5>
-							<div class="fst-italic text-muted">Operations Manager</div>
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cfo.png" alt="About Image" />
+							<h5 class="fw-bolder">Jeonggyeom Kim</h5>
+							<div class="fst-italic text-muted">CFO &amp; CPO</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="text-center">
-							<img class="img-fluid rounded-circle mb-4 px-4"
-								src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-							<h5 class="fw-bolder">Malvina Cilla</h5>
-							<div class="fst-italic text-muted">CTO</div>
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/coo.jpg" alt="About Image" />
+							<h5 class="fw-bolder">Jisoo Lee</h5>
+							<div class="fst-italic text-muted">CKO &amp; COO</div>
+						</div>
+					</div>
+					<div class="col mb-5">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cso.png" alt="About Image" />
+							<h5 class="fw-bolder">Dongjun Shin</h5>
+							<div class="fst-italic text-muted">CSO</div>
 						</div>
 					</div>
 				</div>

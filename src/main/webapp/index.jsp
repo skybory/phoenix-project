@@ -202,7 +202,9 @@ if (udto != null) {
 					<div class="col-lg-4 mb-5 mb-lg-0">
 						<h2 class="fw-bolder mb-0">현재 판매중인 물건들이에요!</h2>
 					</div>
-					<div class="col-lg-8">
+					
+					
+<!-- 					<div class="col-lg-8">
 						<div class="row gx-5 row-cols-1 row-cols-md-2">
 							<div class="col mb-5 h-100">
 								<div
@@ -245,7 +247,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</section>
-		<!-- Testimonial section-->
+		Testimonial section
 		<div class="py-5 bg-light">
 			<div class="container px-5 my-5">
 				<div class="row gx-5 justify-content-center">
@@ -268,7 +270,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</div>
-		<!-- Blog preview section-->
+		Blog preview section
 		<section class="py-5">
 			<div class="container px-5 my-5">
 				<div class="row gx-5 justify-content-center">
@@ -366,7 +368,7 @@ if (udto != null) {
 						</div>
 					</div>
 				</div>
-				<!-- Call to action-->
+				Call to action
 				<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
 					<div
 						class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
@@ -390,7 +392,7 @@ if (udto != null) {
 					</div>
 				</aside>
 			</div>
-		</section>
+		</section> -->
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
@@ -416,40 +418,7 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/map.js"></script>
-<<<<<<< HEAD
-	
-	<script>
-<%-- 	function showAlert(){
-		alert("로그인 후 사용해주세요.");
-		
-	}
-	function showLog(){
-		alert("로그아웃 합니다.")
-	}
-	</script>
-	<%
-						if (udto == null) {
-						%>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo"
-							onclick="showAlert()">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo"
-							onclick="showAlert()">중고거래</a></li>
-							<%
-						} else {
-						%>
 
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-							<%
-						}
-						%> --%>
-=======
-	<script src="js/all.js"></script>
->>>>>>> 6d3efb4961233c21914b83b84aa0ef2ecbb6b7c5
 </body>
 </html>
 
