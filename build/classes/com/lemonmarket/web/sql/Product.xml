@@ -3,6 +3,12 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Product">
+
+	<!-- 물품등록 -->
+	<insert id="register" parameterType="productdto">
+		INSERT INTO `PRODUCT` VALUES
+		(null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},#{productLocation},now(),0,0,#{categoryIdx},null,null,null)
+	</insert>
    
 <!--    물품등록 -->
    <insert id="register" parameterType="productdto">
@@ -10,6 +16,9 @@
       (null,#{userIdx},#{userId},#{productTitle},#{productDescription},#{productImage},#{productDealType},#{productPrice},null,null,0,0,'1')
    </insert>
 
+<!-- 	카테고리로 물품 검색 -->
+	<select id="selectProductsByCategoryIdx" parameterType="_int" resultType="productdto">
+	SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx}
 <!-- 카테고리로 물품 검색 -->
    <select id="selectProductsByCategoryId" parameterType="_int" resultType="productdto">
       SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx}

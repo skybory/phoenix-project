@@ -1,17 +1,9 @@
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<%
-UserDTO udto = (UserDTO) session.getAttribute("userDTO");
-String userName = null;
-String userId = null;
-
-if (udto != null) {
-	userId = udto.getUserId();
-	userName = udto.getUserName();
-}
-%>
 <html lang="en">
 <style>
 .lemon-bg {
@@ -96,6 +88,18 @@ button:hover {
 	background-color: #45a049;
 }
 </style>
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+int userAccount = 0;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
+}
+%>
 <head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -105,8 +109,8 @@ button:hover {
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content />
-<meta name="author" content />
+<meta name="description" content="" />
+<meta name="author" content="" />
 <title>Modern Business - Start Bootstrap Template</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -116,8 +120,13 @@ button:hover {
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
+
+
+
+
 </head>
-<body class="d-flex flex-column">
+<body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -137,31 +146,52 @@ button:hover {
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-
 						<%
 						if (udto == null) {
 						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
+
 						<!--         로그인이 안되어있을때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
 
 						<%
 						} else {
 						%>
 
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
 						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-								안녕하세요
-						</a></li>
 						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
 								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
@@ -174,68 +204,98 @@ button:hover {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
-			<div class="row gx-5 justify-content-center">
+<!-- 			<div class="row gx-5 justify-content-center"> -->
+<!-- 				<div class="col-lg-8 col-xl-6"> -->
+<!-- 					주소 입력 폼 -->
+<!-- 					<form id="addressForm" action="/user/UserupdateAddressAction.us" -->
+<!-- 						method="post"> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="postcode">우편번호</label> <input type="text" -->
+<!-- 								id="postcode" readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="address">주소</label> <input type="text" id="address" -->
+<!-- 								readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="extraAddress">참고항목</label> <input type="text" -->
+<!-- 								id="extraAddress" readonly> -->
+<!-- 						</div> -->
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="detailAddress">상세주소</label> <input type="text" -->
+<!-- 								id="detailAddress"> -->
+<!-- 						</div> -->
+<!-- 						<input type="hidden" name="userAddress" id="userAddress"> -->
+<!-- 						<button type="button" onclick="searchAddress()">주소 찾기</button> -->
+<!-- 						<button class="btn btn-primary btn-lg btn-block" type="submit" -->
+<!-- 							onclick="sendit();" id="submitButton">변경 완료</button> -->
+<!-- 					</form> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<div class="row gx-5 justify-content-center">
     <div class="col-lg-8 col-xl-6">
-        <!-- 주소 입력 폼 -->
         <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
             <div class="form-group">
-                <label for="postcode">우편번호</label> <input type="text" id="postcode" readonly>
+                <label for="postcode">우편번호</label>
+                <input type="text" id="postcode" readonly>
             </div>
             <div class="form-group">
-                <label for="address">주소</label> <input type="text" id="address" readonly>
+                <label for="address">주소</label>
+                <input type="text" id="address">
             </div>
             <div class="form-group">
-                <label for="extraAddress">참고항목</label> <input type="text" id="extraAddress" readonly>
+                <label for="extraAddress">참고항목</label>
+                <input type="text" id="extraAddress">
             </div>
             <div class="form-group">
-                <label for="detailAddress">상세주소</label> <input type="text" id="detailAddress">
+                <label for="detailAddress">상세주소</label>
+                <input type="text" id="detailAddress">
             </div>
-            <input type="hidden" name="userAddress" id="userAddress"> <!-- userAddress를 담을 hidden 필드 추가 -->
+            <input type="hidden" name="userAddress" id="userAddress">
             <button type="button" onclick="searchAddress()">주소 찾기</button>
-            <button type="button" onclick="combineAddress()">주소 저장하기</button>
-            <button type="submit">주소 보내기</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();" id="submitButton">변경 완료</button>
         </form>
     </div>
 </div>
-				<!-- Contact cards-->
-				<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-chat-dots"></i>
-						</div>
-						<div class="h5 mb-2">Chat with us</div>
-						<p class="text-muted mb-0">Chat live with one of our support
-							specialists.</p>
+			<!-- Contact cards-->
+			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-chat-dots"></i>
 					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-people"></i>
-						</div>
-						<div class="h5">Ask the community</div>
-						<p class="text-muted mb-0">Explore our community forums and
-							communicate with other users.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-question-circle"></i>
-						</div>
-						<div class="h5">Support center</div>
-						<p class="text-muted mb-0">Browse FAQ's and support articles
-							to find solutions.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-telephone"></i>
-						</div>
-						<div class="h5">Call us</div>
-						<p class="text-muted mb-0">Call us during normal business
-							hours at (555) 892-9403.</p>
-					</div>
+					<div class="h5 mb-2">Chat with us</div>
+					<p class="text-muted mb-0">Chat live with one of our support
+						specialists.</p>
 				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-people"></i>
+					</div>
+					<div class="h5">Ask the community</div>
+					<p class="text-muted mb-0">Explore our community forums and
+						communicate with other users.</p>
+				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-question-circle"></i>
+					</div>
+					<div class="h5">Support center</div>
+					<p class="text-muted mb-0">Browse FAQ's and support articles to
+						find solutions.</p>
+				</div>
+				<div class="col">
+					<div
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						<i class="bi bi-telephone"></i>
+					</div>
+					<div class="h5">Call us</div>
+					<p class="text-muted mb-0">Call us during normal business hours
+						at (555) 892-9403.</p>
+				</div>
+			</div>
 			</div>
 		</section>
 	</main>

@@ -20,9 +20,9 @@ function sendit() {
 	let userPw = frm.userPw;
 	let userPw_re = frm.userPw_re;
 	let userName = frm.userName;
-	let phoneNumber = frm.phoneNumber;
-	let userAddress = frm.userAddress;
-	let gender = frm.gender;
+	let phoneNumber = frm.userPhoneNumber;
+	let userAddress = frm.address;
+	let gender = frm.userGender;
 	let userEmail = frm.userEmail;
 	let userAge = frm.userAge;
 
@@ -79,28 +79,22 @@ function sendit() {
 		phoneNumber.focus();
 		return false;
 	}
-	
-	
+
+
 	if (userEmail.value == "") {
 		alert("이메일을 입력하세요!");
 		userEmail.focus();
 		return false;
 	}
-	
+
 	if (userAddress.value == "") {
 		alert("주소를 입력하세요!");
 		userAddress.focus();
 		return false;
 	}
 
-
-
 	
-
-	
-	
-	
-	
+	combineAddress();
 	frm.submit();
 }
 
@@ -129,31 +123,115 @@ function loginit() {
 	frm.submit();
 }
 
-function checkId(userId){
-	if( userId == "" ){
+function checkId(userId) {
+	if (userId == "") {
 		alert("아이디를 입력해주세요");
 		return false;
 	} else {
 		// jQuery ajax
 		$.ajax({
-			type	: 'post', 	// 타입작성(get, post)
-			url		: '/user/idcheck.jsp',
-			data	: { "userId" : userId },
-			async	: true,		// 비동기화여부(비동기 : true)
-			success : function(result){ // 성공시 콜백함수
-				if (result.trim() == "ok"){
+			type: 'post', 	// 타입작성(get, post)
+			url: '/user/idcheck.jsp',
+			data: { "userId": userId },
+			async: true,		// 비동기화여부(비동기 : true)
+			success: function(result) { // 성공시 콜백함수
+				if (result.trim() == "ok") {
 					document.getElementById("check").innerHTML = "사용할 수 있는 아이디입니다.";
 				} else {
 					document.getElementById("check").innerHTML = "중복된 아이디입니다.";
 				}
 			},
-			error	: function(result, status, error){		// 실패시 콜백함수
+			error: function(result, status, error) {		// 실패시 콜백함수
 				console.log(error);
 			}
 		});
-		
-		
+
+
+	}
+}
+document.getElementById("agreement").addEventListener("change", function() {
+	var submitButton = document.getElementById("submitButton");
+	submitButton.disabled = !this.checked;
+});
+
+function previewImages(event) {
+	var fileList = event.target.files;
+	var imageContainer = document.getElementById('image-preview');
+
+	imageContainer.innerHTML = '';
+
+	for (var i = 0; i < fileList.length; i++) {
+		var file = fileList[i];
+		var img = document.createElement('img');
+		img.classList.add('preview-image');
+		img.file = file;
+		img.style.width = '150px';
+		img.style.height = 'auto';
+		imageContainer.appendChild(img);
+
+		var reader = new FileReader();
+		reader.onload = (function(aImg) {
+			return function(e) {
+				aImg.src = e.target.result;
+			};
+		})(img);
+
+		reader.readAsDataURL(file);
 	}
 }
 
+function previewImages(event) {
+	document.querySelector("#image_container").innerHTML = "";
 
+	for (var image of event.target.files) {
+		var reader = new FileReader();
+
+		reader.onload = function(event) {
+			var img = new Image();
+			img.src = event.target.result;
+			img.onload = function() {
+				var canvas = document.createElement('canvas');
+				var ctx = canvas.getContext('2d');
+				var MAX_SIZE = 200;
+				var width = img.width;
+				var height = img.height;
+
+				if (width > height) {
+					if (width > MAX_SIZE) {
+						height *= MAX_SIZE / width;
+						width = MAX_SIZE;
+					}
+				} else {
+					if (height > MAX_SIZE) {
+						width *= MAX_SIZE / height;
+						height = MAX_SIZE;
+					}
+				}
+
+				canvas.width = width;
+				canvas.height = height;
+				ctx.drawImage(img, 0, 0, width, height);
+
+				var newImgContainer = document.createElement("div");
+				var newImg = document.createElement("img");
+				newImg.src = canvas.toDataURL();
+
+				var deleteButton = document.createElement("button");
+				deleteButton.textContent = "x";
+				deleteButton.onclick = function() {
+					var container = this.parentElement;
+					container.remove();
+					var imageURL = this.previousElementSibling.src;
+					URL.revokeObjectURL(imageURL);
+				};
+
+				newImgContainer.appendChild(newImg);
+				newImgContainer.appendChild(deleteButton);
+
+				document.querySelector("#image_container").appendChild(newImgContainer);
+			}
+		};
+
+		reader.readAsDataURL(image);
+	}
+}

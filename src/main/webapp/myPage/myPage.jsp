@@ -120,91 +120,25 @@ if (udto != null) {
 }
 %>
 </head>
-<body class="d-flex flex-column h-100">
-	<main class="flex-shrink-0">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container px-5">
-				<img
-					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-					alt="Logo" class="img-fluid" id="lemonLogo"> <a
-					class="navbar-brand"
-					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<%
-						if (udto == null) {
-						%>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo"
-							onclick="showAlert()">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Logincheck.bo"
-							onclick="showAlert()">중고거래</a></li>
-
-						<!--         로그인이 안되어있을때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
-
-						<%
-						} else {
-						%>
-
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-								동네 바꾸기</a></li>
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-								안녕하세요
-						</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
-
-						<%
-						}
-						%>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div id="container">
-			<h2 style="text-align: center; color: orange; margin-bottom : 40px">마이 페이지</h2>
-
-
-			<!-- 구매내역 링크 -->
-			<a class="button"
-				href="${pageContext.request.contextPath}/my/PurchaseDetails.my" style = "color : black">구매내역</a>
-			<!-- 판매내역 링크 -->
-			<a class="button"
-				href="${pageContext.request.contextPath}/my/SalesDetails.my" style = "color : black">판매내역</a>
-			<!-- 찜 목록 링크 -->
-			<a class="button"
-				href="${pageContext.request.contextPath}/my/InterestList.my" style = "color : black">찜
-				목록</a>
-			<!-- 내 정보 링크 -->
-			<a class="button"
-				href="${pageContext.request.contextPath}/my/ProfileView.my" style = "color : black">내 정보</a>
-			<div style="text-align: center; margin-top: 50px;">
-				<a class = "button" href="${pageContext.request.contextPath}../index.jsp" style = "color : black; margin-bottom : 30px">
-					홈으로 돌아가기 </a>
-			</div>
-		</div>
-	</main>
-</body>
-
+<body>
+<div id="container">
+    <h2 style="text-align: center; color:orange;">마이 페이지</h2>
+    
+   
+    <!-- 구매내역 링크 -->
+   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매내역</a> 
+    <!-- 판매내역 링크 -->
+    <a class="button" href="/user/SalesListAction.us">판매내역</a>
+    <!-- 찜 목록 링크 -->
+    <a class="button" href="${pageContext.request.contextPath}/user/InterestListAction.us">찜 목록</a>
+    <!-- 내 정보 링크 -->
+    <a class="button" href="${pageContext.request.contextPath}/user/ViewMyProfileAction.us">내 정보</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+            홈으로 돌아가기
+        </a>
+</div>
+</div>
 
 </body>
 </html>

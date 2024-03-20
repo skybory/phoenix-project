@@ -6,8 +6,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로필 보기</title>
+<title>구매 목록</title>
 <style>
+a {
+	text-decoration: none !important;
+}
+
 body {
 	font-family: 'Arial', sans-serif;
 	background-color: #f8f9fa;
@@ -64,29 +68,35 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 프로필</h2>
+		<h2 style="text-align: center; color: orange;">내 구매 목록</h2>
 		<table>
 			<thead>
 				<tr>
-					<th>이름</th>
-					<th>아이디</th>
-					<th>나이</th>
-					<th>성별</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>계좌</th>
+					<th>상품번호</th>
+					<th>상품명</th>
+					<th>거래금액</th>
+					<th>거래장소</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>${userDTO.userName}</td>
-					<td>${userDTO.userId}</td>
-					<td>${userDTO.userAge}</td>
-					<td>${userDTO.userGender}</td>
-					<td>${userDTO.userPhoneNumber}</td>
-					<td>${userDTO.userEmail}</td>
-					<td>${userDTO.userAccount}</td>
-				</tr>
+				<c:choose>
+					<c:when test="${not empty purchaseList}">
+						<c:forEach var="productDTO" items="${purchaseList}"
+							varStatus="loop">
+							<tr>
+								<td>${productDTO.productIdx}</td>
+								<td>${productDTO.productTitle}</td>
+								<td>${productDTO.productPrice}</td>
+								<td>${productDTO.productLocation}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="4" class="no-item">구매한 물품이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</tbody>
 		</table>
 	</div>

@@ -3,9 +3,8 @@ package com.lemonmarket.web.dto;
 public class ProductDTO {
 
 	
-	// 변수 설정
-	
 	private int productIdx;
+	private int userIdx;
 	private String userId;
 	private String productTitle;
 	private String productDescription;
@@ -13,23 +12,50 @@ public class ProductDTO {
 	private String productDealType;
 	private int productPrice;
 	private String productLocation;
-	private String productRegisterTime;
+	private String productRegisterDate;
 	private int productInterestCount;
 	private int productChatCount;
-	private String categoryId;
+	private int categoryIdx;
+	private int purchaseUserIdx;
+	private String userName;
+	private String productSellDate;
 	
 	
-	public int getProductIdx() {
-		return productIdx;
+	public int getPurchaseUserIdx() {
+		return purchaseUserIdx;
 	}
-	public void setProductIdx(int productId) {
-		this.productIdx = productId;
+	public void setPurchaseUserIdx(int purchaseUserIdx) {
+		this.purchaseUserIdx = purchaseUserIdx;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getProductSellDate() {
+		return productSellDate;
+	}
+	public void setProductSellDate(String productSellDate) {
+		this.productSellDate = productSellDate;
 	}
 	public String getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public int getProductIdx() {
+		return productIdx;
+	}
+	public void setProductIdx(int productIdx) {
+		this.productIdx = productIdx;
+	}
+	public int getUserIdx() {
+		return userIdx;
+	}
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public String getProductTitle() {
 		return productTitle;
@@ -67,11 +93,11 @@ public class ProductDTO {
 	public void setProductLocation(String productLocation) {
 		this.productLocation = productLocation;
 	}
-	public String getProductRegisterTime() {
-		return productRegisterTime;
+	public String getProductRegisterDate() {
+		return productRegisterDate;
 	}
-	public void setProductRegisterTime(String productRegisterTime) {
-		this.productRegisterTime = productRegisterTime;
+	public void setProductRegisterDate(String productRegisterDate) {
+		this.productRegisterDate = productRegisterDate;
 	}
 	public int getProductInterestCount() {
 		return productInterestCount;
@@ -85,11 +111,10 @@ public class ProductDTO {
 	public void setProductChatCount(int productChatCount) {
 		this.productChatCount = productChatCount;
 	}
-	public String getCategoryId() {
-		return categoryId;
+	public int getCategoryIdx() {
+		return categoryIdx;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategoryIdx(int categoryIdx) {
+		this.categoryIdx = categoryIdx;
 	}
-	 
 }
