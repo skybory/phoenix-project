@@ -196,18 +196,13 @@ button[type="submit"]:hover {
 			</div>
 		</nav>
 
-		<form action="/user/UserJoinAction.us" method="post" class="container"
-			name="joinForm">
+		<form name="joinForm" action="/user/UserJoinAction.us" method="post"
+			enctype="multipart/form-data" class="container">
 			<div class="input-form-backgroud row">
 				<div class="input-form col-md-12 mx-auto">
 					<h4 class="mb-3">회원가입</h4>
 					<div id="image-preview" class="row mt-3"></div>
-					<div class="mb-3">
-						<label for="userImage" class="form-label">이미지 업로드</label> <input
-							type="file" id="userImage" name="usereImage"
-							accept="image/*" onchange="previewImages(event);">
-						<div id="image_container"></div>
-					</div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="name">아이디</label> <input type="text"
@@ -225,6 +220,12 @@ button[type="submit"]:hover {
 								name="userPw">
 							<div class="invalid-feedback">비밀번호를 입력하세요</div>
 						</div>
+					</div>
+					<div class="mb-3">
+						<label for="userImage" class="form-label">이미지 업로드</label> <input
+							type="file" id="userImage" name="userImage" accept="image/*"
+							onchange="previewImages(event);">
+						<div id="image_container"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 mb-3">

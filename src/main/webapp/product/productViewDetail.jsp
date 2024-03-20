@@ -85,13 +85,15 @@
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+String userImage = null;
 int userAccount = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
 	userAccount = udto.getUserAccount();
-}
+	userImage = udto.getUserImage();
+}	
 %>
 <head>
 <link
@@ -206,7 +208,7 @@ if (udto != null) {
 					<div class="d-flex align-items-center mb-3"
 						style="margin-left: -190px;">
 						<!-- Adjust the left margin -->
-						<img src=${pdto.productImage } class="rounded-circle" alt="프로필 사진"
+						<img src=${sellUserDto.userImage } class="rounded-circle" alt="프로필 사진"
 							style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
 							<p class="m-0">

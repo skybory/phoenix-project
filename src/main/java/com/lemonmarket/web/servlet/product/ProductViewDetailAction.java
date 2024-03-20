@@ -20,12 +20,17 @@ public class ProductViewDetailAction implements Action{
         
         // ProductDAO를 통해 해당 제품의 세부 정보 가져오기
         ProductDAO pdao = new ProductDAO();
+        UserDAO udao = new UserDAO();
         int productIdx = Integer.parseInt(request.getParameter("productIdx"));
         
         ProductDTO pdto = pdao.viewProductDetail(productIdx);
+        int sellUserIdx = pdto.getUserIdx();
+        UserDTO sellUserDto = udao.getData(sellUserIdx);
+        
 	        if (pdto != null) {
 	            // ProductDTO 객체가 유효한 경우
 	            request.setAttribute("pdto", pdto);
+	            request.setAttribute("sellUserDto", sellUserDto);
 	            forward.setRedirect(false); // redirect하지 않음
 	            forward.setPath("/product/productViewDetail.jsp");
 	        } else {
