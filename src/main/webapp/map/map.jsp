@@ -262,46 +262,7 @@ if (udto != null) {
 					</form>
 				</div>
 			</div>
-			<!-- Contact cards-->
-			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-chat-dots"></i>
-					</div>
-					<div class="h5 mb-2">일대일 문의</div>
-					<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
-				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-people"></i>
-					</div>
-					<div class="h5">커뮤니티</div>
-					<p class="text-muted mb-0">커뮤니티에 질문 해주세요.</p>
-				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-question-circle"></i>
-					</div>
-					<div class="h5">서비스센터</div>
-					<p class="text-muted mb-0">FAQ's 와 여러가지 문제들 해결해 드립니다.</p>
-				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-telephone"></i>
-						<div class="h5">연락처</div>
-						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 
-					</div>
-					<div class="h5">연락처</div>
-					<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
-				</div>
-			</div>
-		</section>
-	</main>
 
 
 

@@ -135,11 +135,13 @@ a {
 	font-size: 0.9rem; /* 폰트 크기 조정 */
 	color: #333;
 }
-    .total-items {
-       float: right;
-        font-size: 18px;
-        color: red;
-    }
+
+.total-items {
+	float: right;
+	font-size: 18px;
+	color: red;
+}
+
 .test {
 	--bs-light-rgb: #FFF8D5;
 }
@@ -152,7 +154,7 @@ int userAccount = 0;
 int productCnt = 0; // 기본값 설정
 Object productCntObj = request.getAttribute("productCnt");
 if (productCntObj != null) {
-    productCnt = Integer.parseInt(productCntObj.toString());
+	productCnt = Integer.parseInt(productCntObj.toString());
 }
 if (udto != null) {
 	userId = udto.getUserId();
@@ -186,11 +188,11 @@ if (udto != null) {
 
 
 </head>
- 
+
 <body class="d-flex flex-column h-100"
 	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
- 
+
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
@@ -224,80 +226,86 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Join.bo"">
-	회원가입
-	</a>
-	</li>
+								회원가입 </a></li>
 
-	<%
+						<%
 						} else {
 						%>
 
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-	<!--     로그인이 되어있을 때 나오는 값 -->
-	<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-			동네 바꾸기</a></li>
-	<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		id="userGreeting" href="" role="button" data-bs-toggle="dropdown"
-		aria-expanded="false"><%=userName%>님(<%=userId%>) 안녕하세요</a>
-		<ul class="dropdown-menu dropdown-menu-end"
-			aria-labelledby="navbarDropdownBlog">
-			<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
-			<li><a class="dropdown-item" href="blog-post.jsp">잔액 : <%=userAccount%>원
-			</a></li>
-		</ul></li>
-	<li class="nav-item dropdown">
-		<ul class="dropdown-menu dropdown-menu-end"
-			aria-labelledby="navbarDropdownPortfolio">
-		</ul>
-	</li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
 
 
-	<li class="nav-item"><a class="nav-link" id="userGreeting"
-		href="/user/UserLogoutAction.us">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
-	<%
+						<%
 						}
 						%>
 					</ul>
 				</div>
 			</div>
 		</nav>
+
 		<div class="container mt-5">
-			<div class="category-container">
-				<c:choose>
-					<c:when test="${not empty categoryList}">
-						<c:forEach var="category" items="${categoryList}">
-							<!-- 카테고리가 있는 경우 -->
-							<div class="category">
-								<a
-									href="/category/CategoryDisplayAction.cat?categoryIdx=${category.categoryIdx}">
-									<img src="${category.categoryImage}"
-									alt="${category.categoryName}">
-									<p>${category.categoryName}</p>
-								</a>
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<!-- 카테고리가 없는 경우 -->
-						<p>No categories available</p>
-					</c:otherwise>
-				</c:choose>
+			<div class="text-center">
+				<h2 class="fw-bolder">카테고리</h2>
+				<div class="category-container">
+					<c:choose>
+						<c:when test="${not empty categoryList}">
+							<c:forEach var="category" items="${categoryList}">
+								<!-- 카테고리가 있는 경우 -->
+								<div class="category">
+									<a
+										href="/category/CategoryDisplayAction.cat?categoryIdx=${category.categoryIdx}">
+										<img src="${category.categoryImage}"
+										alt="${category.categoryName}">
+										<p>${category.categoryName}</p>
+									</a>
+								</div>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<!-- 카테고리가 없는 경우 -->
+							<p>No categories available</p>
+						</c:otherwise>
+					</c:choose>
+				</div>
 			</div>
-		</div>
-		<div class="row gx-5 justify-content-between">
-			<!-- 최상단에 표시할 내용 -->
-			<div class="col-6">
-				<p>
-					<div class="total-items">
-    총 물품 수: <%=productCnt %>
-</div>
+			<div class="row gx-5 justify-content-center">
+				<!-- 최상단에 표시할 내용 -->
+				<div class="col-auto">
+					<p>
+					<div class="total-items text-end">
+						총 물품 수:
+						<%=productCnt%>
+					</div>
+					</p>
+				</div>
 			</div>
-			<section class="bg-light py-2 test" >
+			<section class="bg-light py-2 test">
 				<div class="container px-5 my-5">
 					<div class="row gx-5 justify-content-center">
 						<c:choose>
@@ -311,8 +319,8 @@ if (udto != null) {
 													href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 													class="card-link"> <!-- 상품 이미지 --> <img
 													src="${product.productImage}" alt="Product Image"
-													alt="Product Image" class="card-img mb-3"
-													style="width: 250px; height: 250px;"> <!-- 상품명 -->
+													class="card-img mb-3" style="width: 250px; height: 250px;">
+													<!-- 상품명 -->
 													<h4 class="card-title">
 														<c:choose>
 															<c:when test="${fn:length(product.productTitle) <= 10}">
@@ -347,20 +355,52 @@ if (udto != null) {
 								</div>
 							</c:otherwise>
 						</c:choose>
-
 					</div>
 				</div>
-		</div>
-		</section>
 
-
-
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
-	<script src="../js/all.js"></script>
-
+			</section>
+			<footer class="bg-light text-dark py-4"
+				style="background-color: #DFDFDF;">
+				<div class="container">
+					<div class="row justify-content-center">
+						<!-- 회사명 -->
+						<div class="col-md-4 text-center">
+							<h5>회사명</h5>
+							<p class="text-left">(주)레몬마켓</p>
+						</div>
+						<!-- 링크 -->
+						<div class="col-md-4 text-center">
+							<h5>제공되는 서비스</h5>
+							<ul class="list-unstyled text-left">
+								<li><a
+									href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+								<li><a href="/product/chatting.jsp">채팅</a></li>
+							</ul>
+						</div>
+						<!-- 소셜 미디어 -->
+						<div class="col-md-4 text-center">
+							<h5>SNS</h5>
+							<ul class="list-unstyled text-left">
+								<li><a href="https://www.facebook.com">Facebook</a></li>
+								<li><a href="https://twitter.com">Twitter</a></li>
+								<li><a href="https://www.instagram.com">Instagram</a></li>
+								<li><a href="https://www.youtube.com">Youtube</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- Bootstrap core JS-->
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+			<!-- Core theme JS-->
+			<script src="js/scripts.js"></script>
+			<script src="../js/all.js"></script>
 </body>
 </html>
