@@ -135,6 +135,9 @@ a {
 	font-size: 0.9rem; /* 폰트 크기 조정 */
 	color: #333;
 }
+.test {
+	--bs-light-rgb: #FFF8D5;
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -288,7 +291,7 @@ if (udto != null) {
 					총 물품 수:
 					<%=productCnt %></p>
 			</div>
-			<section class="bg-light py-2">
+			<section class="bg-light py-2 test" >
 				<div class="container px-5 my-5">
 					<div class="row gx-5 justify-content-center">
 						<c:choose>

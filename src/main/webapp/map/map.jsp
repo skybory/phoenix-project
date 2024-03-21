@@ -90,9 +90,11 @@ button {
 button:hover {
 	background-color: #45a049;
 }
+
 .test {
 	--bs-primary-rgb: 240, 207, 31;
 }
+
 .flex-column {
 	min-height: 100vh;
 	background: #FFF8D5;
@@ -219,8 +221,7 @@ if (udto != null) {
 
 			<div class="row gx-5 justify-content-center">
 				<div class="col-lg-8 col-xl-6">
-					<form id="addressForm" action=""
-						method="post">
+					<form id="addressForm" action="" method="post">
 						<div class="form-group">
 							<label for="postcode">우편번호</label> <input type="text"
 								id="postcode" readonly>
@@ -237,11 +238,15 @@ if (udto != null) {
 								id="detailAddress">
 						</div>
 						<input type="hidden" name="userAddress" id="userAddress">
-						<button class="btn btn-success btn-lg btn-block" type="button" onclick="searchAddress()" >주소 찾기</button>
-						<input type="button" class="btn btn-primary btn-lg btn-block" onclick="checkChanges()">
-						
+						<button class="btn btn-success btn-lg btn-block" type="button"
+							onclick="searchAddress()">주소 찾기</button>
+						<input type="button" class="btn btn-primary btn-lg btn-block"
+							onclick="checkChanges()">
+
 						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="checkChanges();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
+							onclick="checkChanges();" id="submitButton"
+							style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경
+							완료</button>
 					</form>
 				</div>
 			</div>
@@ -251,10 +256,10 @@ if (udto != null) {
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-chat-dots"></i>
- 
 					</div>
+					<div class="h5 mb-2">일대일 문의</div>
+					<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 				</div>
- 
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
@@ -274,16 +279,15 @@ if (udto != null) {
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-telephone"></i>			
-						<div class="h5">연락처</div>
-						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
- 
+						<i class="bi bi-telephone"></i>
 					</div>
+					<div class="h5">연락처</div>
+					<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 				</div>
-				</div>
-			</section>
+			</div>
+		</section>
 	</main>
- 
+
 
 
 	<!-- 모달 -->
@@ -310,8 +314,8 @@ if (udto != null) {
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">다시 입력하기</button>
-					<button type="button" class="btn btn-primary"
-					type="submit" onclick="sendit();" id="submitButton">제출</button>
+					<button type="button" class="btn btn-primary" type="submit"
+						onclick="sendit();" id="submitButton">제출</button>
 				</div>
 			</div>
 		</div>

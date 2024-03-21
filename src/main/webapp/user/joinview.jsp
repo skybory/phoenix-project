@@ -108,10 +108,12 @@ button[type="submit"]:hover {
 .mb3 {
 	margin-bottom: 30px;
 }
+
 .flex-column {
 	min-height: 100vh;
 	background: #FFF8D5;
 }
+
 /* .bg-primary {
   background-color: rgb(var(--bs-primary-rgb));
 } */
@@ -207,7 +209,7 @@ button[type="submit"]:hover {
 		<form name="joinForm" action="/user/UserJoinAction.us" method="post"
 			enctype="multipart/form-data" class="container">
 			<div class="input-form-backgroud row">
-				<div class="input-form col-md-12 mx-auto">
+				<div class="input-form mx-auto">
 					<h4 class="mb-3">회원가입</h4>
 					<div id="image-preview" class="row mt-3"></div>
 
@@ -284,63 +286,78 @@ button[type="submit"]:hover {
 								<div class="invalid-feedback">전화번호를 입력해주세요.</div>
 							</div>
 						</div>
-
-						<div class="mb-3">
-							<label for="email">이메일</label> <input type="email"
-								class="form-control" id="email" placeholder="you@example.com"
-								name="userEmail">
-							<div class="invalid-feedback">이메일을 입력해주세요.</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="email">이메일</label> <input type="email"
+									class="form-control" id="email" placeholder="you@example.com"
+									name="userEmail">
+								<div class="invalid-feedback">이메일을 입력해주세요.</div>
+							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="postcode">우편번호</label> <input type="text"
-								id="postcode" readonly>
+						<div class="row">
+							<div class="form-group col-md-6 mb-3">
+								<label for="postcode">우편번호</label> <input type="text"
+									id="postcode" readonly>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="address">주소</label> <input type="text" id="address"
-								readonly>
+						<div class="row">
+							<div class="form-group col-md-6 mb-3">
+								<label for="address">주소</label> <input type="text" id="address"
+									readonly>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="extraAddress">참고항목</label> <input type="text"
-								id="extraAddress" readonly>
+						<div class="row">
+							<div class="form-group col-md-6 mb-3">
+								<label for="extraAddress">참고항목</label> <input type="text"
+									id="extraAddress" readonly>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label>
-							<input type="text" id="detailAddress">
+						<div class="row">
+							<div class="form-group col-md-6 mb-3">
+								<label for="detailAddress">상세주소<span class="text-muted">&nbsp;(선택)</span></label>
+								<input type="text" id="detailAddress">
+							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<button type="button" onclick="searchAddress()"
-									class="btn btn-primary" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">주소 찾기</button>
+									class="btn btn-primary"
+									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">주소
+									찾기</button>
 								<input type="hidden" name="userAddress" id="userAddress">
 							</div>
 						</div>
 
 
-						<div class="row"></div>
-						<div class="custom-control custom-checkbox mb-3">
-							<input type="checkbox" class="custom-control-input"
-								id="agreement" required> <label
-								class="custom-control-label" for="agreement">개인정보 수집 및
-								이용에 동의합니다.</label>
-							<div class="invalid-feedback">개인정보 수집 및 이용에 동의해야 합니다.</div>
+						<div class="row">
+							<div class="custom-control custom-checkbox mb-3">
+								<input type="checkbox" class="custom-control-input"
+									id="agreement" required> <label
+									class="custom-control-label" for="agreement">개인정보 수집 및
+									이용에 동의합니다.</label>
+								<div class="invalid-feedback">개인정보 수집 및 이용에 동의해야 합니다.</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<button class="btn btn-primary btn-lg btn-block" type="submit"
+										onclick="sendit();" id="submitButton" disabled
+										style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">가입완료</button>
+								</div>
+							</div>
 						</div>
-						<div class="mb-4"></div>
-						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="sendit();" id="submitButton" disabled style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">가입완료</button>
 					</div>
 				</div>
-			</div>
 		</form>
 
 		<!-- Contact cards-->
+		
 		<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 			<div class="col">
 				<div
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-					<i class="bi bi-chat-dots" ></i>
+					<i class="bi bi-chat-dots"></i>
 				</div>
-				<div class="h5 mb-2" >일대일 문의</div>
+				<div class="h5 mb-2">일대일 문의</div>
 				<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 			</div>
 			<div class="col">

@@ -104,11 +104,7 @@ button[type="submit"]:hover {
 	min-height: 100vh;
 	background: #FFF8D5;
 }
-.input-form, .navbar, .input-form-backgroud {
-    background: none; /* 배경색 제거 */
-    /* 혹은 전체 배경색과 동일한 색으로 설정 */
-    background: #FFF8D5; /* 전체 배경색과 일치하는 노란색 코드 */
-} 
+
 
 </style>
 <%
@@ -241,12 +237,11 @@ if (udto != null) {
 
 
 		<div class="input-form-backgroud row">
-			<div class="input-form col-md-12 mx-auto" style="background-color: #FFFFFF;">
+			<div class="login" style="background-color: #FFF8D5;">
 				<form
 					action="${pageContext.request.contextPath}/user/UserLoginAction.us"
 					method="post">
-					<div class="input-form col-md-12 mx-auto">
-
+					<div class="input-form col-md-12 mx-auto">	
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="id">아이디</label> <input type="text"
