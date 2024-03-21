@@ -516,5 +516,4 @@ img {
 
 </body>
 <script type="text/javascript" src="js.js"></script>
-<script src="../js/all.js"></script>
 </html>

@@ -244,8 +244,23 @@ if (udto != null) {
 						</button>
 						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
 						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
-						<!-- Adjust the left margin --><button type="button" class="btn btn-outline-primary"
-							id="purchaseBtn">구매하기</button>
+						<!-- Adjust the left margin -->
+						<button  class="btn btn-outline-primary"
+							id="purchaseBtn"><span id = "default">구매하기 </span> 
+						</button>
+						<script>
+						    // userId와 pdto.userId를 비교하여 조건에 따라 버튼을 비활성화
+						    if ('<%= userId%>' == "${pdto.userId}") {
+						    	
+						    	document.getElementById("default").innerText = "";
+						    	document.getElementById("default").innerText = "등록한 상품";
+						    	
+						        // 버튼 요소 가져오기
+						        document.getElementById('purchaseBtn').disabled = true;
+						        
+						        }
+						     
+						</script>
 					</div>
 				</div>
 			</div>
@@ -293,22 +308,23 @@ if (udto != null) {
 
 			<!-- Pagination -->
 			<c:if test="${totalPage > 1}">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center mt-4">
-            <li class="page-item ${nowPage == 1 ? 'disabled' : ''}">
-                <a class="page-link" href="?page=${nowPage - 1}&productIdx=${productIdx}" tabindex="-1">Previous</a>
-            </li>
-            <c:forEach begin="${startPage}" end="${endPage}" step="1" varStatus="loop">
-                <li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-                    <a class="page-link" href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
-                </li>
-            </c:forEach>
-            <li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-                <a class="page-link" href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
-            </li>
-        </ul>
-    </nav>
-</c:if>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center mt-4">
+						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+						</li>
+						<c:forEach begin="${startPage}" end="${endPage}" step="1"
+							varStatus="loop">
+							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+							</li>
+						</c:forEach>
+						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</c:if>
 		</section>
 	</main>
 
@@ -459,5 +475,4 @@ if (udto != null) {
 	
 
 </body>
-<script src="../js/all.js"></script>
 </html>

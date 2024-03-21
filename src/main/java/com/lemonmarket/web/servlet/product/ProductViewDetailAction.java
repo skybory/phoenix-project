@@ -68,7 +68,6 @@ public class ProductViewDetailAction implements Action{
 	            // ProductDTO 객체가 유효한 경우
 	        	request.setAttribute("cdto", cdto);
 	            request.setAttribute("pdto", pdto);
-	            request.setAttribute("productIdx", productIdx);
 	            request.setAttribute("sellUserDto", sellUserDto);
 	            forward.setRedirect(false); // redirect하지 않음
 	            forward.setPath("/product/productViewDetail.jsp");
