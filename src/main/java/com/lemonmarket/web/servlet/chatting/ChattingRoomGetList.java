@@ -29,10 +29,14 @@ public class ChattingRoomGetList {
 		ProductDAO pdao = new ProductDAO();
 		int userIdx = Integer.parseInt(request.getParameter("userIdx"));
 		int prIdx = Integer.parseInt(request.getParameter("prIdx"));
+		String userId = request.getParameter("userId");
 		String prUserId = request.getParameter("pr_userId");
 		rdto.setProductIdx(prIdx);
 		rdto.setUserIdx(userIdx);
 		rdto.setProductId(prUserId);
+		rdto.setUserId(userId);
+		
+		cdao.getProductName(prIdx);
 		
 		int confirm = cdao.confirm(rdto);
 		if(confirm == 0) {
@@ -41,7 +45,7 @@ public class ChattingRoomGetList {
 		}
 //		cdao.insertRoom(rdto);
 		//** 여기 이제 useridx도같고 pri인데스또한 겹쳐도 리스트 나오게
-		roomList = cdao.getRoomList(userIdx);
+		roomList = cdao.getRoomList(rdto);
 		
 //		rdto.setUserId(cdao.getUserId(userIdx));
 //		rdto.setProductIdx(Integer.parseInt(request.getParameter("productIdx")));
@@ -52,7 +56,7 @@ public class ChattingRoomGetList {
 		
 		for(RoomDTO room : roomList) {
 			obj = new JSONObject();
-			obj.put("toId", room.getProductId());
+			obj.put("toId", cdao.getProductName(prIdx));
 			obj.put("roomseq", room.getRoomIdx());
 			if(cdao.getRecentContents(room.getRoomIdx()) == null) {
 				obj.put("contents", "채팅없음");

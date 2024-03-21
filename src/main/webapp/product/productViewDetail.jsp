@@ -242,10 +242,24 @@ if (udto != null) {
 							<span id="productInterestCount">관심 </span><span id="interest"></span>
 						</button>
 						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
-							class="btn btn-outline-primary">채팅 <span id="room"></span></a>
+						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
 						<!-- Adjust the left margin -->
-						<button type="button" class="btn btn-outline-primary"
-							id="purchaseBtn">구매하기</button>
+						<button  class="btn btn-outline-primary"
+							id="purchaseBtn"><span id = "default">구매하기 </span> 
+						</button>
+						<script>
+						    // userId와 pdto.userId를 비교하여 조건에 따라 버튼을 비활성화
+						    if ('<%= userId%>' == "${pdto.userId}") {
+						    	
+						    	document.getElementById("default").innerText = "";
+						    	document.getElementById("default").innerText = "등록한 상품";
+						    	
+						        // 버튼 요소 가져오기
+						        document.getElementById('purchaseBtn').disabled = true;
+						        
+						        }
+						     
+						</script>
 					</div>
 				</div>
 			</div>

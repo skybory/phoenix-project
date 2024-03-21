@@ -65,7 +65,7 @@ public class UserFrontController extends HttpServlet{
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/user/InterestListAction.us":
-//			forward = new UserViewMyProfileAction().execute(req, resp);
+			forward = new UserViewMyInterestAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		}
