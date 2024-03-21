@@ -8,6 +8,11 @@
 <html lang="en">
 
 <style>
+.text-ellipsis {
+    white-space: nowrap;       /* 너비를 초과하는 텍스트가 줄 바꿈되지 않도록 설정 */
+    overflow: hidden;          /* 너비를 초과하는 텍스트를 숨김 */
+    text-overflow: ellipsis;   /* 너비를 초과하는 텍스트가 "..."으로 생략되도록 설정 */
+}
 a {
 	text-decoration: none !important;
 }
@@ -212,7 +217,6 @@ if (udto != null) {
 					<!-- 프로필, 닉네임, 거주지 -->
 					<div class="d-flex align-items-center mb-3"
 						style="margin-left: -190px;">
-						<!-- Adjust the left margin -->
 						<img src=${sellUserDto.userImage } class="rounded-circle"
 							alt="프로필 사진" style="width: 50px; height: 50px;">
 						<div class="ms-3" style="margin-left: -190px;">
@@ -296,7 +300,7 @@ if (udto != null) {
 													<!-- 상품가격 -->
 													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
 												</div> <!-- 지역 -->
-												<p class="text-muted mb-4">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
+												<p class="text-muted mb-4 text-ellipsis">${product.productLocation}</p>
 												<div
 													class="d-flex justify-content-between align-items-center">
 													<p class="text-muted mb-0">관심:
@@ -491,6 +495,6 @@ if (udto != null) {
 
 
 </body>
-<script src="../js/product.js"></script>
+<script src="../js/productViewDetail.js"></script>
 <script src="../js/all.js"></script>
 </html>

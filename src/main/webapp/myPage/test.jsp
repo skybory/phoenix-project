@@ -1,4 +1,3 @@
-<%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -54,33 +53,7 @@ input[type="submit"]:hover {
    background-color: #45a049;
 }
 </style>
-<%
-UserDTO udto = (UserDTO) session.getAttribute("userDTO");
-int userIdx = 0;
-String userName = null;
-String userId = null;
-String userAge = null;
-String userGender = null;
-String userPhoneNumber = null;
-String userEmail = null;
-String userAddress = null;
-String userImage = null;
-int userAccount = 0;
 
-if (udto != null) {
-	userIdx = udto.getUserIdx();
-   userId = udto.getUserId();
-   userName = udto.getUserName();
-   userAge = udto.getUserAge();
-   userGender = udto.getUserGender();
-   userPhoneNumber = udto.getUserPhoneNumber();
-   userEmail = udto.getUserEmail();
-   userAddress = udto.getUserAddress();
-   userImage = udto.getUserImage();
-   userAccount = udto.getUserAccount();
-   
-}
-%>
 </head>
 <body class="d-flex flex-column h-100"
    style="background-color: #FFF8D5;">

@@ -1,3 +1,4 @@
+<%@page import="com.lemonmarket.web.dto.CategoryDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,13 +10,20 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>의류 카테고리 상품</title>
+<title>카테고리 상품</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="/css/styles.css" rel="stylesheet">
 </head>
 <style>
+.text-ellipsis {
+    white-space: nowrap;       /* 너비를 초과하는 텍스트가 줄 바꿈되지 않도록 설정 */
+    overflow: hidden;          /* 너비를 초과하는 텍스트를 숨김 */
+    text-overflow: ellipsis;   /* 너비를 초과하는 텍스트가 "..."으로 생략되도록 설정 */
+}
 a {
     text-decoration: none !important;
 }
@@ -74,7 +82,7 @@ a {
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
-
+String categoryName = (String) request.getAttribute("categoryName");
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
@@ -173,7 +181,7 @@ if (udto != null) {
 	</nav>
 	<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
 	<div class="container text-center my-4">
-		<h1 class="page-title"><%=cdto.getCategoryName()%>
+		<h1 class="page-title"> <%= categoryName %>
 			목록
 		</h1>
 	</div>
@@ -204,7 +212,7 @@ if (udto != null) {
 											<div class="mb-1">
 												<span class="fw-bold" style="font-size: 1rem;">${product.productPrice}</span>
 											</div> <!-- 지역 -->
-											<p class="text-muted mb-2" style="font-size: 0.875rem;">${product.productLocation}</p>
+											<p class="text-muted mb-4 text-ellipsis">${product.productLocation}</p>
 											<!-- 관심, 채팅 개수 -->
 											<div
 												class="d-flex justify-content-between align-items-center">

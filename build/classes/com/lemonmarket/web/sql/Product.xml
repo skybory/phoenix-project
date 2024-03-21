@@ -41,6 +41,13 @@
       FROM `PRODUCT`
    </select>
 
+<!--판매중인 물품 총 갯수 가져오기 -->
+   <select id="getProductsCntByCategoryIdx" resultType="_int">
+      SELECT COUNT('productIdx')
+      FROM `PRODUCT`
+      where categoryIdx=#{categoryIdx}
+   </select>
+
 
    <select id="confirm" resultType = "_int" parameterType = "hashmap">
 		SELECT count(*) from WISHLIST WHERE userIdx = #{userIdx} and productIdx = #{prIdx}

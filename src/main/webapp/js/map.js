@@ -1,4 +1,5 @@
 
+
 // 내용값을 바꾸는 함수
 function changeContent() {
 	var myAddress = getAddress();
@@ -97,117 +98,68 @@ function searchAddress() {
 			document.getElementById("address").value = addr;
 			// 커서를 상세주소 필드로 이동한다.
 			document.getElementById("detailAddress").focus();
-
+ 			document.getElementById('submitButton').disabled = false;			// 제출 버튼 활성화
 		}
 	}).open();
+	 
 }
+// 제출 버튼 활성화
 
+// 이게 1번(제출완료 활성화)
+// 입력값 확인
+
+// 제출 버튼 활성화
+
+
+// 얘는 '변경완료'' 눌렀을때 실행하고 (2)
 function combineAddress() {
 	var address = document.getElementById("address").value;
 	var extraAddress = document.getElementById("extraAddress").value;
 	var detailAddress = document.getElementById("detailAddress").value;
 	var userAddress = address + ' ' + extraAddress + ' ' + detailAddress.trim();
 	document.getElementById("userAddress").value = userAddress;
-	alert("저장되었습니다");
-	checkChanges();
-}
-
-
-function checkAddress() {
-	var detailAddress = document.getElementById('detailAddress').value.trim();
-	var submitButton = document.getElementById('submitButton');
-	if (detailAddress === '') {
-		submitButton.disabled = true;
-	} else {
-		submitButton.disabled = false;
-	}
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('detailAddress').addEventListener('input', checkAddress);
-	document.getElementById("address").readOnly = false;
-	document.getElementById("extraAddress").readOnly = false;
+	alert(userAddress);		// 실행 성공.(지금주소찍힘)
+	var oldUserAddress = document.getElementById('oldUserAddress').value;
+	var userAddress = document.getElementById('userAddress').value;
+	alert(oldUserAddress);	//null 찍힘
+	alert(userAddress);		//입력주소 찍힘
+	
+	
+	 document.getElementById('oldAddress2').innerText = "이전 주소: " + oldUserAddress;
+    document.getElementById('currentAddress2').innerText = "현재 주소: " + userAddress;
+	
+	 document.getElementById("changesModal").document.getElementById("userAddress").value = userAddress;
+	$('#changesModal').modal('show');
+//	 document.getElementById("changesModal").document.getElementById("userAddress").value = userAddress;
+	document.getElementById("addressForm").addEventListener("submit", function(event) {
+  // 기본 동작인 화면 이동을 막음
+  event.preventDefault();
+  alert("가로채기성공")
 });
-
+}
 
  
-// 주소 비교 함수
-function checkChanges() {
-	// 세션에서 이전 사용자 주소 가져오기
-	var oldUserAddress = document.getElementById('oldUserAddress').value;
-//	var old = $("#oldUserAddress").val();
 
-	// 화면에서 사용자 입력 주소 가져오기
-	var userAddress = document.getElementById('userAddress').value;
-	// 이전 주소와 현재 주소 비교
-	if (oldUserAddress != userAddress) {
-		document.getElementById('oldAddress').innerText = "이전 주소: " + oldUserAddress;
-		document.getElementById('currentAddress').innerText = "현재 주소: " + userAddress;
+ 
 
-		// 변경된 내용이 있을 경우 모달 창 띄우기
-		$('#changesModa').modal('show');
-		
-    } else {
-        // 변경된 내용이 없는 경우 alert 창 띄우기
-        alert('변경된 내용이 없습니다.');
-	}
-}
 
 // 폼 제출 함수
-function sendit() {
+function sendit(event) {
 	// 전체주소
+	event.preventDefault();
+	alert("이것도 안될수도있어");
 	var userAddress = document.getElementById('userAddress').value.trim();
-	var go = document.addressForm;
-	// 전체주소가 비어 있는지 확인
-	if (userAddress === '') {
-		alert('상세주소를 입력해주세요.');
-		return false;
-	}
+ 
+	 
+				document.getElementById("changesModal").document.getElementById("userAddress").value = userAddress;
 
-	// 값 있는지 확인
-	if ( userAddress != "") {
-		// 변경사항 확인되었으면 폼 제출
-		
+		alert("이거 실행되나...");
+//		document.getElementById("changesModal").document.getElementById("userAddress").value = userAddress;
+		document.addressForm.submit();
 		document.getElementById('addressForm').action = '/user/UserupdateAddressAction.us';
-		go.submit();
-	} else {
-		// 변경사항 확인되지 않았으면 알림 출력
-		alert('변경사항을 확인해주세요.');
-	}
 	
-}
+	} 
 
-function validcheck() {
-	var userAddress = document.getElementById('userAddress').value.trim();
-	if (userAddress === '') {
-		return false;
-	} else {
-		return true;
-	}
-}
-
-
-// 체크박스 클릭 이벤트 처리
-var confirmChangesCheckBox = document.getElementById('confirmChanges');
-confirmChangesCheckBox.addEventListener('click', function() {
-	combineAddress();
-	if (confirmChangesCheckBox.checked) {
-		// 변경사항 확인 버튼이 체크되었을 때
-		if (validcheck() === false) {
-			// 유효성 검사 실패 시 체크 해제
-			confirmChangesCheckBox.checked = false;
-		} else {
-			// 유효성 검사 통과 시 변경사항 확인 알림 출력 및 주소 비교
-			//            alert('주소를 변경합니다');
-			checkChanges();
-			//            alert('변경사항을 확인하셨습니다.');
-		}
-	} else {
-		// 변경사항 확인 버튼이 체크되어 있지 않을 때의 동작
-		alert('변경사항 확인을 철회하셨습니다.');
-	}
-});
-function checkChange() {
-
-}
+ 
+ 
  

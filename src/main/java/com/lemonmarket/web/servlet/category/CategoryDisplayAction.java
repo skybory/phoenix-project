@@ -24,9 +24,9 @@ public class CategoryDisplayAction implements Action {
 		int categoryIdx = Integer.parseInt(request.getParameter("categoryIdx"));
 		CategoryDTO cdto = cdao.getCategory(categoryIdx);
 		ProductDAO pdao = new ProductDAO();
+		String categoryName = cdto.getCategoryName();
 		
-		
-		int totalCnt = pdao.getProductCntByCategoryIdx(categoryIdx);
+		int totalCnt = pdao.getProductsCntByCategoryIdx(categoryIdx);
 		int pageSize = 12;
 		int totalPage = (totalCnt + pageSize - 1) / pageSize;
 
@@ -54,6 +54,7 @@ public class CategoryDisplayAction implements Action {
 		
 		if (cdto != null) {
 			request.setAttribute("cdto", cdto);
+			request.setAttribute("categoryName", categoryName);
 			forward.setRedirect(false);
 			forward.setPath("/category/categoryDisplay.jsp");
 		} else {
