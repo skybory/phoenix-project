@@ -268,10 +268,10 @@ if (udto != null) {
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-chat-dots"></i>
-
 					</div>
+					<div class="h5 mb-2">일대일 문의</div>
+					<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 				</div>
-
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
@@ -296,6 +296,8 @@ if (udto != null) {
 						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 
 					</div>
+					<div class="h5">연락처</div>
+					<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 				</div>
 			</div>
 		</section>
