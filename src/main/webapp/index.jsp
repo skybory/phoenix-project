@@ -219,13 +219,18 @@ if (udto != null) {
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-								<% if(udto == null){%>
+								 
+									 
+								<%if (udto == null){ %> 
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="${pageContext.request.contextPath}/board/Login.bo"
-									onclick="showAlert()">물건 등록하기</a> <a
-									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지
-									고민중...</a>
-								<%}else{ %>
+									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
+									onmouseover="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';"
+									onmouseout="this.style.backgroundColor='#F0CF1F'; this.style.borderColor='#F0CF1F';"
+									onclick="showAlert()">물건
+									등록하기</a>
+									<%}else{ %>
+									
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
 									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
@@ -235,6 +240,7 @@ if (udto != null) {
 									등록하기</a>
 									<%} %>
 							</div>
+							 
 						</div>
 					</div>
 					<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
@@ -360,8 +366,8 @@ if (udto != null) {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="../js/map.js"></script>
-	<script src="../js/all.js"></script>
+		<script src="../js/map.js"></script>
+		<script src="../js/all.js"></script>
 
 </body>
 </html>

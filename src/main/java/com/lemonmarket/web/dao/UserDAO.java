@@ -152,7 +152,7 @@ public class UserDAO {
 
 	public List<ProductDTO> getWish(HashMap<String, Integer> list) {
 		return sqlSession.selectList("User.getWish",list);
-
+	}
 	public List<ProductDTO> getOnSalesList(int userIdx) {
 		List<ProductDTO> onSalesList = sqlSession.selectList("User.getOnSalesList", userIdx);
 		return onSalesList;
