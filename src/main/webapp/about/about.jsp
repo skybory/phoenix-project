@@ -179,7 +179,7 @@ if (udto != null) {
 		<section class="py-5 bg-light">
 			<div class="container px-5 my-5">
 				<div class="text-center">
-					<h2 class="fw-bolder">팀</h2>
+					<h2 class="fw-bolder">팀원 소개</h2>
 					<p class="lead fw-normal text-muted mb-5">팀 Pheonix불사조</p>
 				</div>
 				<div
@@ -188,7 +188,7 @@ if (udto != null) {
 						<div class="text-center">
 							<img class="img-fluid team-member" style="width:100px; height:100px;"
 								src="/about/ceo.jpg" alt="About Image" />
-							<h5 class="fw-bolder">김태연</h5>
+							<h5 class="fw-bolder">Taeyeon Kim</h5>
 							<div class="fst-italic text-muted">팀장 &amp; 메인페이지 &amp; 총괄 매니지먼트</div>
 						</div>
 					</div>
@@ -196,8 +196,8 @@ if (udto != null) {
 						<div class="text-center">
 							<img class="img-fluid team-member" style="width:100px; height:100px;"
 								src="/about/cio.jpg" alt="About Image" />
-							<h5 class="fw-bolder">Sooyoung Jo</h5>
-							<div class="fst-italic text-muted">CIO &amp; CTO</div>
+							<h5 class="fw-bolder">Sooyoung Cho</h5>
+							<div class="fst-italic text-muted">채팅기능 구현 &amp; 프레임워크 제작</div>
 						</div>
 					</div>
 					<div class="col mb-5 mb-5 mb-sm-0">
@@ -205,7 +205,7 @@ if (udto != null) {
 							<img class="img-fluid team-member" style="width:100px; height:100px;"
 								src="/about/cfo.png" alt="About Image" />
 							<h5 class="fw-bolder">Jeonggyeom Kim</h5>
-							<div class="fst-italic text-muted">CFO &amp; CPO</div>
+							<div class="fst-italic text-muted">구매내역 &amp; 내정보창 구현</div>
 						</div>
 					</div>
 					<div class="col mb-5">
@@ -213,7 +213,7 @@ if (udto != null) {
 							<img class="img-fluid team-member" style="width:100px; height:100px;"
 								src="/about/coo.jpg" alt="About Image" />
 							<h5 class="fw-bolder">Jisoo Lee</h5>
-							<div class="fst-italic text-muted">CKO &amp; COO</div>
+							<div class="fst-italic text-muted"> 프로젝트보고서 작성 &amp; 상품등록 페이지 구현</div>
 						</div>
 					</div>
 					<div class="col mb-5">
@@ -221,7 +221,7 @@ if (udto != null) {
 							<img class="img-fluid team-member" style="width:100px; height:100px;"
 								src="/about/cso.png" alt="About Image" />
 							<h5 class="fw-bolder">Dongjun Shin</h5>
-							<div class="fst-italic text-muted">CSO</div>
+							<div class="fst-italic text-muted">로그인창 &amp; 회원가입 &amp; 카테고리기능 구현</div>
 						</div>
 					</div>
 				</div>
@@ -237,15 +237,12 @@ if (udto != null) {
 				<div class="row justify-content-center">
 					<div class="col-lg-8 col-xxl-6">
 						<div class="text-center my-5">
-							<h1 class="fw-bolder mb-3">` mission is to make building
-								websites easier for everyone.</h1>
-							<p class="lead fw-normal text-muted mb-4">Start Bootstrap was
-								built on the idea that quality, functional website templates and
-								themes should be available to everyone. Use our open source,
-								free products, or support us by purchasing one of our premium
-								products or services.</p>
-							<a class="btn btn-primary btn-lg" href="#scroll-target">Read
-								our story</a>
+							<h1 class="fw-bolder mb-3">` 언제 어디서나 누구에게나 간편한 중고거래 `</h1>
+							<p class="lead fw-normal text-muted mb-4">레몬마켓에서는 다양한 카테고리의 중고 상품을 찾을 수 있습니다. 의류, 
+							전자제품, 가구, 자동차 등 다양한 종류의 상품을 판매하거나 구매할 수 있습니다.
+							우리는 사용자들 간의 소통을 원활하게 하기 위해 메시지 기능을 제공합니다!
+							함께 안전하고 편리한 중고거래 환경을 만들어 나가요!
+							
 						</div>
 					</div>
 				</div>
@@ -257,15 +254,11 @@ if (udto != null) {
 				<div class="row gx-5 align-items-center">
 					<div class="col-lg-6">
 						<img class="img-fluid rounded mb-5 mb-lg-0"
-							src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+							src="/about/pose_dance_ukareru_man.png" alt="..." />
 					</div>
 					<div class="col-lg-6">
-						<h2 class="fw-bolder">Our founding</h2>
-						<p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor
-							sit amet consectetur adipisicing elit. Iusto est, ut esse a
-							labore aliquam beatae expedita. Blanditiis impedit numquam libero
-							molestiae et fugit cupiditate, quibusdam expedita, maiores eaque
-							quisquam.</p>
+						<h2 class="fw-bolder">중고거래의 새로운 패러다임, 여기서 만나요!</h2>
+						<p class="lead fw-normal text-muted mb-0">더 나은 중고거래 경험을 위해 레몬마켓 항상 업데이트되고 개선되고 있습니다. 저렴한 가격에 좋은 물건을 찾고 싶다면, 당신의 중고 물품을 판매하고 싶다면, 지금 레몬마켓에서 시작하세요!</p>
 					</div>
 				</div>
 			</div>
@@ -276,15 +269,12 @@ if (udto != null) {
 				<div class="row gx-5 align-items-center">
 					<div class="col-lg-6 order-first order-lg-last">
 						<img class="img-fluid rounded mb-5 mb-lg-0"
-							src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+							src="/about/monitor_tenin_man_blank.png" alt="..." />
 					</div>
 					<div class="col-lg-6">
-						<h2 class="fw-bolder">Growth &amp; beyond</h2>
-						<p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor
-							sit amet consectetur adipisicing elit. Iusto est, ut esse a
-							labore aliquam beatae expedita. Blanditiis impedit numquam libero
-							molestiae et fugit cupiditate, quibusdam expedita, maiores eaque
-							quisquam.</p>
+						<h2 class="fw-bolder">신뢰 &amp; 신속</h2>
+						<p class="lead fw-normal text-muted mb-0">레몬마켓은 신뢰와 안전을 최우선으로 생각합니다. 거래 시스템은 간편하고 투명하며 안전하게 운영됩니다. 
+						또한 신뢰할 수 있는 판매자와 구매자 간의 소통을 촉진하기 위해 다양한 보호 및 평가 시스템을 도입했습니다.</p>
 					</div>
 				</div>
 			</div>
