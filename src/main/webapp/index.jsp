@@ -71,6 +71,19 @@
 .footer-section .text-left {
 	text-align: left; /* 내용을 왼쪽 정렬합니다. */
 }
+/* 그림자 효과를 추가할 헤더 */
+header {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 속성 */
+}
+
+/* 페이지 전체 배경 색상 설정 */
+body {
+	background-color: #FFF8D5;
+}
+
+.header-container {
+	margin-top: 20px;
+} /* 적절한 간격으로 조정하세요 */
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -110,7 +123,8 @@ if (udto != null) {
 
 
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100"
+	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -187,29 +201,30 @@ if (udto != null) {
 			</div>
 		</nav>
 
-		<!-- Header-->
-		<header class="lemon-bg py-5"
-			style="background-color: #FFE5B4; padding: 20px;">
+		<header class="lemon-bg py-5 container px-5"
+			style="background-color: #FFFFFF; padding: 4vw 4vw 4vw 4vw; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0.1); max-width: 1200px; max-height: 100vh; margin: 0 auto;">
+
 			<div class="container px-5">
 				<div name=val
 					class="row gx-5 align-items-center justify-content-center">
 					<div class="col-lg-8 col-xl-7 col-xxl-6">
 						<div class="my-5 text-center text-xl-start">
-							<h1 name="val" class="display-5 fw-bolder text-dark mb-2"
-								style="color: #427638;">
+							<h1 name="val" class="display-6 fw-bolder text-dark mb-2"
+								style="color: #427638; font-size: 2rem;">
 								당신 근처의 지역 생활<br>커뮤니티
 							</h1>
-							<p class="lead fw-normal text-gray-50 mb-5 ">
+							<p class="lead fw-normal text-gray-50 mb-5"
+								style="font-size: 1.2rem;">
 								동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
-									style="background-color: #427638; border-color: #427638;"
-									onmouseover="this.style.backgroundColor='#2C5524'; this.style.borderColor='#2C5524';"
-									onmouseout="this.style.backgroundColor='#427638'; this.style.borderColor='#427638';"
-									onclick="this.style.backgroundColor='#2C5524'; this.style.borderColor='#2C5524';">물건
+									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
+									onmouseover="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';"
+									onmouseout="this.style.backgroundColor='#F0CF1F'; this.style.borderColor='#F0CF1F';"
+									onclick="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';">물건
 									등록하기</a>
 							</div>
 						</div>
@@ -225,11 +240,13 @@ if (udto != null) {
 
 
 
+
+
 		<!-- Features section-->
 		<section class="py-5" id="features">
 			<div class="row justify-content-center">
 				<div class="row gx-5">
-					
+
 					<div class="col-lg-4 mb-5 text-center mx-auto">
 						<h2 class="fw-bolder mb-0">현재 판매중인 물건들이에요!</h2>
 					</div>
