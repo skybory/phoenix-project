@@ -51,39 +51,39 @@ a {
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
-/* 추가된 이미지의 너비 조정 */
-.custom-card-img {
-	width: 80%; /* 이미지의 너비를 80%로 설정합니다. */
-	max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+/* /* 추가된 이미지의 너비 조정 */ */
+/* .custom-card-img { */
+/* 	width: 80%; /* 이미지의 너비를 80%로 설정합니다. */ */
+/* 	max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */ */
+/* 	display: block; */
+/* 	margin-left: auto; */
+/* 	margin-right: auto; */
+/* } */
 
-.card-text-explain {
-	word-wrap: break-word;
-}
+/* .card-text-explain { */
+/* 	word-wrap: break-word; */
+/* } */
 
-.card-body.custom-card-body {
-	border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */
-}
+/* .card-body.custom-card-body { */
+/* 	border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */ */
+/* } */
 
-.card-img2 {
-	width: 100%; /* 부모 요소에 꽉 차게 */
-	height: 200px; /* 원하는 높이로 지정 */
-	object-fit: cover; /* 이미지를 자르기 */
-}
+/* .card-img2 { */
+/* 	width: 100%; /* 부모 요소에 꽉 차게 */ */
+/* 	height: 200px; /* 원하는 높이로 지정 */ */
+/* 	object-fit: cover; /* 이미지를 자르기 */ */
+/* } */
 
-/* 모든 상품명의 크기를 동일하게 설정합니다. */
-.card-title {
-	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
-	font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */
-	margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */
-}
+/* /* 모든 상품명의 크기를 동일하게 설정합니다. */ */
+/* .card-title { */
+/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ */
+/* 	font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */ */
+/* 	margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */ */
+/* } */
 
-.card-text-price {
-	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
-}
+/* .card-text-price { */
+/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ */
+/* } */
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -206,8 +206,8 @@ if (udto != null) {
 		<!-- 추가된 이미지 -->
 		<div class="row justify-content-center align-items-center mt-4">
 			<div class="card text-center align-items-center">
-				<img src=${pdto.productImage } class="card-img custom-card-img"
-					alt="이미지 설명">
+				<img src=${pdto.productImage }  class="card-img custom-card-img"
+					alt="이미지 설명"  style="width:250px; height:250px;" >
 				<div class="card-body">
 					<!-- 프로필, 닉네임, 거주지 -->
 					<div class="d-flex align-items-center mb-3"
@@ -269,8 +269,8 @@ if (udto != null) {
 											<a
 												href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 												class="card-link"> <!-- 상품 이미지 --> <img
-												src="${product.productImage}" alt="Product Image"
-												class="card-img mb-3"> <!-- 상품명 -->
+												src="${product.productImage } "  alt="Product Image"
+												class="card-img mb-3"  style="width:250px; height:250px;" >  <!-- 상품명 -->
 												<h4 class="card-title">${product.productTitle }</h4>
 												<div class="mb-3">
 													<!-- 상품가격 -->
