@@ -7,14 +7,9 @@
 <html lang="en">
 <style>
 a {
-<<<<<<< HEAD
    text-decoration: none !important;
 }
 
-=======
-    text-decoration: none !important;
-}
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -58,13 +53,10 @@ a {
 #userGreetingLi {
 	margin-left: 20px; /* 왼쪽 여백 설정 */
 }
-<<<<<<< HEAD
 .test {
 	--bs-primary-rgb: 248, 249, 250;
 	--bs-light-rgb: #FFF8D5;
 }
-=======
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
