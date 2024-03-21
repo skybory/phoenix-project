@@ -352,4 +352,5 @@ if (udto != null) {
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 </body>
+<script src="../js/all.js"></script>
 </html>

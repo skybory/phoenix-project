@@ -665,8 +665,8 @@ img {
 
 		});
 		$("#contents").val('');
-// 		send();
-		getInfinite();
+		send();
+// 		getInfinite();
 		
 		
 

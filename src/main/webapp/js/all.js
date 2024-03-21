@@ -5,3 +5,4 @@
 	function showLog(){
 		alert("로그아웃 합니다.")
 	}
+	
