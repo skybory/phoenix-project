@@ -76,6 +76,15 @@
 		SELECT * FROM PRODUCT p WHERE productIdx = #{productIdx}
 	</select>
 
+	<!-- 판매자 idx가 나랑 같고, 누군가 '안'샀다는 뜻 -->
+	<select id="getOnSalesList" parameterType="_int"
+		resultType="productdto">
+		SELECT *
+		FROM PRODUCT
+		WHERE userIdx = #{userIdx}
+		AND purchaseUserIdx IS NULL
+	</select>
+
 	<!-- get profile List? -->
 </mapper>
  

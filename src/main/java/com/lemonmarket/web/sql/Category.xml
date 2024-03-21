@@ -16,5 +16,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getCategory" parameterType="_int" resultType="categorydto">
 	SELECT * FROM `CATEGORY` WHERE categoryIdx = #{categoryIdx}
+	
 </select>
 </mapper>

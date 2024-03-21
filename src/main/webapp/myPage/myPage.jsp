@@ -99,46 +99,131 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	border-radius : 40px
+	border-radius: 40px
 }
 
 .button:hover {
 	background-color: #FFA500;
 }
+
 li a {
-	color : black;
+	color: black;
 }
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+int userAccount = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
 }
 %>
 </head>
-<body>
-<div id="container">
-    <h2 style="text-align: center; color:orange;">마이 페이지</h2>
-    
-   
-    <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매내역</a> 
-    <!-- 판매내역 링크 -->
-    <a class="button" href="/user/SalesListAction.us">판매내역</a>
-    <!-- 찜 목록 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/user/InterestListAction.us">찜 목록</a>
-    <!-- 내 정보 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/user/ViewMyProfileAction.us">내 정보</a>
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-            홈으로 돌아가기
-        </a>
-</div>
-</div>
+<body class="d-flex flex-column h-100">
+	<main class="flex-shrink-0">
+		<!-- 상단바 -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container px-5">
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
+					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<%
+						if (udto == null) {
+						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
 
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
+
+						<%
+						}
+						%>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="container">
+			<h2 style="text-align: center; color: orange;">마이 페이지</h2>
+
+
+			<!-- 구매내역 링크 -->
+			<a class="button"
+				href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매
+				완료 물품</a>
+			<!-- 판매내역 링크 -->
+			<a class="button" href="/user/SalesListAction.us">판매 완료 물품</a>
+			<!--     판매중인 물품 링크 -->
+			<a class="button" href="/user/onSalesListAction.us">판매중인 물품</a>
+			<!-- 찜 목록 링크 -->
+			<a class="button"
+				href="${pageContext.request.contextPath}/user/InterestListAction.us">찜
+				목록</a>
+			<!-- 내 정보 링크 -->
+			<a class="button"
+				href="${pageContext.request.contextPath}/user/ViewMyProfileAction.us">내
+				정보</a>
+			<div style="text-align: center; margin-top: 20px;">
+				<a href="../index.jsp"
+					style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+					홈으로 돌아가기 </a>
+			</div>
+		</div>
 </body>
 </html>
