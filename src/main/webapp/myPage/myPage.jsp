@@ -221,7 +221,7 @@ if (udto != null) {
 				<!-- 홈으로 돌아가기 링크 -->
 				 <div class="text-center"> <!-- 중앙 정렬을 위한 text-center 클래스 추가 -->
             <a class="btn btn-primary btn-lg px-4 me-sm-3"
-                href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
+                href="${pageContext.request.contextPath}/board/Home.bo"
                 style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
                 onmouseover="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';"
                 onmouseout="this.style.backgroundColor='#F0CF1F'; this.style.borderColor='#F0CF1F';"

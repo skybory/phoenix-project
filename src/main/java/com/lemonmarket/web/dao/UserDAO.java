@@ -157,4 +157,15 @@ public class UserDAO {
 		List<ProductDTO> onSalesList = sqlSession.selectList("User.getOnSalesList", userIdx);
 		return onSalesList;
 	}
+//	유저 프로필 가져오기
+	public boolean updateUserProfile(UserDTO udto, int userIdx) {
+		boolean result = false;
+		HashMap<String, Object> datas = new HashMap<String, Object>();
+		datas.put("udto", udto);
+		datas.put("userIdx", userIdx);
+		if (sqlSession.update("User.updateUserProfile",datas) == 1) {
+			result = true;
+		}
+		return result;
+	}
 }

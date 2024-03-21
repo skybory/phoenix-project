@@ -84,10 +84,10 @@ tr:hover {
 						<c:forEach var="productDTO" items="${wishList}"
 							varStatus="loop">
 							<tr>
-								<td>${productDTO.productIdx}</td>
-								<td>${productDTO.productTitle}</td>
-								<td>${productDTO.productPrice}</td>
-								<td>${productDTO.productLocation}</td>
+								<td><a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">${productDTO.productIdx}</a></td>
+								<td><a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">${productDTO.productTitle}</a></td>
+								<td><a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">${productDTO.productPrice}</a></td>
+								<td><a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">${productDTO.productLocation}</a></td>
 							</tr>
 						</c:forEach>
 					</c:when>

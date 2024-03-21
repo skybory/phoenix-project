@@ -17,7 +17,7 @@
 	</insert>
 
 	<select id="getData" parameterType="_int" resultType="userdto">
-	 select * from USER where userIdx = #{userIdx}
+		select * from USER where userIdx = #{userIdx}
 	</select>
 
 
@@ -63,14 +63,16 @@
 		SELECT *
 		FROM PRODUCT
 		WHERE userIdx = #{userIdx}
-		AND purchaseUserIdx IS NOT NULL
+		AND
+		purchaseUserIdx IS NOT NULL
 	</select>
-	
-		<select id="getWishList" parameterType="_int"
+
+	<select id="getWishList" parameterType="_int"
 		resultType="com.lemonmarket.web.dto.WishlistDTO">
-		SELECT * FROM WISHLIST w WHERE userIdx = #{userIdx} and wish = 1
+		SELECT * FROM WISHLIST w WHERE userIdx = #{userIdx} and
+		wish = 1
 	</select>
-	
+
 	<select id="getWish" parameterType="hashmap"
 		resultType="productdto">
 		SELECT * FROM PRODUCT p WHERE productIdx = #{productIdx}
@@ -82,8 +84,23 @@
 		SELECT *
 		FROM PRODUCT
 		WHERE userIdx = #{userIdx}
-		AND purchaseUserIdx IS NULL
+		AND
+		purchaseUserIdx IS NULL
 	</select>
+
+	<!-- 회원 정보 업데이트 -->
+	<update id="updateUserProfile" parameterType="userdto">
+	UPDATE USER
+	SET userName = #{udto.userName},
+    userAge = #{udto.userAge},
+    userGender = #{udto.userGender},
+    userPhoneNumber = #{udto.userPhoneNumber},
+    userEmail = #{udto.userEmail},
+    userAddress = #{udto.userAddress},
+    userImage = #{udto.userImage},
+    userAccount = #{udto.userAccount}
+    WHERE userIdx = #{userIdx}
+	</update>
 
 	<!-- get profile List? -->
 </mapper>
