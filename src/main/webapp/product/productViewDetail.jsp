@@ -252,53 +252,59 @@ if (udto != null) {
 		</div>
 
 
-		<section>
-			<div class="row gx-5 justify-content-center">
-				<c:choose>
-					<c:when
-						test="${productList != null and fn:length(productList) > 0}">
-						<c:forEach var="product" items="${productList}" varStatus="loop">
-							<!-- 상품 카드 -->
-							<div class="col-lg-4 mb-4">
-								<!-- 카드의 고정된 높이 설정 -->
-								<div class="card mb-5 mb-lg-0" style="height: 100%;">
-									<!-- 카드 본문의 고정된 높이 설정 -->
-									<div class="card-body p-3" style="height: 100%;">
-										<!-- 카드 링크 -->
+			<section class="bg-light py-2">
+			<div class="container px-5 my-5">
+				<div class="row gx-5 justify-content-center">
+					<c:choose>
+						<c:when test="${not empty productList}">
+							<c:forEach var="product" items="${productList}">
+								<!-- Pricing card -->
+								<div class="col-lg-6 col-xl-4 mb-4">
+									<div class="card mb-5 mb-xl-0">
 										<div class="card-body p-5">
 											<a
 												href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
 												class="card-link"> <!-- 상품 이미지 --> <img
-												src="${product.productImage } "  alt="Product Image"
-												class="card-img mb-3"  style="width:250px; height:250px;" >  <!-- 상품명 -->
-												<h4 class="card-title">${product.productTitle }</h4>
+												src="${product.productImage}" alt="Product Image"
+												alt="Product Image" class="card-img mb-3"
+												style="width: 250px; height: 250px;"> <!-- 상품명 -->
+												<h4 class="card-title">
+													<c:choose>
+														<c:when test="${fn:length(product.productTitle) <= 10}">
+                                                    ${product.productTitle}
+                                                </c:when>
+														<c:otherwise>
+                                                    ${fn:substring(product.productTitle, 0, 10)}...
+                                                </c:otherwise>
+													</c:choose>
+												</h4>
 												<div class="mb-3">
 													<!-- 상품가격 -->
-													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
+													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
 												</div> <!-- 지역 -->
-												<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
-												<!-- 찜하기, 채팅 개수 -->
+												<p class="text-muted mb-4">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
 												<div
 													class="d-flex justify-content-between align-items-center">
-													<p class="text-muted mb-0">
-														관심 : <span id="interest"></span>
-													</p>
-													<p class="text-muted mb-0">
-														채팅 : <span id=room></span>
-													</p>
+													<p class="text-muted mb-0">관심:
+														${product.productInterestCount}</p>
+													<p class="text-muted mb-0">채팅:
+														${product.productChatCount}</p>
 												</div>
 											</a>
 										</div>
 									</div>
 								</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12 text-center">
-							<p>등록된 상품이 없습니다.</p>
-						</div>
-					</c:otherwise>
-				</c:choose>
+								 
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<div class="col-12 text-center">
+								<p>등록된 상품이 없습니다.</p>
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</div>
 
 				<!-- Pagination -->
 				<c:if test="${totalPage > 1}">
