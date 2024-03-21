@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.dto.UserDTO;
+import com.lemonmarket.web.dto.WishlistDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class UserDAO {
@@ -142,5 +143,14 @@ public class UserDAO {
 	public List<UserDTO> viewProfile(String userId) {
 		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
 		return ProfileList;
+	}
+	
+	public List<WishlistDTO> getWishList(int userIdx) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("User.getWishList",userIdx);
+	}
+
+	public List<ProductDTO> getWish(HashMap<String, Integer> list) {
+		return sqlSession.selectList("User.getWish",list);
 	}
 }

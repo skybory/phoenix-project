@@ -7,9 +7,8 @@
 <html lang="en">
 <style>
 a {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
-
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -179,15 +178,15 @@ if (udto != null) {
 							<div class="row justify-content-center align-items-center">
 								<div class="col-lg-8 text-center">
 									<span id="setLocation"></span>
-									<!-- 									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p> -->
-									<!-- 									수정된 버튼 -->
-									<!-- 									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치 -->
-									<!-- 										등록하기</a> -->
+<!-- 									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p> -->
+<!-- 									수정된 버튼 -->
+<!-- 									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치 -->
+<!-- 										등록하기</a> -->
 									<span id="setLocation"></span>
 									<p class="banner-text text-white-50">물건을 등록하시겠습니까?</p>
 									<!-- 수정된 버튼 -->
-									<a class="btn btn-outline-light btn-lg"
-										href="/product/ProductWriteBoard.pr">물건 등록하기</a>
+									<a class="btn btn-outline-light btn-lg" href="/product/ProductWriteBoard.pr">물건
+										등록하기</a>
 								</div>
 							</div>
 						</div>
@@ -200,36 +199,29 @@ if (udto != null) {
 			<div class="row gx-5 justify-content-center">
 				<c:choose>
 					<c:when
-						test="${productList != null and fn:length(productList) > 0}">
-						<c:forEach var="product" items="${productList}" varStatus="loop">
-							<!-- 상품 카드 -->
-							<div class="col-lg-4 mb-4">
-								<!-- 카드의 고정된 높이 설정 -->
-								<div class="card mb-5 mb-lg-0" style="height: 100%;">
-									<!-- 카드 본문의 고정된 높이 설정 -->
-									<div class="card-body p-3" style="height: 100%;">
-										<!-- 카드 링크 -->
+						test="${productList != null and fn:length(productList) > 0 }">
+						<c:forEach var="product" items="${productList}">
+							<!-- Pricing card -->
+							<div class="col-lg-6 col-xl-4 mb-4">
+								<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5">
 										<a
 											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
-											class="card-link" style="display: block; height: 100%;">
-											<!-- 상품 이미지 --> <img src="${product.productImage}"
-											alt="Product Image" class="card-img mb-3"> <!-- 상품명 -->
-											<%--                                     <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;"> --%>
-											<!-- 상품명 -->
-											<h4 class="card-title"
-												style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.productTitle}</h4>
-											<!-- 상품가격 -->
-											<div class="mb-1">
-												<span class="fw-bold" style="font-size: 1rem;">${product.productPrice}</span>
+											class="card-link"> <!-- 상품 이미지 --> 
+											<img
+											src="${product.productImage}" alt="Product Image"
+											class="card-img mb-3"> <!-- 상품명 -->
+											<h4 class="card-title">${product.productTitle }</h4>
+											<div class="mb-3">
+												<!-- 상품가격 -->
+												<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
 											</div> <!-- 지역 -->
-											<p class="text-muted mb-2" style="font-size: 0.875rem;">${product.productLocation}</p>
-											<!-- 관심, 채팅 개수 -->
+											<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
+											<!-- 찜하기, 채팅 개수 -->
 											<div
 												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0" style="font-size: 0.875rem;">관심
-													: ${product.productInterestCount}</p>
-												<p class="text-muted mb-0" style="font-size: 0.875rem;">채팅
-													: ${product.productChatCount}</p>
+												<p class="text-muted mb-0">관심 : ${product.productInterestCount }</p>
+												<p class="text-muted mb-0">채팅 : ${product.productChatCount }</p>
 											</div>
 										</a>
 									</div>
@@ -244,6 +236,7 @@ if (udto != null) {
 					</c:otherwise>
 				</c:choose>
 			</div>
+
 			<!-- Pagination -->
 			<c:if test="${totalPage > 1}">
 				<nav aria-label="Page navigation example">
@@ -290,7 +283,6 @@ if (udto != null) {
 	<script src="../user.js"></script>
 	<script src="../js/map.js"></script>
 	<script src="../js/product.js"></script>
-	<script src="../js/all.js"></script>
 
 </body>
 </html>

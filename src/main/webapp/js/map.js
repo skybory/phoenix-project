@@ -16,6 +16,32 @@ function changeContent() {
 }
 
 
+// 여기서 
+// 가상의 함수: 실제로는 사용자의 주소값을 가져오는 로직으로 대체해야 합니다.
+//function getAddress() {
+//	// 여기에서 실제로 주소값을 가져오는 로직을 구현
+//	// 예시로 null을 반환하도록 함
+//	return null;
+//}
+//
+//
+//
+//var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+//	mapOption = {
+//		center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+//		level: 5 // 지도의 확대 레벨
+//	};
+//
+////지도를 미리 생성
+//var map = new daum.maps.Map(mapContainer, mapOption);
+////주소-좌표 변환 객체를 생성
+//var geocoder = new daum.maps.services.Geocoder();
+////마커를 미리 생성
+//var marker = new daum.maps.Marker({
+//	position: new daum.maps.LatLng(37.537187, 127.005476),
+//	map: map
+//});
+
 
 
 
@@ -101,6 +127,48 @@ function searchAddress() {
 		}
 	}).open();
 }
+
+//function combineAddress() {
+//
+//	// userAddress에 주소 정보를 결합하여 저장한다.
+//
+//	var address = document.getElementById("address").value;
+//	var extraAddress = document.getElementById("extraAddress").value;
+//	var detailAddress = document.getElementById("detailAddress").value;
+//	var userAddress = address + extraAddress + ' ' + detailAddress;
+//
+//	// userAddress 값을 hidden 필드에 넣는다.
+//	document.getElementById("userAddress").value = userAddress;
+//	alert("저장되었습니다");
+//}
+//
+//
+//
+//
+//function sendit() {
+//	// 주소 필드가 비어 있는지 확인
+//	var detailAddress = document.getElementById('detailAddress').value;
+//	if (detailAddress.trim() === '') {
+//		alert('상세주소를 입력해주세요.');
+//		return false;
+//	}
+//	let frm = document.addressForm;
+//	combineAddress();
+//	frm.submit();
+//	return true;
+//}
+//
+//// 주소 입력 확인
+//function checkAddress() {
+//	var detailAddress = document.getElementById('detailAddress').value;
+//	var submitButton = document.getElementById('submitButton');
+//	if (detailAddress.trim() === '') {
+//		submitButton.disabled = true; // 주소가 비어 있으면 버튼 비활성화
+//	} else {
+//		submitButton.disabled = false; // 주소가 입력되면 버튼 활성화
+//	}
+//}
+//document.getElementById('detailAddress').addEventListener('input', checkAddress);
 
  function combineAddress() {
             var address = document.getElementById("address").value;

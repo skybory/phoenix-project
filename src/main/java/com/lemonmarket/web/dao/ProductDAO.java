@@ -30,23 +30,15 @@ public class ProductDAO {
 		}
 		return result;
 	}
-	
-	
-	public List<ProductDTO> selectProductsByCategoryIdx(int startRow, int pageSize, int categoryIdx) {
-		HashMap<String, Integer> datas = new HashMap<>();
-		datas.put("startRow", startRow);
-		datas.put("pageSize", pageSize);
-		datas.put("categoryIdx", categoryIdx);
-		List<ProductDTO> productList = sqlSession.selectList("Product.selectProductsByCategoryIdx", datas);
-		
-        return productList;
+	public List<ProductDTO> selectProductsByCategoryIdx(int categoryIdx) {
+        return sqlSession.selectList("selectProductsByCategoryIdx", categoryIdx);
     }
 	public ProductDTO viewProductDetail(int productIdx) {
 		ProductDTO pdto = sqlSession.selectOne("Product.viewProductDetail", productIdx);
 		return pdto;
 	}
 
-	// 물품 전체 리스트 가져오기(페이징처리) -> 판매중인 물품 리스트만 가져오기
+	// 물품 전체 리스트 가져오기(페이징처리) 
 	public List<ProductDTO> getProductList(int startRow, int pageSize) {
 		HashMap<String, Integer> datas = new HashMap<>();
 		datas.put("startRow", startRow);
@@ -125,11 +117,6 @@ public class ProductDAO {
 		// TODO Auto-generated method stub
 		sqlSession.update("Product.downInterest",list);
 	}
-
-
-	public int getProductCntByCategoryIdx(int categoryIdx) {
-		int productCnt = sqlSession.selectOne("Product.getProductCntByCategoryIdx");
-		return productCnt;
-	}
+	
 	
 }

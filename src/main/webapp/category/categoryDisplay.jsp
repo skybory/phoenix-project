@@ -1,8 +1,6 @@
-<%@page import="com.lemonmarket.web.dto.CategoryDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.lemonmarket.web.dto.UserDTO"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>특정 카테고리 상품</title>
+<title>의류 카테고리 상품</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -19,9 +17,8 @@
 </head>
 <style>
 a {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
-
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -64,18 +61,19 @@ a {
 /* 추가된 타이틀에 대한 스타일 */
 /* 상품 페이지 타이틀 스타일 */
 .page-title {
-	font-size: 2.5rem; /* 타이틀 크기 */
-	color: #343a40; /* 타이틀 색상 */
-	margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
-	font-weight: bold; /* 글자 굵기 */
-	text-transform: uppercase; /* 대문자로 변환 */
+    font-size: 2.5rem; /* 타이틀 크기 */
+    color: #343a40; /* 타이틀 색상 */
+    margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
+    font-weight: bold; /* 글자 굵기 */
+    text-transform: uppercase; /* 대문자로 변환 */
 }
+
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
-CategoryDTO cdto = (CategoryDTO) request.getAttribute("cdto");
 
 if (udto != null) {
 	userId = udto.getUserId();
@@ -173,79 +171,64 @@ if (udto != null) {
 		</nav>
 		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
 		<div class="container text-center my-4">
-			<h1 class="page-title"><%= cdto.getCategoryName() %>
-				목록
-			</h1>
-		</div>
+        <h1 class="page-title">의류 상품</h1>
+    </div>
 
-	<section>
-			<div class="row gx-5 justify-content-center">
-				<c:choose>
-					<c:when
-						test="${productList != null and fn:length(productList) > 0}">
-						<c:forEach var="product" items="${productList}" varStatus="loop">
-							<!-- 상품 카드 -->
-							<div class="col-lg-4 mb-4">
-								<!-- 카드의 고정된 높이 설정 -->
-								<div class="card mb-5 mb-lg-0" style="height: 100%;">
-									<!-- 카드 본문의 고정된 높이 설정 -->
-									<div class="card-body p-3" style="height: 100%;">
-										<!-- 카드 링크 -->
-										<a
-											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}&page=${nowPage}"
-											class="card-link" style="display: block; height: 100%;">
-											<!-- 상품 이미지 --> <img src="${product.productImage}"
-											alt="Product Image" class="card-img mb-3"> <!-- 상품명 -->
-											<%--                                     <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;"> --%>
-											<!-- 상품명 -->
-											<h4 class="card-title"
-												style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.productTitle}</h4>
-											<!-- 상품가격 -->
-											<div class="mb-1">
-												<span class="fw-bold" style="font-size: 1rem;">${product.productPrice}</span>
-											</div> <!-- 지역 -->
-											<p class="text-muted mb-2" style="font-size: 0.875rem;">${product.productLocation}</p>
-											<!-- 관심, 채팅 개수 -->
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0" style="font-size: 0.875rem;">관심
-													: ${product.productInterestCount}</p>
-												<p class="text-muted mb-0" style="font-size: 0.875rem;">채팅
-													: ${product.productChatCount}</p>
-											</div>
-										</a>
+		<div class="row gx-5 justify-content-center">
+			<c:if test="${not empty productList}">
+				<c:forEach items="${productList}" var="product">
+					<!-- Pricing card -->
+					<div class="col-lg-6 col-xl-4 mb-4">
+						<div class="card mb-5 mb-xl-0">
+							<div class="card-body p-5">
+								<a
+									href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+									class="card-link"> <!-- 상품 이미지 --> <img
+									src="${product.productImage}" alt="Product Image"
+									class="card-img mb-3"> <!-- 상품명 -->
+									<h4 class="card-title">${product.productTitle }</h4>
+									<div class="mb-3">
+										<!-- 상품가격 -->
+										<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
+									</div> <!-- 지역 -->
+									<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
+									<!-- 찜하기, 채팅 개수 -->
+									<div class="d-flex justify-content-between align-items-center">
+										<p class="text-muted mb-0">${product.productInterestCount }</p>
+										<p class="text-muted mb-0">${product.productChatCount }</p>
 									</div>
-								</div>
+								</a>
 							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12 text-center">
-							<p>등록된 상품이 없습니다.</p>
 						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
-			<!-- Pagination -->
-			<c:if test="${totalPage > 1}">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center mt-4">
-						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
-						</li>
-						<c:forEach begin="${startPage}" end="${endPage}" step="1"
-							varStatus="loop">
-							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
-							</li>
-						</c:forEach>
-						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-						</li>
-					</ul>
-				</nav>
+					</div>
+				</c:forEach>
 			</c:if>
-		</section>
+			<c:if test="${empty productList}">
+				<div class="col-12 text-center">
+					<p>등록된 상품이 없습니다.</p>
+				</div>
+			</c:if>
+		</div>
+		<!-- Pagination -->
+		<c:if test="${totalPage > 1}">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center mt-4">
+					<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+						class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+					</li>
+					<c:forEach begin="${startPage}" end="${endPage}" step="1"
+						varStatus="loop">
+						<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+							<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+						</li>
+					</c:forEach>
+					<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+						<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</c:if>
+
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
@@ -283,5 +266,4 @@ if (udto != null) {
 		}
 	</script>
 </body>
-<script src="../js/all.js"></script>
 </html>

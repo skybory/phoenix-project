@@ -23,37 +23,13 @@ public class CategoryDisplayAction implements Action {
 		CategoryDAO cdao = new CategoryDAO();
 		int categoryIdx = Integer.parseInt(request.getParameter("categoryIdx"));
 		CategoryDTO cdto = cdao.getCategory(categoryIdx);
-		ProductDAO pdao = new ProductDAO();
-		
-		
-		int totalCnt = pdao.getProductCntByCategoryIdx(categoryIdx);
-		int pageSize = 12;
-		int totalPage = (totalCnt + pageSize - 1) / pageSize;
 
-		// 현재 페이지 넘겨받기
-		String temp = request.getParameter("page");
-		int page = temp == null ? 1 : Integer.parseInt(temp);
-		int startRow = (page - 1) * pageSize;
-
-		// [1],[2]...[10] : 1페이지, [11],[12]...[20] : 11페이지
-		int startPage = (page - 1) / pageSize * pageSize + 1;
-		
-		// [1],[2]...[10] : 10페이지, [11],[12]...[20] : 20페이지
-		int endPage = startPage + pageSize - 1;
-		endPage = Math.min(endPage, totalPage);
-
-		// 물품 리스트를 바꿔야함. pdao.selectProduct궁시렁으로 : 바꿈
-		List<ProductDTO> productList = pdao.selectProductsByCategoryIdx(startRow, pageSize, categoryIdx);
-		request.setAttribute("productList", productList);
-		request.setAttribute("totalCnt", totalCnt);
-		request.setAttribute("totalPage", totalPage);
-		request.setAttribute("nowPage", page);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
-		
-		
 		if (cdto != null) {
 			request.setAttribute("cdto", cdto);
+			ProductDAO pdao = new ProductDAO();
+			List<ProductDTO> productList = pdao.selectProductsByCategoryIdx(categoryIdx);
+			request.setAttribute("productList", productList);
+
 			forward.setRedirect(false);
 			forward.setPath("/category/categoryDisplay.jsp");
 		} else {
