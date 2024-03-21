@@ -211,11 +211,11 @@ if (udto != null) {
                   <div class="my-5 text-center text-xl-start">
                      <h1 name="val" class="display-6 fw-bolder text-dark mb-2"
                         style="color: #427638; font-size: 2rem;">
-                        당신 근처의 지역 생활<br>커뮤니티
+                        레몬처럼 상큼한 지역 생활<br>커뮤니티
                      </h1>
                      <p class="lead fw-normal text-gray-50 mb-5"
                         style="font-size: 1.2rem;">
-                        동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.
+                        동네라서 가능한 모든 것<br>레몬에서 가까운 이웃과 함께해요.
                      </p>
                      <div
                         class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">

@@ -56,10 +56,18 @@ a {
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
-/* /* 추가된 이미지의 너비 조정 */ */
+/* /* 추가된 이미지의 너비 조정 */
+*
+/
 /* .custom-card-img { */
-/* 	width: 80%; /* 이미지의 너비를 80%로 설정합니다. */ */
-/* 	max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */ */
+/* 	width: 80%; /* 이미지의 너비를 80%로 설정합니다. */
+ 
+*
+/
+/* 	max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */
+ 
+*
+/
 /* 	display: block; */
 /* 	margin-left: auto; */
 /* 	margin-right: auto; */
@@ -70,24 +78,51 @@ a {
 /* } */
 
 /* .card-body.custom-card-body { */
-/* 	border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */ */
+/* 	border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */
+ 
+*
+/
 /* } */
 
 /* .card-img2 { */
-/* 	width: 100%; /* 부모 요소에 꽉 차게 */ */
-/* 	height: 200px; /* 원하는 높이로 지정 */ */
-/* 	object-fit: cover; /* 이미지를 자르기 */ */
+/* 	width: 100%; /* 부모 요소에 꽉 차게 */
+ 
+*
+/
+/* 	height: 200px; /* 원하는 높이로 지정 */
+ 
+*
+/
+/* 	object-fit: cover; /* 이미지를 자르기 */
+ 
+*
+/
 /* } */
 
-/* /* 모든 상품명의 크기를 동일하게 설정합니다. */ */
+/* /* 모든 상품명의 크기를 동일하게 설정합니다. */
+ 
+*
+/
 /* .card-title { */
-/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ */
-/* 	font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */ */
-/* 	margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */ */
+/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+ 
+*
+/
+/* 	font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */
+ 
+*
+/
+/* 	margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */
+ 
+*
+/
 /* } */
 
 /* .card-text-price { */
-/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ */
+/* 	font-size: 1.5rem; /* 원하는 크기로 설정하세요 */
+ 
+*
+/
 /* } */
 </style>
 <%
@@ -211,8 +246,8 @@ if (udto != null) {
 		<!-- 추가된 이미지 -->
 		<div class="row justify-content-center align-items-center mt-4">
 			<div class="card text-center align-items-center">
-				<img src=${pdto.productImage }  class="card-img custom-card-img"
-					alt="이미지 설명"  style="width:250px; height:250px;" >
+				<img src=${pdto.productImage } class="card-img custom-card-img"
+					alt="이미지 설명" style="width: 250px; height: 250px;">
 				<div class="card-body">
 					<!-- 프로필, 닉네임, 거주지 -->
 					<div class="d-flex align-items-center mb-3"
@@ -246,14 +281,14 @@ if (udto != null) {
 							<span id="productInterestCount">관심 </span><span id="interest"></span>
 						</button>
 						<a href="/chatting/chatting.chat?productIdx=${pdto.productIdx}"
-						 class="btn btn-outline-primary">채팅  <span id = "room"></span></a>
+							class="btn btn-outline-primary">채팅 <span id="room"></span></a>
 						<!-- Adjust the left margin -->
-						<button  class="btn btn-outline-primary"
-							id="purchaseBtn"><span id = "default">구매하기 </span> 
+						<button class="btn btn-outline-primary" id="purchaseBtn">
+							<span id="default">구매하기 </span>
 						</button>
 						<script>
 						    // userId와 pdto.userId를 비교하여 조건에 따라 버튼을 비활성화
-						    if ('<%= userId%>' == "${pdto.userId}") {
+						    if ('<%=userId%>' == "${pdto.userId}") {
 						    	
 						    	document.getElementById("default").innerText = "";
 						    	document.getElementById("default").innerText = "등록한 상품";
@@ -270,8 +305,8 @@ if (udto != null) {
 		</div>
 
 
-			<section class="bg-light py-2">
-			<div class="container px-5 my-5">
+		<section class="py-2" style="background-color: #FFF8D5;">
+			<div class="container px-5 my-5" >
 				<div class="row gx-5 justify-content-center">
 					<c:choose>
 						<c:when test="${not empty productList}">
@@ -312,7 +347,7 @@ if (udto != null) {
 										</div>
 									</div>
 								</div>
-								 
+
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
@@ -324,46 +359,63 @@ if (udto != null) {
 				</div>
 			</div>
 
-				<!-- Pagination -->
-				<c:if test="${totalPage > 1}">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination justify-content-center mt-4">
-							<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-								class="page-link"
-								href="?page=${nowPage - 1}&productIdx=${productIdx}"
-								tabindex="-1">Previous</a></li>
-							<c:forEach begin="${startPage}" end="${endPage}" step="1"
-								varStatus="loop">
-								<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-									<a class="page-link"
-									href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
-								</li>
-							</c:forEach>
-							<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+			<!-- Pagination -->
+			<c:if test="${totalPage > 1}">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center mt-4">
+						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+							class="page-link"
+							href="?page=${nowPage - 1}&productIdx=${productIdx}"
+							tabindex="-1">Previous</a></li>
+						<c:forEach begin="${startPage}" end="${endPage}" step="1"
+							varStatus="loop">
+							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
 								<a class="page-link"
-								href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
+								href="?page=${loop.index}&productIdx=${productIdx}">${loop.index}</a>
 							</li>
-						</ul>
-					</nav>
-				</c:if>
+						</c:forEach>
+						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+							<a class="page-link"
+							href="?page=${nowPage + 1}&productIdx=${productIdx}">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</c:if>
 		</section>
 	</main>
 
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
+	<footer class="bg-light text-dark py-4"
+		style="background-color: #DFDFDF;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- 회사명 -->
+				<div class="col-md-4 text-center">
+					<h5>회사명</h5>
+					<p class="text-left">(주)레몬마켓</p>
 				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
+				<!-- 링크 -->
+				<div class="col-md-4 text-center">
+					<h5>제공되는 서비스</h5>
+					<ul class="list-unstyled text-left">
+						<li><a
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+						<li><a href="/product/chatting.jsp">채팅</a></li>
+					</ul>
+				</div>
+				<!-- 소셜 미디어 -->
+				<div class="col-md-4 text-center">
+					<h5>SNS</h5>
+					<ul class="list-unstyled text-left">
+						<li><a href="https://www.facebook.com">Facebook</a></li>
+						<li><a href="https://twitter.com">Twitter</a></li>
+						<li><a href="https://www.instagram.com">Instagram</a></li>
+						<li><a href="https://www.youtube.com">Youtube</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
