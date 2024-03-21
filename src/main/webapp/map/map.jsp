@@ -3,8 +3,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="en">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
 .lemon-bg {
 	background-color: #E5D85C;
@@ -93,11 +96,13 @@ UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
 int userAccount = 0;
+String oldUserAddress = null;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
 	userAccount = udto.getUserAccount();
+	oldUserAddress = udto.getUserAddress();
 }
 %>
 <head>
@@ -160,7 +165,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
 						<%
 						} else {
@@ -193,7 +198,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -204,100 +209,80 @@ if (udto != null) {
 		</nav>
 		<!-- Page content-->
 		<section class="py-5">
-<!-- 			<div class="row gx-5 justify-content-center"> -->
-<!-- 				<div class="col-lg-8 col-xl-6"> -->
-<!-- 					주소 입력 폼 -->
-<!-- 					<form id="addressForm" action="/user/UserupdateAddressAction.us" -->
-<!-- 						method="post"> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="postcode">우편번호</label> <input type="text" -->
-<!-- 								id="postcode" readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="address">주소</label> <input type="text" id="address" -->
-<!-- 								readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="extraAddress">참고항목</label> <input type="text" -->
-<!-- 								id="extraAddress" readonly> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group"> -->
-<!-- 							<label for="detailAddress">상세주소</label> <input type="text" -->
-<!-- 								id="detailAddress"> -->
-<!-- 						</div> -->
-<!-- 						<input type="hidden" name="userAddress" id="userAddress"> -->
-<!-- 						<button type="button" onclick="searchAddress()">주소 찾기</button> -->
-<!-- 						<button class="btn btn-primary btn-lg btn-block" type="submit" -->
-<!-- 							onclick="sendit();" id="submitButton">변경 완료</button> -->
-<!-- 					</form> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<div class="row gx-5 justify-content-center">
-    <div class="col-lg-8 col-xl-6">
-        <form id="addressForm" action="/user/UserupdateAddressAction.us" method="post">
-            <div class="form-group">
-                <label for="postcode">우편번호</label>
-                <input type="text" id="postcode" readonly>
-            </div>
-            <div class="form-group">
-                <label for="address">주소</label>
-                <input type="text" id="address">
-            </div>
-            <div class="form-group">
-                <label for="extraAddress">참고항목</label>
-                <input type="text" id="extraAddress">
-            </div>
-            <div class="form-group">
-                <label for="detailAddress">상세주소</label>
-                <input type="text" id="detailAddress">
-            </div>
-            <input type="hidden" name="userAddress" id="userAddress">
-            <button type="button" onclick="searchAddress()">주소 찾기</button>
-            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="sendit();" id="submitButton">변경 완료</button>
-        </form>
-    </div>
-</div>
-			<!-- Contact cards-->
-			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<i class="bi bi-chat-dots"></i>
+
+			<section class="py-5">
+
+				<div class="row gx-5 justify-content-center">
+					<div class="col-lg-8 col-xl-6">
+						<form id="addressForm" action="/user/UserupdateAddressAction.us"
+							method="post">
+							<div class="form-group">
+								<label for="postcode">우편번호</label> <input type="text"
+									id="postcode" readonly>
+							</div>
+							<div class="form-group">
+								<label for="address">주소</label> <input type="text" id="address">
+							</div>
+							<div class="form-group">
+								<label for="extraAddress">참고항목</label> <input type="text"
+									id="extraAddress">
+							</div>
+							<div class="form-group">
+								<label for="detailAddress">상세주소</label> <input type="text"
+									id="detailAddress">
+							</div>
+							<input type="hidden" id="oldUserAddress"
+								value="<%=oldUserAddress%>"> <input type="hidden"
+								name="userAddress" id="userAddress">
+							<button type="button" onclick="searchAddress()">주소 찾기</button>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="confirmChanges"> <label class="form-check-label"
+									for="confirmChanges"> 변경사항 확인 </label>
+							</div>
+							<button class="btn btn-primary btn-lg btn-block mt-3"
+								type="submit" onclick="sendit();" id="submitButton">변경
+								완료</button>
+						</form>
 					</div>
-					<div class="h5 mb-2">Chat with us</div>
-					<p class="text-muted mb-0">Chat live with one of our support
-						specialists.</p>
 				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<i class="bi bi-people"></i>
+				<!-- Contact cards-->
+				<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+					<div class="col">
+						<div
+							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+							<i class="bi bi-chat-dots"></i>
+						</div>
+						<div class="h5 mb-2">일대일 문의</div>
+						<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 					</div>
-					<div class="h5">Ask the community</div>
-					<p class="text-muted mb-0">Explore our community forums and
-						communicate with other users.</p>
-				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<i class="bi bi-question-circle"></i>
+					<div class="col">
+						<div
+							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+							<i class="bi bi-people"></i>
+						</div>
+						<div class="h5">커뮤니티</div>
+						<p class="text-muted mb-0">커뮤니티에 질문 해주세요.</p>
 					</div>
-					<div class="h5">Support center</div>
-					<p class="text-muted mb-0">Browse FAQ's and support articles to
-						find solutions.</p>
-				</div>
-				<div class="col">
-					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-						<i class="bi bi-telephone"></i>
+					<div class="col">
+						<div
+							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+							<i class="bi bi-question-circle"></i>
+						</div>
+						<div class="h5">서비스센터</div>
+						<p class="text-muted mb-0">FAQ's 와 여러가지 문제들 해결해 드립니다.</p>
 					</div>
-					<div class="h5">Call us</div>
-					<p class="text-muted mb-0">Call us during normal business hours
-						at (555) 892-9403.</p>
+					<div class="col">
+						<div
+							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+							<i class="bi bi-telephone"></i>
+						</div>
+						<div class="h5">연락처</div>
+						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
+					</div>
 				</div>
-			</div>
-			</div>
-		</section>
+				</div>
+			</section>
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
@@ -318,6 +303,37 @@ if (udto != null) {
 			</div>
 		</div>
 	</footer>
+	<!-- 모달 -->
+	<div class="modal fade" id="changesModal" tabindex="-1"
+		aria-labelledby="changesModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="changesModalLabel">주소 변경 확인</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">주소가 변경되었습니다.</div>
+
+				<span id="oldAddress"></span><br> <span id="currentAddress"></span>
+				<script>
+								function checkChanges() {
+									// 세션에서 이전 사용자 주소 가져오기
+									var oldUserAddress = document.getElementById('oldUserAddress').value;
+
+									// 화면에서 사용자 입력 주소 가져오기
+									var userAddress = document.getElementById('userAddress').value;
+				</script>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">다시 입력하기</button>
+					<button type="button" class="btn btn-primary"
+					type="submit" onclick="sendit();" id="submitButton">변경
+								완료</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -336,4 +352,5 @@ if (udto != null) {
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
 </body>
+<script src="../js/all.js"></script>
 </html>

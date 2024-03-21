@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.dto.UserDTO;
+import com.lemonmarket.web.dto.WishlistDTO;
 import com.lemonmarket.web.mybatis.SqlMapConfig;
 
 public class UserDAO {
@@ -47,7 +48,7 @@ public class UserDAO {
 
 	// 주어진 사용자 ID의 중복 여부를 확인하는 메소드
 	public boolean checkId(String userId) {
-		boolean result = false; // 중복 여부를 저장할 변수 초기화
+		boolean result = false; 
 		int cnt = 0; // 데이터베이스에서 조회된 레코드 수를 저장할 변수
 
 		// MyBatis를 사용해 주어진 사용자 ID의 레코드 수 조회
@@ -142,5 +143,18 @@ public class UserDAO {
 	public List<UserDTO> viewProfile(String userId) {
 		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
 		return ProfileList;
+	}
+	
+	public List<WishlistDTO> getWishList(int userIdx) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("User.getWishList",userIdx);
+	}
+
+	public List<ProductDTO> getWish(HashMap<String, Integer> list) {
+		return sqlSession.selectList("User.getWish",list);
+
+	public List<ProductDTO> getOnSalesList(int userIdx) {
+		List<ProductDTO> onSalesList = sqlSession.selectList("User.getOnSalesList", userIdx);
+		return onSalesList;
 	}
 }

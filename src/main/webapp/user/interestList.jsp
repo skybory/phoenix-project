@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>찜 목록</title>
+<title>구매 목록</title>
 <style>
 a {
 	text-decoration: none !important;
@@ -68,55 +68,32 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 판매 완료 목록</h2>
+		<h2 style="text-align: center; color: orange;">내 찜 목록</h2>
 		<table>
 			<thead>
 				<tr>
-					<th>상품 번호</th>
+					<th>상품번호</th>
 					<th>상품명</th>
-					<th>거래 금액</th>
-					<th>거래 장소</th>
-					<th>거래 시간</th>
+					<th>거래금액</th>
+					<th>거래장소</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
-					<c:when test="${not empty salesList}">
-						<c:forEach var="productDTO" items="${salesList}" varStatus="loop">
-							
+					<c:when test="${not empty wishList}">
+						<c:forEach var="productDTO" items="${wishList}"
+							varStatus="loop">
 							<tr>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productIdx}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productTitle}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productPrice}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productLocation}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productSellDate}
-            </a>
-        </td>
+								<td>${productDTO.productIdx}</td>
+								<td>${productDTO.productTitle}</td>
+								<td>${productDTO.productPrice}</td>
+								<td>${productDTO.productLocation}</td>
 							</tr>
-							
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="4" class="no-item">판매한 물품이 없습니다.</td>
+							<td colspan="4" class="no-item">찜한 물품이 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>

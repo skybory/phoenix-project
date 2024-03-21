@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="Chat">
+ 
+     
+
+     <select id = "getRecent" resultType = "string" parameterType = "_int">
+     
+        select contents from CHAT where  chatIdx = (SELECT max(chatIdx) from CHAT where roomIdx  = #{roomIdx})
+     </select>
+     <select id = "getRecentTime" resultType = "string" parameterType = "_int">
+     
+        select chatDate from CHAT where  chatIdx = (SELECT max(chatIdx) from CHAT where roomIdx  = #{roomIdx})
+     </select>
+
+     <select id = "getId" resultType ="chatdto" parameterType = "_int">
+<!--           SELECT * -->
+<!--         FROM userchat -->
+<!--         WHERE fromid = #{userid}-->
+<!--         ORDER BY chatTime -->
+      SELECT * from CHAT where roomIdx = #{roomseq} ORDER BY chatDate 
+      
+     </select>
+     
+     
+     <select id = "getRoomList" resultType = "roomdto" parameterType = "roomdto">
+     
+        select * from CHATTINGROOM where userIdx = #{userIdx} or productId = #{userId}
+     </select>
+
+
+
+   <insert id = "insert" parameterType = "chatdto">
+         INSERT INTO CHAT values(
+         null , #{roomIdx} , #{contents} , now(),#{userId})
+   </insert>
+   
+   <insert id = "insertRoom" parameterType = "roomdto">
+        INSERT INTO CHATTINGROOM values(
+      null , #{productIdx},#{userIdx},#{productId})
+   </insert>
+
+   <select id = "getMax" parameterType = "int" resultType = "_int">
+      SELECT max(chatIdx) FROM CHAT WHERE roomIdx = #{roomseq}
+   </select>
+   
+   <select id = "getNew" parameterType = "hashmap" resultType = "chatdto">
+      select chatIdx,roomIdx,userId,contents ,chatDate from CHAT natural join CHATTINGROOM 
+      where chatIdx > #{max} and roomIdx= #{roomIdx}
+     </select>
+     
+     <select id = "getToId" parameterType = "_int" resultType = "string">
+        SELECT productTitle  from PRODUCT where productIdx = #{productIdx}
+     </select>
+     
+     <select id = "getUserIdx" parameterType = "_int" resultType = "_int">
+         SELECT userIdx from CHATTINGROOM where roomIdx = #{roomIdx}
+     </select>
+     
+     <select id = "getPrIdx" parameterType = "_int" resultType = "_int">
+        SELECT productIdx from CHATTINGROOM where roomIdx = #{roomIdx}
+     </select>
+     
+     <select id = "confirm" parameterType = "roomdto" resultType = "_int">
+        SELECT count(*) from CHATTINGROOM WHERE userIdx = #{userIdx} and productIdx = #{productIdx} or productId = #{userId}
+     </select>
+     
+     <select id = "fromId" parameterType = "_int" resultType = "string">
+        SELECT userId from CHAT WHERE chatIdx = #{chatIdx}
+     </select>
+     
+     <select id = "RoomCnt" parameterType = "_int" resultType = "_int">
+        SELECT count(*) from CHATTINGROOM where productIdx = #{prIdx}
+     </select>
+     <select id = "InterCnt" parameterType = "_int" resultType = "_int">
+        SELECT count(*) from WISHLIST where productIdx = #{prIdx} and wish = 1
+     </select>
+     
+     <update id = "updateInter" parameterType = "hashmap" >
+   
+		UPDATE PRODUCT
+		SET productInterestCount = #{totInterest}
+		WHERE  productIdx = #{PrIdx}
+	
+     </update>
+     <update id = "updateRoom" parameterType = "hashmap" >
+   
+		UPDATE PRODUCT
+		SET productChatCount = #{totRoomList}
+		WHERE  productIdx = #{PrIdx}
+	
+     </update>
+     
+     
+ </mapper>

@@ -13,7 +13,7 @@
 
 	<insert id="join" parameterType="userdto">
 		INSERT INTO `USER` VALUES
-		(null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress},1000000)
+		(null,#{userId},#{userPw},#{userName},#{userAge},#{userGender},#{userPhoneNumber},#{userEmail},#{userAddress},1000000,#{userImage})
 	</insert>
 
 	<select id="getData" parameterType="_int" resultType="userdto">
@@ -64,6 +64,25 @@
 		FROM PRODUCT
 		WHERE userIdx = #{userIdx}
 		AND purchaseUserIdx IS NOT NULL
+	</select>
+	
+		<select id="getWishList" parameterType="_int"
+		resultType="com.lemonmarket.web.dto.WishlistDTO">
+		SELECT * FROM WISHLIST w WHERE userIdx = #{userIdx} and wish = 1
+	</select>
+	
+	<select id="getWish" parameterType="hashmap"
+		resultType="productdto">
+		SELECT * FROM PRODUCT p WHERE productIdx = #{productIdx}
+	</select>
+
+	<!-- 판매자 idx가 나랑 같고, 누군가 '안'샀다는 뜻 -->
+	<select id="getOnSalesList" parameterType="_int"
+		resultType="productdto">
+		SELECT *
+		FROM PRODUCT
+		WHERE userIdx = #{userIdx}
+		AND purchaseUserIdx IS NULL
 	</select>
 
 	<!-- get profile List? -->

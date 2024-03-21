@@ -196,11 +196,13 @@ button[type="submit"]:hover {
 			</div>
 		</nav>
 
-		<form action="/user/UserJoinAction.us" method="post" class="container"
-			name="joinForm">
+		<form name="joinForm" action="/user/UserJoinAction.us" method="post"
+			enctype="multipart/form-data" class="container">
 			<div class="input-form-backgroud row">
 				<div class="input-form col-md-12 mx-auto">
 					<h4 class="mb-3">회원가입</h4>
+					<div id="image-preview" class="row mt-3"></div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="name">아이디</label> <input type="text"
@@ -219,12 +221,19 @@ button[type="submit"]:hover {
 							<div class="invalid-feedback">비밀번호를 입력하세요</div>
 						</div>
 					</div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nickname">비밀번호 확인</label> <input type="password"
 								class="form-control" id="password_re" placeholder="" value=""
 								name="userPw_re">
 							<div class="invalid-feedback">비밀번호를를 입력하세요</div>
+						</div>
+						<div class="mb-3">
+							<label for="userImage" class="form-label">이미지 업로드</label> <input
+								type="file" id="userImage" name="userImage" accept="image/*"
+								onchange="previewImages(event);">
+							<div id="image_container"></div>
 						</div>
 					</div>
 					<div class="row">
@@ -235,6 +244,7 @@ button[type="submit"]:hover {
 							<div class="invalid-feedback">이름을 입력해주세요.</div>
 						</div>
 					</div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="age">나이</label> <input type="text"
@@ -297,9 +307,7 @@ button[type="submit"]:hover {
 								<input type="hidden" name="userAddress" id="userAddress">
 							</div>
 						</div>
-						<!-- 							<button type="button" onclick="combineAddress()">주소 저장하기</button> -->
 
-						<!-- userAddress를 담을 hidden 필드 추가 -->
 
 						<div class="row"></div>
 						<div class="custom-control custom-checkbox mb-3">
@@ -324,36 +332,32 @@ button[type="submit"]:hover {
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 					<i class="bi bi-chat-dots"></i>
 				</div>
-				<div class="h5 mb-2">Chat with us</div>
-				<p class="text-muted mb-0">Chat live with one of our support
-					specialists.</p>
+				<div class="h5 mb-2">일대일 문의</div>
+				<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 			</div>
 			<div class="col">
 				<div
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 					<i class="bi bi-people"></i>
 				</div>
-				<div class="h5">Ask the community</div>
-				<p class="text-muted mb-0">Explore our community forums and
-					communicate with other users.</p>
+				<div class="h5">커뮤니티</div>
+				<p class="text-muted mb-0">커뮤니티에 질문 해주세요.</p>
 			</div>
 			<div class="col">
 				<div
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 					<i class="bi bi-question-circle"></i>
 				</div>
-				<div class="h5">Support center</div>
-				<p class="text-muted mb-0">Browse FAQ's and support articles to
-					find solutions.</p>
+				<div class="h5">서비스센터</div>
+				<p class="text-muted mb-0">FAQ's 와 여러가지 문제들 해결해 드립니다.</p>
 			</div>
 			<div class="col">
 				<div
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 					<i class="bi bi-telephone"></i>
 				</div>
-				<div class="h5">Call us</div>
-				<p class="text-muted mb-0">Call us during normal business hours
-					at (555) 892-9403.</p>
+				<div class="h5">연락처</div>
+				<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
 			</div>
 		</div>
 	</main>
@@ -388,10 +392,11 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<script src="../user.js"></script>
 	<script src="../js/scripts.js"></script>
-	<script src="../js/map.js"></script>
 	<script src="../js/user.js"></script>
 
 </body>

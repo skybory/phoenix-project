@@ -7,16 +7,16 @@
 	<typeAliases>
 		<typeAlias type="com.lemonmarket.web.dto.CategoryDTO"
 			alias="categorydto" />
-<!-- 		<typeAlias type="com.lemonmarket.web.dto.ChatDTO" -->
-<!-- 			alias="chatdto" /> -->
+ 		<typeAlias type="com.lemonmarket.web.dto.ChatDTO" 
+ 			alias="chatdto" /> 
 		<typeAlias type="com.lemonmarket.web.dto.ProductDTO"
 			alias="productdto" />
-<!-- 		<typeAlias type="com.lemonmarket.web.dto.RoomDTO" -->
-<!-- 			alias="roomdto" /> -->
+		<typeAlias type="com.lemonmarket.web.dto.RoomDTO" 
+			alias="roomdto" /> 
 		<typeAlias type="com.lemonmarket.web.dto.UserDTO"
 			alias="userdto" />
-<!-- 		<typeAlias type="com.lemonmarket.web.dto.WishlistDTO" -->
-<!-- 			alias="wishlistdto" /> -->
+<!--		<typeAlias type="com.lemonmarket.web.dto.WishlistDTO" -->
+<!--			alias="wishlistdto" /> -->
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -35,7 +35,7 @@
 		<mapper resource="com/lemonmarket/web/sql/Category.xml" />
 		<mapper resource="com/lemonmarket/web/sql/Product.xml" />
 		<mapper resource="com/lemonmarket/web/sql/User.xml" />
-		<!-- <mapper resource="com/lemonmarket/web/sql/Chat.xml"/> -->
+		 <mapper resource="com/lemonmarket/web/sql/Chat.xml"/> 
 <!-- 		<mapper resource="com/lemonmarket/web/sql/Wishlist.xml" /> -->
 	</mappers>
 </configuration>

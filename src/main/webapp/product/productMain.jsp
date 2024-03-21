@@ -6,6 +6,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html lang="en">
 <style>
+a {
+    text-decoration: none !important;
+}
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -44,6 +47,10 @@
 #lemonLogo {
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+}
+
+#userGreetingLi {
+	margin-left: 20px; /* 왼쪽 여백 설정 */
 }
 </style>
 <%
@@ -131,7 +138,7 @@ if (udto != null) {
 						<!--     로그인이 되어있을 때 나오는 값 -->
 						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
 								동네 바꾸기</a></li>
-						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<!--       이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="userGreeting" href=""
 							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
@@ -161,7 +168,8 @@ if (udto != null) {
 			</div>
 		</nav>
 		<!-- Pricing section-->
-		<section class="bg-light py-5">
+		<section class="bg-light py-1">
+			<!-- py-1로 수정하여 위 아래의 패딩 값을 줄임 -->
 			<div class="container px-5 my-5">
 				<div class="text-center mb-5">
 					<h1 class="fw-bolder">믿을만한 이웃 간 중고거래</h1>
@@ -170,15 +178,10 @@ if (udto != null) {
 				</div>
 				<div class="row gx-5 justify-content-center">
 					<!-- Banner -->
-					<section class="banner-section bg-primary py-3 mb-5">
+					<section class="banner-section bg-primary py-3 mb-4">
 						<div class="container px-4">
 							<div class="row justify-content-center align-items-center">
 								<div class="col-lg-8 text-center">
-									<span id="setLocation"></span>
-<!-- 									<p class="banner-text text-white-50">위치를 설정하시겠어요?</p> -->
-<!-- 									수정된 버튼 -->
-<!-- 									<a class="btn btn-outline-light btn-lg" href="/board/Map.bo">위치 -->
-<!-- 										등록하기</a> -->
 									<span id="setLocation"></span>
 									<p class="banner-text text-white-50">물건을 등록하시겠습니까?</p>
 									<!-- 수정된 버튼 -->
@@ -192,84 +195,116 @@ if (udto != null) {
 			</div>
 		</section>
 
-		<section>
-			<div class="row gx-5 justify-content-center">
-				<c:choose>
-					<c:when
-						test="${productList != null and fn:length(productList) > 0 }">
-						<c:forEach var="product" items="${productList}">
-							<!-- Pricing card -->
-							<div class="col-lg-6 col-xl-4 mb-4">
-								<div class="card mb-5 mb-xl-0">
-									<div class="card-body p-5">
-										<a
-											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
-											class="card-link"> <!-- 상품 이미지 --> 
-											<img
-											src="${product.productImage}" alt="Product Image"
-											class="card-img mb-3"> <!-- 상품명 -->
-											<h4 class="card-title">${product.productTitle }</h4>
-											<div class="mb-3">
-												<!-- 상품가격 -->
-												<span class="fw-bold" style="font-size: 2rem;">${product.productPrice }</span>
-											</div> <!-- 지역 -->
-											<p class="text-muted mb-4">${product.productLocation }</p> <!-- mb-4로 간격 늘림 -->
-											<!-- 찜하기, 채팅 개수 -->
-											<div
-												class="d-flex justify-content-between align-items-center">
-												<p class="text-muted mb-0">관심 : ${product.productInterestCount }</p>
-												<p class="text-muted mb-0">채팅 : ${product.productChatCount }</p>
-											</div>
-										</a>
+
+		<section class="bg-white py-2">
+			<div class="container px-5 my-5">
+				<div class="row gx-5 justify-content-center">
+					<c:choose>
+						<c:when test="${not empty productList}">
+							<c:forEach var="product" items="${productList}">
+								<!-- Pricing card -->
+								<div class="col-lg-6 col-xl-4 mb-4">
+									<div class="card mb-5 mb-xl-0">
+										<div class="card-body p-5">
+											<a
+												href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+												class="card-link"> <!-- 상품 이미지 --> <img
+												src="${product.productImage}" alt="Product Image"
+												alt="Product Image" class="card-img mb-3"
+												style="width: 250px; height: 250px;"> <!-- 상품명 -->
+												<h4 class="card-title">
+													<c:choose>
+														<c:when test="${fn:length(product.productTitle) <= 10}">
+                                                    ${product.productTitle}
+                                                </c:when>
+														<c:otherwise>
+                                                    ${fn:substring(product.productTitle, 0, 10)}...
+                                                </c:otherwise>
+													</c:choose>
+												</h4>
+												<div class="mb-3">
+													<!-- 상품가격 -->
+													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
+												</div> <!-- 지역 -->
+												<p class="text-muted mb-4" id="productLocation">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
+												<div
+													class="d-flex justify-content-between align-items-center">
+													<p class="text-muted mb-0">관심:
+														${product.productInterestCount}</p>
+													<p class="text-muted mb-0">채팅:
+														${product.productChatCount}</p>
+												</div>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12 text-center">
-							<p>등록된 상품이 없습니다.</p>
-						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
 
-			<!-- Pagination -->
-			<c:if test="${totalPage > 1}">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center mt-4">
-						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<div class="col-12 text-center">
+								<p>등록된 상품이 없습니다.</p>
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Pagination -->
+		<c:if test="${totalPage > 1}">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center mt-4">
+					<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+						class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+					</li>
+					<c:forEach begin="${startPage}" end="${endPage}" step="1"
+						varStatus="loop">
+						<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+							<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
 						</li>
-						<c:forEach begin="${startPage}" end="${endPage}" step="1"
-							varStatus="loop">
-							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
-							</li>
-						</c:forEach>
-						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-						</li>
-					</ul>
-				</nav>
-			</c:if>
+					</c:forEach>
+					<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+						<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</c:if>
 		</section>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
+	<footer class="bg-light text-dark py-4"
+		style="background-color: #DFDFDF;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- 회사명 -->
+				<div class="col-md-4 text-center">
+					<h5>회사명</h5>
+					<p class="text-left">(주)레몬마켓</p>
 				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
+				<!-- 링크 -->
+				<div class="col-md-4 text-center">
+					<h5>제공되는 서비스</h5>
+					<ul class="list-unstyled text-left">
+						<li><a
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+						<li><a href="/product/chatting.jsp">채팅</a></li>
+					</ul>
+				</div>
+				<!-- 소셜 미디어 -->
+				<div class="col-md-4 text-center">
+					<h5>SNS</h5>
+					<ul class="list-unstyled text-left">
+						<li><a href="https://www.facebook.com">Facebook</a></li>
+						<li><a href="https://twitter.com">Twitter</a></li>
+						<li><a href="https://www.instagram.com">Instagram</a></li>
+						<li><a href="https://www.youtube.com">Youtube</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

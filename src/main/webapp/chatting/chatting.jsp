@@ -1,8 +1,23 @@
+<%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+int userAccount = 0;
+int userIdx = 0;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userIdx = udto.getUserIdx();
+	userAccount = udto.getUserAccount();
+}
+%>
 <!DOCTYPE html>
 
 
@@ -151,7 +166,6 @@ img {
 	overflow: hidden;
 	clear: both;
 	width: 100%;
-	
 }
 
 .chat_list {
@@ -268,6 +282,46 @@ img {
 	height: 516px;
 	overflow-y: auto;
 }
+
+.lemon-bg {
+	background-color: #E5D85C;
+}
+
+.navbar {
+	background-color: #343a40; /* 배경색 설정 */
+}
+
+.navbar-brand {
+	font-size: 1.5rem; /* 로고 텍스트 크기 설정 */
+}
+
+.navbar-toggler-icon {
+	color: white; /* 햄버거 아이콘 색상 설정 */
+}
+
+.navbar-nav .nav-link {
+	color: white; /* 네비게이션 링크 텍스트 색상 설정 */
+}
+
+/* 로그인/회원가입 링크 스타일 */
+.navbar-nav .nav-item:not(:last-child) .nav-link {
+	margin-right: 15px; /* 네비게이션 링크 간격 설정 */
+}
+
+/* 사용자 인사 메시지 스타일 */
+#userGreeting {
+	font-weight: bold; /* 굵게 설정 */
+	color: #FF5733; /* 글자 색상 설정 */
+}
+
+#userGreetingLi {
+	margin-left: 20px; /* 왼쪽 여백 설정 */
+}
+
+#lemonLogo {
+	width: 50px; /* 원하는 너비로 조정 */
+	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+}
 </style>
 
 
@@ -278,7 +332,79 @@ img {
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container px-5">
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
+					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<%
+						if (udto == null) {
+						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
 
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
+
+						<%
+						}
+						%>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
 	<form class="container" method="post" name="joinForm">
 		<h3 class=" text-center">Messaging</h3>
@@ -292,9 +418,6 @@ img {
 						</div>
 						<div class="srch_bar">
 							<div class="stylish-input-group">
-								<input type="text" class="search-bar" placeholder="Search"
-									name="userid" id="userid"> <input type="text"
-									class="search-bar" placeholder="Search" name="toid" id="toid">
 								<span class="input-group-addon">
 									<button type="button">
 										<i class="fa fa-search" aria-hidden="true"></i>
@@ -303,29 +426,21 @@ img {
 							</div>
 						</div>
 					</div>
-					<div class="inbox_chat">
-						
-						
-						
-			
-						
-					</div>
+					<div class="inbox_chat"></div>
 				</div>
 
 				<div class="mesgs">
 					<div class="msg_history">
 						<div class="incoming_msg">
 							<div class="incoming_msg_img">
-								<img >
+								<img>
 							</div>
 							<div class="received_msg">
-								<div class="received_withd_msg">
-								</div>
+								<div class="received_withd_msg"></div>
 							</div>
 						</div>
 						<div class="outgoing_msg">
-							<div class="sent_msg">
-							</div>
+							<div class="sent_msg"></div>
 						</div>
 
 					</div>
@@ -334,16 +449,16 @@ img {
 							<input type="text" class="write_msg" id="contents"
 								placeholder="Type a message" name="contents" />
 							<button class="msg_send_btn" type="button">
-								<i class="fa fa-paper-plane-o" aria-hidden="true" onclick="submit()"><img
-									src="send.png"> </i>
+								<i class="fa fa-paper-plane-o" aria-hidden="true"
+									onclick="submit()"><img src="send.png"> </i>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<input id="max" type="hidden" name="max" />
-		<input id="roomseq" type="hidden" name="roomseq" />
+		<input id="max" type="hidden" name="max"  /> 
+		<input id="roomseq"	type="hidden" name="roomseq" />
 
 
 	</form>
@@ -351,24 +466,285 @@ img {
 
 
 </body>
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 	window.onload = function(){
-		chattingList();	
+		var productId = "${pdto.userId}";
+		var productIdx = ${pdto.productIdx};
+		var useridx = <%=userIdx%>;
+		var userId = "<%=userId%>";
+		console.log(useridx);
+		chattingList(useridx,productIdx,productId,userId);	
 //		getInfinite();
 	}
 	
 	function getInfinite() {
 	    setTimeout(function() {
 	        clearInterval(intervalId); // 30초 후에 setInterval을 중지합니다.
-	    }, 30000);
+	    }, 300000);
 
 	    var intervalId = setInterval(function() {
 	        send();
-	    }, 3000);
+	    }, 4000);
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+
+	function chattingList(useridx,productIdx,productId,userId) {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+
+		var userIdx = useridx;//수정해라 하드코딩
+		var prIdx = productIdx;
+		var pr_userId = productId;
+		var userId = userId
+		alert(userIdx);
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getRoomList.chat",
+			data: {
+				"userIdx": userIdx,
+				"prIdx" : prIdx,
+				"pr_userId" : pr_userId,
+				"userId" : userId
+			},
+			success: function(result) {
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+
+					$("#max").val(ajaxresult.max); // * 수정이 필요할지도 *
+
+					$(".inbox_chat").append('<a href = "#" onclick = "sendit('+ ajaxresult.roomseq +')" />' +
+						'<div class="chat_list">' +
+						'<div class="chat_people">' +
+						'<div class="chat_img">' +
+						'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+						'</div>' +
+						'<div class="chat_ib">' +
+
+						'<h5>' +
+						ajaxresult.toId + ' <span class="chat_date">' + ajaxresult.roomDate + '</span>' +
+						'</h5>' +
+						'<p>' + ajaxresult.contents + '</p>' +
+						//여기 조인해서 최근채팅하나
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</a>')
+
+				}
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+
+	}
+
+
+
+
+
+	function sendit(roomseq) {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+//		var fromid = 'tbdud98';
+//		var toid = 'ahyun';
+//		var contents = '살려조';
+		$(".msg_history").empty();
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getList.chat",
+			data: {
+
+				"roomIdx": roomseq
+			},
+			success: function(result) {
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+// 					$("#max").val(ajaxresult.max);
+//					$("#roomseq").val(roomseq);
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+					if ("<%=userId%>" != ajaxresult.fromId) {
+
+						$(".msg_history").append('<div class="incoming_msg">' +
+							'<div class="incoming_msg_img">' +
+							'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+							'</div>' +
+							'<div class="received_msg" style =" padding:15px" >' +
+							'<div class="received_withd_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "plz">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>' +
+							'</div>');
+					} else {
+						$(".msg_history").append('<div class="outgoing_msg">' +
+							'<div class="sent_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "shit" style =" padding:10px" >' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>')
+					}
+
+					//					$(".outgoing_msg").append( "<div class='sent_msg'>"+
+					//									'<p id = "shit">'+ajaxresult.contents+'</p>'+
+					//							"</div>" );
+					ajaxresult.contents = '';
+					$("#max").val(ajaxresult.max);
+					//					$("#chatList").append( ajaxresult.contents + " " + ajaxresult.toid );
+
+				}
+				$("#roomseq").val(roomseq);
+				
+
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+		
+
+
+	}
+	function submit() {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+		var roomseq = $("#roomseq").val();
+//		var fromid = 'tbdud98';
+//		var toid = 'ahyun';
+		var contents = $("#contents").val();
+
+		$.ajax({
+			type: "POST",
+			url: "/chatting/write.chat",
+			data: {
+				"roomIdx": roomseq,
+				"contents" : contents,
+				"userId" : "<%=userId%>"
+			},
+			success: function(result) {
+				if(result == ""){
+					return false;
+				}
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+// 		send();
+		getInfinite();
+		
+		
+
+
+
+	}
+
+
+
+
+	function send() {
+		var max = $("#max").val();
+
+		var roomseq = $("#roomseq").val()
+
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getNewChat.chat",
+			data: {
+
+				"max": max,
+				"roomIdx": roomseq
+			},
+			success: function(result) {
+				if (result == "") {
+					return false;
+				}
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+					$("#max").val(ajaxresult.max);
+					if ("<%=userId%>" != ajaxresult.fromId) {
+
+						$(".msg_history").append('<div class="incoming_msg">' +
+							'<div class="incoming_msg_img">' +
+							'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+							'</div>' +
+							'<div class="received_msg" style =" padding:15px" >' +
+							'<div class="received_withd_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "plz">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>' +
+							'</div>');
+					} else {
+						$(".msg_history").append('<div class="outgoing_msg">' +
+							'<div class="sent_msg">' +
+							'<span class="time_date" >' + ajaxresult.fromId + '</span>' +
+							'<p id = "shit">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>')
+					}
+
+					//					$(".outgoing_msg").append( "<div class='sent_msg'>"+
+					//									'<p id = "shit">'+ajaxresult.contents+'</p>'+
+					//							"</div>" );
+					ajaxresult.contents = '';
+
+				}
+			
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+//		updateMaxValue(newMaxValue);
+	}
+
+	
 </script>
+
+
+
 
 
 

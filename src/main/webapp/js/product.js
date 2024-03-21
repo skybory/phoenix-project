@@ -26,41 +26,11 @@ function previewImages(event) {
 
 function toggleInterest() {
 	let isIncreased = false;
-	//	let interestCount = session.setAttribute("productInterestCount", productInterestCouont );
-	//	let productId = session.setAttribute("productId", productId);
-	// 세션에서 값 받아오기 태연님께 모르는거 물어보기
+ 
 	let productInterestCount = 34;
 	let productId = 102;
 	let interest = 1;
-	//	if (!isIncreased) {
-	//		interestCount++; // 관심 수 증가
-	//		isIncreased = true;
-
-	//		$.ajax({
-	//			type: 'POST',
-	//			url: '/product/DecreaseInterest.pr',
-	//			//프론트컨트롤러에 보내는 url
-	//			data: {
-	//				"productId": productId, //세션에서 받아온 id값이 오른쪽에
-	//				"interestCount": interestCount
-	//			},
-	//			success: function(result) {
-	//				let ajaxresult = JSON.parse(JSON.stringify(result));
-	//				// 				             $("#max").val(ajaxresult.max);
-	//				$("#plu").val(ajaxresult.inter);
-	//
-	//			},
-	//			error: function(result) {
-	//				console.log(result);
-	//			}
-	//
-	//		});
-	//	} else {
-	//		if (productInterestCount > 0) {
-	//			productInterestCount--; // 관심 수 감소
-	//		}
-	//		isIncreased = false;
-
+ 
 	$.ajax({
 		type: 'POST',
 		url: '/product/DecreaseInterest.pr?productId=154',
@@ -84,6 +54,18 @@ function toggleInterest() {
 	);
 }
 
+document.getElementById("productDealType").addEventListener("change", function() {
+    var dealType = this.value; // 선택한 거래 방식
+
+    // 거래 방식이 "나눔하기"인 경우
+    if (dealType === "share") {
+        document.getElementById("productPrice").value = "0"; // 가격 입력 필드에 0 설정
+        document.getElementById("productPrice").disabled = true; // 가격 입력 필드 비활성화
+    } else {
+        document.getElementById("productPrice").value = ""; // 가격 입력 필드 비우기
+        document.getElementById("productPrice").disabled = false; // 가격 입력 필드 활성화
+    }
+});
 
 function addInterest() {
 	var interestCountElement = document.getElementById("interestCount");
@@ -168,3 +150,13 @@ function previewImages(event) {
 function sendit() {
 	joinForm.submit();
 }
+ function shortenAddress() {
+    var addressElement = document.getElementById('productLocation');
+    if (addressElement.innerText.length > 5) {
+        addressElement.innerText = addressElement.innerText.substring(0, 5) + '...';
+    }
+}
+
+window.addEventListener('load', function() {
+    shortenAddress();
+});

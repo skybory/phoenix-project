@@ -45,6 +45,22 @@
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+
+.btn-lg { /* 두 버튼에 동일한 클래스를 부여하고 크기를 지정합니다. */
+	padding: .5rem 1rem; /* 패딩 설정 */
+	font-size: 1.25rem; /* 글자 크기 설정 */
+	border-radius: .3rem; /* 버튼 모서리 둥글기 설정 */
+	line-height: 1.5; /* 줄 높이 설정 */
+}
+
+.btn-block { /* 버튼을 블록 레벨 요소로 만들어 전체 너비를 차지하게 합니다. */
+	display: block; /* 블록 레벨 요소로 표시 */
+	width: 25%; /* 너비를 100%로 설정 */
+}
+
+.register-item-btn {
+	border-color: #F0CF1F; /* 테두리 색도 배경색과 동일하게 설정 */
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -91,8 +107,8 @@ if (udto != null) {
 			<div class="container px-5">
 				<img
 					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-					alt="Logo" class="img-fluid" id="lemonLogo"> <a
-					class="navbar-brand"
+					alt="Logo" class="img-fluid" id="lemonLogo" style="width: 40px">
+				<a class="navbar-brand"
 					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -216,8 +232,12 @@ if (udto != null) {
 							</div>
 							<div class="text-center"></div>
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
-								onclick="sendit();">물품 등록하기</button>
-							<a href="javascript:history.back()" class="btn btn-secondary">취소</a>
+								onclick="sendit();"
+								style="background-color: #F0CF1F; , --bs-btn-border-color: none; --bs-btn-border-color: none;">물품
+								등록하기</button>
+							<a href="javascript:history.back()"
+								class="btn btn-secondary btn-lg btn-block">취소</a>
+			 
 						</form>
 					</div>
 				</div>
@@ -225,9 +245,22 @@ if (udto != null) {
 		</section>
 	</main>
 	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Footer Content</p>
+		<footer class="bg-dark py-4 mt-auto">
+		<div class="container px-5">
+			<div
+				class="row align-items-center justify-content-between flex-column flex-sm-row">
+				<div class="col-auto">
+					<div class="small m-0 text-white">Copyright &copy; Your
+						Website 2023</div>
+				</div>
+				<div class="col-auto">
+					<a class="link-light small" href="#!">Privacy</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Terms</a> <span
+						class="text-white mx-1">&middot;</span> <a
+						class="link-light small" href="#!">Contact</a>
+				</div>
+			</div>
 		</div>
 	</footer>
 	<script
@@ -236,5 +269,7 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	<script src="../js/map.js"></script>
+	<script src="../js/all.js"></script>
+	<script src="../js/product.js"></script>
 </body>
 </html>
