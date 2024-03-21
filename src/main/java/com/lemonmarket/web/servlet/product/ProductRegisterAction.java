@@ -37,36 +37,45 @@ public class ProductRegisterAction extends HttpServlet {
 		String productLocation = udto.getUserAddress();
 		ActionForward forward = new ActionForward();
 
+		String productDealType = request.getParameter("productDealType");
 		pdto.setUserIdx(userIdx);
 		pdto.setUserId(userId);
 		pdto.setProductTitle(request.getParameter("productTitle"));
 		pdto.setProductDescription(request.getParameter("productDescription"));
-		pdto.setProductDealType(request.getParameter("productDealType"));
-		pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
+		pdto.setProductDealType(productDealType);
+		
+		if(productDealType.equals("share")) {
+			pdto.setProductPrice(0);
+		} else {
+			pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
+		}
+		
 		pdto.setProductLocation(request.getParameter("productLocation"));
 		pdto.setCategoryIdx(Integer.parseInt(request.getParameter("categoryIdx")));
 		pdto.setProductLocation(productLocation);
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
-			if (part.getName().equals("productImage")) {
-				String fileName = getFileName(part);
-				if (!fileName.isEmpty()) {
-					String uploadDirectory = "/productImage";
-					String realPath = getServletContext().getRealPath(uploadDirectory);
-					if (realPath != null) {
-						File uploadDir = new File(realPath);
-						if (!uploadDir.exists()) {
-							uploadDir.mkdir(); // 디렉토리가 존재하지 않으면 생성
-						}
-						String filePath = realPath + File.separator + fileName;
-						part.write(filePath);
-						pdto.setProductImage(uploadDirectory + "/" + fileName); // 데이터베이스에 저장될 경로 설정
-					} else {
-						// 서블릿 컨텍스트의 실제 경로를 가져올 수 없음
-						// 오류 처리 또는 적절한 예외 처리
-					}
-				}
-			}
+		    if (part.getName().equals("productImage")) {
+		        String fileName = getFileName(part);
+		        if (!fileName.isEmpty()) {
+		            // 띄어쓰기를 제거하여 파일명을 수정
+		            fileName = fileName.replaceAll("\\s+", "");
+		            String uploadDirectory = "/productImage";
+		            String realPath = getServletContext().getRealPath(uploadDirectory);
+		            if (realPath != null) {
+		                File uploadDir = new File(realPath);
+		                if (!uploadDir.exists()) {
+		                    uploadDir.mkdir(); // 디렉토리가 존재하지 않으면 생성
+		                }
+		                String filePath = realPath + File.separator + fileName;
+		                part.write(filePath);
+		                pdto.setProductImage(uploadDirectory + "/" + fileName); // 데이터베이스에 저장될 경로 설정
+		            } else {
+		                // 서블릿 컨텍스트의 실제 경로를 가져올 수 없음
+		                // 오류 처리 또는 적절한 예외 처리
+		            }
+		        }
+		    }
 		}
 
 		if (pdao.register(pdto)) { // 물품 등록 성공

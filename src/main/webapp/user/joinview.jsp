@@ -229,18 +229,19 @@ button[type="submit"]:hover {
 							<div class="invalid-feedback">비밀번호를 입력하세요</div>
 						</div>
 					</div>
-					<div class="mb-3">
-						<label for="userImage" class="form-label">이미지 업로드</label> <input
-							type="file" id="userImage" name="userImage" accept="image/*"
-							onchange="previewImages(event);">
-						<div id="image_container"></div>
-					</div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nickname">비밀번호 확인</label> <input type="password"
 								class="form-control" id="password_re" placeholder="" value=""
 								name="userPw_re">
 							<div class="invalid-feedback">비밀번호를를 입력하세요</div>
+						</div>
+						<div class="mb-3">
+							<label for="userImage" class="form-label">이미지 업로드</label> <input
+								type="file" id="userImage" name="userImage" accept="image/*"
+								onchange="previewImages(event);">
+							<div id="image_container"></div>
 						</div>
 					</div>
 					<div class="row">
@@ -251,6 +252,7 @@ button[type="submit"]:hover {
 							<div class="invalid-feedback">이름을 입력해주세요.</div>
 						</div>
 					</div>
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="age">나이</label> <input type="text"
@@ -313,9 +315,7 @@ button[type="submit"]:hover {
 								<input type="hidden" name="userAddress" id="userAddress">
 							</div>
 						</div>
-						<!-- 							<button type="button" onclick="combineAddress()">주소 저장하기</button> -->
 
-						<!-- userAddress를 담을 hidden 필드 추가 -->
 
 						<div class="row"></div>
 						<div class="custom-control custom-checkbox mb-3">
@@ -382,11 +382,12 @@ button[type="submit"]:hover {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3d258ce936625da0436a6065893ce2d&libraries=services"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+	<script src="../user.js"></script>
 	<script src="../js/scripts.js"></script>
-	<script src="../js/map.js"></script>
 	<script src="../js/user.js"></script>
-	<script src="../js/all.js"></script>
 
 </body>
 </html>

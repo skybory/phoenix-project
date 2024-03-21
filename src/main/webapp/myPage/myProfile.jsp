@@ -6,94 +6,89 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로필 보기</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보 수정 페이지</title>
 <style>
+/* CSS 스타일링 */
 body {
-	font-family: 'Arial', sans-serif;
-	background-color: #f8f9fa;
+	font-family: Arial, sans-serif;
 	margin: 0;
-	padding: 0;
-}
-
-#container {
-	width: 1000px;
-	margin: 20px auto;
-	background-color: #fff;
-	border: 1px solid #e0e0e0;
-	border-radius: 5px;
 	padding: 20px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-h2 {
-	font-size: 28px;
-	color: #333;
+h1 {
 	text-align: center;
-	margin-bottom: 20px;
 }
 
-table {
+form {
+	max-width: 600px;
+	margin: 0 auto;
+	display: none; /* 처음에는 폼을 숨깁니다 */
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="password"]
+	{
 	width: 100%;
-	border-collapse: collapse;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 }
 
-th, td {
-	border-bottom: 1px solid #ddd;
-	padding: 15px;
-	text-align: center;
-}
-
-th {
-	background-color: #fddb3a; /* 컬럼명 노란색 배경색 적용 */
-	color: #333;
-	font-weight: bold;
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 	font-size: 16px;
 }
 
-tr:hover {
-	background-color: #fcf3cf; /* 마우스 오버 시 연한 노란색 배경색 유지 */
-}
-
-.no-item {
-	text-align: center;
-	font-size: 18px;
-	color: #666;
-	padding: 20px;
+input[type="submit"]:hover {
+	background-color: #45a049;
 }
 </style>
 </head>
 <body>
-	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 프로필</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>이름</th>
-					<th>아이디</th>
-					<th>나이</th>
-					<th>성별</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>계좌</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${userDTO.userName}</td>
-					<td>${userDTO.userId}</td>
-					<td>${userDTO.userAge}</td>
-					<td>${userDTO.userGender}</td>
-					<td>${userDTO.userPhoneNumber}</td>
-					<td>${userDTO.userEmail}</td>
-					<td>${userDTO.userAccount}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div style="text-align: center; margin-top: 20px;">
-		<a href="/myPage/myPage.jsp"
-			style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #333; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-			마이 페이지로 돌아가기 </a>
-	</div>
+
+	<h1>개인정보 수정 페이지</h1>
+	<button id="editButton">정보 수정</button>
+	<form id="editForm" action="/update_profile" method="post">
+		<label for="profile_image">프로필 이미지</label> <input type="file"
+			id="profile_image" name="profile_image"> <label for="name">이름</label>
+		<input type="text" id="name" name="name" placeholder="이름을 입력하세요"
+			required> <label for="username">아이디</label> <input
+			type="text" id="username" name="username" placeholder="아이디를 입력하세요"
+			required> <label for="age">나이</label> <input type="number"
+			id="age" name="age" placeholder="나이를 입력하세요" required> <label
+			for="gender">성별</label> <select id="gender" name="gender" required>
+			<option value="male">남성</option>
+			<option value="female">여성</option>
+			<option value="other">기타</option>
+		</select> <label for="phone">전화번호</label> <input type="tel" id="phone"
+			name="phone" placeholder="전화번호를 입력하세요" required> <label
+			for="email">이메일</label> <input type="email" id="email" name="email"
+			placeholder="이메일을 입력하세요" required> <label for="account">계좌번호</label>
+		<input type="text" id="account" name="account"
+			placeholder="계좌번호를 입력하세요" required> <input type="submit"
+			value="수정 완료">
+	</form>
+
+	<script>
+		// 수정 버튼 클릭 시 폼을 표시합니다
+		document
+				.getElementById("editButton")
+				.addEventListener(
+						"click",
+						function() {
+							document.getElementById("editForm").style.display = "block";
+						});
+	</script>
 </body>
 </html>

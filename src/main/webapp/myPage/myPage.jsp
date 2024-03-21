@@ -26,7 +26,6 @@
 
 
 <meta charset="UTF-8">
-<title>마이 페이지</title>
 <style>
 #userGreeting {
 	font-weight: bold; /* 굵게 설정 */
@@ -86,59 +85,149 @@ body {
 
 .button {
 	display: block;
-	width: calc(100% - 40px); /* 버튼의 width에서 좌우 패딩값만큼 제외 */
-	padding: 40px 40px;
-	margin-bottom: 30px;
-	margin-left: 0px; /* 왼쪽 마진 추가 */
-	margin-right: 500px; /* 오른쪽 마진 추가 */
-	background-color: #FFD700;
-	color: #fff;
+	width: auto; /* 버튼의 width를 자동으로 설정하여 내용에 맞게 조정 */
+	padding: 20px; /* 패딩값 조정 */
+	margin: 30px auto; /* 상단과 하단 마진은 30px, 좌우 마진은 자동으로 설정하여 가운데 정렬 */
+	background-color: #F0CF1F; /* 버튼의 배경색을 수정 */
+	color: #000000;
 	text-align: center;
 	text-decoration: none;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	border-radius : 40px
+	border-radius: 40px; /* border-radius 값 조정 */
 }
 
 .button:hover {
-	background-color: #FFA500;
+	background-color: #E1BE0E;
 }
+
 li a {
-	color : black;
+	color: black;
 }
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+int userAccount = 0;
 
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
 }
 %>
 </head>
-<body>
-<div id="container">
-    <h2 style="text-align: center; color:orange;">마이 페이지</h2>
-    
-   
-    <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매내역</a> 
-    <!-- 판매내역 링크 -->
-    <a class="button" href="/user/SalesListAction.us">판매내역</a>
-    <!-- 찜 목록 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/user/InterestListAction.us">찜 목록</a>
-    <!-- 내 정보 링크 -->
-    <a class="button" href="${pageContext.request.contextPath}/user/ViewMyProfileAction.us">내 정보</a>
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="../index.jsp" style="display: inline-block; padding: 10px 20px; background-color: #fddb3a; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-            홈으로 돌아가기
-        </a>
-</div>
-</div>
+<body class="d-flex flex-column h-100"
+	style="background-color: #FFF8D5;">
+	<main class="flex-shrink-0">
+		<!-- 상단바 -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container px-5">
+				<img
+					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+					alt="Logo" class="img-fluid" id="lemonLogo"> <a
+					class="navbar-brand"
+					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<%
+						if (udto == null) {
+						%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo"
+							onclick="showAlert()">중고거래</a></li>
 
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+
+						<%
+						} else {
+						%>
+
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+										<%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
+
+
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
+
+						<%
+						}
+						%>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="container">
+			<h1 class="fw-bolder text-center">마이페이지</h1>
+			<div class="container px-5 my-5 text-center">
+				<!-- 구매내역 링크 -->
+				<a class="button"
+					href="${pageContext.request.contextPath}/user/PurchaseListAction.us"
+					style="font-size: 20px;">구매 완료 물품</a>
+				<!-- 판매내역 링크 -->
+				<a class="button" href="/user/SalesListAction.us"
+					style="font-size: 20px;">판매 완료 물품</a>
+				<!-- 판매중인 물품 링크 -->
+				<a class="button" href="/user/onSalesListAction.us"
+					style="font-size: 20px;">판매중인 물품</a>
+				<!-- 찜 목록 링크 -->
+				<a class="button"
+					href="${pageContext.request.contextPath}/user/InterestListAction.us"
+					style="font-size: 20px;">찜 목록</a>
+				<!-- 내 정보 링크 -->
+				<a class="button"
+					href="${pageContext.request.contextPath}/user/ViewMyProfileAction.us"
+					style="font-size: 20px;">내 정보</a>
+				<!-- 홈으로 돌아가기 링크 -->
+				 <div class="text-center"> <!-- 중앙 정렬을 위한 text-center 클래스 추가 -->
+            <a class="btn btn-primary btn-lg px-4 me-sm-3"
+                href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
+                style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
+                onmouseover="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';"
+                onmouseout="this.style.backgroundColor='#F0CF1F'; this.style.borderColor='#F0CF1F';"
+                onclick="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';">홈으로 돌아가기</a>
+        </div>
+			</div>
+		</div>
 </body>
 </html>

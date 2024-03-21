@@ -40,28 +40,30 @@ public class UserJoinAction extends HttpServlet {
 		udto.setUserPhoneNumber(request.getParameter("userPhoneNumber"));
 		udto.setUserEmail(request.getParameter("userEmail"));
 		udto.setUserAddress(request.getParameter("userAddress"));
-
+		
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
-			if (part.getName().equals("userImage")) {
-				String fileName = getFileName(part);
-				if (!fileName.isEmpty()) {
-					String uploadDirectory = "/userImage";
-					String realPath = getServletContext().getRealPath(uploadDirectory);
-					if (realPath != null) {
-						File uploadDir = new File(realPath);
-						if (!uploadDir.exists()) {
-							uploadDir.mkdir(); // 디렉토리가 존재하지 않으면 생성
-						}
-						String filePath = realPath + File.separator + fileName;
-						part.write(filePath);
-						udto.setUserImage(uploadDirectory + "/" + fileName); // 데이터베이스에 저장될 경로 설정
-					} else {
-						// 서블릿 컨텍스트의 실제 경로를 가져올 수 없음
-						// 오류 처리 또는 적절한 예외 처리
-					}
-				}
-			}
+		    if (part.getName().equals("userImage")) {
+		        String fileName = getFileName(part);
+		        if (!fileName.isEmpty()) {
+		            // 띄어쓰기를 제거하여 파일명을 수정
+		            fileName = fileName.replaceAll("\\s+", "");
+		            String uploadDirectory = "/userImage";
+		            String realPath = getServletContext().getRealPath(uploadDirectory);
+		            if (realPath != null) {
+		                File uploadDir = new File(realPath);
+		                if (!uploadDir.exists()) {
+		                    uploadDir.mkdir(); // 디렉토리가 존재하지 않으면 생성
+		                }
+		                String filePath = realPath + File.separator + fileName;
+		                part.write(filePath);
+		                udto.setUserImage(uploadDirectory + "/" + fileName); // 데이터베이스에 저장될 경로 설정
+		            } else {
+		                // 서블릿 컨텍스트의 실제 경로를 가져올 수 없음
+		                // 오류 처리 또는 적절한 예외 처리
+		            }
+		        }
+		    }
 		}
 		if (udao.join(udto)) { // 회원가입 성공
 

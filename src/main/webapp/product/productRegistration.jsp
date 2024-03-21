@@ -237,9 +237,7 @@ if (udto != null) {
 								등록하기</button>
 							<a href="javascript:history.back()"
 								class="btn btn-secondary btn-lg btn-block">취소</a>
-							<!-- <button class="btn btn-primary btn-lg btn-block" type="submit"
-								onclick="sendit();">물품 등록하기</button>
-							<a href="javascript:history.back()" class="btn btn-secondary">취소</a> -->
+			 
 						</form>
 					</div>
 				</div>
@@ -272,5 +270,6 @@ if (udto != null) {
 
 	<script src="../js/map.js"></script>
 	<script src="../js/all.js"></script>
+	<script src="../js/product.js"></script>
 </body>
 </html>

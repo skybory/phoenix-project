@@ -69,7 +69,7 @@ public class ChatDAO {
 		return list;	
 	}
 	
-	public List<RoomDTO> getRoomList(int useridx) {
+	public List<RoomDTO> getRoomList(RoomDTO useridx) {
 		
 		List<RoomDTO> list = sqlSession.selectList("Chat.getRoomList",useridx);
 		
@@ -152,5 +152,14 @@ public class ChatDAO {
 	}
 	public int getInterCnt(int prIdx) {
 		return sqlSession.selectOne("Chat.InterCnt",prIdx);
+	}
+
+	public void UpdateProductCnt(HashMap<String, Integer> list) {
+		sqlSession.update("Chat.updateInter",list);
+		
+	}
+
+	public void UpdateroomCnt(HashMap<String, Integer> list) {
+		sqlSession.update("Chat.updateRoom",list);
 	}
 }
