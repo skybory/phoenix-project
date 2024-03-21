@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyPage">
+
+    
+    
+    <select id="getPurchaseList" resultType="productdto" parameterType="string">
+       <!--   SELECT * FROM purchase_table where userid= #{userId} -->
+       <!--   SELECT * from product where userid='#{userId}' ORDER BY productImage  ASC -->
+       	SELECT 
+      		   #{productImage},
+		       #{productid}, #{userid}, #{productTitle}, #{productDealType},
+		       #{productPrice}, #{productLocation}, #{productRegisterTime},
+		       #{productInterestCount}, #{productChatCount}, #{categoryId}
+		FROM product p
+		INNER JOIN product_purchase pp ON p.productid = pp.productid       
+    </select>
+    
+    <select id="getSalesList" resultType="mytradedto" parameterType="string">
+    SELECT * FROM sales_table where userid= #{userId}
+    </select>
+    
+    <select id="getInterestList" resultType="mytradedto" parameterType="string">
+    SELECT * from interest_table where userid=#{userId}
+    </select>
+
+	<select id="getProfileList" resultType="userDTO" parameterType="string">
+	SELECT * from tbl_join where userid=#{userId}
+	</select>
+	
+</mapper>

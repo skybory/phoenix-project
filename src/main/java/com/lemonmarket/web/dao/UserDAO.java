@@ -151,8 +151,13 @@ public class UserDAO {
 	}
 
 	public List<ProductDTO> getWish(HashMap<String, Integer> list) {
+<<<<<<< HEAD
+		return sqlSession.selectList("User.getWish",list);}
+
+=======
 		return sqlSession.selectList("User.getWish",list);
 	}
+>>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 	public List<ProductDTO> getOnSalesList(int userIdx) {
 		List<ProductDTO> onSalesList = sqlSession.selectList("User.getOnSalesList", userIdx);
 		return onSalesList;
