@@ -34,7 +34,11 @@
 
    <insert id = "insert" parameterType = "chatdto">
          INSERT INTO CHAT values(
+<<<<<<< HEAD
          null , #{roomIdx} , #{contents} , now(),#{userId})
+=======
+         null , #{roomIdx} , #{userId} , #{contents},now())
+>>>>>>> ceb448d90870cf2eb78ab6e9291773938e914804
    </insert>
    
    <insert id = "insertRoom" parameterType = "roomdto">

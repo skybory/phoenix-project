@@ -206,7 +206,9 @@ if (udto != null) {
 					<div class="col-lg-4 mb-5 mb-lg-0">
 						<h2 class="fw-bolder mb-0">현재 판매중인 물건들이에요!</h2>
 					</div>
-					<div class="col-lg-8">
+					
+					
+<!-- 					<div class="col-lg-8">
 						<div class="row gx-5 row-cols-1 row-cols-md-2">
 							<div class="col mb-5 h-100">
 								<div
@@ -249,7 +251,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</section>
-		<!-- Testimonial section-->
+		Testimonial section
 		<div class="py-5 bg-light">
 			<div class="container px-5 my-5">
 				<div class="row gx-5 justify-content-center">
@@ -272,7 +274,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</div>
-		<!-- Blog preview section-->
+		Blog preview section
 		<section class="py-5">
 			<div class="container px-5 my-5">
 				<div class="row gx-5 justify-content-center">
@@ -370,7 +372,7 @@ if (udto != null) {
 						</div>
 					</div>
 				</div>
-				<!-- Call to action-->
+				Call to action
 				<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
 					<div
 						class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
@@ -394,7 +396,7 @@ if (udto != null) {
 					</div>
 				</aside>
 			</div>
-		</section>
+		</section> -->
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">

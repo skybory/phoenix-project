@@ -68,50 +68,33 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 판매 완료 목록</h2>
+		<h2 style="text-align: center; color: orange;">내 판매중 목록</h2>
 		<table>
 			<thead>
 				<tr>
 					<th>상품 번호</th>
 					<th>상품명</th>
-					<th>거래 금액</th>
-					<th>거래 장소</th>
-					<th>거래 시간</th>
+					<th>상품 금액</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
-					<c:when test="${not empty salesList}">
-						<c:forEach var="productDTO" items="${salesList}" varStatus="loop">
-							
+					<c:when test="${not empty onSalesList}">
+						<c:forEach var="productDTO" items="${onSalesList}"
+							varStatus="loop">
+
 							<tr>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productIdx}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productTitle}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productPrice}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productLocation}
-            </a>
-        </td>
-        <td>
-            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
-                ${productDTO.productSellDate}
-            </a>
-        </td>
+								<td><a
+									href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+										${productDTO.productIdx} </a></td>
+								<td><a
+									href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+										${productDTO.productTitle} </a></td>
+								<td><a
+									href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+										${productDTO.productPrice} </a></td>
 							</tr>
-							
+
 						</c:forEach>
 					</c:when>
 					<c:otherwise>

@@ -68,7 +68,7 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 구매 목록</h2>
+		<h2 style="text-align: center; color: orange;">내 구매 완료 목록</h2>
 		<table>
 			<thead>
 				<tr>
@@ -76,6 +76,7 @@ tr:hover {
 					<th>상품명</th>
 					<th>거래금액</th>
 					<th>거래장소</th>
+					<th>거래시간</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -84,10 +85,31 @@ tr:hover {
 						<c:forEach var="productDTO" items="${purchaseList}"
 							varStatus="loop">
 							<tr>
-								<td>${productDTO.productIdx}</td>
-								<td>${productDTO.productTitle}</td>
-								<td>${productDTO.productPrice}</td>
-								<td>${productDTO.productLocation}</td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productIdx}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productTitle}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productPrice}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productLocation}
+            </a>
+        </td>
+        <td>
+            <a href="/product/ViewDetailAction.pr?productIdx=${productDTO.productIdx}">
+                ${productDTO.productSellDate}
+            </a>
+        </td>
 							</tr>
 						</c:forEach>
 					</c:when>
