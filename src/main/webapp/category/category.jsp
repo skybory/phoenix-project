@@ -178,9 +178,11 @@ if (udto != null) {
 
 
 </head>
+ 
 <body class="d-flex flex-column h-100"
 	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
+ 
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
@@ -328,7 +330,6 @@ if (udto != null) {
 											</div>
 										</div>
 									</div>
-
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
@@ -337,10 +338,12 @@ if (udto != null) {
 								</div>
 							</c:otherwise>
 						</c:choose>
+
 					</div>
 				</div>
 		</div>
 		</section>
+
 
 
 	<!-- Bootstrap core JS-->
@@ -349,5 +352,6 @@ if (udto != null) {
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script src="../js/all.js"></script>
+
 </body>
 </html>

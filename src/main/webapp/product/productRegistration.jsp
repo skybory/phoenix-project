@@ -233,7 +233,7 @@ if (udto != null) {
 							<div class="text-center"></div>
 							<button class="btn btn-primary btn-lg btn-block" type="submit"
 								onclick="sendit();"
-								style="background-color: #F0CF1F; , --bs-btn-border-color: none; --bs-btn-border-color: none;">물품
+								style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">물품
 								등록하기</button>
 							<a href="javascript:history.back()"
 								class="btn btn-secondary btn-lg btn-block">취소</a>
@@ -244,25 +244,7 @@ if (udto != null) {
 			</div>
 		</section>
 	</main>
-	<!-- Footer-->
-		<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+	 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script
