@@ -84,6 +84,7 @@ body {
 .header-container {
 	margin-top: 20px;
 } /* 적절한 간격으로 조정하세요 */
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
