@@ -11,8 +11,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>카테고리 상품</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -20,13 +20,15 @@
 </head>
 <style>
 .text-ellipsis {
-    white-space: nowrap;       /* 너비를 초과하는 텍스트가 줄 바꿈되지 않도록 설정 */
-    overflow: hidden;          /* 너비를 초과하는 텍스트를 숨김 */
-    text-overflow: ellipsis;   /* 너비를 초과하는 텍스트가 "..."으로 생략되도록 설정 */
+	white-space: nowrap; /* 너비를 초과하는 텍스트가 줄 바꿈되지 않도록 설정 */
+	overflow: hidden; /* 너비를 초과하는 텍스트를 숨김 */
+	text-overflow: ellipsis; /* 너비를 초과하는 텍스트가 "..."으로 생략되도록 설정 */
 }
+
 a {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
+
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -69,23 +71,28 @@ a {
 /* 추가된 타이틀에 대한 스타일 */
 /* 상품 페이지 타이틀 스타일 */
 .page-title {
-    font-size: 2.5rem; /* 타이틀 크기 */
-    color: #343a40; /* 타이틀 색상 */
-    margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
-    font-weight: bold; /* 글자 굵기 */
-    text-transform: uppercase; /* 대문자로 변환 */
+	font-size: 2.5rem; /* 타이틀 크기 */
+	color: #343a40; /* 타이틀 색상 */
+	margin-bottom: 30px; /* 타이틀 아래쪽 여백 */
+	font-weight: bold; /* 글자 굵기 */
+	text-transform: uppercase; /* 대문자로 변환 */
 }
-
-
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
 String userName = null;
 String userId = null;
+int userAccount = 0;
+int productCnt = 0; // 기본값 설정
 String categoryName = (String) request.getAttribute("categoryName");
+Object productCntObj = request.getAttribute("productCnt");
+if (productCntObj != null) {
+	productCnt = Integer.parseInt(productCntObj.toString());
+}
 if (udto != null) {
 	userId = udto.getUserId();
 	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
 }
 %>
 
@@ -147,44 +154,61 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Login.bo"
 							onclick="showAlert()">중고거래</a></li>
 
+						<!--         로그인이 안되어있을때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Join.bo">
+								회원가입 </a></li>
 
-					<!--         로그인이 안되어있을때 나오는 값 -->
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+						<%
+						} else {
+						%>
 
-					<%
-					} else {
-					%>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<!--     로그인이 되어있을 때 나오는 값 -->
+						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+								동네 바꾸기</a></li>
+						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userGreeting" href=""
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
+								안녕하세요</a>
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownBlog">
+								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+								<li><a class="dropdown-item" href="/board/MyPage.bo">잔액
+										: <%=userAccount%>원
+								</a></li>
+							</ul></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end"
+								aria-labelledby="navbarDropdownPortfolio">
+							</ul>
+						</li>
 
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-					<!--     로그인이 되어있을 때 나오는 값 -->
-					<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-							동네 바꾸기</a></li>
-					<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-						id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-							안녕하세요
-					</a></li>
-					<li class="nav-item"><a class="nav-link" id="userGreeting"
-						href="/user/UserLogoutAction.us">로그아웃</a></li>
 
-					<%
-					}
-					%>
-				</ul>
+						<li class="nav-item"><a class="nav-link" id="userGreeting"
+							href="/user/UserLogoutAction.us">로그아웃</a></li>
+
+						<%
+						}
+						%>
+					</ul>
+				</div>
 			</div>
+		</nav>
+
+		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
+		<div class="container text-center my-4">
+			<h1 class="page-title">
+				<%= categoryName %>
+				목록
+			</h1>
 		</div>
-	</nav>
-	<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
-	<div class="container text-center my-4">
-		<h1 class="page-title"> <%= categoryName %>
-			목록
-		</h1>
-	</div>
 
 		<section>
 			<div class="row gx-5 justify-content-center">
@@ -223,38 +247,38 @@ if (udto != null) {
 											</div>
 										</a>
 									</div>
-								</a>
+									</a>
+								</div>
 							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="col-12 text-center">
+							<p>등록된 상품이 없습니다.</p>
 						</div>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="col-12 text-center">
-						<p>등록된 상품이 없습니다.</p>
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<!-- Pagination -->
-		<c:if test="${totalPage > 1}">
-			<nav aria-label="Page navigation example">
-				<ul class="pagination justify-content-center mt-4">
-					<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-						class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
-					</li>
-					<c:forEach begin="${startPage}" end="${endPage}" step="1"
-						varStatus="loop">
-						<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-							<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<!-- Pagination -->
+			<c:if test="${totalPage > 1}">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center mt-4">
+						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
 						</li>
-					</c:forEach>
-					<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-						<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-					</li>
-				</ul>
-			</nav>
-		</c:if>
-	</section>
+						<c:forEach begin="${startPage}" end="${endPage}" step="1"
+							varStatus="loop">
+							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+							</li>
+						</c:forEach>
+						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</c:if>
+		</section>
 	</main>
 </body>
 

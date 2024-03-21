@@ -149,7 +149,7 @@ if (udto != null) {
 							<ul class="dropdown-menu dropdown-menu-end"
 								aria-labelledby="navbarDropdownBlog">
 								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
+								<li><a class="dropdown-item" href="/board/MyPage.bo">잔액 :
 										<%=userAccount%>원
 								</a></li>
 							</ul></li>
