@@ -109,6 +109,7 @@ function combineAddress() {
 	var userAddress = address + ' ' + extraAddress + ' ' + detailAddress.trim();
 	document.getElementById("userAddress").value = userAddress;
 	alert("저장되었습니다");
+	checkChanges();
 }
 
 
@@ -132,20 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
  
 // 주소 비교 함수
 function checkChanges() {
-	alert("dg");
 	// 세션에서 이전 사용자 주소 가져오기
 	var oldUserAddress = document.getElementById('oldUserAddress').value;
+//	var old = $("#oldUserAddress").val();
 
 	// 화면에서 사용자 입력 주소 가져오기
 	var userAddress = document.getElementById('userAddress').value;
-alert(oldUserAddress);
 	// 이전 주소와 현재 주소 비교
-	if (oldUserAddress !== userAddress) {
+	if (oldUserAddress != userAddress) {
 		document.getElementById('oldAddress').innerText = "이전 주소: " + oldUserAddress;
 		document.getElementById('currentAddress').innerText = "현재 주소: " + userAddress;
 
 		// 변경된 내용이 있을 경우 모달 창 띄우기
-		        $('#changesModal').modal('show');
+		$('#changesModa').modal('show');
+		
     } else {
         // 변경된 내용이 없는 경우 alert 창 띄우기
         alert('변경된 내용이 없습니다.');

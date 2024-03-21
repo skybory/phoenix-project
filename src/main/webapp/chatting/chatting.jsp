@@ -281,6 +281,7 @@ img {
 .msg_history {
 	height: 516px;
 	overflow-y: auto;
+	flex-direction: column-reverse;
 }
 
 .lemon-bg {
@@ -492,7 +493,7 @@ img {
 
 	    var intervalId = setInterval(function() {
 	        send();
-	    }, 4000);
+	    }, 5000);
 	}
 	
 	

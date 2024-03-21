@@ -40,8 +40,7 @@ public class ChattingGetList{
 		
 		for(ChatDTO chat : chatList) {
 			obj = new JSONObject();
-			int userIdx = cdao.getUserIdx(roomIdx);
-			obj.put("fromId", cdao.getUserId(userIdx));
+			obj.put("fromId", chat.getUserId());
 			//현재 userIdx값을 못가져온다 확인해보자 **
 			
 			

@@ -90,9 +90,11 @@ button {
 button:hover {
 	background-color: #45a049;
 }
+
 .test {
 	--bs-primary-rgb: 240, 207, 31;
 }
+
 .flex-column {
 	min-height: 100vh;
 	background: #FFF8D5;
@@ -110,6 +112,7 @@ if (udto != null) {
 	userName = udto.getUserName();
 	userAccount = udto.getUserAccount();
 	oldUserAddress = udto.getUserAddress();
+
 }
 %>
 <head>
@@ -219,8 +222,7 @@ if (udto != null) {
 
 			<div class="row gx-5 justify-content-center">
 				<div class="col-lg-8 col-xl-6">
-					<form id="addressForm" action=""
-						method="post">
+					<form id="addressForm" action="" method="post">
 						<div class="form-group">
 							<label for="postcode">우편번호</label> <input type="text"
 								id="postcode" readonly>
@@ -237,11 +239,26 @@ if (udto != null) {
 								id="detailAddress">
 						</div>
 						<input type="hidden" name="userAddress" id="userAddress">
-						<button class="btn btn-success btn-lg btn-block" type="button" onclick="searchAddress()" >주소 찾기</button>
-						<input type="button" class="btn btn-primary btn-lg btn-block" onclick="checkChanges()">
-						
-						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="checkChanges();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
+						<input type="hidden" name="oldUserAddress" id="oldUserAddress"
+							value=<%=oldUserAddress%>>
+						<button class="btn btn-success btn-lg btn-block" type="button"
+							onclick="searchAddress()">주소 찾기</button>
+
+						<button class="btn btn-primary btn-lg btn-block"
+							onclick="combineAddress();" id="submitButton"
+							style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경
+							완료</button>
+						<script>
+						    // userId와 pdto.userId를 비교하여 조건에 따라 버튼을 비활성화
+						    if ($("#detailAddress").val() == "") {
+						    	
+						    	
+						        // 버튼 요소 가져오기
+						        document.getElementById('submitButton').disabled = true;
+						        
+						    }
+						     
+						</script>
 					</form>
 				</div>
 			</div>
@@ -251,10 +268,10 @@ if (udto != null) {
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-chat-dots"></i>
- 
+
 					</div>
 				</div>
- 
+
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
@@ -274,20 +291,20 @@ if (udto != null) {
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-telephone"></i>			
+						<i class="bi bi-telephone"></i>
 						<div class="h5">연락처</div>
 						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
- 
+
 					</div>
 				</div>
-				</div>
-			</section>
+			</div>
+		</section>
 	</main>
- 
+
 
 
 	<!-- 모달 -->
-	<div class="modal fade" id="changesModal" tabindex="-1"
+	<div class="modal fade" id="changesModa" tabindex="-1"
 		aria-labelledby="changesModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -300,22 +317,23 @@ if (udto != null) {
 
 				<span id="oldAddress"></span><br> <span id="currentAddress"></span>
 				<script>
-								function checkChanges() {
-									// 세션에서 이전 사용자 주소 가져오기
-									var oldUserAddress = document.getElementById('oldUserAddress').value;
+                function checkChanges() {
+                    // 세션에서 이전 사용자 주소 가져오기
+                    var oldUserAddress = document.getElementById('oldUserAddress').value;
 
-									// 화면에서 사용자 입력 주소 가져오기
-									var userAddress = document.getElementById('userAddress').value;
-				</script>
+                    // 화면에서 사용자 입력 주소 가져오기
+                    var userAddress = document.getElementById('userAddress').value;
+                }
+            </script>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">다시 입력하기</button>
-					<button type="button" class="btn btn-primary"
-					type="submit" onclick="sendit();" id="submitButton">제출</button>
+					<button type="button" class="btn btn-primary" type="submit"
+						onclick="sendit();" id="submitButton">제출</button>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 	
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
