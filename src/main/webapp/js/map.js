@@ -156,7 +156,7 @@ alert(oldUserAddress);
 function sendit() {
 	// 전체주소
 	var userAddress = document.getElementById('userAddress').value.trim();
-
+	var go = document.addressForm;
 	// 전체주소가 비어 있는지 확인
 	if (userAddress === '') {
 		alert('상세주소를 입력해주세요.');
@@ -168,7 +168,7 @@ function sendit() {
 		// 변경사항 확인되었으면 폼 제출
 		
 		document.getElementById('addressForm').action = '/user/UserupdateAddressAction.us';
-		document.getElementById('addressForm').submit();
+		go.submit();
 	} else {
 		// 변경사항 확인되지 않았으면 알림 출력
 		alert('변경사항을 확인해주세요.');
