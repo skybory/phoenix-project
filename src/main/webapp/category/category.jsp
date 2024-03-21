@@ -178,14 +178,11 @@ if (udto != null) {
 
 
 </head>
-<<<<<<< HEAD
-<body class="d-flex flex-column h-100">
-	<main class="flex-shrink-0" style="background-color: #FFF8D5;">
-=======
+ 
 <body class="d-flex flex-column h-100"
 	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+ 
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
@@ -333,26 +330,6 @@ if (udto != null) {
 											</div>
 										</div>
 									</div>
-
-<<<<<<< HEAD
-
-
-		<!-- Footer-->
-<!-- 		<footer class="bg-dark py-4 mt-auto">
-			<div class="container px-5">
-				<div
-					class="row align-items-center justify-content-between flex-column flex-sm-row">
-					<div class="col-auto">
-						<div class="small m-0 text-white">Copyright &copy; Your
-							Website 2023</div>
-					</div>
-					<div class="col-auto">
-						<a class="link-light small" href="#!">Privacy</a> <span
-							class="text-white mx-1">&middot;</span> <a
-							class="link-light small" href="#!">Terms</a> <span
-							class="text-white mx-1">&middot;</span> <a
-							class="link-light small" href="#!">Contact</a>
-=======
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
@@ -361,21 +338,13 @@ if (udto != null) {
 								</div>
 							</c:otherwise>
 						</c:choose>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 					</div>
 				</div>
 		</div>
 		</section>
 
-<<<<<<< HEAD
-		</footer> -->
-		<!-- Bootstrap core JS-->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="js/scripts.js"></script>
-		<script src="../js/all.js"></script>
-=======
+
 
 	<!-- Bootstrap core JS-->
 	<script
@@ -383,6 +352,6 @@ if (udto != null) {
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script src="../js/all.js"></script>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 </body>
 </html>

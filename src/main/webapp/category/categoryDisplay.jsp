@@ -109,7 +109,7 @@ if (udto != null) {
 
 </head>
 <body class="d-flex flex-column h-100">
-<<<<<<< HEAD
+
 	<main class="flex-shrink-0" style="background-color: #FFF8D5;">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -138,34 +138,7 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo"
 							onclick="showAlert()">중고거래</a></li>
-=======
-	<!-- 상단바 -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container px-5">
-			<img src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-				alt="Logo" class="img-fluid" id="lemonLogo"> <a
-				class="navbar-brand"
-				href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-					<%
-					if (udto == null) {
-					%>
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Login.bo"
-						onclick="showAlert()">카테고리</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/board/Login.bo"
-						onclick="showAlert()">중고거래</a></li>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 
 					<!--         로그인이 안되어있을때 나오는 값 -->
 					<li class="nav-item"><a class="nav-link"
@@ -275,35 +248,6 @@ if (udto != null) {
 		</c:if>
 	</section>
 	</main>
-<<<<<<< HEAD
-	<!-- Footer-->
-<!-- 	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
-			</div>
-		</div>
-	</footer> -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="product.js"></script>
-	<script>
-		// 		function redirectToProductDetail() {
-		// 			window.location.href = 'product_detail.jsp';
-		// 		}
-=======
 </body>
 
 <footer class="bg-light text-dark py-4"
@@ -350,7 +294,6 @@ if (udto != null) {
 	// 		function redirectToProductDetail() {
 	// 			window.location.href = 'product_detail.jsp';
 	// 		}
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 
 	function addInterest() {
 		var interestCountElement = document.getElementById("interestCount");
