@@ -104,11 +104,11 @@ button[type="submit"]:hover {
 	min-height: 100vh;
 	background: #FFF8D5;
 }
-/* .input-form, .navbar, .input-form-backgroud {
+.input-form, .navbar, .input-form-backgroud {
     background: none; /* 배경색 제거 */
     /* 혹은 전체 배경색과 동일한 색으로 설정 */
     background: #FFF8D5; /* 전체 배경색과 일치하는 노란색 코드 */
-} */
+} 
 
 </style>
 <%
@@ -143,9 +143,7 @@ if (udto != null) {
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
-<style>
-
-</style>
+ 
 
 
 

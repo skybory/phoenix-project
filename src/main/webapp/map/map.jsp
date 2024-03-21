@@ -217,10 +217,9 @@ if (udto != null) {
 		<!-- Page content-->
 		<section class="py-5">
 
-<<<<<<< HEAD
 			<div class="row gx-5 justify-content-center">
 				<div class="col-lg-8 col-xl-6">
-					<form id="addressForm" action="/user/UserupdateAddressAction.us"
+					<form id="addressForm" action=""
 						method="post">
 						<div class="form-group">
 							<label for="postcode">우편번호</label> <input type="text"
@@ -239,8 +238,10 @@ if (udto != null) {
 						</div>
 						<input type="hidden" name="userAddress" id="userAddress">
 						<button class="btn btn-success btn-lg btn-block" type="button" onclick="searchAddress()" >주소 찾기</button>
+						<input type="button" class="btn btn-primary btn-lg btn-block" onclick="checkChanges()">
+						
 						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="sendit();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
+							onclick="checkChanges();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
 					</form>
 				</div>
 			</div>
@@ -250,45 +251,10 @@ if (udto != null) {
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-chat-dots"></i>
-=======
-			<section class="py-5">
-
-				<div class="row gx-5 justify-content-center">
-					<div class="col-lg-8 col-xl-6">
-						<form id="addressForm" action="/user/UserupdateAddressAction.us"
-							method="post">
-							<div class="form-group">
-								<label for="postcode">우편번호</label> <input type="text"
-									id="postcode" readonly>
-							</div>
-							<div class="form-group">
-								<label for="address">주소</label> <input type="text" id="address">
-							</div>
-							<div class="form-group">
-								<label for="extraAddress">참고항목</label> <input type="text"
-									id="extraAddress">
-							</div>
-							<div class="form-group">
-								<label for="detailAddress">상세주소</label> <input type="text"
-									id="detailAddress">
-							</div>
-							<input type="hidden" id="oldUserAddress"
-								value="<%=oldUserAddress%>"> <input type="hidden"
-								name="userAddress" id="userAddress">
-							<button type="button" onclick="searchAddress()">주소 찾기</button>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="confirmChanges"> <label class="form-check-label"
-									for="confirmChanges"> 변경사항 확인 </label>
-							</div>
-							<button class="btn btn-primary btn-lg btn-block mt-3"
-								type="submit" onclick="sendit();" id="submitButton">변경
-								완료</button>
-						</form>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+ 
 					</div>
 				</div>
-<<<<<<< HEAD
+ 
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
@@ -308,69 +274,18 @@ if (udto != null) {
 				<div class="col">
 					<div
 						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
-						<i class="bi bi-telephone"></i>
-=======
-				<!-- Contact cards-->
-				<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-chat-dots"></i>
-						</div>
-						<div class="h5 mb-2">일대일 문의</div>
-						<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-people"></i>
-						</div>
-						<div class="h5">커뮤니티</div>
-						<p class="text-muted mb-0">커뮤니티에 질문 해주세요.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-question-circle"></i>
-						</div>
-						<div class="h5">서비스센터</div>
-						<p class="text-muted mb-0">FAQ's 와 여러가지 문제들 해결해 드립니다.</p>
-					</div>
-					<div class="col">
-						<div
-							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-							<i class="bi bi-telephone"></i>
-						</div>
+						<i class="bi bi-telephone"></i>			
 						<div class="h5">연락처</div>
 						<p class="text-muted mb-0">전화로 문의 시 (+82) 109-1004.</p>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+ 
 					</div>
 				</div>
 				</div>
 			</section>
 	</main>
-<<<<<<< HEAD
+ 
 
-=======
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+
 	<!-- 모달 -->
 	<div class="modal fade" id="changesModal" tabindex="-1"
 		aria-labelledby="changesModalLabel" aria-hidden="true">
@@ -396,13 +311,11 @@ if (udto != null) {
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">다시 입력하기</button>
 					<button type="button" class="btn btn-primary"
-					type="submit" onclick="sendit();" id="submitButton">변경
-								완료</button>
+					type="submit" onclick="sendit();" id="submitButton">제출</button>
 				</div>
 			</div>
 		</div>
 	</div>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
