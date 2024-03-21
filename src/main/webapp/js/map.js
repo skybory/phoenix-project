@@ -129,62 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-//// 주소비교하기       
-//function checkChanges() {
-//	// 세션에서 이전 사용자 주소 가져오기
-//	var oldUserAddress = '<%= userAddress %>';
-//
-//	// 화면에서 사용자 입력 주소 가져오기
-//	var userAddress = document.getElementById('userAddress').value;
-//
-//	// 이전 주소와 현재 주소 비교
-//	if (oldUserAddress !== userAddress) {
-//		// 변경된 내용이 있을 경우 모달 창 띄우기
-//		$('#changesModal').modal('show');
-//	}
-//}
-
-//function sendit() {
-//	var detailAddress = document.getElementById('detailAddress').value.trim();
-//	if (detailAddress === '') {
-//		alert('상세주소를 입력해주세요.');
-//		return false;
-//	}
-//	let frm = document.getElementById('addressForm');
-//	combineAddress();
-//	frm.submit();
-//	return true;
-//}
-//
-//// 변경 완료 버튼 클릭 시 호출되는 함수
-//function sendit() {
-//	// 변경사항 확인 여부 체크
-//	if (document.getElementById('confirmChanges').checked) {
-//		// 변경사항 확인되었으면 폼 제출
-//		document.getElementById('addressForm').submit();
-//	} else {
-//		// 변경사항 확인되지 않았으면 알림 출력
-//		alert('변경사항을 확인해주세요.');
-//	}
-//}
-//// 체크박스 클릭 이벤트 처리
-//var confirmChangesCheckBox = document.getElementById('confirmChanges');
-//confirmChangesCheckBox.addEventListener('click', function() {
-//	if (confirmChangesCheckBox.checked) {
-//		if (validcheck() == false) {
-//			confirmChangesCheckBox.checked = false;
-//		}
-//		else {
-//			alert('주소를 변경합니다');
-//			checkChanges();
-//			alert('변경사항을 확인하셨습니다.');
-//		}
-//	}else {
-//			// 변경사항 확인 버튼이 체크되어 있지 않을 때의 동작
-//			alert('변경사항 확인을 철회하셨습니다.');
-//		}
-//	});
+ 
 // 주소 비교 함수
 function checkChanges() {
 	// 세션에서 이전 사용자 주소 가져오기

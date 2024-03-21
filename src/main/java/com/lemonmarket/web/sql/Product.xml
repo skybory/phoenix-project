@@ -33,6 +33,13 @@
     LIMIT #{startRow}, #{pageSize}
    </select>
 
+<!-- 물품 전체 리스트 가져오기: 판매중인 물품만 가져오기 랜덤으로 -->
+   <select id="getListAll" resultType="productdto">
+    SELECT * FROM `PRODUCT`
+    WHERE purchaseUserIdx IS NULL
+    ORDER BY RAND()
+   </select>
+
 <!--판매중인 물품 총 갯수 가져오기 -->
    <select id="getProductCnt" resultType="_int">
       SELECT COUNT('productIdx')

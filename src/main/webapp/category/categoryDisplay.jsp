@@ -178,7 +178,7 @@ if (udto != null) {
 			</h1>
 		</div>
 
-	<section>
+		<section>
 			<div class="row gx-5 justify-content-center">
 				<c:choose>
 					<c:when
@@ -194,9 +194,9 @@ if (udto != null) {
 										<a
 											href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}&page=${nowPage}"
 											class="card-link" style="display: block; height: 100%;">
-											<!-- 상품 이미지 --> <img src="${product.productImage}"
-											alt="Product Image" class="card-img mb-3"> <!-- 상품명 -->
-											<%--                                     <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;"> --%>
+											<!-- 상품 이미지 --> <img src="${product.productImage} "
+											style="width: 250px; height: 250px;" Product
+											Image" class="card-img mb-3"> <!-- 상품명 --> <%--                                     <img src="${not empty product.productImage ? product.productImage : '/path/to/default/image.png'}" alt="${not empty product.productImage ? '상품 이미지' : '기본 이미지'}" class="card-img mb-3" style="height: calc(100% - 60px); width: 100%; object-fit: cover;"> --%>
 											<!-- 상품명 -->
 											<h4 class="card-title"
 												style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${product.productTitle}</h4>

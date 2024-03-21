@@ -227,7 +227,7 @@ if (udto != null) {
 													<!-- 상품가격 -->
 													<span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
 												</div> <!-- 지역 -->
-												<p class="text-muted mb-4">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
+												<p class="text-muted mb-4" id="productLocation">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
 												<div
 													class="d-flex justify-content-between align-items-center">
 													<p class="text-muted mb-0">관심:

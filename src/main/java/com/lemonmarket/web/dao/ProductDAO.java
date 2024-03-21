@@ -55,6 +55,12 @@ public class ProductDAO {
 		return productList;
 	}
 
+	// 물품 전체 리스트 가져오기 전체 가져오기 (페이징X)
+	public List<ProductDTO> getProductListAll() {
+		List<ProductDTO> productList = sqlSession.selectList("Product.getListAll");
+		return productList;
+	}
+
 	//	물품 총 갯수 가져오기 
 	public int getProductCnt() {
 		int productCnt = sqlSession.selectOne("Product.getProductCnt");
