@@ -19,6 +19,7 @@ public class UpdateInterestCountAction {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		JSONObject obj = null;
+		System.out.println(request.getParameter("userIdx"));
 		int prIdx = Integer.parseInt(request.getParameter("prIdx"));
 		int userIdx = Integer.parseInt(request.getParameter("userIdx"));
 		ProductDAO pdao = new ProductDAO();

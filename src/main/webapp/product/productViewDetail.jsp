@@ -456,14 +456,13 @@ if (udto != null) {
 	}
 	
 	function test(){
-// 		document.getElementById("test").innerHTML = "돼?";
-			var userId = <%=userIdx%> // 임시;
-			var prIdx = ${pdto.productIdx} // 임시
+			var userId = <%=userIdx%> ;
+			var prIdx = ${pdto.productIdx} ;
 			//idx로 바꿔라
-			toggleInterest(userId, prIdx)
+			interest(userId, prIdx)
 		}
 	
-	function toggleInterest(userIdx, prIdx) {
+	function interest(userIdx, prIdx) {
 
 		$.ajax({
 			type : 'POST',
