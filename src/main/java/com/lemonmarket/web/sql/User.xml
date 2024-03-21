@@ -65,6 +65,16 @@
 		WHERE userIdx = #{userIdx}
 		AND purchaseUserIdx IS NOT NULL
 	</select>
+	
+		<select id="getWishList" parameterType="_int"
+		resultType="com.lemonmarket.web.dto.WishlistDTO">
+		SELECT * FROM WISHLIST w WHERE userIdx = #{userIdx} and wish = 1
+	</select>
+	
+	<select id="getWish" parameterType="hashmap"
+		resultType="productdto">
+		SELECT * FROM PRODUCT p WHERE productIdx = #{productIdx}
+	</select>
 
 	<!-- 판매자 idx가 나랑 같고, 누군가 '안'샀다는 뜻 -->
 	<select id="getOnSalesList" parameterType="_int"

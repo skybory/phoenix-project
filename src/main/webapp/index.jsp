@@ -220,6 +220,12 @@ if (udto != null) {
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+								<% if(udto == null){%>
+								<a class="btn btn-primary btn-lg px-4 me-sm-3"
+									href="${pageContext.request.contextPath}/board/Login.bo" onclick="showAlert()" >물건 등록하기</a> <a
+									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지
+									고민중...</a>
+									<%}else{ %>
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
 									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
@@ -354,7 +360,16 @@ if (udto != null) {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/map.js"></script>
-	<script src="js/all.js"></script>
+	
+	<script>
+	function showAlert(){
+		alert("로그인 후 사용해주세요.");
+		
+	}
+	function showLog(){
+		alert("로그아웃 합니다.")
+	}
+	</script>
 </body>
 </html>
 

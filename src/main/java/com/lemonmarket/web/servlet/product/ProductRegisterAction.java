@@ -1,4 +1,4 @@
-	package com.lemonmarket.web.servlet.product;
+package com.lemonmarket.web.servlet.product;
 
 import com.lemonmarket.web.dto.ProductDTO;
 
@@ -39,7 +39,7 @@ public class ProductRegisterAction extends HttpServlet {
 
 		String productDealType = request.getParameter("productDealType");
 		pdto.setUserIdx(userIdx);
-		pdto.setUserId(userId);		
+		pdto.setUserId(userId);
 		pdto.setProductTitle(request.getParameter("productTitle"));
 		pdto.setProductDescription(request.getParameter("productDescription"));
 		pdto.setProductDealType(productDealType);

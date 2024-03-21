@@ -7,9 +7,8 @@
 <html lang="en">
 <style>
 a {
-	text-decoration: none !important;
+    text-decoration: none !important;
 }
-
 .lemon-bg {
 	background-color: #E5D85C;
 }
@@ -186,8 +185,8 @@ if (udto != null) {
 									<span id="setLocation"></span>
 									<p class="banner-text text-white-50">물건을 등록하시겠습니까?</p>
 									<!-- 수정된 버튼 -->
-									<a class="btn btn-outline-light btn-lg"
-										href="/product/ProductWriteBoard.pr">물건 등록하기</a>
+									<a class="btn btn-outline-light btn-lg" href="/product/ProductWriteBoard.pr">물건
+										등록하기</a>
 								</div>
 							</div>
 						</div>
