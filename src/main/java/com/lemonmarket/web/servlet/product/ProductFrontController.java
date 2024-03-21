@@ -2,9 +2,11 @@ package com.lemonmarket.web.servlet.product;
 
 import java.io.IOException;
 
-import com.lemonmarket.web.action.ActionForward;
-import com.lemonmarket.web.dao.ProductDAO;
+import java.util.List;
 
+import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.dao.CategoryDAO;
+import com.lemonmarket.web.dto.CategoryDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,9 +30,8 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 
 		switch (requestURI) {
-		
 		case "/product/ProductWriteBoard.pr":
-			forward = new ActionForward(true, "/product/productRegistration.jsp");
+			forward = new ProductRegisterPage().execute(req, resp);
 			break;
 			
 		case "/product/ProductRegisterAction.pr":
@@ -42,10 +43,10 @@ public class ProductFrontController extends HttpServlet {
 			forward = new ProductViewDetailAction().execute(req,resp);
 			break;
 
-		case "/product/DecreaseInterest.pr":
-			// 관심 수 업데이트 액션 요청 처리
-			new UpdateInterestCountAction().execute(req, resp);
-			break;
+//		case "/product/DecreaseInterest.pr":
+//			// 관심 수 업데이트 액션 요청 처리
+//			new UpdateInterestCountAction().execute(req, resp);
+//			break;
 		}
 
 		// 페이지 이동에 대한 일괄처리

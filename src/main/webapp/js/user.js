@@ -20,9 +20,9 @@ function sendit() {
 	let userPw = frm.userPw;
 	let userPw_re = frm.userPw_re;
 	let userName = frm.userName;
-	let phoneNumber = frm.phoneNumber;
-	let userAddress = frm.userAddress;
-	let gender = frm.gender;
+	let phoneNumber = frm.userPhoneNumber;
+	let userAddress = frm.address;
+	let gender = frm.userGender;
 	let userEmail = frm.userEmail;
 	let userAge = frm.userAge;
 
@@ -93,14 +93,8 @@ function sendit() {
 		return false;
 	}
 
-
-
 	
-
-	
-	
-	
-	
+	combineAddress();
 	frm.submit();
 }
 
@@ -155,5 +149,9 @@ function checkId(userId){
 		
 	}
 }
-
-
+    document.getElementById("agreement").addEventListener("change", function() {
+        var submitButton = document.getElementById("submitButton");
+        submitButton.disabled = !this.checked;
+    });
+    
+    

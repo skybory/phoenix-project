@@ -31,15 +31,18 @@ public class ProductRegisterAction extends HttpServlet {
         HttpSession session = request.getSession();
         UserDTO udto = (UserDTO) session.getAttribute("userDTO");
         String userId = udto.getUserId();
+        int userIdx = udto.getUserIdx();
         ActionForward forward = new ActionForward();
-
+        
+        pdto.setUserIdx(userIdx);
         pdto.setUserId(userId);
         pdto.setProductTitle(request.getParameter("productTitle"));
         pdto.setProductDescription(request.getParameter("productDescription"));
         pdto.setProductDealType(request.getParameter("productDealType"));
         pdto.setProductPrice(Integer.parseInt(request.getParameter("productPrice")));
         pdto.setProductLocation(request.getParameter("productLocation"));
-
+        pdto.setCategoryIdx(Integer.parseInt(request.getParameter("categoryIdx")));
+        
         Collection<Part> parts = request.getParts();
         for (Part part : parts) {
             if (part.getName().equals("productImage")) {
@@ -62,11 +65,13 @@ public class ProductRegisterAction extends HttpServlet {
                 }
             }
         }
+        
+        
         if (pdao.register(pdto)) {    // 물품 등록 성공
-            forward.setPath("/product/productMain.jsp");
+            forward.setPath("/board/Product.bo");
             forward.setRedirect(false);
         } else {
-            forward.setPath("/error.jsp");    // 물품 등록 실패
+            forward.setPath("/board/Error.bo");    // 물품 등록 실패
             forward.setRedirect(true);
         }
 

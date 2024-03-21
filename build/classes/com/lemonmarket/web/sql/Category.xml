@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
- PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Category">
 
-	<!-- 모든 카테고리를 조회 -->
+<!-- 	모든 카테고리를 조회 -->
 	<select id="categoryAll" resultType="categorydto">
-		SELECT * FROM `category`
+		SELECT * FROM `CATEGORY`
 	</select>
 
-	<!-- 특정 ID를 가진 카테고리를 조회 -->
-	<select id="categoryById" parameterType="String" resultType="categorydto">
-		SELECT * FROM `category` WHERE categoryId = #{categoryId}
-	</select>
+<!-- 	특정 ID를 가진 카테고리를 조회 -->
+<!-- 	<select id="selectProductsByCategoryIdx" parameterType="_int" resultType="productdto"> -->
+<!-- 		SELECT * FROM `PRODUCT` WHERE categoryIdx = #{categoryIdx} -->
+<!-- 	</select> -->
 
+	<select id="getCategory" parameterType="_int" resultType="categorydto">
+	SELECT * FROM `CATEGORY` WHERE categoryIdx = #{categoryIdx}
+</select>
 </mapper>

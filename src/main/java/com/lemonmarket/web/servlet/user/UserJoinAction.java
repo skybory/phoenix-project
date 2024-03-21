@@ -7,6 +7,7 @@ import com.lemonmarket.web.action.ActionForward;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class UserJoinAction implements Action{
 
@@ -18,25 +19,32 @@ public class UserJoinAction implements Action{
 		
 		udto.setUserId(request.getParameter("userId"));
 		udto.setUserPw(request.getParameter("userPw"));
-		udto.setUserAge(request.getParameter("userAge"));
-		udto.setGender(request.getParameter("gender"));
 		udto.setUserName(request.getParameter("userName"));
+		udto.setUserAge(request.getParameter("userAge"));
+		udto.setUserGender(request.getParameter("userGender"));
+		udto.setUserPhoneNumber(request.getParameter("userPhoneNumber"));
 		udto.setUserEmail(request.getParameter("userEmail"));
-		udto.setPhoneNumber(request.getParameter("phoneNumber"));
 		udto.setUserAddress(request.getParameter("userAddress"));
 		
 		
 		if( udao.join(udto) ) {	// 회원가입 성공
-			forward.setPath("/index.jsp");
+	
+		HttpSession session = request.getSession(); // 세션을 가져옵니다.
+//		session.set
+		String userId = udto.getUserId();
+		String userPw = udto.getUserPw();
+//		session.setAttribute("userId", userId);
+		udao.login(userId, userPw, session);
+			
+		
+			forward.setPath("/board/Home.bo");
 			forward.setRedirect(false);
 		}
 		
 		else {
-			forward.setPath("/joinview.jsp");
+			forward.setPath("/board/Join.bo");
 			forward.setRedirect(true);
 		}
-		
-		
 		
 		return forward;
 	}

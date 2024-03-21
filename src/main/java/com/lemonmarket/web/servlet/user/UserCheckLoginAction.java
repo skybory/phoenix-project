@@ -25,7 +25,7 @@
 //			forward.setPath(request.getRequestURI());	// 경로 유지
 //		} else {
 //			forward.setRedirect(true);
-//			forward.setPath("/error.jsp");
+//			forward.setPath("/board/Error.bo");
 //		}
 //		
 //		return forward;
