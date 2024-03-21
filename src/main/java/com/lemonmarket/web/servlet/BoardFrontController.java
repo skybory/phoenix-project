@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.lemonmarket.web.action.ActionForward;
 import com.lemonmarket.web.dao.CategoryDAO;
+import com.lemonmarket.web.dao.ProductDAO;
 import com.lemonmarket.web.dto.CategoryDTO;
+import com.lemonmarket.web.dto.ProductDTO;
 import com.lemonmarket.web.servlet.category.SelectCategoryAction;
 import com.lemonmarket.web.servlet.product.ProductViewMainAction;
 
@@ -79,6 +81,11 @@ public class BoardFrontController extends HttpServlet {
 			forward = new SelectCategoryAction().execute(req, resp);
 	        break;
 		case "/board/Chatting.bo":
+	        ProductDAO pdao = new ProductDAO();
+	        int productIdx = Integer.parseInt(req.getParameter("productIdx"));
+	        System.out.println(productIdx);
+	        ProductDTO pdto = pdao.viewProductDetail(productIdx);
+	        req.setAttribute("pdto", pdto);
 			forward = new ActionForward(true, "/chatting/chatting.jsp");
 			// 화면을 바로 보여줄땐 ActionForward
 			break;

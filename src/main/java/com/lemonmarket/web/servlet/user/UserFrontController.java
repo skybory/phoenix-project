@@ -3,6 +3,7 @@ package com.lemonmarket.web.servlet.user;
 import java.io.IOException;
 
 import com.lemonmarket.web.action.ActionForward;
+import com.lemonmarket.web.servlet.product.ProductRegisterAction;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,7 +34,7 @@ public class UserFrontController extends HttpServlet{
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/user/UserJoinAction.us":
-			forward = new UserJoinAction().execute(req, resp);
+			new UserJoinAction().doPost(req,resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/user/UserLogoutAction.us":
@@ -49,6 +50,10 @@ public class UserFrontController extends HttpServlet{
 			break;
 		case "/user/SalesListAction.us":
 			forward = new UserViewSalesListAction().execute(req, resp);
+			// 화면을 바로 보여줄땐 ActionForward
+			break;
+		case "/user/onSalesListAction.us":
+			forward = new UserViewOnSalesListAction().execute(req, resp);
 			// 화면을 바로 보여줄땐 ActionForward
 			break;
 		case "/user/PurchaseProductAction.us":

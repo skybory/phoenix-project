@@ -1,8 +1,21 @@
+<%@page import="com.lemonmarket.web.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+<%
+UserDTO udto = (UserDTO) session.getAttribute("userDTO");
+String userName = null;
+String userId = null;
+int userIdx = 0;
+
+if (udto != null) {
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userIdx = udto.getUserIdx();
+}
+%>
 <!DOCTYPE html>
 
 
@@ -151,7 +164,6 @@ img {
 	overflow: hidden;
 	clear: both;
 	width: 100%;
-	
 }
 
 .chat_list {
@@ -292,9 +304,6 @@ img {
 						</div>
 						<div class="srch_bar">
 							<div class="stylish-input-group">
-								<input type="text" class="search-bar" placeholder="Search"
-									name="userid" id="userid"> <input type="text"
-									class="search-bar" placeholder="Search" name="toid" id="toid">
 								<span class="input-group-addon">
 									<button type="button">
 										<i class="fa fa-search" aria-hidden="true"></i>
@@ -303,29 +312,21 @@ img {
 							</div>
 						</div>
 					</div>
-					<div class="inbox_chat">
-						
-						
-						
-			
-						
-					</div>
+					<div class="inbox_chat"></div>
 				</div>
 
 				<div class="mesgs">
 					<div class="msg_history">
 						<div class="incoming_msg">
 							<div class="incoming_msg_img">
-								<img >
+								<img>
 							</div>
 							<div class="received_msg">
-								<div class="received_withd_msg">
-								</div>
+								<div class="received_withd_msg"></div>
 							</div>
 						</div>
 						<div class="outgoing_msg">
-							<div class="sent_msg">
-							</div>
+							<div class="sent_msg"></div>
 						</div>
 
 					</div>
@@ -334,16 +335,16 @@ img {
 							<input type="text" class="write_msg" id="contents"
 								placeholder="Type a message" name="contents" />
 							<button class="msg_send_btn" type="button">
-								<i class="fa fa-paper-plane-o" aria-hidden="true" onclick="submit()"><img
-									src="send.png"> </i>
+								<i class="fa fa-paper-plane-o" aria-hidden="true"
+									onclick="submit()"><img src="send.png"> </i>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<input id="max" type="hidden" name="max" />
-		<input id="roomseq" type="hidden" name="roomseq" />
+		<input id="max" type="hidden" name="max"  /> 
+		<input id="roomseq"	type="hidden" name="roomseq" />
 
 
 	</form>
@@ -351,9 +352,21 @@ img {
 
 
 </body>
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 	window.onload = function(){
-		chattingList();	
+		var productId = "${pdto.userId}";
+		var productIdx = ${pdto.productIdx};
+		var useridx = <%=userIdx%>;
+		console.log(useridx);
+		chattingList(useridx,productIdx,productId);	
 //		getInfinite();
 	}
 	
@@ -368,7 +381,250 @@ img {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+
+	function chattingList(useridx,productIdx,productId) {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+
+		var userIdx = useridx;//수정해라 하드코딩
+		var prIdx = productIdx;
+		var pr_userId = productId;
+		alert(userIdx);
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getRoomList.chat",
+			data: {
+				"userIdx": userIdx,
+				"prIdx" : prIdx,
+				"pr_userId" : pr_userId
+			},
+			success: function(result) {
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+
+					$("#max").val(ajaxresult.max); // * 수정이 필요할지도 *
+
+					$(".inbox_chat").append('<a href = "#" onclick = "sendit('+ ajaxresult.roomseq +')" />' +
+						'<div class="chat_list">' +
+						'<div class="chat_people">' +
+						'<div class="chat_img">' +
+						'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+						'</div>' +
+						'<div class="chat_ib">' +
+
+						'<h5>' +
+						ajaxresult.toId + ' <span class="chat_date">' + ajaxresult.roomDate + '</span>' +
+						'</h5>' +
+						'<p>' + ajaxresult.contents + '</p>' +
+						//여기 조인해서 최근채팅하나
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</a>')
+
+				}
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+
+	}
+
+
+
+
+
+	function sendit(roomseq) {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+//		var fromid = 'tbdud98';
+//		var toid = 'ahyun';
+//		var contents = '살려조';
+		$(".msg_history").empty();
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getList.chat",
+			data: {
+
+				"roomIdx": roomseq
+			},
+			success: function(result) {
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+// 					$("#max").val(ajaxresult.max);
+//					$("#roomseq").val(roomseq);
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+					if ("<%=userId%>" != ajaxresult.fromId) {
+
+						$(".msg_history").append('<div class="incoming_msg">' +
+							'<div class="incoming_msg_img">' +
+							'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+							'</div>' +
+							'<div class="received_msg" style =" padding:15px" >' +
+							'<div class="received_withd_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "plz">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>' +
+							'</div>');
+					} else {
+						$(".msg_history").append('<div class="outgoing_msg">' +
+							'<div class="sent_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "shit" style =" padding:10px" >' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>')
+					}
+
+					//					$(".outgoing_msg").append( "<div class='sent_msg'>"+
+					//									'<p id = "shit">'+ajaxresult.contents+'</p>'+
+					//							"</div>" );
+					ajaxresult.contents = '';
+					$("#max").val(ajaxresult.max);
+					//					$("#chatList").append( ajaxresult.contents + " " + ajaxresult.toid );
+
+				}
+				$("#roomseq").val(roomseq);
+				
+
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+		getInfinite();
+
+
+	}
+	function submit() {
+		// 전송 버튼을 누를 때 
+		//	var fromid = $("#userid").val();
+		//	var toid = $("#toid").val();
+		//	var contents = $("#contents").val();
+		var roomseq = $("#roomseq").val();
+//		var fromid = 'tbdud98';
+//		var toid = 'ahyun';
+		var contents = $("#contents").val();
+
+		$.ajax({
+			type: "POST",
+			url: "/chatting/write.chat",
+			data: {
+				"roomIdx": roomseq,
+				"contents" : contents,
+				"userId" : "<%=userId%>"
+			},
+			success: function(result) {
+				if(result == ""){
+					return false;
+				}
+				let ajaxresult = JSON.parse(JSON.stringify(result));
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+		$("#contents").val('');
+		
+
+
+
+	}
+
+
+
+
+	function send() {
+		var max = $("#max").val();
+
+		var roomseq = $("#roomseq").val()
+
+		$.ajax({
+			type: "POST",
+			url: "/chatting/getNewChat.chat",
+			data: {
+
+				"max": max,
+				"roomIdx": roomseq
+			},
+			success: function(result) {
+				if (result == "") {
+					return false;
+				}
+				for (let i = 0; i < result.length; i++) {
+					let ajaxresult = JSON.parse(JSON.stringify(result[i]));
+
+					//					$(".received_msg").append( "<div class = 'received_withd_msg'>"
+					//					+ajaxresult.chatId+"</div>");
+					$("#max").val(ajaxresult.max);
+					if ("<%=userId%>" != ajaxresult.fromId) {
+
+						$(".msg_history").append('<div class="incoming_msg">' +
+							'<div class="incoming_msg_img">' +
+							'<img src="https://ptetutorials.com/images/user-profile.png"alt="sunil">' +
+							'</div>' +
+							'<div class="received_msg" style =" padding:15px" >' +
+							'<div class="received_withd_msg">' +
+							'<span class="time_date">' + ajaxresult.fromId + '</span>' +
+							'<p id = "plz">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>' +
+							'</div>');
+					} else {
+						$(".msg_history").append('<div class="outgoing_msg">' +
+							'<div class="sent_msg">' +
+							'<span class="time_date" >' + ajaxresult.fromId + '</span>' +
+							'<p id = "shit">' + ajaxresult.contents + '</p>' +
+							'<span class="time_date">' + ajaxresult.chatTime + '</span>' +
+							'</div>' +
+							'</div>')
+					}
+
+					//					$(".outgoing_msg").append( "<div class='sent_msg'>"+
+					//									'<p id = "shit">'+ajaxresult.contents+'</p>'+
+					//							"</div>" );
+					ajaxresult.contents = '';
+
+				}
+			
+			},
+			error: function(result) {
+				console.log(result);
+			}
+
+		});
+//		updateMaxValue(newMaxValue);
+	}
+
+	
 </script>
+
+
+
 
 
 
