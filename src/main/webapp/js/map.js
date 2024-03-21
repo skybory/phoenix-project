@@ -132,41 +132,48 @@ document.addEventListener('DOMContentLoaded', function() {
  
 // 주소 비교 함수
 function checkChanges() {
+	alert("dg");
 	// 세션에서 이전 사용자 주소 가져오기
 	var oldUserAddress = document.getElementById('oldUserAddress').value;
 
 	// 화면에서 사용자 입력 주소 가져오기
 	var userAddress = document.getElementById('userAddress').value;
-
+alert(oldUserAddress);
 	// 이전 주소와 현재 주소 비교
 	if (oldUserAddress !== userAddress) {
 		document.getElementById('oldAddress').innerText = "이전 주소: " + oldUserAddress;
 		document.getElementById('currentAddress').innerText = "현재 주소: " + userAddress;
 
 		// 변경된 내용이 있을 경우 모달 창 띄우기
-		$('#changesModal').modal('show');
+		        $('#changesModal').modal('show');
+    } else {
+        // 변경된 내용이 없는 경우 alert 창 띄우기
+        alert('변경된 내용이 없습니다.');
 	}
 }
 
 // 폼 제출 함수
 function sendit() {
-	// 상세주소를 가져옴
-	var detailAddress = document.getElementById('detailAddress').value.trim();
+	// 전체주소
+	var userAddress = document.getElementById('userAddress').value.trim();
 
-	// 상세주소가 비어 있는지 확인
-	if (detailAddress === '') {
+	// 전체주소가 비어 있는지 확인
+	if (userAddress === '') {
 		alert('상세주소를 입력해주세요.');
 		return false;
 	}
 
-	// 변경사항 확인 여부 체크
-	if (document.getElementById('confirmChanges').checked) {
+	// 값 있는지 확인
+	if ( userAddress != "") {
 		// 변경사항 확인되었으면 폼 제출
+		
+		document.getElementById('addressForm').action = '/user/UserupdateAddressAction.us';
 		document.getElementById('addressForm').submit();
 	} else {
 		// 변경사항 확인되지 않았으면 알림 출력
 		alert('변경사항을 확인해주세요.');
 	}
+	
 }
 
 function validcheck() {
@@ -202,14 +209,4 @@ confirmChangesCheckBox.addEventListener('click', function() {
 function checkChange() {
 
 }
-//agreementCheckbox.addEventListener('click', function() {
-//	if (agreementCheckbox.checked) {
-//		if (validcheck() == false) {
-//			agreementCheckbox.checked = false;
-//		} else {
-//			alert('개인정보 수집 및 이용에 동의하셨습니다.');
-//		}
-//	} else {
-//		alert('개인정보 수집 및 이용에 동의를 철회하셨습니다.');
-//	}
-//});
+ 

@@ -219,7 +219,7 @@ if (udto != null) {
 
 			<div class="row gx-5 justify-content-center">
 				<div class="col-lg-8 col-xl-6">
-					<form id="addressForm" action="/user/UserupdateAddressAction.us"
+					<form id="addressForm" action=""
 						method="post">
 						<div class="form-group">
 							<label for="postcode">우편번호</label> <input type="text"
@@ -238,8 +238,10 @@ if (udto != null) {
 						</div>
 						<input type="hidden" name="userAddress" id="userAddress">
 						<button class="btn btn-success btn-lg btn-block" type="button" onclick="searchAddress()" >주소 찾기</button>
+						<input type="button" class="btn btn-primary btn-lg btn-block" onclick="checkChanges()">
+						
 						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="sendit();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
+							onclick="checkChanges();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
 					</form>
 				</div>
 			</div>
@@ -309,8 +311,7 @@ if (udto != null) {
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">다시 입력하기</button>
 					<button type="button" class="btn btn-primary"
-					type="submit" onclick="sendit();" id="submitButton">변경
-								완료</button>
+					type="submit" onclick="sendit();" id="submitButton">제출</button>
 				</div>
 			</div>
 		</div>
