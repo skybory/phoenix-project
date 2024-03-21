@@ -47,28 +47,28 @@
 }
 /* 기본 스타일 */
 .btn-primary {
-<<<<<<< HEAD
+
    background-color: #427638;
    border-color: #427638;
    color: #FFFFFF;
    transition: all 0.3s ease;
-=======
+
 	background-color: #427638;
 	border-color: #427638;
 	color: #FFFFFF;
 	transition: all 0.3s ease;
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 }
 
 /* Hover 시 색상이 진해짐 */
 .btn-primary:hover {
-<<<<<<< HEAD
+
    background-color: #325028;
    border-color: #325028;
-=======
+
 	background-color: #325028;
 	border-color: #325028;
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 }
 
 /* Click 시 그림자 효과 추가 */
@@ -87,7 +87,7 @@
 /* 그림자 효과를 추가할 헤더 */
 header {
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 속성 */
-=======
+
 	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -101,12 +101,12 @@ header {
 /* 그림자 효과를 추가할 헤더 */
 header {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 속성 */
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 }
 
 /* 페이지 전체 배경 색상 설정 */
 body {
-<<<<<<< HEAD
+
    background-color: #FFF8D5;
 }
 
@@ -114,14 +114,14 @@ body {
    margin-top: 20px;
 } /* 적절한 간격으로 조정하세요 */
 
-=======
+
 	background-color: #FFF8D5;
 }
 
 .header-container {
 	margin-top: 20px;
 } /* 적절한 간격으로 조정하세요 */
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -162,7 +162,7 @@ if (udto != null) {
 
 </head>
 <body class="d-flex flex-column h-100"
-<<<<<<< HEAD
+
    style="background-color: #FFF8D5;">
    <main class="flex-shrink-0">
       <!-- 상단바 -->
@@ -198,8 +198,7 @@ if (udto != null) {
                      href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
                   <li class="nav-item"><a class="nav-link"
                      href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
-=======
-	style="background-color: #FFF8D5;">
+
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -234,7 +233,6 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 
                   <%
                   } else {
@@ -266,13 +264,10 @@ if (udto != null) {
                   </li>
 
 
-<<<<<<< HEAD
                   <li class="nav-item"><a class="nav-link" id="userGreeting"
                      href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
-=======
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
 							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 
                   <%
                   }
@@ -282,7 +277,6 @@ if (udto != null) {
          </div>
       </nav>
 
-<<<<<<< HEAD
       <header class="lemon-bg py-5 container px-5"
          style="background-color: #FFFFFF; padding: 4vw 4vw 4vw 4vw; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0.1); max-width: 1200px; max-height: 100vh; margin: 0 auto;">
 
@@ -321,8 +315,6 @@ if (udto != null) {
       </header>
 
 
-
-=======
 		<header class="lemon-bg py-5 container px-5"
 			style="background-color: #FFFFFF; padding: 4vw 4vw 4vw 4vw; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0.1); max-width: 1200px; max-height: 100vh; margin: 0 auto;">
 
@@ -490,7 +482,6 @@ if (udto != null) {
 	<!-- Core theme JS-->
 		<script src="../js/map.js"></script>
 		<script src="../js/all.js"></script>
->>>>>>> 1463f8b11f98faf6eb44be010bedb7e9372d7e6c
 
 
       <!-- Features section-->
