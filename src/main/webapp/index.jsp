@@ -45,6 +45,46 @@
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+/* 기본 스타일 */
+.btn-primary {
+	background-color: #427638;
+	border-color: #427638;
+	color: #FFFFFF;
+	transition: all 0.3s ease;
+}
+
+/* Hover 시 색상이 진해짐 */
+.btn-primary:hover {
+	background-color: #325028;
+	border-color: #325028;
+}
+
+/* Click 시 그림자 효과 추가 */
+.btn-primary:active {
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-section {
+	text-align: center; /* 모든 푸터 섹션을 가운데 정렬합니다. */
+}
+
+.footer-section .text-left {
+	text-align: left; /* 내용을 왼쪽 정렬합니다. */
+}
+/* 그림자 효과를 추가할 헤더 */
+header {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 속성 */
+}
+
+/* 페이지 전체 배경 색상 설정 */
+body {
+	background-color: #FFF8D5;
+}
+
+.header-container {
+	margin-top: 20px;
+} /* 적절한 간격으로 조정하세요 */
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -84,7 +124,8 @@ if (udto != null) {
 
 
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100"
+	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -151,7 +192,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -161,29 +202,31 @@ if (udto != null) {
 			</div>
 		</nav>
 
-		<!-- Header-->
-		<header class="lemon-bg py-5">
+		<header class="lemon-bg py-5 container px-5"
+			style="background-color: #FFFFFF; padding: 4vw 4vw 4vw 4vw; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0.1); max-width: 1200px; max-height: 100vh; margin: 0 auto;">
+
 			<div class="container px-5">
 				<div name=val
 					class="row gx-5 align-items-center justify-content-center">
-
-
 					<div class="col-lg-8 col-xl-7 col-xxl-6">
 						<div class="my-5 text-center text-xl-start">
-							<h1 name="val" class="display-5 fw-bolder text-black mb-2">당신
-								근처의 지역 생활 커뮤니티</h1>
-							<%
-
-							%>
-							<p class="lead fw-normal text-gray-50 mb-4">
+							<h1 name="val" class="display-6 fw-bolder text-dark mb-2"
+								style="color: #427638; font-size: 2rem;">
+								당신 근처의 지역 생활<br>커뮤니티
+							</h1>
+							<p class="lead fw-normal text-gray-50 mb-5"
+								style="font-size: 1.2rem;">
 								동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
-									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr">물건 등록하기</a> <a
-									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지
-									고민중...</a>
+									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr"
+									style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;"
+									onmouseover="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';"
+									onmouseout="this.style.backgroundColor='#F0CF1F'; this.style.borderColor='#F0CF1F';"
+									onclick="this.style.backgroundColor='#E1BE0E'; this.style.borderColor='#E1BE0E';">물건
+									등록하기</a>
 							</div>
 						</div>
 					</div>
@@ -195,36 +238,117 @@ if (udto != null) {
 				</div>
 			</div>
 		</header>
+
+
+
+
+
 		<!-- Features section-->
 		<section class="py-5" id="features">
-			<div class="container px-5 my-5">
+			<div class="row justify-content-center">
 				<div class="row gx-5">
-					<div class="col-lg-4 mb-5 mb-lg-0">
+
+					<div class="col-lg-4 mb-5 text-center mx-auto">
 						<h2 class="fw-bolder mb-0">현재 판매중인 물건들이에요!</h2>
 					</div>
-					
-					
- 
+
+
+					<div class="container px-5 my-5">
+						<div class="row gx-5 justify-content-center">
+							<c:choose>
+								<c:when test="${not empty productList}">
+									<c:forEach var="product" items="${productList}">
+										<!-- Pricing card -->
+										<div class="col-lg-6 col-xl-4 mb-4">
+											<div class="card mb-5 mb-xl-0">
+												<div class="card-body p-5">
+													<a
+														href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
+														class="card-link"> <!-- 상품 이미지 --> <img
+														src="${product.productImage}" alt="Product Image"
+														alt="Product Image" class="card-img mb-3"
+														style="width: 250px; height: 250px;"> <!-- 상품명 -->
+														<h4 class="card-title">
+															<c:choose>
+																<c:when test="${fn:length(product.productTitle) <= 10}">
+                                                    ${product.productTitle}
+                                                </c:when>
+																<c:otherwise>
+                                                    ${fn:substring(product.productTitle, 0, 10)}...
+                                                </c:otherwise>
+															</c:choose>
+														</h4>
+														<div class="mb-3">
+															<!-- 상품가격 -->
+															<span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
+														</div> <!-- 지역 -->
+														<p class="text-muted mb-4">${product.productLocation}</p>
+														<!-- 찜하기, 채팅 개수 -->
+														<div
+															class="d-flex justify-content-between align-items-center">
+															<p class="text-muted mb-0">관심:
+																${product.productInterestCount}</p>
+															<p class="text-muted mb-0">채팅:
+																${product.productChatCount}</p>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<div class="col-12 text-center">
+										<p>등록된 상품이 없습니다.</p>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</div>
+		</section>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
+
+
+	<footer class="bg-light text-dark py-4"
+		style="background-color: #DFDFDF;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- 회사명 -->
+				<div class="col-md-4 text-center">
+					<h5>회사명</h5>
+					<p class="text-left">(주)레몬마켓</p>
 				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
+				<!-- 링크 -->
+				<div class="col-md-4 text-center">
+					<h5>제공되는 서비스</h5>
+					<ul class="list-unstyled text-left">
+						<li><a
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+						<li><a href="/product/chatting.jsp">채팅</a></li>
+					</ul>
+				</div>
+				<!-- 소셜 미디어 -->
+				<div class="col-md-4 text-center">
+					<h5>SNS</h5>
+					<ul class="list-unstyled text-left">
+						<li><a href="https://www.facebook.com">Facebook</a></li>
+						<li><a href="https://twitter.com">Twitter</a></li>
+						<li><a href="https://www.instagram.com">Instagram</a></li>
+						<li><a href="https://www.youtube.com">Youtube</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</footer>
+
+
+
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

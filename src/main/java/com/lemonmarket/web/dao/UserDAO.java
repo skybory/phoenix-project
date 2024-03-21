@@ -47,7 +47,7 @@ public class UserDAO {
 
 	// 주어진 사용자 ID의 중복 여부를 확인하는 메소드
 	public boolean checkId(String userId) {
-		boolean result = false; // 중복 여부를 저장할 변수 초기화
+		boolean result = false; 
 		int cnt = 0; // 데이터베이스에서 조회된 레코드 수를 저장할 변수
 
 		// MyBatis를 사용해 주어진 사용자 ID의 레코드 수 조회

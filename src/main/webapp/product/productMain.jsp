@@ -61,9 +61,9 @@ String userId = null;
 int userAccount = 0;
 
 if (udto != null) {
-   userId = udto.getUserId();
-   userName = udto.getUserName();
-   userAccount = udto.getUserAccount();
+	userId = udto.getUserId();
+	userName = udto.getUserName();
+	userAccount = udto.getUserAccount();
 }
 %>
 <head>
@@ -113,8 +113,8 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
 						<%
-                  if (udto == null) {
-                  %>
+						if (udto == null) {
+						%>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo"
 							onclick="showAlert()">카테고리</a></li>
@@ -129,8 +129,8 @@ if (udto != null) {
 							href="${pageContext.request.contextPath}/board/Join.bo">회원가입</a></li>
 
 						<%
-                  } else {
-                  %>
+						} else {
+						%>
 
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
@@ -162,8 +162,8 @@ if (udto != null) {
 							href="/user/UserLogoutAction.us">로그아웃</a></li>
 
 						<%
-                  }
-                  %>
+						}
+						%>
 					</ul>
 				</div>
 			</div>
@@ -197,7 +197,7 @@ if (udto != null) {
 		</section>
 
 
-		<section class="bg-light py-2">
+		<section class="bg-white py-2">
 			<div class="container px-5 my-5">
 				<div class="row gx-5 justify-content-center">
 					<c:choose>
@@ -239,7 +239,7 @@ if (udto != null) {
 										</div>
 									</div>
 								</div>
-								 
+
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
@@ -274,21 +274,38 @@ if (udto != null) {
 		</c:if>
 		</section>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
+	<footer class="bg-light text-dark py-4"
+		style="background-color: #DFDFDF;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<!-- 회사명 -->
+				<div class="col-md-4 text-center">
+					<h5>회사명</h5>
+					<p class="text-left">(주)레몬마켓</p>
 				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
+				<!-- 링크 -->
+				<div class="col-md-4 text-center">
+					<h5>제공되는 서비스</h5>
+					<ul class="list-unstyled text-left">
+						<li><a
+							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+						<li><a href="/product/chatting.jsp">채팅</a></li>
+					</ul>
+				</div>
+				<!-- 소셜 미디어 -->
+				<div class="col-md-4 text-center">
+					<h5>SNS</h5>
+					<ul class="list-unstyled text-left">
+						<li><a href="https://www.facebook.com">Facebook</a></li>
+						<li><a href="https://twitter.com">Twitter</a></li>
+						<li><a href="https://www.instagram.com">Instagram</a></li>
+						<li><a href="https://www.youtube.com">Youtube</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

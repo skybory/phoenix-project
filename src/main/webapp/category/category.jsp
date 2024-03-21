@@ -178,7 +178,8 @@ if (udto != null) {
 
 
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100"
+	style="background-color: #FFF8D5;">
 	<main class="flex-shrink-0">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -212,42 +213,43 @@ if (udto != null) {
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+							href="${pageContext.request.contextPath}/board/Join.bo"">
+	회원가입
+	</a>
+	</li>
 
-						<%
+	<%
 						} else {
 						%>
 
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-								동네 바꾸기</a></li>
-						<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="userGreeting" href=""
-							role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=userName%>님(<%=userId%>)
-								안녕하세요</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
-								<li><a class="dropdown-item" href="blog-post.jsp">잔액 :
-										<%=userAccount%>원
-								</a></li>
-							</ul></li>
-						<li class="nav-item dropdown">
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-							</ul>
-						</li>
+	<li class="nav-item"><a class="nav-link"
+		href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+	<li class="nav-item"><a class="nav-link"
+		href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+	<!--     로그인이 되어있을 때 나오는 값 -->
+	<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+			동네 바꾸기</a></li>
+	<!-- 		이거쓸꺼면 마이페이지 바로뒤에 붙여야함 -->
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+		id="userGreeting" href="" role="button" data-bs-toggle="dropdown"
+		aria-expanded="false"><%=userName%>님(<%=userId%>) 안녕하세요</a>
+		<ul class="dropdown-menu dropdown-menu-end"
+			aria-labelledby="navbarDropdownBlog">
+			<li><a class="dropdown-item" href="/board/MyPage.bo">마이페이지</a></li>
+			<li><a class="dropdown-item" href="blog-post.jsp">잔액 : <%=userAccount%>원
+			</a></li>
+		</ul></li>
+	<li class="nav-item dropdown">
+		<ul class="dropdown-menu dropdown-menu-end"
+			aria-labelledby="navbarDropdownPortfolio">
+		</ul>
+	</li>
 
 
-						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+	<li class="nav-item"><a class="nav-link" id="userGreeting"
+		href="/user/UserLogoutAction.us">로그아웃</a></li>
 
-						<%
+	<%
 						}
 						%>
 					</ul>
@@ -341,31 +343,11 @@ if (udto != null) {
 		</section>
 
 
-		<!-- Footer-->
-		<footer class="bg-dark py-4 mt-auto">
-			<div class="container px-5">
-				<div
-					class="row align-items-center justify-content-between flex-column flex-sm-row">
-					<div class="col-auto">
-						<div class="small m-0 text-white">Copyright &copy; Your
-							Website 2023</div>
-					</div>
-					<div class="col-auto">
-						<a class="link-light small" href="#!">Privacy</a> <span
-							class="text-white mx-1">&middot;</span> <a
-							class="link-light small" href="#!">Terms</a> <span
-							class="text-white mx-1">&middot;</span> <a
-							class="link-light small" href="#!">Contact</a>
-					</div>
-				</div>
-			</div>
-
-		</footer>
-		<!-- Bootstrap core JS-->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="js/scripts.js"></script>
-		<script src="../js/all.js"></script>
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script src="js/scripts.js"></script>
+	<script src="../js/all.js"></script>
 </body>
 </html>

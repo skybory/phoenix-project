@@ -111,72 +111,70 @@ if (udto != null) {
 
 </head>
 <body class="d-flex flex-column h-100">
-	<main class="flex-shrink-0">
-		<!-- 상단바 -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container px-5">
-				<img
-					src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-					alt="Logo" class="img-fluid" id="lemonLogo"> <a
-					class="navbar-brand"
-					href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
-						<%
-						if (udto == null) {
-						%>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo"
-							onclick="showAlert()">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo"
-							onclick="showAlert()">중고거래</a></li>
+	<!-- 상단바 -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container px-5">
+			<img src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
+				alt="Logo" class="img-fluid" id="lemonLogo"> <a
+				class="navbar-brand"
+				href="${pageContext.request.contextPath}/index.jsp">레몬 마켓</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+					<%
+					if (udto == null) {
+					%>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Login.bo"
+						onclick="showAlert()">카테고리</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Login.bo"
+						onclick="showAlert()">중고거래</a></li>
 
-						<!--         로그인이 안되어있을때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
+					<!--         로그인이 안되어있을때 나오는 값 -->
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Login.bo">로그인</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Join.bo"">회원가입</a></li>
 
-						<%
-						} else {
-						%>
+					<%
+					} else {
+					%>
 
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
-						<!--     로그인이 되어있을 때 나오는 값 -->
-						<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
-								동네 바꾸기</a></li>
-						<li class="nav-item" id="userGreetingLi"><a class="nav-link"
-							id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
-								안녕하세요
-						</a></li>
-						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us">로그아웃</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+					<!--     로그인이 되어있을 때 나오는 값 -->
+					<li class="nav-item"><a class="nav-link" href="/board/Map.bo">내
+							동네 바꾸기</a></li>
+					<li class="nav-item" id="userGreetingLi"><a class="nav-link"
+						id="userGreeting" href="/board/MyPage.bo"> <%=userName%>님(<%=userId%>)
+							안녕하세요
+					</a></li>
+					<li class="nav-item"><a class="nav-link" id="userGreeting"
+						href="/user/UserLogoutAction.us">로그아웃</a></li>
 
-						<%
-						}
-						%>
-					</ul>
-				</div>
+					<%
+					}
+					%>
+				</ul>
 			</div>
-		</nav>
-		<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
-		<div class="container text-center my-4">
-			<h1 class="page-title"><%= cdto.getCategoryName() %>
-				목록
-			</h1>
 		</div>
+	</nav>
+	<!-- 상품 리스트 바로 위에 타이틀을 추가합니다 -->
+	<div class="container text-center my-4">
+		<h1 class="page-title"><%=cdto.getCategoryName()%>
+			목록
+		</h1>
+	</div>
 
 		<section>
 			<div class="row gx-5 justify-content-center">
@@ -217,71 +215,90 @@ if (udto != null) {
 									</div>
 								</div>
 							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div class="col-12 text-center">
-							<p>등록된 상품이 없습니다.</p>
 						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
-			<!-- Pagination -->
-			<c:if test="${totalPage > 1}">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center mt-4">
-						<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
-							class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div class="col-12 text-center">
+						<p>등록된 상품이 없습니다.</p>
+					</div>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<!-- Pagination -->
+		<c:if test="${totalPage > 1}">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center mt-4">
+					<li class="page-item ${nowPage == 1 ? 'disabled' : ''}"><a
+						class="page-link" href="?page=${nowPage - 1}" tabindex="-1">Previous</a>
+					</li>
+					<c:forEach begin="${startPage}" end="${endPage}" step="1"
+						varStatus="loop">
+						<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
+							<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
 						</li>
-						<c:forEach begin="${startPage}" end="${endPage}" step="1"
-							varStatus="loop">
-							<li class="page-item ${nowPage == loop.index ? 'active' : ''}">
-								<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
-							</li>
-						</c:forEach>
-						<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
-							<a class="page-link" href="?page=${nowPage + 1}">Next</a>
-						</li>
-					</ul>
-				</nav>
-			</c:if>
-		</section>
+					</c:forEach>
+					<li class="page-item ${nowPage == totalPage ? 'disabled' : ''}">
+						<a class="page-link" href="?page=${nowPage + 1}">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</c:if>
+	</section>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
+</body>
+
+<footer class="bg-light text-dark py-4"
+	style="background-color: #DFDFDF;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- 회사명 -->
+			<div class="col-md-4 text-center">
+				<h5>회사명</h5>
+				<p class="text-left">(주)레몬마켓</p>
+			</div>
+			<!-- 링크 -->
+			<div class="col-md-4 text-center">
+				<h5>제공되는 서비스</h5>
+				<ul class="list-unstyled text-left">
+					<li><a
+						href="${pageContext.request.contextPath}/board/About.bo">소개</a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/board/Category.bo">카테고리</a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/board/Product.bo">중고거래</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/Map.bo">위치찾기</a></li>
+					<li><a href="/product/chatting.jsp">채팅</a></li>
+				</ul>
+			</div>
+			<!-- 소셜 미디어 -->
+			<div class="col-md-4 text-center">
+				<h5>SNS</h5>
+				<ul class="list-unstyled text-left">
+					<li><a href="https://www.facebook.com">Facebook</a></li>
+					<li><a href="https://twitter.com">Twitter</a></li>
+					<li><a href="https://www.instagram.com">Instagram</a></li>
+					<li><a href="https://www.youtube.com">Youtube</a></li>
+				</ul>
 			</div>
 		</div>
-	</footer>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="product.js"></script>
-	<script>
-		// 		function redirectToProductDetail() {
-		// 			window.location.href = 'product_detail.jsp';
-		// 		}
+	</div>
+</footer>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="product.js"></script>
+<script>
+	// 		function redirectToProductDetail() {
+	// 			window.location.href = 'product_detail.jsp';
+	// 		}
 
-		function addInterest() {
-			var interestCountElement = document.getElementById("interestCount");
-			var currentCount = parseInt(interestCountElement.innerText);
-			var newCount = currentCount + 1;
-			interestCountElement.innerText = newCount;
-		}
-	</script>
-</body>
+	function addInterest() {
+		var interestCountElement = document.getElementById("interestCount");
+		var currentCount = parseInt(interestCountElement.innerText);
+		var newCount = currentCount + 1;
+		interestCountElement.innerText = newCount;
+	}
+</script>
 <script src="../js/all.js"></script>
 </html>
