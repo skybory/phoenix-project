@@ -171,12 +171,73 @@ if (udto != null) {
 			</div>
 		</nav>
 		<!-- Header-->
+		
+		
+		
+		
+		<!-- Team members section-->
+		<section class="py-5 bg-light">
+			<div class="container px-5 my-5">
+				<div class="text-center">
+					<h2 class="fw-bolder">팀</h2>
+					<p class="lead fw-normal text-muted mb-5">팀 Pheonix불사조</p>
+				</div>
+				<div
+					class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-5 justify-content-center " style = "width : 100%">
+					<div class="col mb-5 mb-5 mb-xl-0">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/ceo.jpg" alt="About Image" />
+							<h5 class="fw-bolder">김태연</h5>
+							<div class="fst-italic text-muted">팀장 &amp; 메인페이지 &amp; 총괄 매니지먼트</div>
+						</div>
+					</div>
+					<div class="col mb-5 mb-5 mb-xl-0">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cio.jpg" alt="About Image" />
+							<h5 class="fw-bolder">Sooyoung Jo</h5>
+							<div class="fst-italic text-muted">CIO &amp; CTO</div>
+						</div>
+					</div>
+					<div class="col mb-5 mb-5 mb-sm-0">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cfo.png" alt="About Image" />
+							<h5 class="fw-bolder">Jeonggyeom Kim</h5>
+							<div class="fst-italic text-muted">CFO &amp; CPO</div>
+						</div>
+					</div>
+					<div class="col mb-5">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/coo.jpg" alt="About Image" />
+							<h5 class="fw-bolder">Jisoo Lee</h5>
+							<div class="fst-italic text-muted">CKO &amp; COO</div>
+						</div>
+					</div>
+					<div class="col mb-5">
+						<div class="text-center">
+							<img class="img-fluid team-member" style="width:100px; height:100px;"
+								src="/about/cso.png" alt="About Image" />
+							<h5 class="fw-bolder">Dongjun Shin</h5>
+							<div class="fst-italic text-muted">CSO</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		
+		
+		
 		<header class="py-5">
 			<div class="container px-5">
 				<div class="row justify-content-center">
 					<div class="col-lg-8 col-xxl-6">
 						<div class="text-center my-5">
-							<h1 class="fw-bolder mb-3">Our mission is to make building
+							<h1 class="fw-bolder mb-3">` mission is to make building
 								websites easier for everyone.</h1>
 							<p class="lead fw-normal text-muted mb-4">Start Bootstrap was
 								built on the idea that quality, functional website templates and
@@ -228,58 +289,7 @@ if (udto != null) {
 				</div>
 			</div>
 		</section>
-		<!-- Team members section-->
-		<section class="py-5 bg-light">
-			<div class="container px-5 my-5">
-				<div class="text-center">
-					<h2 class="fw-bolder">팀</h2>
-					<p class="lead fw-normal text-muted mb-5">팀 Pheonix불사조</p>
-				</div>
-				<div
-					class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-5 justify-content-center " style = "width : 100%">
-					<div class="col mb-5 mb-5 mb-xl-0">
-						<div class="text-center">
-							<img class="img-fluid team-member" style="width:100px; height:100px;"
-								src="/about/ceo.jpg" alt="About Image" />
-							<h5 class="fw-bolder">Taeyeon Kim</h5>
-							<div class="fst-italic text-muted">CEO &amp; Team Leader &amp; CAO</div>
-						</div>
-					</div>
-					<div class="col mb-5 mb-5 mb-xl-0">
-						<div class="text-center">
-							<img class="img-fluid team-member" style="width:100px; height:100px;"
-								src="/about/cio.jpg" alt="About Image" />
-							<h5 class="fw-bolder">Sooyoung Jo</h5>
-							<div class="fst-italic text-muted">CIO &amp; CTO</div>
-						</div>
-					</div>
-					<div class="col mb-5 mb-5 mb-sm-0">
-						<div class="text-center">
-							<img class="img-fluid team-member" style="width:100px; height:100px;"
-								src="/about/cfo.png" alt="About Image" />
-							<h5 class="fw-bolder">Jeonggyeom Kim</h5>
-							<div class="fst-italic text-muted">CFO &amp; CPO</div>
-						</div>
-					</div>
-					<div class="col mb-5">
-						<div class="text-center">
-							<img class="img-fluid team-member" style="width:100px; height:100px;"
-								src="/about/coo.jpg" alt="About Image" />
-							<h5 class="fw-bolder">Jisoo Lee</h5>
-							<div class="fst-italic text-muted">CKO &amp; COO</div>
-						</div>
-					</div>
-					<div class="col mb-5">
-						<div class="text-center">
-							<img class="img-fluid team-member" style="width:100px; height:100px;"
-								src="/about/cso.png" alt="About Image" />
-							<h5 class="fw-bolder">Dongjun Shin</h5>
-							<div class="fst-italic text-muted">CSO</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 	</main>
 	<!-- Footer-->
 	<footer class="bg-dark py-4 mt-auto">
