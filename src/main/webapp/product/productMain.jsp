@@ -53,6 +53,10 @@ a {
 #userGreetingLi {
    margin-left: 20px; /* 왼쪽 여백 설정 */
 }
+.test {
+	--bs-primary-rgb: 248, 249, 250;
+	--bs-light-rgb: #FFF8D5;
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -92,8 +96,8 @@ if (udto != null) {
 
 
 </head>
-<body class="d-flex flex-column h-100">
-   <main class="flex-shrink-0">
+<body class="d-flex flex-column h-100" style="background: #FFF8D5;">
+   <main class="flex-shrink-0" >
       <!-- 상단바 -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <div class="container px-5">
@@ -169,25 +173,25 @@ if (udto != null) {
          </div>
       </nav>
       <!-- Pricing section-->
-      <section class="bg-light py-1">
+      <section class="bg-light py-1 test" >
          <!-- py-1로 수정하여 위 아래의 패딩 값을 줄임 -->
-         <div class="container px-5 my-5">
-            <div class="text-center mb-5">
-               <h1 class="fw-bolder">믿을만한 이웃 간 중고거래</h1>
-               <p class="lead fw-normal text-muted mb-0">동네 주민들과 가깝고 따뜻한 거래를
+         <div class="container px-5 my-5" style="background: #FFF8D5;">
+            <div class="text-center mb-5" >
+               <h1 class="fw-bolder" >믿을만한 이웃 간 중고거래</h1>
+               <p class="lead fw-normal text-muted mb-0" >동네 주민들과 가깝고 따뜻한 거래를
                   지금 경험해보세요.</p>
             </div>
-            <div class="row gx-5 justify-content-center">
+            <div class="row gx-5 justify-content-center" >
                <!-- Banner -->
-               <section class="banner-section bg-primary py-3 mb-4">
-                  <div class="container px-4">
-                     <div class="row justify-content-center align-items-center">
-                        <div class="col-lg-8 text-center">
+               <section class="banner-section bg-primary py-3 mb-4" >
+                  <div class="container px-4" >
+                     <div class="row justify-content-center align-items-center" >
+                        <div class="col-lg-8 text-center" >
                            <span id="setLocation"></span>
-                           <p class="banner-text text-white-50">물건을 등록하시겠습니까?</p>
+                           <p class="banner-text text-black-0">물건을 등록하시겠습니까?</p>
                            <!-- 수정된 버튼 -->
                            <a class="btn btn-outline-light btn-lg"
-                              href="/product/ProductWriteBoard.pr">물건 등록하기</a>
+                              href="/product/ProductWriteBoard.pr" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">물건 등록하기</a>
                         </div>
                      </div>
                   </div>
@@ -197,9 +201,9 @@ if (udto != null) {
       </section>
 
 
-      <section class="bg-light py-2">
-         <div class="container px-5 my-5">
-            <div class="row gx-5 justify-content-center">
+      <section class="bg-light py-2 test" style="background: #FFF8D5;">
+         <div class="container px-5 my-5" style="background: #FFF8D5;">
+            <div class="row gx-5 justify-content-center" style="background: #FFF8D5;">
                <c:choose>
                   <c:when test="${not empty productList}">
                      <c:forEach var="product" items="${productList}">
@@ -275,7 +279,7 @@ if (udto != null) {
       </section>
    </main>
    <!-- Footer-->
-   <footer class="bg-dark py-4 mt-auto">
+ <!--   <footer class="bg-dark py-4 mt-auto">
       <div class="container px-5">
          <div
             class="row align-items-center justify-content-between flex-column flex-sm-row">
@@ -292,7 +296,7 @@ if (udto != null) {
             </div>
          </div>
       </div>
-   </footer>
+   </footer> -->
    <!-- Bootstrap core JS-->
    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

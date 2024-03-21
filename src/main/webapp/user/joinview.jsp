@@ -112,7 +112,12 @@ button[type="submit"]:hover {
 	min-height: 100vh;
 	background: #FFF8D5;
 }
-
+/* .bg-primary {
+  background-color: rgb(var(--bs-primary-rgb));
+} */
+.test {
+	--bs-primary-rgb: 240, 207, 31;
+}
 /* 추가 스타일은 여기에 추가 */
 </style>
 <head>
@@ -332,7 +337,7 @@ button[type="submit"]:hover {
 		<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 			<div class="col">
 				<div
-					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 					<i class="bi bi-chat-dots" ></i>
 				</div>
 				<div class="h5 mb-2" >일대일 문의</div>
@@ -340,7 +345,7 @@ button[type="submit"]:hover {
 			</div>
 			<div class="col">
 				<div
-					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 					<i class="bi bi-people"></i>
 				</div>
 				<div class="h5">커뮤니티</div>
@@ -348,7 +353,7 @@ button[type="submit"]:hover {
 			</div>
 			<div class="col">
 				<div
-					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 					<i class="bi bi-question-circle"></i>
 				</div>
 				<div class="h5">서비스센터</div>
@@ -356,7 +361,7 @@ button[type="submit"]:hover {
 			</div>
 			<div class="col">
 				<div
-					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 					<i class="bi bi-telephone"></i>
 				</div>
 				<div class="h5">연락처</div>

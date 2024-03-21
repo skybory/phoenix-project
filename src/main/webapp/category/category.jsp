@@ -172,7 +172,7 @@ if (udto != null) {
 
 </head>
 <body class="d-flex flex-column h-100">
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0" style="background-color: #FFF8D5;">
 		<!-- 상단바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
@@ -272,7 +272,7 @@ if (udto != null) {
 
 
 		<!-- Footer-->
-		<footer class="bg-dark py-4 mt-auto">
+<!-- 		<footer class="bg-dark py-4 mt-auto">
 			<div class="container px-5">
 				<div
 					class="row align-items-center justify-content-between flex-column flex-sm-row">
@@ -290,7 +290,7 @@ if (udto != null) {
 				</div>
 			</div>
 
-		</footer>
+		</footer> -->
 		<!-- Bootstrap core JS-->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

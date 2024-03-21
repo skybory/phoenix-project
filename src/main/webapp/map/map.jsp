@@ -87,6 +87,13 @@ button {
 button:hover {
 	background-color: #45a049;
 }
+.test {
+	--bs-primary-rgb: 240, 207, 31;
+}
+.flex-column {
+	min-height: 100vh;
+	background: #FFF8D5;
+}
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -225,9 +232,9 @@ if (udto != null) {
 								id="detailAddress">
 						</div>
 						<input type="hidden" name="userAddress" id="userAddress">
-						<button type="button" onclick="searchAddress()">주소 찾기</button>
+						<button class="btn btn-success btn-lg btn-block" type="button" onclick="searchAddress()" >주소 찾기</button>
 						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="sendit();" id="submitButton">변경 완료</button>
+							onclick="sendit();" id="submitButton" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">변경 완료</button>
 					</form>
 				</div>
 			</div>
@@ -235,7 +242,7 @@ if (udto != null) {
 			<div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
 				<div class="col">
 					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-chat-dots"></i>
 					</div>
 					<div class="h5 mb-2">일대일 문의</div>
@@ -243,7 +250,7 @@ if (udto != null) {
 				</div>
 				<div class="col">
 					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-people"></i>
 					</div>
 					<div class="h5">커뮤니티</div>
@@ -251,7 +258,7 @@ if (udto != null) {
 				</div>
 				<div class="col">
 					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-question-circle"></i>
 					</div>
 					<div class="h5">서비스센터</div>
@@ -259,7 +266,7 @@ if (udto != null) {
 				</div>
 				<div class="col">
 					<div
-						class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+						class="feature bg-primary bg-gradient text-white rounded-3 mb-3 test">
 						<i class="bi bi-telephone"></i>
 					</div>
 					<div class="h5">연락처</div>
@@ -269,25 +276,7 @@ if (udto != null) {
 			</div>
 		</section>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
