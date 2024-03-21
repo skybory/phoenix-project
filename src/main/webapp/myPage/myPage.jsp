@@ -126,9 +126,11 @@ if (udto != null) {
     
    
     <!-- 구매내역 링크 -->
-   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매내역</a> 
+   <a class="button" href="${pageContext.request.contextPath}/user/PurchaseListAction.us">구매 완료 물품</a> 
     <!-- 판매내역 링크 -->
-    <a class="button" href="/user/SalesListAction.us">판매내역</a>
+    <a class="button" href="/user/SalesListAction.us">판매 완료 물품</a>
+<!--     판매중인 물품 링크 -->
+    <a class="button" href="/user/onSalesListAction.us">판매중인 물품</a>
     <!-- 찜 목록 링크 -->
     <a class="button" href="${pageContext.request.contextPath}/user/InterestListAction.us">찜 목록</a>
     <!-- 내 정보 링크 -->

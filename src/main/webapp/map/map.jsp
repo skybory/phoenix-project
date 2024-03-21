@@ -328,7 +328,8 @@ if (udto != null) {
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">다시 입력하기</button>
 					<button type="button" class="btn btn-primary"
-						id="confirmPurchaseBtn">확인 완료</button>
+					type="submit" onclick="sendit();" id="submitButton">변경
+								완료</button>
 				</div>
 			</div>
 		</div>

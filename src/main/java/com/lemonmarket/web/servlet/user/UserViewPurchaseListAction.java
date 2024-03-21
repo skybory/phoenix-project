@@ -25,7 +25,6 @@ public class UserViewPurchaseListAction implements Action {
         
         int userIdx = udto.getUserIdx();
         UserDAO udao = new UserDAO();
-//        ProductDTO pdto = new ProductDTO();
         List<ProductDTO> purchaseList = udao.getPurchaseList(userIdx);
         
         

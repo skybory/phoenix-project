@@ -143,4 +143,9 @@ public class UserDAO {
 		List<UserDTO> ProfileList =sqlSession.selectList("MyPage.getProfileList",userId);
 		return ProfileList;
 	}
+
+	public List<ProductDTO> getOnSalesList(int userIdx) {
+		List<ProductDTO> onSalesList = sqlSession.selectList("User.getOnSalesList", userIdx);
+		return onSalesList;
+	}
 }
