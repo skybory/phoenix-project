@@ -7,58 +7,58 @@
 <html lang="en">
 <style>
 body {
-   min-height: 100vh;
-   background: -webkit-gradient(linear, left bottom, right top, from(#92b5db),
-      to(#1d466c));
-   background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
-   background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
-   background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
-   background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);
+	min-height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, from(#92b5db),
+		to(#1d466c));
+	background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+	background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);
 }
 
 .input-form {
-   max-width: 680px;
-   margin-top: 80px;
-   padding: 32px;
-   background: #fff;
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   border-radius: 10px;
-   -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-   -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+	max-width: 680px;
+	margin-top: 80px;
+	padding: 32px;
+	background: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
 
 /* 입력 필드 기본 스타일 */
 input[type="text"], input[type="password"], input[type="email"] {
-   width: 100%;
-   padding: 10px;
-   margin-bottom: 16px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 /* 버튼 스타일 */
 button[type="submit"] {
-   width: 50%;
-   padding: 10px;
-   background-color: #007bff;
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
+	width: 50%;
+	padding: 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 button[type="submit"]:hover {
-   background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 .navbar {
-   margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .mb3 {
-   margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .lemon-bg {
@@ -100,6 +100,16 @@ button[type="submit"]:hover {
 	width: 50px; /* 원하는 너비로 조정 */
 	height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
+.flex-column {
+	min-height: 100vh;
+	background: #FFF8D5;
+}
+/* .input-form, .navbar, .input-form-backgroud {
+    background: none; /* 배경색 제거 */
+    /* 혹은 전체 배경색과 동일한 색으로 설정 */
+    background: #FFF8D5; /* 전체 배경색과 일치하는 노란색 코드 */
+} */
+
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -206,7 +216,7 @@ if (udto != null) {
 
 
 						<li class="nav-item"><a class="nav-link" id="userGreeting"
-							href="/user/UserLogoutAction.us" onclick = "showLog()">로그아웃</a></li>
+							href="/user/UserLogoutAction.us" onclick="showLog()">로그아웃</a></li>
 
 						<%
 						}
@@ -215,8 +225,8 @@ if (udto != null) {
 				</div>
 			</div>
 		</nav>
-		
-		
+
+
 		<div id="addressForm">
 			<c:if test="${not empty param.flag}">
 				<c:if test="${not param.flag}">
@@ -230,7 +240,7 @@ if (udto != null) {
 
 
 		<div class="input-form-backgroud row">
-			<div class="input-form col-md-12 mx-auto">
+			<div class="input-form col-md-12 mx-auto" style="background-color: #FFFFFF;">
 				<form
 					action="${pageContext.request.contextPath}/user/UserLoginAction.us"
 					method="post">
@@ -253,7 +263,7 @@ if (udto != null) {
 							</div>
 						</div>
 						<div class="mb-4"></div>
-						<button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
+						<button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">로그인</button>
 					</div>
 				</form>
 			</div>

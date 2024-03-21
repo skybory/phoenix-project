@@ -6,6 +6,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html lang="en">
 <style>
+a {
+   text-decoration: none !important;
+}
+
 .lemon-bg {
    background-color: #E5D85C;
 }
@@ -46,60 +50,9 @@
    height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
 }
 
-/* 추가된 이미지의 너비 조정 */
-/* .custom-card-img { */
-/*    width: 80%; /* 이미지의 너비를 80%로 설정합니다. */ */
-/*    max-width: 500px; /* 이미지의 최대 너비를 500px로 설정합니다. */ */
-/*    display: block; */
-/*    margin-left: auto; */
-/*    margin-right: auto; */
-/* } */
-
-/* .card-text-explain { */
-/*    word-wrap: break-word; */
-/* } */
-
-/* .card-body.custom-card-body { */
-/*    border-top: 0; /* 카드 본문의 위쪽 테두리를 없앱니다. */ */
-/* } */
-
-/* .card-img2 { */
-/*    width: 100%; /* 부모 요소에 꽉 차게 */ */
-/*    height: 200px; /* 원하는 높이로 지정 */ */
-/*    object-fit: cover; /* 이미지를 자르기 */ */
-/* } */
-
-/* /* 모든 상품명의 크기를 동일하게 설정합니다. */ */
-/* .card-title { */
-/*    font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ */
-/*    font-weight: bold; /* 원하는 글꼴 두께로 설정하세요 */ */
-/*    margin-bottom: 0.5rem; /* 하단 여백을 조절하세요 */ */
-/* } */
-
-/* .card-text-price { */
-/*    font-size: 1.5rem; /* 원하는 크기로 설정하세요 */ * 사용자 인사 메시지 스타일 */ #userGreeting */
-/*    { font-weight : bold; /* 굵게 설정 */ */
-/*    color: #FF5733; /* 글자 색상 설정 */ */
-/* } */
-
 #userGreetingLi {
    margin-left: 20px; /* 왼쪽 여백 설정 */
 }
-
-}
-/* .card-body.p-5 {
-   /* 고정된 높이와 너비를 설정하세요 */
-   width: 300px; /* 예시로 300px로 설정 */
-   height: 400px; /* 예시로 200px로 설정 */
-   /* 필요에 따라 추가적인 스타일을 적용하세요 */
-   overflow: hidden; /* 내용이 넘칠 경우 스크롤을 표시하지 않도록 설정 */
-   /* 필요에 따라 padding이나 margin을 조절하세요 */
-} */
-/* .card-img mb-3 {
-	width: 120px; /* 모든 이미지에 적용될 너비 */
-  	height: 120px; /* 모든 이미지에 적용될 높이 */
-  	object-fit: cover; /* 이미지가 컨테이너를 채우도록 설정합니다 */
-} */
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -257,9 +210,9 @@ if (udto != null) {
                                  <a
                                     href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
                                     class="card-link"> <!-- 상품 이미지 --> <img
-                                    <%--                                     src="${product.productImage}" alt="Product Image" --%>
-                                    src="${pageContext.request.contextPath}/picture/lemon_logo5.png"
-                                    alt="Product Image" class="card-img mb-3" style="width:250px; height:250px;"> <!-- 상품명 -->
+                                    src="${product.productImage}" alt="Product Image"
+                                    alt="Product Image" class="card-img mb-3"
+                                    style="width: 250px; height: 250px;"> <!-- 상품명 -->
                                     <h4 class="card-title">
                                        <c:choose>
                                           <c:when test="${fn:length(product.productTitle) <= 10}">
@@ -286,42 +239,7 @@ if (udto != null) {
                               </div>
                            </div>
                         </div>
-                        <!-- Pricing card -->
-                        <div class="col-lg-6 col-xl-4 mb-4">
-                           <div class="card mb-5 mb-xl-0">
-                              <div class="card-body p-5">
-                                 <a
-                                    href="/product/ViewDetailAction.pr?productIdx=${product.productIdx}"
-                                    class="card-link"> <!-- 상품 이미지 --> <img
-                                    <%--                                     src="${product.productImage}" alt="Product Image" --%>
-                                    src="${pageContext.request.contextPath}/product/123.png"
-                                    alt="Product Image" class="card-img mb-3" style="width:250px; height:250px;"> <!-- 상품명 -->
-                                    <h4 class="card-title">
-                                       <c:choose>
-                                          <c:when test="${fn:length(product.productTitle) <= 10}">
-                                                    ${product.productTitle}
-                                                </c:when>
-                                          <c:otherwise>
-                                                    ${fn:substring(product.productTitle, 0, 10)}...
-                                                </c:otherwise>
-                                       </c:choose>
-                                    </h4>
-                                    <div class="mb-3">
-                                       <!-- 상품가격 -->
-                                       <span class="fw-bold" style="font-size: 2rem;">${product.productPrice}</span>
-                                    </div> <!-- 지역 -->
-                                    <p class="text-muted mb-4">${product.productLocation}</p> <!-- 찜하기, 채팅 개수 -->
-                                    <div
-                                       class="d-flex justify-content-between align-items-center">
-                                       <p class="text-muted mb-0">관심:
-                                          ${product.productInterestCount}</p>
-                                       <p class="text-muted mb-0">채팅:
-                                          ${product.productChatCount}</p>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
+                         
                      </c:forEach>
                   </c:when>
                   <c:otherwise>

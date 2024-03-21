@@ -108,10 +108,13 @@ button[type="submit"]:hover {
 .mb3 {
 	margin-bottom: 30px;
 }
+.flex-column {
+	min-height: 100vh;
+	background: #FFF8D5;
+}
 
 /* 추가 스타일은 여기에 추가 */
 </style>
-
 <head>
 <link href="../css/styles.css" rel="stylesheet" />
 <link
@@ -301,7 +304,7 @@ button[type="submit"]:hover {
 						<div class="row">
 							<div class="col-md-6">
 								<button type="button" onclick="searchAddress()"
-									class="btn btn-primary">주소 찾기</button>
+									class="btn btn-primary" style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">주소 찾기</button>
 								<input type="hidden" name="userAddress" id="userAddress">
 							</div>
 						</div>
@@ -319,7 +322,7 @@ button[type="submit"]:hover {
 						</div>
 						<div class="mb-4"></div>
 						<button class="btn btn-primary btn-lg btn-block" type="submit"
-							onclick="sendit();" id="submitButton" disabled>가입완료</button>
+							onclick="sendit();" id="submitButton" disabled style="background-color: #F0CF1F; border-color: #F0CF1F; color: #000000;">가입완료</button>
 					</div>
 				</div>
 			</div>
@@ -330,9 +333,9 @@ button[type="submit"]:hover {
 			<div class="col">
 				<div
 					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-					<i class="bi bi-chat-dots"></i>
+					<i class="bi bi-chat-dots" ></i>
 				</div>
-				<div class="h5 mb-2">일대일 문의</div>
+				<div class="h5 mb-2" >일대일 문의</div>
 				<p class="text-muted mb-0">일대일 채팅으로 상담 해드립니다. 문의 주세요.</p>
 			</div>
 			<div class="col">
@@ -361,25 +364,7 @@ button[type="submit"]:hover {
 			</div>
 		</div>
 	</main>
-	<!-- Footer-->
-	<footer class="bg-dark py-4 mt-auto">
-		<div class="container px-5">
-			<div
-				class="row align-items-center justify-content-between flex-column flex-sm-row">
-				<div class="col-auto">
-					<div class="small m-0 text-white">Copyright &copy; Your
-						Website 2023</div>
-				</div>
-				<div class="col-auto">
-					<a class="link-light small" href="#!">Privacy</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Terms</a> <span
-						class="text-white mx-1">&middot;</span> <a
-						class="link-light small" href="#!">Contact</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
