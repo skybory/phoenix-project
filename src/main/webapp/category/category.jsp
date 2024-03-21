@@ -135,6 +135,11 @@ a {
 	font-size: 0.9rem; /* 폰트 크기 조정 */
 	color: #333;
 }
+    .total-items {
+       float: right;
+        font-size: 18px;
+        color: red;
+    }
 </style>
 <%
 UserDTO udto = (UserDTO) session.getAttribute("userDTO");
@@ -285,8 +290,9 @@ if (udto != null) {
 			<!-- 최상단에 표시할 내용 -->
 			<div class="col-6">
 				<p>
-					총 물품 수:
-					<%=productCnt %></p>
+					<div class="total-items">
+    총 물품 수: <%=productCnt %>
+</div>
 			</div>
 			<section class="bg-light py-2">
 				<div class="container px-5 my-5">

@@ -96,7 +96,6 @@ if (udto != null) {
 
 
 </head>
-<<<<<<< HEAD
 <body class="d-flex flex-column h-100" style="background: #FFF8D5;">
    <main class="flex-shrink-0" >
       <!-- 상단바 -->
