@@ -478,6 +478,6 @@ if (udto != null) {
 
 
 </body>
-<script src="./product/product.js"></script>
+<script src="../js/product.js"></script>
 <script src="../js/all.js"></script>
 </html>
