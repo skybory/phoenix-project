@@ -118,11 +118,15 @@ public class ProductDAO {
 		// TODO Auto-generated method stub
 		sqlSession.update("Product.downInterest",list);
 	}
+<<<<<<< HEAD
+	
+=======
 
 
 	public int getProductCntByCategoryIdx(int categoryIdx) {
 		int productCnt = sqlSession.selectOne("Product.getProductCntByCategoryIdx", categoryIdx);
 		return productCnt;
 	}
+>>>>>>> ceb448d90870cf2eb78ab6e9291773938e914804
 	
 }

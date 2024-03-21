@@ -172,18 +172,22 @@ if (udto != null) {
 						<div class="my-5 text-center text-xl-start">
 							<h1 name="val" class="display-5 fw-bolder text-black mb-2">당신
 								근처의 지역 생활 커뮤니티</h1>
-							<%
-
-							%>
 							<p class="lead fw-normal text-gray-50 mb-4">
 								동네라서 가능한 모든 것<br>당근에서 가까운 이웃과 함께해요.
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+								<% if(udto == null){%>
+								<a class="btn btn-primary btn-lg px-4 me-sm-3"
+									href="${pageContext.request.contextPath}/board/Login.bo" onclick="showAlert()" >물건 등록하기</a> <a
+									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지
+									고민중...</a>
+									<%}else{ %>
 								<a class="btn btn-primary btn-lg px-4 me-sm-3"
 									href="${pageContext.request.contextPath}/product/ProductWriteBoard.pr">물건 등록하기</a> <a
 									class="btn btn-outline-light btn-lg px-4" href="#!">뭐넣을지
 									고민중...</a>
+									<%} %>
 							</div>
 						</div>
 					</div>
