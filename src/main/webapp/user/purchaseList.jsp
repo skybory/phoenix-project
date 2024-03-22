@@ -8,13 +8,16 @@
 <meta charset="UTF-8">
 <title>구매 목록</title>
 <style>
+td {
+    text-align: center; /* 텍스트 가운데 정렬 추가 */
+}
 a {
 	text-decoration: none !important;
 }
 
 body {
 	font-family: 'Arial', sans-serif;
-	background-color: #f8f9fa;
+	background-color: #FFF8D5;"
 	margin: 0;
 	padding: 0;
 }
