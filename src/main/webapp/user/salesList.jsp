@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>찜 목록</title>
+<title>판매 목록</title>
 <style>
 a {
 	text-decoration: none !important;
@@ -14,7 +14,7 @@ a {
 
 body {
 	font-family: 'Arial', sans-serif;
-	background-color: #f8f9fa;
+	background-color: #FFF8D5;"
 	margin: 0;
 	padding: 0;
 }
@@ -68,7 +68,7 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 판매 완료 목록</h2>
+		<h2 style="text-align: center; ">내 판매 완료 목록</h2>
 		<table>
 			<thead>
 				<tr>
