@@ -15,7 +15,6 @@ a {
 #container {
     width: 1000px;
     margin: 20px auto;
-    background-color: blue; /* 파란색 배경색으로 변경 */
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     padding: 20px;

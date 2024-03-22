@@ -68,7 +68,7 @@ tr:hover {
 </head>
 <body>
 	<div id="container">
-		<h2 style="text-align: center; color: orange;">내 찜 목록</h2>
+		<h2 style="text-align: center; ">내 찜 목록</h2>
 		<table>
 			<thead>
 				<tr>
