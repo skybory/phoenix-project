@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>찜 목록</title>
+<title>판매 목록</title>
 <style>
 a {
 	text-decoration: none !important;
